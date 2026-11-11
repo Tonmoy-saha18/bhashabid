@@ -154,3 +154,93 @@ class BhashabidMCPServer:
 
         else:
             raise ValueError(f"Unknown tool: {name}")
+
+    def run_stdio(self):
+        """
+        Runs standard JSON-RPC 2.0 stdio server loop for Model Context Protocol (MCP) clients
+        (Claude Desktop, Cursor, Antigravity, Windsurf).
+        """
+        import sys
+        for raw_line in sys.stdin:
+            raw_line = raw_line.strip()
+            if not raw_line:
+                continue
+            try:
+                msg = json.loads(raw_line)
+                msg_id = msg.get("id")
+                method = msg.get("method")
+                params = msg.get("params", {})
+
+                if method == "initialize":
+                    resp = {
+                        "jsonrpc": "2.0",
+                        "id": msg_id,
+                        "result": {
+                            "protocolVersion": "2024-11-05",
+                            "capabilities": {
+                                "tools": {}
+                            },
+                            "serverInfo": {
+                                "name": "bhashabid-mcp",
+                                "version": "1.0.0"
+                            }
+                        }
+                    }
+                elif method in ("notifications/initialized", "initialized"):
+                    continue
+                elif method == "tools/list":
+                    resp = {
+                        "jsonrpc": "2.0",
+                        "id": msg_id,
+                        "result": {
+                            "tools": [
+                                {
+                                    "name": t["name"],
+                                    "description": t["description"],
+                                    "inputSchema": t["parameters"]
+                                }
+                                for t in self.list_tools()
+                            ]
+                        }
+                    }
+                elif method == "tools/call":
+                    tool_name = params.get("name")
+                    args = params.get("arguments", {})
+                    out = self.call_tool(tool_name, args)
+                    resp = {
+                        "jsonrpc": "2.0",
+                        "id": msg_id,
+                        "result": {
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": json.dumps(out, ensure_ascii=False, indent=2)
+                                }
+                            ]
+                        }
+                    }
+                elif method == "ping":
+                    resp = {"jsonrpc": "2.0", "id": msg_id, "result": {}}
+                else:
+                    resp = {
+                        "jsonrpc": "2.0",
+                        "id": msg_id,
+                        "error": {"code": -32601, "message": f"Method {method} not found"}
+                    }
+                sys.stdout.write(json.dumps(resp, ensure_ascii=False) + "\n")
+                sys.stdout.flush()
+            except Exception as ex:
+                err_resp = {
+                    "jsonrpc": "2.0",
+                    "id": msg.get("id") if "msg" in locals() else None,
+                    "error": {"code": -32603, "message": str(ex)}
+                }
+                sys.stdout.write(json.dumps(err_resp, ensure_ascii=False) + "\n")
+                sys.stdout.flush()
+
+def main():
+    srv = BhashabidMCPServer()
+    srv.run_stdio()
+
+if __name__ == "__main__":
+    main()

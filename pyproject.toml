@@ -32,3 +32,4 @@ include = ["tools*"]
 
 [project.scripts]
 bhashabid = "tools.cli:main"
+bhashabid-mcp = "tools.mcp_server.server:main"

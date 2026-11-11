@@ -138,6 +138,16 @@ def handle_install_skill(args):
         sys.stderr.write(f"Skill Installer Error: {e}\n")
         return 1
 
+def handle_mcp(args):
+    try:
+        from .mcp_server.server import BhashabidMCPServer
+        srv = BhashabidMCPServer()
+        srv.run_stdio()
+        return 0
+    except Exception as e:
+        sys.stderr.write(f"MCP Server Error: {e}\n")
+        return 1
+
 def handle_lint(args):
     try:
         text = resolve_text_or_file(args.text)
@@ -232,6 +242,10 @@ def main():
     p_ins.add_argument("--target", choices=["antigravity", "claude", "cursor", "all"], default="all", help="Target AI environment")
     p_ins.add_argument("--workspace", default=None, help="Target workspace path (default: current directory)")
     p_ins.set_defaults(func=handle_install_skill)
+
+    # mcp
+    p_mcp = subparsers.add_parser("mcp", help="Run Model Context Protocol (MCP) JSON-RPC stdio server")
+    p_mcp.set_defaults(func=handle_mcp)
 
     args = parser.parse_args()
     if not args.command:
