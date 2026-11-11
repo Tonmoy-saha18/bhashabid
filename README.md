@@ -1,6 +1,6 @@
 # Bhashabid (ভাষাবিদ) — Open-Source Bengali Linguistic Coprocessor
 
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python: >=3.10](https://img.shields.io/badge/Python-3.10%2B-green.svg)](https://python.org)
 [![Version: v1.0.0](https://img.shields.io/badge/Version-v1.0.0-blue.svg)](https://github.com/ashik1291/bhashabid)
 [![Tests: 59 Passing](https://img.shields.io/badge/Tests-59%20Passing-brightgreen.svg)](eval/unit)
