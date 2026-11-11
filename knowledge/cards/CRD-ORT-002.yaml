@@ -1,0 +1,20 @@
+id: CRD-ORT-002
+title: "Bangla Academy Loanword S-Rule (বিদেশি শব্দে 'স' বনাম 'ষ')"
+domain: orthography
+profile: bd_standard
+register: formal
+rule_summary: "In the Bangladesh Standard (Bangla Academy) orthography, foreign loanwords (English, Persian, Arabic) with /s/ or /ʃ/ must use দন্ত্য-স ('স') or তালব্য-শ ('শ') based on phonetic convention, and NEVER মূর্ধন্য-ষ ('ষ'). Consequently, combinations like 'ষ্ট' or 'ষ্ঠ' in English loanwords are errors for 'স্ট'."
+good_examples:
+  - "তিনি রেলস্টেশনে অপেক্ষা করছেন।"
+  - "চিঠিটি ডাকযোগে পোস্ট করা হয়েছে।"
+  - "প্রধান মাস্টারমশাই বিদ্যালয়ে এলেন।"
+bad_examples:
+  - "তিনি রেলষ্টেশনে অপেক্ষা করছেন।"
+  - "চিঠিটি ডাকযোগে পোষ্ট করা হয়েছে।"
+  - "প্রধান মাষ্টারমশাই বিদ্যালয়ে এলেন।"
+common_llm_error: "LLMs carry over archaic 19th-century Sanskrit sandhi rules to modern English loanwords, incorrectly generating ষ্টেশন, পোষ্ট, মাষ্টার."
+sources:
+  - "Bangla Academy Promito Bangla Banan Riti (Clause 2.01, Foreign Loanwords), 2012"
+confidence: data-supported
+created_date: 2026-11-11
+last_modified: 2026-11-11

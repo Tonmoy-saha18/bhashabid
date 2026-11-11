@@ -1,0 +1,19 @@
+id: CRD-ORT-001
+title: "Unicode NFC Canonicalization and Composite Graphemes (য়, ড়, ঢ়)"
+domain: orthography
+profile: all
+register: all
+rule_summary: "Bengali Unicode text must always be canonicalized to NFC form. In particular, composite sequences like য + ় (U+09BC) must be normalized to U+09DF (য়), ড + ় to U+09DC (ড়), and ঢ + ় to U+09DD (ঢ়) to prevent broken rendering, indexing failures, and search mismatch."
+good_examples:
+  - "বইটি ভালো হয়েছে (with precomposed U+09DF)"
+  - "বড় গাছটি দাঁড়িয়ে আছে (with precomposed U+09DC and U+095D)"
+bad_examples:
+  - "বইটি ভালো হয়েছে (using decomposed য + ়)"
+  - "বড় গাছটি (using decomposed ড + ়)"
+common_llm_error: "Language models randomly emit decomposed Nukta forms depending on tokenization, causing broken rendering on mobile and web viewports."
+sources:
+  - "Unicode Standard Version 15.0 - Bengali Block"
+  - "Bangla Academy Promito Bangla Banan Riti, 2012"
+confidence: data-supported
+created_date: 2026-11-11
+last_modified: 2026-11-11

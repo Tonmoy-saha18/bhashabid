@@ -72,8 +72,8 @@ class TestBnNumbers(unittest.TestCase):
         self.assertEqual(number_to_bangla_words(500, sho_profile), "পাঁচ শো")
         self.assertEqual(number_to_bangla_words(200000, sho_profile), "দুই লক্ষ")
         
-        kuri_profile = StyleProfile(twenty_style="কুড়ি")
-        self.assertEqual(number_to_bangla_words(20, kuri_profile), "কুড়ি")
+        kuri_profile = StyleProfile(twenty_style="কুড়ি")
+        self.assertEqual(number_to_bangla_words(20, kuri_profile), "কুড়ি")
 
     def test_negative_numbers(self):
         self.assertEqual(number_to_bangla_words(-5), "মাইনাস পাঁচ")
@@ -87,21 +87,21 @@ class TestBnNumbers(unittest.TestCase):
     def test_fractions(self):
         self.assertEqual(fraction_to_bangla_words(0.25), "এক-চতুর্থাংশ")
         self.assertEqual(fraction_to_bangla_words(0.5), "অর্ধেক")
-        self.assertEqual(fraction_to_bangla_words(1.5), "দেড়")
-        self.assertEqual(fraction_to_bangla_words(2.5), "আড়াই")
-        self.assertEqual(fraction_to_bangla_words(1.25), "সোয়া এক")
-        self.assertEqual(fraction_to_bangla_words(3.5), "সাড়ে তিন")
+        self.assertEqual(fraction_to_bangla_words(1.5), "দেড়")
+        self.assertEqual(fraction_to_bangla_words(2.5), "আড়াই")
+        self.assertEqual(fraction_to_bangla_words(1.25), "সোয়া এক")
+        self.assertEqual(fraction_to_bangla_words(3.5), "সাড়ে তিন")
         self.assertEqual(fraction_to_bangla_words(4.75), "পৌনে পাঁচ")
 
     def test_currency(self):
-        self.assertEqual(format_currency_words(50.25), "পঞ্চাশ টাকা পঁচিশ পয়সা")
+        self.assertEqual(format_currency_words(50.25), "পঞ্চাশ টাকা পঁচিশ পয়সা")
         self.assertEqual(format_currency_words(100), "এক শত টাকা")
-        self.assertEqual(format_currency_words(0.50), "পঞ্চাশ পয়সা")
+        self.assertEqual(format_currency_words(0.50), "পঞ্চাশ পয়সা")
 
     def test_classical_ordinals(self):
         self.assertEqual(to_classical_ordinal(1), "প্রথম")
-        self.assertEqual(to_classical_ordinal(2), "দ্বিতীয়")
-        self.assertEqual(to_classical_ordinal(3), "তৃতীয়")
+        self.assertEqual(to_classical_ordinal(2), "দ্বিতীয়")
+        self.assertEqual(to_classical_ordinal(3), "তৃতীয়")
         self.assertEqual(to_classical_ordinal(10), "দশম")
 
     def test_date_ordinals(self):

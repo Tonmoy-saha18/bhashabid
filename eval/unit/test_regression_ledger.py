@@ -37,6 +37,16 @@ class TestLedgerRegressions(unittest.TestCase):
                         actual, expected,
                         f"Regression failure for {mistake_id}: input={inp}, expected='{expected}', got='{actual}'"
                     )
+                elif task == "Orthography Regex Matching":
+                    from tools.bn_normalize import normalize_orthography
+                    actual = normalize_orthography(inp)
+                    self.assertEqual(actual, expected)
+                elif task == "Nukta Canonicalization in String Literals":
+                    from tools.bn_normalize import canonicalize_unicode
+                    decomposed_sample = "\u0986\u09a1\u09bc\u09be\u0987" # আ + ড + ় + া + ই
+                    actual = canonicalize_unicode(decomposed_sample)
+                    expected_canonical = "\u0986\u09dc\u09be\u0987" # আ + ড় + া + ই
+                    self.assertEqual(actual, expected_canonical)
 
 if __name__ == "__main__":
     unittest.main()

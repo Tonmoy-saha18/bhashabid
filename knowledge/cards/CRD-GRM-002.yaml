@@ -1,0 +1,20 @@
+id: CRD-GRM-002
+title: "Honorific Concordance Across Pronouns and Verbs (আপনি / তুমি / তুই)"
+domain: grammar
+profile: all
+register: all
+rule_summary: "Bengali pronouns possess a three-tier honorific system that strictly governs verbal inflection: formal (আপনি -> -েন/-বেন), familiar (তুমি -> -ো/-বে), and intimate/inferior (তুই -> -িস/-বি). Clashing pronoun honorific with inappropriate verb ending is a severe grammatical violation."
+good_examples:
+  - "আপনি কেমন আছেন? (Formal)"
+  - "তুমি কেমন আছো? (Familiar)"
+  - "তুই কেমন আছিস? (Intimate)"
+bad_examples:
+  - "আপনি কেমন আছো? (Severe honorific clash)"
+  - "তুমি কেমন আছেন? (Incongruent agreement)"
+  - "আপনি কি সেখানে যাবি? (Mixed registers)"
+common_llm_error: "When responding to polite prompts, LLMs frequently address the user as আপনি but inflect verbs in familiar তুমি form (e.g. আপনি কি এটা দেখতে পারো?)."
+sources:
+  - "Bangla Academy Promito Bangla Bhashar Byakoron (Vol 1: Sarbanamer Prayog)"
+confidence: data-supported
+created_date: 2026-11-11
+last_modified: 2026-11-11

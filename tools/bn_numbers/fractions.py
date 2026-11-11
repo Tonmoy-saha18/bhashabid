@@ -1,4 +1,4 @@
-# Fractions (সোয়া, দেড়, আড়াই, সাড়ে, পৌনে, আধ)
+# Fractions (সোয়া, দেড়, আড়াই, সাড়ে, পৌনে, আধ)
 from .words import BASE_0_TO_99
 
 def fraction_to_bangla_words(val: float) -> str:
@@ -8,13 +8,13 @@ def fraction_to_bangla_words(val: float) -> str:
       0.25 -> "এক-চতুর্থাংশ"
       0.5  -> "অর্ধেক"
       0.75 -> "পৌনে এক"
-      1.25 -> "সোয়া এক"
-      1.5  -> "দেড়"
+      1.25 -> "সোয়া এক"
+      1.5  -> "দেড়"
       1.75 -> "পৌনে দুই"
-      2.25 -> "সোয়া দুই"
-      2.5  -> "আড়াই"
+      2.25 -> "সোয়া দুই"
+      2.5  -> "আড়াই"
       2.75 -> "পৌনে তিন"
-      3.5  -> "সাড়ে তিন"
+      3.5  -> "সাড়ে তিন"
       4.75 -> "পৌনে পাঁচ"
     """
     val = round(val, 4)
@@ -35,18 +35,18 @@ def fraction_to_bangla_words(val: float) -> str:
         return BASE_0_TO_99.get(whole, str(whole))
         
     if frac == 0.25:
-        # সোয়া + whole
+        # সোয়া + whole
         whole_word = BASE_0_TO_99.get(whole, str(whole))
-        return f"সোয়া {whole_word}"
+        return f"সোয়া {whole_word}"
         
     if frac == 0.5:
         if whole == 1:
-            return "দেড়"
+            return "দেড়"
         elif whole == 2:
-            return "আড়াই"
+            return "আড়াই"
         else:
             whole_word = BASE_0_TO_99.get(whole, str(whole))
-            return f"সাড়ে {whole_word}"
+            return f"সাড়ে {whole_word}"
             
     if frac == 0.75:
         # পৌনে + (whole + 1)
