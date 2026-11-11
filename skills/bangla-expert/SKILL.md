@@ -26,5 +26,5 @@ Load modular guides from `references/` when detailed context is required:
 - `references/journalism_domains.md` -> Legal show-cause formulas, macroeconomic phrasing, sports idiom.
 - `references/official_letters.md` -> Administrative applications, formal petitions, and epistolary hierarchy.
 - `references/creative_writing.md` -> Fiction dialogue authenticity, pacing, book anatomy, and essay transitions.
-- `references/academic_legal_medical.md` -> Research papers, contract clauses, and healthcare advisories.
+- `references/academic_legal_medical.md` -> Research papers, contract clauses, healthcare, land deeds, agronomy, and NCTB pedagogy.
 - `references/constitutional_writs.md` -> Article 102 High Court writ taxonomy, grounds, and statutory prayers.
