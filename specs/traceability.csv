@@ -29,11 +29,11 @@ REQ-027,TASK-011,eval/unit/test_knowledge_cards.py::test_all_cards_valid_schema,
 REQ-028,TASK-011,eval/unit/test_knowledge_cards.py::test_all_cards_valid_schema,CRD-GRM-002,EV-REG-003,IMPLEMENTED
 REQ-029,TASK-011,eval/unit/test_knowledge_cards.py::test_all_cards_valid_schema,CRD-GRM-002,EV-REG-004,IMPLEMENTED
 REQ-030,TASK-011,eval/unit/test_knowledge_cards.py::test_all_cards_valid_schema,CRD-GRM-002,EV-REG-005,IMPLEMENTED
-REQ-031,TASK-011,eval/unit/test_bn_grammar.py::test_human_classifier,CRD-GRM-006,EV-REG-006,PLANNED
-REQ-032,TASK-011,eval/unit/test_bn_grammar.py::test_passive_avoidance,CRD-GRM-007,EV-TRANS-001,PLANNED
-REQ-033,TASK-011,eval/unit/test_bn_grammar.py::test_sov_order,CRD-GRM-008,EV-GEN-001,PLANNED
-REQ-034,TASK-011,eval/unit/test_bn_grammar.py::test_postpositions,CRD-GRM-009,EV-GEN-002,PLANNED
-REQ-035,TASK-011,eval/unit/test_bn_grammar.py::test_calque_avoidance,CRD-GRM-010,EV-TRANS-002,PLANNED
+REQ-031,TASK-021,eval/unit/test_knowledge_cards.py::test_all_cards_valid_schema,CRD-GRM-003,EV-REG-006,IMPLEMENTED
+REQ-032,TASK-020,eval/unit/test_bn_lint.py::test_calque_detection,CRD-TRN-001,EV-TRANS-001,IMPLEMENTED
+REQ-033,TASK-021,eval/unit/test_knowledge_cards.py::test_all_cards_valid_schema,CRD-GRM-005,EV-GEN-001,IMPLEMENTED
+REQ-034,TASK-021,eval/unit/test_knowledge_cards.py::test_all_cards_valid_schema,CRD-GRM-003,EV-GEN-002,IMPLEMENTED
+REQ-035,TASK-020,eval/unit/test_bn_lint.py::test_calque_detection,CRD-TRN-001,EV-TRANS-002,IMPLEMENTED
 REQ-036,TASK-012,eval/unit/test_skill.py::test_skill_token_budget,CRD-SKL-001,EV-SKL-001,IMPLEMENTED
 REQ-037,TASK-004,eval/unit/test_regression_ledger.py::test_mistake_ledger_schema,CRD-MEM-001,EV-MEM-001,IMPLEMENTED
 REQ-038,TASK-004,eval/unit/test_regression_ledger.py::test_ledger_coverage,CRD-MEM-002,EV-MEM-002,IMPLEMENTED

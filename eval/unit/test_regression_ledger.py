@@ -47,6 +47,11 @@ class TestLedgerRegressions(unittest.TestCase):
                     actual = canonicalize_unicode(decomposed_sample)
                     expected_canonical = "\u0986\u09dc\u09be\u0987" # আ + ড় + া + ই
                     self.assertEqual(actual, expected_canonical)
+                elif task == "Honorific Concordance Detection":
+                    from tools.bn_lint import lint_text
+                    issues = lint_text(inp)
+                    rule_ids = [i.rule_id for i in issues]
+                    self.assertIn(expected, rule_ids)
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,18 @@
+id: CRD-GRM-004
+title: "Bengali Euphonic Junctions (সন্ধি: স্বরসন্ধি ও ব্যঞ্জনসন্ধি)"
+domain: grammar
+profile: all
+register: formal
+rule_summary: "Sandhi joins adjacent sounds across morpheme boundaries. In Tatsama words, Sanskrit sandhi governs combinations (বিদ্যা + আলয় = বিদ্যালয়, পরি + ঈক্ষা = পরীক্ষা). In native Bengali words (খাঁটি বাংলা সন্ধি), phonetic assimilation is natural and non-pedantic (পাঁচ + জন = পাঁচজন)."
+good_examples:
+  - "সূর্য + উদয় = সূর্যোদয়"
+  - "দিক + অন্ত = দিগন্ত"
+bad_examples:
+  - "সূর্য্য উদয় (Unjoined tatsama compound where sandhi is expected)"
+  - "পরীখ্যা (Misspelled vowel sandhi)"
+common_llm_error: "LLMs fail to apply regular sandhi in formal and academic compounds, resulting in disjointed or erroneously spelled root words."
+sources:
+  - "Bangla Academy Promito Bangla Bhashar Byakoron (Vol 1: Sandhi)"
+confidence: data-supported
+created_date: 2026-11-11
+last_modified: 2026-11-11

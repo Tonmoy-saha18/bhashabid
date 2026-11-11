@@ -14,8 +14,15 @@
 - [x] TASK-013: Unit tests, token budget checks, and benchmark comparison (+100.0% win rate).
 - [x] TASK-014: Live tasks audit and mistake ledger updates (MST-0002, MST-0003, LES-001).
 
-## Cycle 2: Advanced Linter & Syntactic Sandhi/Samas Engine (Upcoming)
-- [ ] TASK-020: Implement `tools/bn_lint` (static AST/heuristic linter detecting Guru-chandali, honorific clash, and calques).
-- [ ] TASK-021: Knowledge cards for Sandhi, Samas, and case markers (-এর, -কে, -তে, -এ).
-- [ ] TASK-022: Parallel corpus ingestion pipeline (`pipeline/01_sources/` to `03_clean/`) using approved sources.
-- [ ] TASK-023: MCP Server implementation (`tools/mcp_server/`) exposing tools over standard protocol.
+## Cycle 2: Advanced Linter, MCP Server & Grammar Cards (COMPLETED)
+- [x] TASK-020: Implement `tools/bn_lint` (static AST/heuristic linter detecting Guru-chandali, honorific clash, and calques).
+- [x] TASK-021: Knowledge cards for Case markers (`CRD-GRM-003`), Sandhi (`CRD-GRM-004`), Samas (`CRD-GRM-005`), and Anti-Calque translation (`CRD-TRN-001`).
+- [x] TASK-022: MCP Server implementation (`tools/mcp_server/`) exposing tools over standard protocol.
+- [x] TASK-023: Corpus ingestion & verification pipeline (`pipeline/01_sources/` and `pipeline/02_clean/`).
+- [x] TASK-024: Unit tests and regression suite expansion (32 tests passing).
+- [x] TASK-025: Mistake ledger logging (MST-0004) and benchmark reporting (`cycle_002_report.md`).
+
+## Cycle 3: Multi-Model Evaluation Matrix & CLI Tooling (Upcoming)
+- [ ] TASK-030: Standalone CLI interface `bhashabid` (`tools/cli.py`) for command-line number conversion, normalization, and linting.
+- [ ] TASK-031: Multi-model prompt evaluation matrix (Baseline vs Skill vs Skill+Tools) on held-out translation sets.
+- [ ] TASK-032: Automated packaging for PyPI / wheel distribution.
