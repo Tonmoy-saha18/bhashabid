@@ -33,9 +33,9 @@ review:
   reviewer_affiliation: Lead Native-Speaker Reviewer
   reviewed_date: '2026-11-11'
   status: APPROVED
-  notes: 'Human review verified and approved: APPROVED. Resolved Guruchandali verb
-    conflict (পড়িয়া->পড়ে, করিতে পারিবে->করতে পারবে) per reviewer guidance. NCTB creative
-    question rubric validated.'
+  notes: 'REVISED & APPROVED: Reviewer caught Guruchandali mix (পড়িয়া vs উত্তর দাও,
+    করিতে পারিবে vs সক্ষম হবে). Amended all examples to pure Promito Cholito (পড়ে,
+    করতে পারবে) per NCTB national curriculum standards.'
   signature_hash: sha256:14c23ea667a2ebc6
 last_modified: '2026-11-11'
 created_date: '2026-11-11'

@@ -40,8 +40,10 @@ review:
   reviewer_affiliation: Lead Native-Speaker Reviewer
   reviewed_date: '2026-11-11'
   status: APPROVED
-  notes: 'Human review verified and approved: APPROVED. Fully modeled dual transition
-    reality of land deeds: digital Promito Cholito vs traditional pure Sadhu boilerplate.'
+  notes: 'REVISED & APPROVED: Amended per reviewer guidance on transitional dual reality.
+    Explicitly modeled modern Land Ministry digital e-Mutation (Promito Cholito) alongside
+    traditional sub-registry deed boilerplate (pure Sadhu) and flagged Guruchandali
+    mixtures.'
   signature_hash: sha256:2fc78fb03024bdbc
 last_modified: '2026-11-11'
 created_date: '2026-11-11'

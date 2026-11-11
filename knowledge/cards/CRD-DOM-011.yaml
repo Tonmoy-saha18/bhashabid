@@ -30,9 +30,9 @@ review:
   reviewer_affiliation: Lead Native-Speaker Reviewer
   reviewed_date: '2026-11-11'
   status: APPROVED
-  notes: 'Human review verified and approved: APPROVED. Converted Sadhu verb forms
-    to modern standard Cholito in accordance with reviewer guidance. Early warnings
-    and crop husbandry validated.'
+  notes: 'REVISED & APPROVED: Reviewer caught Sadhu verbs (রহিয়াছে, করিতে বলা হইয়াছে,
+    করিতে হইবে). Amended all examples to modern standard Promito Cholito (রয়েছে, করতে
+    বলা হয়েছে, করতে হবে) per BMD and DAE institutional standards.'
   signature_hash: sha256:a076026346043fed
 last_modified: '2026-11-11'
 created_date: '2026-11-11'
