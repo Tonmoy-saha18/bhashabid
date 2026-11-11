@@ -72,6 +72,30 @@ class TestLedgerRegressions(unittest.TestCase):
                     self.assertTrue(any(i.rule_id == "RULE-LINT-CALQUE" for i in issues))
                     calque = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"][0]
                     self.assertIn(canonicalize_unicode("পরাজিত হয়েছে / হেরেছে"), calque.suggestion)
+                elif task == "Official Petition Salutation":
+                    from tools.bn_lint import lint_text
+                    issues = lint_text(entry.get("output"))
+                    self.assertTrue(any(i.rule_id == "RULE-LINT-CALQUE" for i in issues))
+                    calque = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"][0]
+                    self.assertIn("মহোদয় / জনাব", calque.suggestion)
+                elif task == "Letter Sign-off Translation":
+                    from tools.bn_lint import lint_text
+                    issues = lint_text(entry.get("output"))
+                    self.assertTrue(any(i.rule_id == "RULE-LINT-CALQUE" for i in issues))
+                    calque = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"][0]
+                    self.assertIn("বিনীত / আপনার বিশ্বস্ত", calque.suggestion)
+                elif task == "Academic Argumentation Translation":
+                    from tools.bn_lint import lint_text
+                    issues = lint_text(entry.get("output"))
+                    self.assertTrue(any(i.rule_id == "RULE-LINT-CALQUE" for i in issues))
+                    calque = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"][0]
+                    self.assertIn("প্রতিপাদ্য উপস্থাপিত হয়েছে", calque.suggestion)
+                elif task == "Corporate Marketing Copy Translation":
+                    from tools.bn_lint import lint_text
+                    issues = lint_text(entry.get("output"))
+                    self.assertTrue(any(i.rule_id == "RULE-LINT-CALQUE" for i in issues))
+                    calques = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"]
+                    self.assertTrue(any("যুগান্তকারী" in i.suggestion for i in calques))
 
 if __name__ == "__main__":
     unittest.main()

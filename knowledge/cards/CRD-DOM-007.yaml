@@ -1,0 +1,19 @@
+id: CRD-DOM-007
+title: "Legal Drafting & Contracts (আইনি দলিল, চুক্তিপত্র ও নোটিশ লিখন)"
+domain: legal_drafting
+profile: bd_standard
+register: statutory_legal
+rule_summary: "Legal agreements, deeds, and statutory notices demand unambiguous contractual terminology and strict formatting. Key conventions: (1) Contract preamble identifies parties clearly: '১ম পক্ষ / গ্রহীতা', '২য় পক্ষ / দাতা'; (2) Operative clauses are numbered as 'শর্তাবলী'; (3) Formal legal terminology: 'অত্র চুক্তি' (this agreement), 'দ্বিপাক্ষিক সম্মতি' (mutual consent), 'বাতিলযোগ্য' (voidable), 'আইনগত প্রতিকার' (legal remedy); (4) Attestation section: 'স্বাক্ষীগণের স্বাক্ষর', 'পক্ষগণের স্বাক্ষর ও সীলমোহর'. Never use informal conversational words in contractual clauses."
+good_examples:
+  - "অত্র চুক্তির শর্তাবলী উভয় পক্ষের সম্মতিক্রমে আগামী এক বছরের জন্য কার্যকর বলিয়া গণ্য হইবে।"
+  - "উভয় পক্ষ সুস্থ মস্তিষ্কে ও স্বেচ্ছায় অত্র চুক্তিপত্রে নিজ নিজ স্বাক্ষর প্রদান করিলেন।"
+bad_examples:
+  - "আমরা দুইজনে মিলে এই চুক্তি বানালাম এবং আমরা দুইজন রাজি আছি।"
+  - "যদি কেউ নিয়ম না মানে তবে তাকে কোর্টে নিব।"
+common_llm_error: "LLMs write informal, conversational agreements without binding statutory terms."
+sources:
+  - "The Contract Act 1872 (Bangladesh Ministry of Law Bengali Translation)"
+  - "Bangladesh Legal Form & Precedents Handbook"
+confidence: data-supported
+created_date: 2026-11-11
+last_modified: 2026-11-11

@@ -14,6 +14,7 @@
 - [x] Cycle 4 Dialect Profiles: Parameterized `bd_standard` (Bangla Academy Dhaka) vs `wb_standard` (Paschimbanga Bangla Akademi Kolkata).
 - [x] Cycle 4 Corpus Pipeline: Streaming normalizer throughput verified at >290,000 words/second.
 - [x] Cycle 4 Human Review Liaison: Review packet generator (`tools/review_packet_generator.py`) and review queue (`docs/review_queue/packet_001_initial_cards.md`).
-- [x] Knowledge Base: 13 atomic cards in `knowledge/cards/` (all validated against P2 provenance).
-- [x] Adversarial Hardening: Cross-domain stress audit across judicial, macroeconomic, diplomatic, and sports journalism (TBS, Daily Star, Prothom Alo); MST-0006 and MST-0007 logged and resolved.
-- [x] Full Automated Test Suite: 48/48 unit and regression tests passing (3.3s).
+- [x] Knowledge Base: 21 atomic cards in `knowledge/cards/` across journalism, administrative petitions, letter writing, fiction, academia, books, corporate, legal, and healthcare.
+- [x] Multi-Domain Stress Audit: 8-sector gap analysis executed and documented in `eval/reports/multi_domain_stress_audit.md` (MST-0008..MST-0011 logged and resolved).
+- [x] Progressive Routing: 6 modular reference guides in `skills/bangla-expert/references/`, `SKILL.md` under 290 words (< 600 tokens).
+- [x] Full Automated Test Suite: 52/52 unit and regression tests passing (3.6s).

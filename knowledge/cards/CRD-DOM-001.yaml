@@ -1,0 +1,20 @@
+id: CRD-DOM-001
+title: "Official Administrative Applications & Petitions (দাপ্তরিক আবেদন ও দরখাস্তের প্রমিত কাঠামো)"
+domain: administrative_applications
+profile: bd_standard
+register: formal
+rule_summary: "Official applications in Bangladesh to government ministries, educational institutions, or corporate leadership follow an exact formal protocol: (1) 'বরাবর, [পদবি], [প্রতিষ্ঠান/দপ্তর]', (2) 'বিষয়: [নির্দিষ্ট বিষয়ের বিবরণ]', (3) Formal salutation 'জনাব / মহোদয়,', (4) Opening 'বিনীত নিবেদন এই যে,', (5) Concluding prayer 'অতএব, মহোদয়ের সমীপে বিনীত প্রার্থনা...', (6) Sign-off 'বিনীত / নিবেদক'. Translating 'Dear Sir' as 'প্রিয় মহাশয়' or using conversational greetings destroys official protocol."
+good_examples:
+  - "বরাবর,\nজেলা প্রশাসক, ঢাকা।\nবিষয়: ইউনিয়ন সড়ক সংস্কারের জন্য আবেদন।\nজনাব,\nবিনীত নিবেদন এই যে...\nঅতএব, মহোদয়ের সমীপে বিনীত প্রার্থনা...\nবিনীত,\nএলাকাবাসীর পক্ষে..."
+  - "জনাব, বিনীত নিবেদন এই যে, আমি আপনার প্রতিষ্ঠানের একজন নিয়মিত গ্রাহক..."
+bad_examples:
+  - "প্রিয় মহাশয়, আমি আপনাকে এই চিঠি লিখছি কারণ আমাদের রাস্তা ভাঙা।"
+  - "সম্মানিত স্যার, আশা করি ভালো আছেন।"
+  - "আপনার বিশ্বস্ত দাস/চাকর।"
+common_llm_error: "LLMs translate English email greetings literally ('প্রিয় মহাশয়' for 'Dear Sir') and use conversational inquiries ('আশা করি ভালো আছেন') inside formal administrative petitions."
+sources:
+  - "Bangladesh Secretariat Instructions (সচিবালয় নির্দেশমালা)"
+  - "Bangla Academy Administrative Glossary & Letter Manual"
+confidence: data-supported
+created_date: 2026-11-11
+last_modified: 2026-11-11

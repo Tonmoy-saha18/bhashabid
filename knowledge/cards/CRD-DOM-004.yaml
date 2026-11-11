@@ -1,0 +1,19 @@
+id: CRD-DOM-004
+title: "Academic & Scholarly Research Prose (শিক্ষায়তনিক ও গবেষণা প্রবন্ধ শৈলী)"
+domain: academic_writing
+profile: bd_standard
+register: formal_academic
+rule_summary: "Scholarly Bengali prose requires rigorous objective tone, standard academic terminology, and formal syntactic cohesion. Crucial conventions: (1) Thematic sections use standard Bengali terms: 'সারসংক্ষেপ' (Abstract), 'উপক্রমণিকা / ভূমিকা' (Introduction), 'অনুমিত সিদ্ধান্ত / প্রকল্প' (Hypothesis), 'গবেষণা পদ্ধতি' (Methodology), 'তথ্য বিশ্লেষণ' (Data Analysis), 'গ্রন্থপঞ্জি / তথ্যসূত্র' (Bibliography). (2) Avoid personal colloquialisms; use scholarly passive/impersonal markers: 'উপাত্ত বিশ্লেষণে পরিলক্ষিত হয়...', 'গবেষণার ফলাফল থেকে প্রতীয়মান হয়...'. (3) Never translate 'This paper argues' literally as 'এই পেপারটি তর্ক করে'."
+good_examples:
+  - "বর্তমান গবেষণায় সংগৃহীত উপাত্ত বিশ্লেষণ করে প্রতীয়মান হয় যে, জলবায়ু পরিবর্তনের ফলে উপকূলীয় কৃষিব্যবস্থায় উল্লেখযোগ্য রূপান্তর ঘটছে।"
+  - "পূর্ববর্তী গবেষণাসমূহের পর্যালোচনায় স্পষ্ট হয় যে..."
+bad_examples:
+  - "এই পেপারটি তর্ক করে যে কৃষকরা সমস্যায় আছে এবং আমি এটা খুঁজে পেয়েছি।"
+  - "আমরা অনেক ডেটা সংগ্রহ করেছি যা খুব ভালো রেজাল্ট দিয়েছে।"
+common_llm_error: "LLMs translate scholarly research idioms literally ('পেপারটি তর্ক করে', 'ডেটা প্রুভ করে') and use colloquial first-person expressions."
+sources:
+  - "Dhaka University Journal of Research Style Manual"
+  - "Bangla Academy Research Methodology & Terminology Guidelines"
+confidence: data-supported
+created_date: 2026-11-11
+last_modified: 2026-11-11

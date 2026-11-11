@@ -1,0 +1,19 @@
+id: CRD-DOM-008
+title: "Healthcare & Medical Public Advisories (চিকিৎসাসেবা ও জনস্বাস্থ্য যোগাযোগ)"
+domain: healthcare_communication
+profile: bd_standard
+register: formal_advisory
+rule_summary: "Health advisories and patient communication must be scientifically accurate, reassuring, and completely unambiguous. Crucial rules: (1) Terminology: 'উপসর্গ' (symptom), 'লক্ষণ' (sign), 'প্রতিরোধমূলক ব্যবস্থা' (precaution), 'পার্শ্বপ্রতিক্রিয়া' (side effect), 'সেবনবিধি' (dosage instructions). (2) Dosage instructions must be crystal-clear: 'প্রতি ৮ ঘণ্টা পর পর ১টি করে ট্যাবলেট ভরা পেটে সেব্য' (never vague 'দিনে কয়েকবার'). (3) Emergency guidance: always provide explicit referral direction ('জরুরি পরিস্থিতিতে নিকটস্থ হাসপাতালে বা চিকিৎসকের পরামর্শ নিন'). (4) Do not translate 'drug' as 'মাদক' in medical context; use 'ওষুধ / ভেষজ'."
+good_examples:
+  - "ডেঙ্গু জ্বরের প্রাথমিক লক্ষণ দেখা দিলে পর্যাপ্ত তরল খাবার গ্রহণ করুন এবং চিকিৎসকের পরামর্শ ব্যতীত কোনো অ্যান্টিবায়োটিক সেবন করবেন না।"
+  - "সেবনবিধি: প্রতিদিন সকালে ও রাতে আহারের পর একটি করে ট্যাবলেট সেব্য।"
+bad_examples:
+  - "রোগীকে দিনে তিনবার এই মাদকটি খেতে দিন।"
+  - "যদি সমস্যা অনুভব করেন তাহলে কোনো ওষুধ খেয়ে নিন।"
+common_llm_error: "Translating clinical 'drug' as 'মাদক' (narcotics) instead of 'ওষুধ' and providing vague dosage instructions."
+sources:
+  - "Directorate General of Health Services (DGHS) Bangladesh Public Health Guidelines"
+  - "World Health Organization (WHO) Bangla Advisory Bulletins"
+confidence: data-supported
+created_date: 2026-11-11
+last_modified: 2026-11-11

@@ -60,5 +60,33 @@ class TestBnLint(unittest.TestCase):
         from tools.bn_normalize import canonicalize_unicode
         self.assertIn(canonicalize_unicode("পরাজিত হয়েছে / হেরেছে"), calque_issues[0].suggestion)
 
+    def test_application_salutation_calque(self):
+        text = "প্রিয় মহাশয়, বিনীত নিবেদন এই যে এলাকার রাস্তা মেরামত প্রয়োজন।"
+        issues = lint_text(text)
+        calque_issues = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"]
+        self.assertTrue(len(calque_issues) >= 1)
+        self.assertIn("মহোদয় / জনাব", calque_issues[0].suggestion)
+
+    def test_letter_signoff_calque(self):
+        text = "পত্রের সমাপ্তিতে তিনি লিখলেন আপনার বিশ্বস্তভাবে।"
+        issues = lint_text(text)
+        calque_issues = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"]
+        self.assertTrue(len(calque_issues) >= 1)
+        self.assertIn("বিনীত / আপনার বিশ্বস্ত", calque_issues[0].suggestion)
+
+    def test_academic_calque(self):
+        text = "এই পেপারটি তর্ক করে যে সামাজিক মাধ্যম শিক্ষার্থীদের মনোযোগ নষ্ট করে।"
+        issues = lint_text(text)
+        calque_issues = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"]
+        self.assertTrue(len(calque_issues) >= 1)
+        self.assertIn("প্রতিপাদ্য উপস্থাপিত হয়েছে", calque_issues[0].suggestion)
+
+    def test_corporate_marketing_calque(self):
+        text = "এটি একটি গেম চেঞ্জার পণ্য যা কাস্টমারের পেইন পয়েন্ট দূর করবে।"
+        issues = lint_text(text)
+        calque_issues = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"]
+        self.assertTrue(len(calque_issues) >= 1)
+        self.assertTrue(any("যুগান্তকারী" in i.suggestion for i in calque_issues))
+
 if __name__ == "__main__":
     unittest.main()
