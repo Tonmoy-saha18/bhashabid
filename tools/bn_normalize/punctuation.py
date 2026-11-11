@@ -19,9 +19,8 @@ def normalize_punctuation(text: str, convert_period_to_dari: bool = True) -> str
     text = re.sub(r"[\u0964]{2,}", DARI, text)
 
     if convert_period_to_dari:
-        # Replace period with Dari only when NOT between two digits (preserving decimals)
-        # Regex explanation: match period not flanked by digits on both sides
-        pattern = r"(?<![0-9\u09E6-\u09EF])\.(?![0-9\u09E6-\u09EF])"
+        # Replace period with Dari when NOT immediately followed by a digit (preserving decimals like 3.14, ৩.১৪)
+        pattern = r"\.(?![0-9\u09E6-\u09EF])"
         text = re.sub(pattern, DARI, text)
 
     # Clean space before sentence ending marks

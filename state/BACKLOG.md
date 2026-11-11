@@ -19,10 +19,18 @@
 - [x] TASK-021: Knowledge cards for Case markers (`CRD-GRM-003`), Sandhi (`CRD-GRM-004`), Samas (`CRD-GRM-005`), and Anti-Calque translation (`CRD-TRN-001`).
 - [x] TASK-022: MCP Server implementation (`tools/mcp_server/`) exposing tools over standard protocol.
 - [x] TASK-023: Corpus ingestion & verification pipeline (`pipeline/01_sources/` and `pipeline/02_clean/`).
-- [x] TASK-024: Unit tests and regression suite expansion (32 tests passing).
-- [x] TASK-025: Mistake ledger logging (MST-0004) and benchmark reporting (`cycle_002_report.md`).
+- [x] TASK-024: Unit tests and regression suite expansion (33 tests passing).
+- [x] TASK-025: Bidirectional honorific repair (MST-0005, LES-002).
 
-## Cycle 3: Multi-Model Evaluation Matrix & CLI Tooling (Upcoming)
-- [ ] TASK-030: Standalone CLI interface `bhashabid` (`tools/cli.py`) for command-line number conversion, normalization, and linting.
-- [ ] TASK-031: Multi-model prompt evaluation matrix (Baseline vs Skill vs Skill+Tools) on held-out translation sets.
-- [ ] TASK-032: Automated packaging for PyPI / wheel distribution.
+## Cycle 3: Developer CLI, Benchmark Matrix & Distribution Packaging (COMPLETED)
+- [x] TASK-030: Standalone CLI interface `bhashabid` (`tools/cli.py`) for command-line number conversion, normalization, and linting.
+- [x] TASK-031: Multi-model prompt evaluation matrix comparing Baseline vs Skill vs Skill+Tools (+90.0% Net Lift).
+- [x] TASK-032: Automated packaging for PyPI / wheel distribution (`pyproject.toml`).
+- [x] TASK-033: IDE and runtime adapters (`adapters/cursor/`, `adapters/claude/`).
+- [x] TASK-034: Architectural Decision Records (`docs/adr/001-progressive-skill-disclosure.md`, `docs/adr/002-deterministic-bengali-grapheme-regex.md`).
+- [x] TASK-035: Unit and integration tests (41 tests passing).
+
+## Cycle 4: Large-Scale Corpus Processing & Dialect Profiles (Upcoming)
+- [ ] TASK-040: Regional dialect adaptation profiles: West Bengal (Paschimbanga Bangla Akademi) vs Bangladesh Standard.
+- [ ] TASK-041: Batch linguistic evaluation on 10,000 Wikipedia articles using `pipeline/`.
+- [ ] TASK-042: Interactive Human Review Liaison dashboard (`docs/review_queue/`).

@@ -1,0 +1,16 @@
+# Bengali AI Coding & Writing Instructions (Bhashabid Rules)
+
+When generating or editing Bengali (বাংলা) text or documentation:
+1. **Bangla Academy Orthography**:
+   - Foreign loanwords use 'স'/'স্ট' (স্টেশন, পোস্ট, মাস্টার, বাস), NEVER 'ষ'/'ষ্ট' (ষ্টেশন, পোষ্ট).
+   - Non-Sanskrit (tatbhava/desi) words use short-vowel 'ি' (পাখি, হাতি, দাদি, বাড়ি, সরকারি).
+2. **Numerals & South Asian Grouping**:
+   - Format digit comma groupings in South Asian 3,2,2 format: ১২,৩৪,৫৬৭ (not 1,234,567).
+   - Use exact standard Bengali words for numbers 0-99 (e.g. ৯৯ = নিরানব্বই, ৭৫ = পঁচাত্তর).
+3. **Register & Honorific Consistency**:
+   - Never mix Sadhu and Cholito verbs (avoid গুরুচণ্ডালী দোষ). Default to standard modern Cholito.
+   - Enforce honorific concord: আপনি -> -েন (করেন/যান), তুমি -> -ো (করো/যাও), তুই -> -িস (করিস/যাবি).
+4. **Punctuation**:
+   - Terminate sentences with Bengali Dari ('।'), never ASCII period ('.'). Preserve decimals (৩.১৪).
+5. **Anti-Calque**:
+   - Avoid clumsy literal translations of English passives ('দ্বারা কৃত'). Use authentic active Bengali syntax.

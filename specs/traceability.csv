@@ -37,5 +37,5 @@ REQ-035,TASK-020,eval/unit/test_bn_lint.py::test_calque_detection,CRD-TRN-001,EV
 REQ-036,TASK-012,eval/unit/test_skill.py::test_skill_token_budget,CRD-SKL-001,EV-SKL-001,IMPLEMENTED
 REQ-037,TASK-004,eval/unit/test_regression_ledger.py::test_mistake_ledger_schema,CRD-MEM-001,EV-MEM-001,IMPLEMENTED
 REQ-038,TASK-004,eval/unit/test_regression_ledger.py::test_ledger_coverage,CRD-MEM-002,EV-MEM-002,IMPLEMENTED
-REQ-039,TASK-013,eval/benchmarks/test_matrix.py::test_model_benchmarks,CRD-EVL-001,EV-BENCH-001,PLANNED
+REQ-039,TASK-034,eval/benchmarks/benchmark_matrix.py::run_matrix,CRD-EVL-001,EV-BENCH-001,IMPLEMENTED
 REQ-040,TASK-004,eval/unit/test_kill_switch.py::test_stop_file,CRD-SYS-001,EV-SYS-001,IMPLEMENTED
