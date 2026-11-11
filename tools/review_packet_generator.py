@@ -48,7 +48,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
             packet += f"  - ✗ {ex}\n"
 
         packet += f"\n**Common LLM Error**: {card.get('common_llm_error')}\n"
-        packet += f"**Sources / Citations**: {', '.join(card.get('sources', []))}\n\n"
+        packet += f"**Sources / Citations**: {', '.join(str(s) for s in card.get('sources', []))}\n\n"
 
         rev = card.get("review")
         packet += "**Human Reviewer Decision Box**:\n"
