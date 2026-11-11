@@ -5,15 +5,17 @@ profile: bd_standard
 register: formal
 confidence: reviewed
 rule_summary: Enforce statutory Bengali land deed taxonomy (সাফ-কবলা, হেবা, বন্টননামা)
-  and survey records (CS, SA, RS, BS খতিয়ান, দাগ নম্বর, মৌজা, চৌহদ্দি) under the Registration
-  Act and State Acquisition Act, preventing colloquial English loan calques.
+  and survey records (CS, SA, RS, BS খতিয়ান, দাগ নম্বর, মৌজা, চৌহদ্দি) in standard
+  Promito Cholito (বুঝে পেলাম, সম্পন্ন করে) in line with modern Land Ministry and
+  e-Mutation guidelines, avoiding informal colloquialisms (জমির কাগজ) while noting
+  traditional deed boilerplate.
 good_examples:
 - অদ্যকার রেজিস্ট্রিকৃত সাফ-কবলা বিক্রয় দলিলমূলে আমি ১ম পক্ষ ক্রেতা ২য় পক্ষের নিকট
-  হইতে হস্তান্তরিত সম্পত্তির চূড়ান্ত দখল বুঝিয়া পাইলাম।
+  থেকে হস্তান্তরিত সম্পত্তির চূড়ান্ত দখল বুঝে পেলাম।
 - 'তফসিল বর্ণিত সম্পত্তি: মৌজা-মিরপুর, জে.এল নং-২২, সি.এস ও আর.এস খতিয়ান নং-১০৪, দাগ
   নং-৮৭২, চৌহদ্দি: উত্তরে সরকারি রাস্তা, দক্ষিণে করিমের জোত।'
-- সম্পত্তির মালিকানা হস্তান্তরের পূর্বে সহকারী কমিশনার (ভূমি) কার্যালয় হইতে যথাযথ
-  নামজারি ও জমাভাগ (Mutation) সম্পন্ন করিয়া দাখিলা গ্রহণ করা হইয়াছে।
+- সম্পত্তির মালিকানা হস্তান্তরের পূর্বে সহকারী কমিশনার (ভূমি) কার্যালয় থেকে যথাযথ
+  নামজারি ও জমাভাগ (Mutation) সম্পন্ন করে দাখিলা গ্রহণ করা হয়েছে।
 bad_examples:
 - আমি আমার জমির বিক্রির কাগজ তৈরি করে জমি ক্রেতাকে হস্তান্তর করলাম।
 - 'জমির চারপাশের সীমানা: উত্তরে রাস্তা এবং দক্ষিণে করিমের অংশ।'
@@ -30,8 +32,9 @@ review:
   reviewer_affiliation: Lead Native-Speaker Reviewer
   reviewed_date: '2026-11-11'
   status: APPROVED
-  notes: 'Human review verified and approved: APPROVED. Statutory land registry deeds,
-    survey records (CS/SA/RS/BS), and conveyance taxonomy validated.'
-  signature_hash: sha256:e70678f2b8435b0b
+  notes: 'Human review verified and approved: APPROVED. Harmonized land records and
+    deed conveyancing to Promito Cholito (বুঝে পেলাম, সম্পন্ন করে) in line with modern
+    Land Ministry digital standards.'
+  signature_hash: sha256:9e12f75b705ef64c
 last_modified: '2026-11-11'
 created_date: '2026-11-11'
