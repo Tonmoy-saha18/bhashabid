@@ -1,19 +1,35 @@
 id: CRD-DOM-009
-title: "Classical Bengali Prosody & Poetic Scansion (বাংলা ছন্দবিজ্ঞান ও পয়ার প্রকরণ)"
+title: Classical Bengali Prosody & Poetic Scansion (বাংলা ছন্দবিজ্ঞান ও পয়ার প্রকরণ)
 domain: poetic_prosody
 profile: bd_standard
 register: literary_poetic
-rule_summary: "Bengali poetic prosody operates on three distinct classical metre systems governed by syllable types (মুক্তদল ও রুদ্ধদল): (1) দলবৃত্ত (Svarabritta/Dalabritta): All syllables count as 1 mora, fast 4+4+4+2 rhythm typical in nursery rhymes and folk ballads; (2) মাত্রাবৃত্ত (Kalabritta/Matrabritta): Open syllables count as 1 mora, closed syllables count as 2 morae, forming lyrical 6+6+2 or 5+5+2 cadences; (3) অক্ষরবৃত্ত / পয়ার (Aksharbritta/Payar): Traditional narrative metre with an 8 + 6 = 14 akshar structure split by a prominent mid-line caesura (মধ্যযতি) and end-rhyme (অন্ত্যমিল)."
+rule_summary: 'Bengali poetic prosody operates on three distinct classical metre systems
+  governed by syllable types (মুক্তদল ও রুদ্ধদল): (1) দলবৃত্ত (Svarabritta/Dalabritta):
+  All syllables count as 1 mora, fast 4+4+4+2 rhythm typical in nursery rhymes and
+  folk ballads; (2) মাত্রাবৃত্ত (Kalabritta/Matrabritta): Open syllables count as
+  1 mora, closed syllables count as 2 morae, forming lyrical 6+6+2 or 5+5+2 cadences;
+  (3) অক্ষরবৃত্ত / পয়ার (Aksharbritta/Payar): Traditional narrative metre with an
+  8 + 6 = 14 akshar structure split by a prominent mid-line caesura (মধ্যযতি) and
+  end-rhyme (অন্ত্যমিল).'
 good_examples:
-  - "কাশীদাস কহে সাধু শুনে পুণ্যবান। / মহাভারত কথা অমৃত সমান॥ (পয়ার: ৮+৬=১৪ পর্ব ও অন্ত্যমিল)"
-  - "বৃষ্টি পড়ে টাপুর টুপুর নদে এল বান। (দলবৃত্ত ৪+৪+৪+২ লয়)"
+- 'কাশীদাস কহে সাধু শুনে পুণ্যবান। / মহাভারত কথা অমৃত সমান॥ (পয়ার: ৮+৬=১৪ পর্ব ও
+  অন্ত্যমিল)'
+- বৃষ্টি পড়ে টাপুর টুপুর নদে এল বান। (দলবৃত্ত ৪+৪+৪+২ লয়)
 bad_examples:
-  - "কাশীদাস বলিতেছেন কথা তোমরা সকলে শোনো (ভগ্ন পয়ার: পর্ববিন্যাস ও মাত্রাবিন্যাস বিশৃঙ্খল)।"
-  - "কবিতা লেখার সময় কোনো ছন্দ না মেনে শব্দ বসিয়ে দেওয়া।"
-common_llm_error: "LLMs compose pseudo-poetry that has superficial line breaks but zero metrical scansion, broken caesuras, and discordant syllable counts."
+- 'কাশীদাস বলিতেছেন কথা তোমরা সকলে শোনো (ভগ্ন পয়ার: পর্ববিন্যাস ও মাত্রাবিন্যাস বিশৃঙ্খল)।'
+- কবিতা লেখার সময় কোনো ছন্দ না মেনে শব্দ বসিয়ে দেওয়া।
+common_llm_error: LLMs compose pseudo-poetry that has superficial line breaks but
+  zero metrical scansion, broken caesuras, and discordant syllable counts.
 sources:
-  - "Prabodh Chandra Sen: বাংলা ছন্দ পরিক্রমা"
-  - "Amulyadhan Mukhopadhyay: আধুনিক বাংলা ছন্দদর্শন"
-confidence: data-supported
+- 'Prabodh Chandra Sen: বাংলা ছন্দ পরিক্রমা'
+- 'Amulyadhan Mukhopadhyay: আধুনিক বাংলা ছন্দদর্শন'
+confidence: reviewed
 created_date: 2026-11-11
-last_modified: 2026-11-11
+last_modified: '2026-11-11'
+review:
+  reviewer_name: Ashikur Rahman Bhuiyan
+  reviewer_affiliation: Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>)
+  reviewed_date: '2026-11-11'
+  status: APPROVED
+  notes: Reviewed and approved by human native speaker for v1.0.0 release.
+  signature_hash: sha256:701b7391f6877f53

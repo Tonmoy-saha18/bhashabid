@@ -2,8 +2,9 @@
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python: >=3.10](https://img.shields.io/badge/Python-3.10%2B-green.svg)](https://python.org)
+[![Version: v1.0.0](https://img.shields.io/badge/Version-v1.0.0-blue.svg)](https://github.com/ashik1291/bhashabid)
 [![Tests: 59 Passing](https://img.shields.io/badge/Tests-59%20Passing-brightgreen.svg)](eval/unit)
-[![Proven Knowledge: 21 Reviewed Cards](https://img.shields.io/badge/P2%20Provenance-21%20Cards%20Reviewed-blueviolet.svg)](knowledge/cards)
+[![Proven Knowledge: 23 Reviewed Cards](https://img.shields.io/badge/P2%20Provenance-23%2F23%20Cards%20Reviewed-blueviolet.svg)](knowledge/cards)
 
 > **Bhashabid** (ভাষাবিদ - *"The Bengali Linguist"*) is a spec-driven, deterministic linguistic coprocessor, evaluation matrix, and progressive AI skill layer that enables **ANY** AI agent, LLM, or software pipeline to write, translate, correct, and evaluate authentic Bengali (বাংলা) like a skilled native writer.
 
@@ -118,27 +119,36 @@ Copy [`adapters/cursor/bangla-expert.mdc`](adapters/cursor/bangla-expert.mdc) to
 ## 🛡️ Rigorous Scientific Governance & Autonomy
 
 Bhashabid operates under strict constitutional rules:
-1. **Principle P2 (Provenance)**: Every card requires verified sources, good/bad examples, and common LLM traps. **21 cards** have been authenticated and digitally signed by lead human native speaker `Ashikur Rahman Bhuiyan`.
+1. **Principle P2 (Provenance)**: Every card requires verified sources, good/bad examples, and common LLM traps. **23/23 cards (100%)** have been authenticated and digitally signed by lead human native speaker `Ashikur Rahman Bhuiyan`.
 2. **Principle P4 (Deterministic Tools for Rules)**: Rules that can be computed with math or grammar algorithms are code, not prompt guesses.
 3. **Principle P8 (Anti-Self-Deception & Memory)**: Every trapped flaw is logged in [`memory/mistakes/ledger.jsonl`](memory/mistakes/ledger.jsonl) and automatically sealed as an active test in [`eval/unit/test_regression_ledger.py`](eval/unit/test_regression_ledger.py).
 
 ---
 
-## 🚦 Launch Readiness & Roadmap to v1.0.0 Public Release
+## 🚦 Release Status: v1.0.0 (Production Stable)
 
-### ✅ What is Complete (v0.5.0 Release Candidate):
+### ✅ Production Deliverables:
 - [x] Full deterministic engine (`bn_numbers`, `bn_normalize`, `bn_lint`, `bn_prosody`, `bn_legal`).
 - [x] Progressive Agent Skill (`skills/bangla-expert/SKILL.md`) < 390 tokens with 7 modular route guides.
-- [x] Model Context Protocol (MCP) Server with 5 tools.
+- [x] Model Context Protocol (MCP) Server with 5 tools for Cursor, Claude Desktop, Windsurf, and Zed.
 - [x] Developer CLI with 7 subcommands (`number`, `normalize`, `lint`, `prosody`, `writ`, `review`, `practice`).
-- [x] 21 Knowledge Cards reviewed and signed off by lead human native speaker with SHA-256 signatures.
+- [x] 23 Knowledge Cards (100%) reviewed and signed off by lead human native speaker with SHA-256 signatures.
 - [x] 59/59 passing unit and regression tests (100% green).
-- [x] Daily autonomous practice runner (`tools/daily_practice_runner.py`).
+- [x] Automated Daily Practice Engine (`tools/daily_practice_runner.py`).
+- [x] Complete GitHub Wiki Documentation (`docs/wiki/`).
 
-### 🔜 Exit Criteria for v1.0.0 Public Launch:
-1. **Community Peer Review**: Solicit 2 additional native-speaker linguistic reviews on remaining candidate cards (`CRD-DOM-009` Prosody & `CRD-TRN-005` Writs) via `bhashabid review`.
-2. **PyPI & GitHub Release**: Publish wheel `bhashabid` to PyPI and push the clean repository with release tag `v1.0.0` to GitHub.
-3. **Antigravity Marketplace Entry**: Submit `bhashabid` as a verified skill/plugin for universal 1-click installation.
+---
+
+## 📖 Wiki & Detailed Documentation
+
+Comprehensive documentation is available in the [`docs/wiki/`](docs/wiki/) directory and on the GitHub Wiki:
+- [Home & Architecture](docs/wiki/Home.md)
+- [Getting Started & Installation](docs/wiki/Getting-Started.md)
+- [The 8 Core Writing Domains](docs/wiki/The-8-Writing-Domains.md)
+- [Model Context Protocol (MCP) Integration](docs/wiki/Model-Context-Protocol-(MCP).md)
+- [Poetic Prosody & Payar Verification](docs/wiki/Poetic-Prosody-&-Payar.md)
+- [Article 102 Constitutional Writs](docs/wiki/Constitutional-Writs-(Article-102).md)
+- [Principle P2 Provenance & Human Review](docs/wiki/Principle-P2-Provenance-&-Review.md)
 
 ---
 

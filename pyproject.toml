@@ -4,8 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bhashabid"
-version = "0.5.0"
+version = "1.0.0"
 authors = [
+  { name = "Ashikur Rahman Bhuiyan", email = "ashikur.bhuiyan@brainstation-23.com" },
   { name = "Bhashabid Contributors", email = "contributors@bhashabid.org" },
 ]
 description = "Deterministic Bengali linguistic coprocessor, linter, normalizer, and agent skill layer."
@@ -23,8 +24,8 @@ dependencies = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/bhashabid/bhashabid"
-"Bug Tracker" = "https://github.com/bhashabid/bhashabid/issues"
+"Homepage" = "https://github.com/ashik1291/bhashabid"
+"Bug Tracker" = "https://github.com/ashik1291/bhashabid/issues"
 
 [project.scripts]
 bhashabid = "tools.cli:main"
