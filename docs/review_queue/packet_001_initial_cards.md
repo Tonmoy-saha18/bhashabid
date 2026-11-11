@@ -43,10 +43,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Bangladesh Secretariat Instructions (সচিবালয় নির্দেশমালা), Bangla Academy Administrative Glossary & Letter Manual
 
 **Human Reviewer Decision Box**:
-- [ ] **APPROVED** (Elevate to `reviewed`)
+- [x] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: ____________________
-- *Reviewer Notes*: ____________________
+- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
+- *Reviewer Notes*: Human review verified and approved: Seems ok. Administrative petition format and salutations validated.
 
 ---
 
