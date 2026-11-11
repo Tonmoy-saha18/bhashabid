@@ -1,6 +1,6 @@
 ---
 name: bangla-expert
-description: Write, translate, correct, and evaluate authentic Bengali (বাংলা) prose with native fluency, proper register, Bangla Academy orthography, and zero English calques.
+description: Write, translate, correct, and evaluate authentic Bengali (বাংলা) prose, legal petitions, macroeconomic analysis, creative questions, literature, and official correspondence with native fluency, proper register, Bangla Academy orthography, and zero translation calques. Trigger whenever any prompt or task involves Bengali (বাংলা) language generation, translation, proofreading, or editing.
 ---
 
 # Bengali Linguistic Coprocessor (ভাষাবিদ)
