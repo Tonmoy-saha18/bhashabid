@@ -28,6 +28,16 @@ class TestBnLint(unittest.TestCase):
         issues = lint_text(text)
         self.assertTrue(any("HONORIFIC" in i.rule_id for i in issues))
 
+    def test_bidirectional_honorific_suggestions(self):
+        # 'তুমি সিদ্ধান্ত নেন' must suggest both 'তুমি সিদ্ধান্ত নাও' and 'আপনি সিদ্ধান্ত নেন'
+        text = "তুমি সিদ্ধান্ত নেন"
+        issues = lint_text(text)
+        self.assertEqual(len(issues), 1)
+        self.assertEqual(issues[0].rule_id, "RULE-LINT-HONORIFIC-TUMI")
+        suggestion = issues[0].suggestion
+        self.assertIn("তুমি সিদ্ধান্ত নাও", suggestion)
+        self.assertIn("আপনি সিদ্ধান্ত নেন", suggestion)
+
     def test_calque_detection(self):
         text = "এই মেশিনটি বিদ্যুৎ দ্বারা চালিত এবং কাজটি তিনি দ্বারা কৃত।"
         issues = lint_text(text)

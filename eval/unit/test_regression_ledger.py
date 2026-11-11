@@ -52,6 +52,13 @@ class TestLedgerRegressions(unittest.TestCase):
                     issues = lint_text(inp)
                     rule_ids = [i.rule_id for i in issues]
                     self.assertIn(expected, rule_ids)
+                elif task == "Honorific Concordance Repair":
+                    from tools.bn_lint import lint_text
+                    issues = lint_text(inp)
+                    self.assertGreater(len(issues), 0)
+                    suggestion = issues[0].suggestion
+                    self.assertIn("তুমি সিদ্ধান্ত নাও", suggestion)
+                    self.assertIn("আপনি সিদ্ধান্ত নেন", suggestion)
 
 if __name__ == "__main__":
     unittest.main()
