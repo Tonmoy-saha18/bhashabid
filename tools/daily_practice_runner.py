@@ -205,7 +205,7 @@ def run_practice_cycle(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Bhashabid Daily Practice Runner")
     parser.add_argument("--rounds", type=int, default=1, help="Number of complete practice rounds (default: 1)")
-    parser.add_argument("--duration-minutes", type=float, default=150.0, help="Window for continuous mode (default: 150 min)")
+    parser.add_argument("--duration-minutes", "--minutes", "-minutes", "-m", dest="duration_minutes", type=float, default=150.0, help="Window for continuous mode (default: 150 min)")
     parser.add_argument("--domain", default=None, help="Filter to specific domain")
     parser.add_argument("--continuous", action="store_true", help="Run continuously for duration-minutes (soak test mode)")
     args = parser.parse_args()
