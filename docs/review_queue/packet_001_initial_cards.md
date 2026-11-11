@@ -220,7 +220,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 9: [CRD-DOM-009] Classical Bengali Prosody & Poetic Scansion (বাংলা ছন্দবিজ্ঞান ও পয়ার প্রকরণ)
 - **Domain**: `poetic_prosody` | **Profile**: `bd_standard` | **Register**: `literary_poetic`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Bengali poetic prosody operates on three distinct classical metre systems governed by syllable types (মুক্তদল ও রুদ্ধদল): (1) দলবৃত্ত (Svarabritta/Dalabritta): All syllables count as 1 mora, fast 4+4+4+2 rhythm typical in nursery rhymes and folk ballads; (2) মাত্রাবৃত্ত (Kalabritta/Matrabritta): Open syllables count as 1 mora, closed syllables count as 2 morae, forming lyrical 6+6+2 or 5+5+2 cadences; (3) অক্ষরবৃত্ত / পয়ার (Aksharbritta/Payar): Traditional narrative metre with an 8 + 6 = 14 akshar structure split by a prominent mid-line caesura (মধ্যযতি) and end-rhyme (অন্ত্যমিল).
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -559,7 +559,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 23: [CRD-TRN-005] Article 102 Constitutional Writs Taxonomy & Drafting (সংবিধানের ১০২ অনুচ্ছেদের রিট মামলার প্রমিত পরিভাষা)
 - **Domain**: `legal_constitutional` | **Profile**: `bd_standard` | **Register**: `statutory_legal`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Writ petitions under Article 102 of the Bangladesh Constitution require strict taxonomy and specialized statutory phrasing: (1) Habeas Corpus [Art 102(2)(b)(i)]: challenges illegal detention, seeking 'অবৈধ আটকাদেশ বাতিল ও সশরীরে হাজির করিবার নির্দেশ'; (2) Mandamus [Art 102(2)(a)(i)]: compels a public authority to perform a statutory duty, praying 'আইনানুযায়ী দায়িত্ব পালনে বাধ্যকরণে পরমাদেশ জারি'; (3) Certiorari [Art 102(2)(a)(ii)]: quashes an ultra vires order, praying 'বিতর্কিত আদেশটি আইনগত কর্তৃত্ববহির্ভূত ও বাতিল ঘোষণা'; (4) Prohibition [Art 102(2)(a)(i)]: restrains an authority from exceeding jurisdiction, praying 'এখতিয়ারবহির্ভূত কার্য হইতে বিরত থাকিবার নির্দেশ'; (5) Quo Warranto [Art 102(2)(b)(ii)]: challenges the legal authority of a public office holder, praying 'কোন্ কর্তৃত্ববলে পদ ধারণ করিতেছেন তাহা প্রদর্শন এবং পদ শূন্য ঘোষণা'. Conflating these distinct writs or drafting informal prayers renders a writ non-maintainable.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:

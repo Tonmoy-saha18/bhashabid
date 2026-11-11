@@ -15,7 +15,7 @@ from tools.bn_normalize import normalize, canonicalize_unicode
 from tools.bn_lint import lint_text
 from tools.bn_prosody import scan_line, verify_payar
 from tools.bn_legal import determine_writ_type, generate_writ_prayer
-from tools.review_packet_generator import generate_review_packet
+from tools.review_packet_generator import write_packet
 
 DOMAINS_PRACTICE_SET = [
     {
@@ -166,7 +166,7 @@ def run_practice_cycle(
     stats["regression_suite_passed"] = test_result.wasSuccessful()
 
     # Regenerate human review packet
-    generate_review_packet()
+    write_packet()
 
     # Write daily run report
     reports_dir = os.path.join(REPO_ROOT, "eval", "reports", "daily_runs")
