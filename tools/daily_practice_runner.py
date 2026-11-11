@@ -5,7 +5,10 @@ import sys
 import time
 import json
 import argparse
+import functools
 from datetime import datetime, timedelta
+
+print = functools.partial(print, flush=True)
 
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if REPO_ROOT not in sys.path:
