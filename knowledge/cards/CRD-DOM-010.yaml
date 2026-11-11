@@ -4,21 +4,29 @@ domain: Land, Property & Registry
 profile: bd_standard
 register: formal
 confidence: reviewed
-rule_summary: Enforce statutory Bengali land deed taxonomy (সাফ-কবলা, হেবা, বন্টননামা)
-  and survey records (CS, SA, RS, BS খতিয়ান, দাগ নম্বর, মৌজা, চৌহদ্দি) in standard
-  Promito Cholito (বুঝে পেলাম, সম্পন্ন করে) in line with modern Land Ministry and
-  e-Mutation guidelines, avoiding informal colloquialisms (জমির কাগজ) while noting
-  traditional deed boilerplate.
+rule_summary: 'Enforce statutory Bengali land deed taxonomy (সাফ-কবলা, হেবা, বন্টননামা)
+  and survey records (CS, SA, RS, BS খতিয়ান, দাগ নম্বর, মৌজা, চৌহদ্দি). Real-world
+  practice reflects a dual transition reality: (1) Modern Digital Standard (প্রমিত
+  চলিত): Mandated by Land Ministry digital e-Mutation and contemporary deed drafting
+  (দখল বুঝে পেলাম, সম্পন্ন করে দাখিলা গ্রহণ করা হয়েছে); (2) Traditional Sub-Registry
+  Boilerplate (ঐতিহ্যবাহী সাধু পাঠ): Conventional deed writers (দলিল লেখক) historically
+  retain archaic boilerplate (দখল বুঝিয়া পাইলাম, সম্পন্ন করিয়া দাখিলা গ্রহণ করা হইয়াছে).
+  If drafting in traditional register, it must remain 100% pure Sadhu; never mix the
+  two into Guruchandali. Prohibit colloquial informal phrasing (জমির কাগজ, মালিকানা
+  পরিবর্তন).'
 good_examples:
-- অদ্যকার রেজিস্ট্রিকৃত সাফ-কবলা বিক্রয় দলিলমূলে আমি ১ম পক্ষ ক্রেতা ২য় পক্ষের নিকট
-  থেকে হস্তান্তরিত সম্পত্তির চূড়ান্ত দখল বুঝে পেলাম।
+- '[আধুনিক প্রমিত চলিত রূপ - ভূমি মন্ত্রণালয় ই-নামজারি মানদণ্ড]: অদ্যকার রেজিস্ট্রিকৃত
+  সাফ-কবলা বিক্রয় দলিলমূলে আমি ১ম পক্ষ ক্রেতা ২য় পক্ষের নিকট থেকে হস্তান্তরিত সম্পত্তির
+  চূড়ান্ত দখল বুঝে পেলাম এবং নামজারি সম্পন্ন করে দাখিলা গ্রহণ করা হয়েছে।'
+- '[ঐতিহ্যবাহী সাব-রেজিস্ট্রি রূপ - বিশুদ্ধ সাধু বয়ান]: অদ্যকার রেজিস্ট্রিকৃত সাফ-কবলা
+  বিক্রয় দলিলমূলে আমি ১ম পক্ষ ক্রেতা ২য় পক্ষের নিকট হইতে হস্তান্তরিত সম্পত্তির চূড়ান্ত
+  দখল বুঝিয়া পাইলাম এবং নামজারি সম্পন্ন করিয়া দাখিলা গ্রহণ করা হইয়াছে।'
 - 'তফসিল বর্ণিত সম্পত্তি: মৌজা-মিরপুর, জে.এল নং-২২, সি.এস ও আর.এস খতিয়ান নং-১০৪, দাগ
   নং-৮৭২, চৌহদ্দি: উত্তরে সরকারি রাস্তা, দক্ষিণে করিমের জোত।'
-- সম্পত্তির মালিকানা হস্তান্তরের পূর্বে সহকারী কমিশনার (ভূমি) কার্যালয় থেকে যথাযথ
-  নামজারি ও জমাভাগ (Mutation) সম্পন্ন করে দাখিলা গ্রহণ করা হয়েছে।
 bad_examples:
-- আমি আমার জমির বিক্রির কাগজ তৈরি করে জমি ক্রেতাকে হস্তান্তর করলাম।
-- 'জমির চারপাশের সীমানা: উত্তরে রাস্তা এবং দক্ষিণে করিমের অংশ।'
+- আমি আমার জমির বিক্রির কাগজ তৈরি করে জমি ক্রেতাকে হস্তান্তর করলাম। (Informal slang)
+- দলিলমূলে সম্পত্তির দখল বুঝিয়া পাইলাম এবং দাখিলা গ্রহণ করা হয়েছে। (ভয়ানক গুরুচণ্ডালী
+  মিশ্রণ)
 - জমি কেনার পর সরকারি রেকর্ডে নিজের নাম পরিবর্তন করে নিয়েছি।
 common_llm_error: Translating land conveyancing into colloquial informal phrasing
   (e.g., 'জমির কাগজ', 'মালিকানা পরিবর্তন') instead of statutory Registry terms (সাফ-কবলা,
@@ -32,9 +40,8 @@ review:
   reviewer_affiliation: Lead Native-Speaker Reviewer
   reviewed_date: '2026-11-11'
   status: APPROVED
-  notes: 'Human review verified and approved: APPROVED. Harmonized land records and
-    deed conveyancing to Promito Cholito (বুঝে পেলাম, সম্পন্ন করে) in line with modern
-    Land Ministry digital standards.'
-  signature_hash: sha256:9e12f75b705ef64c
+  notes: 'Human review verified and approved: APPROVED. Fully modeled dual transition
+    reality of land deeds: digital Promito Cholito vs traditional pure Sadhu boilerplate.'
+  signature_hash: sha256:2fc78fb03024bdbc
 last_modified: '2026-11-11'
 created_date: '2026-11-11'

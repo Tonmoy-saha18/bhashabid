@@ -4,29 +4,29 @@ title: Article 102 Constitutional Writs Taxonomy & Drafting (সংবিধা�
 domain: legal_constitutional
 profile: bd_standard
 register: statutory_legal
-rule_summary: 'Writ petitions under Article 102 of the Bangladesh Constitution require
-  strict taxonomy and specialized statutory phrasing. Modern High Court writ petitions,
-  pleadings, and operative prayers in Bengali are formulated in formal Promito Cholito
-  (e.g., ''বাধ্য করার জন্য পরমাদেশ জারি'', ''ঘোষণা করা হবে না, তা প্রদর্শনের জন্য
-  রুল নিশি''). Key writ remedies: (1) Habeas Corpus [Art 102(2)(b)(i)]: challenges
-  illegal detention, seeking ''অবৈধ আটকাদেশ বাতিল ও সশরীরে হাজির করার নির্দেশ''; (2)
-  Mandamus [Art 102(2)(a)(i)]: compels a public authority to perform a statutory duty,
-  praying ''আইনানুযায়ী দায়িত্ব পালনে বাধ্য করার জন্য পরমাদেশ জারি''; (3) Certiorari
-  [Art 102(2)(a)(ii)]: quashes an ultra vires order, praying ''বিতর্কিত আদেশটি আইনগত
-  কর্তৃত্ববহির্ভূত ও বাতিল ঘোষণা''; (4) Prohibition [Art 102(2)(a)(i)]: restrains
-  an authority from exceeding jurisdiction, praying ''এখতিয়ারবহির্ভূত কার্য থেকে
-  বিরত রাখার নির্দেশ''; (5) Quo Warranto [Art 102(2)(b)(ii)]: challenges authority
-  of a public office holder, praying ''কোন্ কর্তৃত্ববলে পদ ধারণ করছেন তা প্রদর্শন
-  এবং পদ শূন্য ঘোষণা''. Note: The 1972 Constitution was originally drafted in Sadhu;
-  verbatim quotes of the text preserve those archaic forms, but modern pleadings must
-  maintain pure Promito Cholito consistency.'
+rule_summary: 'Writ petitions under Article 102 of the Bangladesh Constitution operate
+  on a clear statutory dual reality: (1) Constitutional Citation (মূল সংবিধানের প্রামাণিক
+  সাধু ধারা পাঠ): The 1972 Constitution was adopted in formal Sadhu; statutory quotations
+  of Article 102 preserve verbatim phrasing (যাহা করিবার বাধ্যবাধকতা রহিয়াছে, তাহা
+  করিবার নির্দেশ অথবা বিরত থাকিবার নির্দেশ); (2) Modern High Court Practice (সুপ্রিম
+  কোর্টের আধুনিক প্রমিত চলিত রিট পিটিশন ও প্রেয়ার): Advocates'' pleadings, grounds,
+  operative prayers, and judicial reporting in Bengali are drafted in formal Promito
+  Cholito (বাধ্য করার জন্য পরমাদেশ, ঘোষণা করা হবে না, তা প্রদর্শনের জন্য রুল নিশি).
+  Never mix constitutional Sadhu snippets into the Cholito narrative of the petition
+  (গুরুচণ্ডালী দোষ বর্জন আবশ্যক).'
 good_examples:
-- সংবিধানের ১০২(২)(ক)(১) অনুচ্ছেদের অধীন বিবাদীদের আইনগত দায়িত্ব পালনে বাধ্য করার
-  জন্য পরমাদেশ জারির প্রার্থনা।
-- বিবাদীর বিতর্কিত বহিষ্কার আদেশটি কেন আইনগত কর্তৃত্ববহির্ভূত ঘোষণা করা হবে না, তা
-  প্রদর্শনের জন্য রুল নিশি জারি।
+- '[সুপ্রিম কোর্টের আধুনিক প্রমিত চলিত রিট প্রার্থনা]: সংবিধানের ১০২(২)(ক)(১) অনুচ্ছেদের
+  অধীন বিবাদীদের আইনগত দায়িত্ব পালনে বাধ্য করার জন্য পরমাদেশ জারির প্রার্থনা।'
+- '[সুপ্রিম কোর্টের আধুনিক প্রমিত চলিত রুল নিশি]: বিবাদীর বিতর্কিত বহিষ্কার আদেশটি
+  কেন আইনগত কর্তৃত্ববহির্ভূত ঘোষণা করা হবে না, তা প্রদর্শনের জন্য রুল নিশি জারি।'
+- '[মূল সংবিধানের ১০২ অনুচ্ছেদের প্রামাণিক ধারা উদ্ধৃতি (বিশুদ্ধ সাধু পাঠ)]: "কোন
+  ব্যক্তি বা কর্তৃপক্ষকে... এমন কোন কার্য, যাহা করিবার আইনগত বাধ্যবাধকতা তাঁহার নাই,
+  তাহা করা হইতে বিরত থাকিবার অথবা এমন কোন কার্য, যাহা করিবার আইনগত বাধ্যবাধকতা তাঁহার
+  রহিয়াছে, তাহা করিবার নির্দেশ প্রদান করিয়া..."'
 bad_examples:
 - হাইকোর্টে একটা কেস করা হয়েছে যাতে তাকে চাকরি থেকে বাদ না দেয় (Informal and unmaintainable).
+- বিবাদীকে সশরীরে হাজির করিবার নির্দেশ দেওয়া হলো এবং তিনি আগামী সপ্তাহে আসবেন। (ভয়ানক
+  গুরুচণ্ডালী মিশ্রণ)
 - আটক ব্যক্তির ক্ষেত্রে সার্টিওরারি প্রার্থনা করা (Fatal writ category confusion).
 common_llm_error: LLMs confuse Mandamus (compelling an act) with Certiorari (quashing
   an act) and lack standard High Court prayer templates.
@@ -41,7 +41,7 @@ review:
   reviewer_affiliation: Lead Native-Speaker Reviewer
   reviewed_date: '2026-11-11'
   status: APPROVED
-  notes: 'Human review verified and approved: APPROVED. High Court Article 102 writ
-    pleadings and prayers harmonized to formal Promito Cholito per modern Supreme
-    Court practice.'
-  signature_hash: sha256:ef4136ab385fce8a
+  notes: 'Human review verified and approved: APPROVED. Explicitly articulated Article
+    102 dual reality: verbatim 1972 constitutional Sadhu citations vs modern High
+    Court Promito Cholito pleadings and prayers.'
+  signature_hash: sha256:1a5d3c34c10b37f0
