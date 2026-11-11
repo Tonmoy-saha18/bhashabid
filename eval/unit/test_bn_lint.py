@@ -22,6 +22,11 @@ class TestBnLint(unittest.TestCase):
         issues = lint_text(text)
         self.assertTrue(any(i.rule_id == "RULE-LINT-GURU-CHANDALI" for i in issues))
 
+        # Mixing 'পড়িয়া' (Sadhu) with 'দাও' (Cholito)
+        text2 = "উদ্দীপকটি পড়িয়া নিচের প্রশ্নগুলোর উত্তর দাও।"
+        issues2 = lint_text(text2)
+        self.assertTrue(any(i.rule_id == "RULE-LINT-GURU-CHANDALI" for i in issues2))
+
     def test_honorific_clash_detection(self):
         # 'আপনি' with 'করো'
         text = "আপনি কি কাজটি আজ করো?"
