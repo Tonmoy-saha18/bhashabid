@@ -92,10 +92,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Syed Manzoorul Islam: কথাসাহিত্য ও শিল্পরীতি, Humayun Ahmed & Modern Fiction Stylistic Corpus
 
 **Human Reviewer Decision Box**:
-- [ ] **APPROVED** (Elevate to `reviewed`)
+- [x] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: ____________________
-- *Reviewer Notes*: ____________________
+- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
+- *Reviewer Notes*: Human review verified and approved: APPROVED. Literary fiction dialogue and narrative register validated.
 
 ---
 
