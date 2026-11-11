@@ -12,9 +12,9 @@ authors = [
 description = "Deterministic Bengali linguistic coprocessor, linter, normalizer, and agent skill layer."
 readme = "README.md"
 requires-python = ">=3.10"
+license = { text = "MIT" }
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Natural Language :: Bengali",
     "Topic :: Text Processing :: Linguistic",
@@ -22,6 +22,9 @@ classifiers = [
 dependencies = [
     "pyyaml>=6.0",
 ]
+
+[tool.setuptools.packages.find]
+include = ["tools*"]
 
 [project.urls]
 "Homepage" = "https://github.com/ashik1291/bhashabid"
