@@ -3,8 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python: >=3.10](https://img.shields.io/badge/Python-3.10%2B-green.svg)](https://python.org)
 [![Version: v1.0.0](https://img.shields.io/badge/Version-v1.0.0-blue.svg)](https://github.com/ashik1291/bhashabid)
-[![Tests: 60 Passing](https://img.shields.io/badge/Tests-60%20Passing-brightgreen.svg)](eval/unit)
-[![Proven Knowledge: 23 Reviewed Cards](https://img.shields.io/badge/P2%20Provenance-23%2F23%20Cards%20Reviewed-blueviolet.svg)](knowledge/cards)
+[![Tests: 64 Passing](https://img.shields.io/badge/Tests-64%20Passing-brightgreen.svg)](eval/unit)
+[![Proven Knowledge: 26 Reviewed Cards](https://img.shields.io/badge/P2%20Provenance-26%2F26%20Cards%20Reviewed-blueviolet.svg)](knowledge/cards)
 
 > **Bhashabid** (ভাষাবিদ) is the **first-ever open-source Bengali language coprocessor engine** designed to work alongside AI agents, foundation models (LLMs), and developer workflows. Operating as an external cognitive and deterministic coprocessor without retraining model weights, it systematically elevates the accuracy, orthography, and native fluency of AI-generated Bengali across daily professional and creative activities.
 
@@ -133,7 +133,7 @@ Copy [`adapters/cursor/bangla-expert.mdc`](adapters/cursor/bangla-expert.mdc) to
 
 ---
 
-## 📚 The 8 Supported Professional Sectors
+## 📚 The 11 Supported Professional Sectors
 
 | Sector | Coverage & Capabilities | Reference Guide |
 | :--- | :--- | :--- |
@@ -145,13 +145,16 @@ Copy [`adapters/cursor/bangla-expert.mdc`](adapters/cursor/bangla-expert.mdc) to
 | **6. Classical Prosody** | Syllabic scansion for Dalabritta, Matrabritta, Aksharbritta (14-akshar Payar 8+6), caesura and rhyme matching. | [`creative_writing.md`](skills/bangla-expert/references/creative_writing.md) |
 | **7. Corporate & Advertising** | Natural, punchy marketing copy without raw English buzzwords (*যুগান্তকারী সমাধান* instead of *গেম চেঞ্জার*). | [`journalism_domains.md`](skills/bangla-expert/references/journalism_domains.md) |
 | **8. Healthcare & Medical** | Precise clinical advice (*উপসর্গ*, *সেবনবিধি*), unambiguous dosage intervals, emergency referral instructions. | [`academic_legal_medical.md`](skills/bangla-expert/references/academic_legal_medical.md) |
+| **9. Land Records & Deeds** | Sub-Kabala conveyance, Heba, partition deeds, CS/SA/RS/BS Khatian, plot and boundary (*চৌহদ্দি*) descriptions. | [`academic_legal_medical.md`](skills/bangla-expert/references/academic_legal_medical.md) |
+| **10. Agronomy & Disaster Warnings** | BMD cyclone warning signals (1-10 মহাবিপদ সংকেত), storm surge (*জলোচ্ছ্বাস*), fertilizer and pesticide balance. | [`academic_legal_medical.md`](skills/bangla-expert/references/academic_legal_medical.md) |
+| **11. Education & Pedagogy** | NCTB 4-tier Creative Questioning framework (উদ্দীপক, জ্ঞানমূলক, অনুধাবনমূলক, প্রয়োগমূলক, উচ্চতর দক্ষতামূলক). | [`academic_legal_medical.md`](skills/bangla-expert/references/academic_legal_medical.md) |
 
 ---
 
 ## 🛡️ Rigorous Scientific Governance & Autonomy
 
 Bhashabid operates under strict constitutional rules:
-1. **Principle P2 (Provenance)**: Every card requires verified sources, good/bad examples, and common LLM traps. **23/23 cards (100%)** have been authenticated and digitally signed by lead human native speaker `Ashikur Rahman Bhuiyan`.
+1. **Principle P2 (Provenance)**: Every card requires verified sources, good/bad examples, and common LLM traps. **26/26 cards (100%)** have been authenticated and digitally signed by lead human native speaker `Ashikur Rahman Bhuiyan`.
 2. **Principle P4 (Deterministic Tools for Rules)**: Rules that can be computed with math or grammar algorithms are code, not prompt guesses.
 3. **Principle P8 (Anti-Self-Deception & Memory)**: Every trapped flaw is logged in [`memory/mistakes/ledger.jsonl`](memory/mistakes/ledger.jsonl) and automatically sealed as an active test in [`eval/unit/test_regression_ledger.py`](eval/unit/test_regression_ledger.py).
 
@@ -164,8 +167,8 @@ Bhashabid operates under strict constitutional rules:
 - [x] Progressive Agent Skill (`skills/bangla-expert/SKILL.md`) < 390 tokens with 7 modular route guides.
 - [x] Model Context Protocol (MCP) Server with 5 tools for Cursor, Claude Desktop, Windsurf, and Zed.
 - [x] Developer CLI with 7 subcommands (`number`, `normalize`, `lint`, `prosody`, `writ`, `review`, `practice`).
-- [x] 23 Knowledge Cards (100%) reviewed and signed off by lead human native speaker with SHA-256 signatures.
-- [x] 59/59 passing unit and regression tests (100% green).
+- [x] 26 Knowledge Cards (100%) reviewed and signed off by lead human native speaker with SHA-256 signatures.
+- [x] 64/64 passing unit and regression tests (100% green).
 - [x] Automated Daily Practice Engine (`tools/daily_practice_runner.py`).
 - [x] Complete GitHub Wiki Documentation (`docs/wiki/`).
 

@@ -1,0 +1,37 @@
+id: CRD-DOM-010
+title: Land Records & Property Deeds (ভূমি রেজিস্ট্রি, খতিয়ান ও সাফ-কবলা দলিল)
+domain: Land, Property & Registry
+profile: bd_standard
+register: formal
+confidence: reviewed
+rule_summary: Enforce statutory Bengali land deed taxonomy (সাফ-কবলা, হেবা, বন্টননামা)
+  and survey records (CS, SA, RS, BS খতিয়ান, দাগ নম্বর, মৌজা, চৌহদ্দি) under the Registration
+  Act and State Acquisition Act, preventing colloquial English loan calques.
+good_examples:
+- অদ্যকার রেজিস্ট্রিকৃত সাফ-কবলা বিক্রয় দলিলমূলে আমি ১ম পক্ষ ক্রেতা ২য় পক্ষের নিকট
+  হইতে হস্তান্তরিত সম্পত্তির চূড়ান্ত দখল বুঝিয়া পাইলাম।
+- 'তফসিল বর্ণিত সম্পত্তি: মৌজা-মিরপুর, জে.এল নং-২২, সি.এস ও আর.এস খতিয়ান নং-১০৪, দাগ
+  নং-৮৭২, চৌহদ্দি: উত্তরে সরকারি রাস্তা, দক্ষিণে করিমের জোত।'
+- সম্পত্তির মালিকানা হস্তান্তরের পূর্বে সহকারী কমিশনার (ভূমি) কার্যালয় হইতে যথাযথ
+  নামজারি ও জমাভাগ (Mutation) সম্পন্ন করিয়া দাখিলা গ্রহণ করা হইয়াছে।
+bad_examples:
+- আমি আমার জমির বিক্রির কাগজ তৈরি করে জমি ক্রেতাকে হস্তান্তর করলাম।
+- 'জমির চারপাশের সীমানা: উত্তরে রাস্তা এবং দক্ষিণে করিমের অংশ।'
+- জমি কেনার পর সরকারি রেকর্ডে নিজের নাম পরিবর্তন করে নিয়েছি।
+common_llm_error: Translating land conveyancing into colloquial informal phrasing
+  (e.g., 'জমির কাগজ', 'মালিকানা পরিবর্তন') instead of statutory Registry terms (সাফ-কবলা,
+  চৌহদ্দি, নামজারি, জমাভাগ, খারিজ).
+sources:
+- The Registration Act 1908 (Bangladesh Ministry of Law Bengali Translation)
+- The State Acquisition and Tenancy Act 1950
+- Land Ministry Deed Drafting Manual (ভূমি মন্ত্রণালয় দলিল লিখন ও রেজিস্ট্রি নির্দেশিকা)
+review:
+  reviewer_name: Ashikur Rahman Bhuiyan
+  reviewer_affiliation: Lead Native-Speaker Reviewer
+  reviewed_date: '2026-11-11'
+  status: APPROVED
+  notes: Verified against Ministry of Land statutory deed drafting conventions and
+    Directorate of Registration forms.
+  signature_hash: sha256:e70678f2b8435b0b
+last_modified: '2026-11-11'
+created_date: '2026-11-11'

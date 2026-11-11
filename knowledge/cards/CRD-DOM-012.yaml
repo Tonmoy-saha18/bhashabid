@@ -1,0 +1,40 @@
+id: CRD-DOM-012
+title: NCTB Creative Pedagogy & Exam Questioning (জাতীয় শিক্ষাক্রম ও সৃজনশীল প্রশ্নপদ্ধতি
+  কাঠামো)
+domain: Education & Pedagogy
+profile: bd_standard
+register: formal
+confidence: reviewed
+rule_summary: 'Enforce NCTB four-tier Creative Question (সৃজনশীল প্রশ্ন) architecture:
+  উদ্দীপক (Stimulus/Stem), followed by (ক) জ্ঞানমূলক (1 mark), (খ) অনুধাবনমূলক (2
+  marks), (গ) প্রয়োগমূলক (3 marks), and (ঘ) উচ্চতর দক্ষতামূলক (4 marks), preventing
+  rubric distortion.'
+good_examples:
+- 'উদ্দীপকটি পড়িয়া নিচের প্রশ্নগুলোর উত্তর দাও: ... (ক) সালোকসংশ্লেষণ কাকে বলে? (খ)
+  উদ্ভিদের পাতায় শ্বসন প্রক্রিয়া কীভাবে সম্পন্ন হয়? ব্যাখ্যা করো। (গ) উদ্দীপকে বর্ণিত
+  রফিকের কৃষি উদ্যোগে সালোকসংশ্লেষণের গুরুত্ব প্রয়োগ ব্যাখ্যা করো। (ঘ) ''সুষম পুষ্টি
+  ব্যবস্থাপনায় উদ্দীপকের মডেলটি সর্বোত্তম সমাধান''—উক্তিটির যথার্থতা মূল্যায়ন করো।'
+- 'শিখনফল: শিক্ষার্থীরা ভাষা আন্দোলনের পটভূমি বর্ণনা করিতে পারিবে এবং শহীদ দিবসের
+  তাৎপর্য বিশ্লেষণ করিতে সক্ষম হইবে।'
+bad_examples:
+- 'নিচের গল্পটি পড়ে প্রশ্নের উত্তর দাও: (ক) রফিক কে ছিল এবং কেন কাজ করেছিল বিস্তারিত
+  লেখো? (খ) সালোকসংশ্লেষণের ওপর একটি রচনা লেখো।'
+- উদ্দীপক ছাড়া সরাসরি এক লাইনের বর্ণনামূলক প্রশ্ন দিয়ে সৃজনশীল প্রশ্নের মার্কিং দাবি
+  করা।
+common_llm_error: Violating the 4-tier Bloom's taxonomy mapping mandated by NCTB (putting
+  an essay question in part 'ক' or omitting the analytical evaluative imperative 'যথার্থতা
+  মূল্যায়ন করো' in part 'ঘ').
+sources:
+- National Curriculum and Textbook Board (NCTB) Teacher's Curriculum Guide
+- Secondary Education Sector Development Project (SESDP) Creative Questioning Rubric
+- National Education Policy 2010 (জাতীয় শিক্ষানীতি ২০১০)
+review:
+  reviewer_name: Ashikur Rahman Bhuiyan
+  reviewer_affiliation: Lead Native-Speaker Reviewer
+  reviewed_date: '2026-11-11'
+  status: APPROVED
+  notes: Verified against NCTB Secondary exam framing guidelines and SESDP creative
+    questioning framework.
+  signature_hash: sha256:45a88652f91c8fe7
+last_modified: '2026-11-11'
+created_date: '2026-11-11'
