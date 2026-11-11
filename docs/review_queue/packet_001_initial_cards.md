@@ -43,10 +43,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Bangladesh Secretariat Instructions (সচিবালয় নির্দেশমালা), Bangla Academy Administrative Glossary & Letter Manual
 
 **Human Reviewer Decision Box**:
-- [x] **APPROVED** (Elevate to `reviewed`)
+- [ ] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
-- *Reviewer Notes*: Human review verified and approved: Seems ok. Administrative petition format and salutations validated.
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
 
 ---
 
@@ -68,10 +68,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Bangla Academy Letters & Epistolary Standards, Standard Bangla Grammar & Composition (NCTB Class 9-10)
 
 **Human Reviewer Decision Box**:
-- [x] **APPROVED** (Elevate to `reviewed`)
+- [ ] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
-- *Reviewer Notes*: Human review verified and approved: Alright. Letter writing hierarchies and epistolary registers validated.
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
 
 ---
 
@@ -92,10 +92,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Syed Manzoorul Islam: কথাসাহিত্য ও শিল্পরীতি, Humayun Ahmed & Modern Fiction Stylistic Corpus
 
 **Human Reviewer Decision Box**:
-- [x] **APPROVED** (Elevate to `reviewed`)
+- [ ] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
-- *Reviewer Notes*: Human review verified and approved: APPROVED. Literary fiction dialogue and narrative register validated.
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
 
 ---
 
@@ -116,10 +116,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Dhaka University Journal of Research Style Manual, Bangla Academy Research Methodology & Terminology Guidelines
 
 **Human Reviewer Decision Box**:
-- [x] **APPROVED** (Elevate to `reviewed`)
+- [ ] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
-- *Reviewer Notes*: Human review verified and approved: APPROVED. Academic research prose, methodology terminology, and scholarly passive voice validated.
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
 
 ---
 
@@ -140,10 +140,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Abul Mansur Ahmad / Shibnarayan Ray Essay Collections, Bangla Academy Prabandha Stylistic Standards
 
 **Human Reviewer Decision Box**:
-- [x] **APPROVED** (Elevate to `reviewed`)
+- [ ] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
-- *Reviewer Notes*: Human review verified and approved: APPROVED. Non-fiction book authoring conventions, anatomical sections, and essay rhetorical connectors validated.
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
 
 ---
 
@@ -163,10 +163,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Standard Chartered / Grameenphone Corporate Communications Corpus, Brand Forum Bangladesh Copywriting Handbook
 
 **Human Reviewer Decision Box**:
-- [x] **APPROVED** (Elevate to `reviewed`)
+- [ ] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
-- *Reviewer Notes*: Human review verified and approved: APPROVED. Corporate copywriting, marketing terminology, and press release anatomy validated.
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
 
 ---
 
@@ -183,14 +183,14 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
   - ✗ আমরা দুইজনে মিলে এই চুক্তি বানালাম এবং আমরা দুইজন রাজি আছি।
   - ✗ যদি কেউ নিয়ম না মানে তবে তাকে কোর্টে নিব।
 
-**Common LLM Error**: LLMs write informal, conversational agreements without binding statutory terms, or slip into archaic colonial Sadhu formulas.
+**Common LLM Error**: LLMs write informal, conversational agreements without binding statutory terms.
 **Sources / Citations**: The Contract Act 1872 (Bangladesh Ministry of Law Bengali Translation), Bangladesh Legal Form & Precedents Handbook
 
 **Human Reviewer Decision Box**:
-- [x] **REVISED & APPROVED** (Amended per reviewer feedback and approved)
+- [ ] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
-- *Reviewer Notes*: REVISED & APPROVED: Amended archaic 1872 colonial Sadhu verb endings (বলিয়া গণ্য হইবে -> কার্যকর বলে গণ্য হবে, করিলেন -> করলেন) to modern Promito Cholito per real-world corporate and legal standards.
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
 
 ---
 
@@ -211,10 +211,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Directorate General of Health Services (DGHS) Bangladesh Public Health Guidelines, World Health Organization (WHO) Bangla Advisory Bulletins
 
 **Human Reviewer Decision Box**:
-- [x] **APPROVED** (Elevate to `reviewed`)
+- [ ] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
-- *Reviewer Notes*: Human review verified and approved: APPROVED. Healthcare communication, medical advisory tone, and precise dosage conventions validated.
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
 
 ---
 
@@ -235,17 +235,17 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Prabodh Chandra Sen: বাংলা ছন্দ পরিক্রমা, Amulyadhan Mukhopadhyay: আধুনিক বাংলা ছন্দদর্শন
 
 **Human Reviewer Decision Box**:
-- [x] **APPROVED** (Elevate to `reviewed`)
+- [ ] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
-- *Reviewer Notes*: Human review verified and approved: APPROVED. Classical Bengali prosody, dalabritta/matrabritta/payar metre rules validated.
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
 
 ---
 
 ### Card 10: [CRD-DOM-010] Land Records & Property Deeds (ভূমি রেজিস্ট্রি, খতিয়ান ও সাফ-কবলা দলিল)
 - **Domain**: `Land, Property & Registry` | **Profile**: `bd_standard` | **Register**: `formal`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
-- **Rule Summary**: Enforce statutory Bengali land deed taxonomy (সাফ-কবলা, হেবা, বন্টননামা) and survey records (CS, SA, RS, BS খতিয়ান, দাগ নম্বর, মৌজা, চৌহদ্দি). Real-world practice reflects a dual transition reality: (1) **Modern Digital Standard (প্রমিত চলিত)**: Mandated by Land Ministry digital e-Mutation and contemporary deed drafting (দখল বুঝে পেলাম, সম্পন্ন করে দাখিলা গ্রহণ করা হয়েছে); (2) **Traditional Sub-Registry Boilerplate (ঐতিহ্যবাহী সাধু পাঠ)**: Conventional deed writers (দলিল লেখক) historically retain archaic boilerplate (দখল বুঝিয়া পাইলাম, সম্পন্ন করিয়া দাখিলা গ্রহণ করা হইয়াছে). If drafting in traditional register, it must remain 100% pure Sadhu; never mix the two into Guruchandali. Prohibit colloquial informal phrasing (জমির কাগজ, মালিকানা পরিবর্তন).
+- **Rule Summary**: Enforce statutory Bengali land deed taxonomy (সাফ-কবলা, হেবা, বন্টননামা) and survey records (CS, SA, RS, BS খতিয়ান, দাগ নম্বর, মৌজা, চৌহদ্দি). Real-world practice reflects a dual transition reality: (1) Modern Digital Standard (প্রমিত চলিত): Mandated by Land Ministry digital e-Mutation and contemporary deed drafting (দখল বুঝে পেলাম, সম্পন্ন করে দাখিলা গ্রহণ করা হয়েছে); (2) Traditional Sub-Registry Boilerplate (ঐতিহ্যবাহী সাধু পাঠ): Conventional deed writers (দলিল লেখক) historically retain archaic boilerplate (দখল বুঝিয়া পাইলাম, সম্পন্ন করিয়া দাখিলা গ্রহণ করা হইয়াছে). If drafting in traditional register, it must remain 100% pure Sadhu; never mix the two into Guruchandali. Prohibit colloquial informal phrasing (জমির কাগজ, মালিকানা পরিবর্তন).
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
   - ✓ [আধুনিক প্রমিত চলিত রূপ - ভূমি মন্ত্রণালয় ই-নামজারি মানদণ্ড]: অদ্যকার রেজিস্ট্রিকৃত সাফ-কবলা বিক্রয় দলিলমূলে আমি ১ম পক্ষ ক্রেতা ২য় পক্ষের নিকট থেকে হস্তান্তরিত সম্পত্তির চূড়ান্ত দখল বুঝে পেলাম এবং নামজারি সম্পন্ন করে দাখিলা গ্রহণ করা হয়েছে।
@@ -257,14 +257,14 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
   - ✗ দলিলমূলে সম্পত্তির দখল বুঝিয়া পাইলাম এবং দাখিলা গ্রহণ করা হয়েছে। (ভয়ানক গুরুচণ্ডালী মিশ্রণ)
   - ✗ জমি কেনার পর সরকারি রেকর্ডে নিজের নাম পরিবর্তন করে নিয়েছি।
 
-**Common LLM Error**: Translating land conveyancing into colloquial informal phrasing (e.g., 'জমির কাগজ', 'মালিকানা পরিবর্তন') instead of statutory Registry terms (সাফ-কবলা, চৌহদ্দি, নামজারি, জমাভাগ, খারিজ), or mixing Sadhu boilerplate with Cholito verbs into Guruchandali.
+**Common LLM Error**: Translating land conveyancing into colloquial informal phrasing (e.g., 'জমির কাগজ', 'মালিকানা পরিবর্তন') instead of statutory Registry terms (সাফ-কবলা, চৌহদ্দি, নামজারি, জমাভাগ, খারিজ).
 **Sources / Citations**: The Registration Act 1908 (Bangladesh Ministry of Law Bengali Translation), The State Acquisition and Tenancy Act 1950, Land Ministry Deed Drafting Manual (ভূমি মন্ত্রণালয় দলিল লিখন ও রেজিস্ট্রি নির্দেশিকা)
 
 **Human Reviewer Decision Box**:
-- [x] **REVISED & APPROVED** (Amended per reviewer feedback and approved)
+- [ ] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
-- *Reviewer Notes*: REVISED & APPROVED: Amended per reviewer guidance on transitional dual reality. Explicitly modeled modern Land Ministry digital e-Mutation (Promito Cholito) alongside traditional sub-registry deed boilerplate (pure Sadhu) and flagged Guruchandali mixtures.
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
 
 ---
 
@@ -287,10 +287,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Bangladesh Meteorological Department (BMD) Cyclone Warning Protocol & Terminology, Department of Agricultural Extension (DAE) Krishi Diary & Crop Manual, Disaster Management Act 2012 (Official Bengali Text)
 
 **Human Reviewer Decision Box**:
-- [x] **REVISED & APPROVED** (Amended per reviewer feedback and approved)
+- [ ] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
-- *Reviewer Notes*: REVISED & APPROVED: Reviewer caught Sadhu verbs (রহিয়াছে, করিতে বলা হইয়াছে, করিতে হইবে). Amended all examples to modern standard Promito Cholito (রয়েছে, করতে বলা হয়েছে, করতে হবে) per BMD and DAE institutional standards.
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
 
 ---
 
@@ -311,10 +311,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: National Curriculum and Textbook Board (NCTB) Teacher's Curriculum Guide, Secondary Education Sector Development Project (SESDP) Creative Questioning Rubric, National Education Policy 2010 (জাতীয় শিক্ষানীতি ২০১০)
 
 **Human Reviewer Decision Box**:
-- [x] **REVISED & APPROVED** (Amended per reviewer feedback and approved)
+- [ ] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
-- *Reviewer Notes*: REVISED & APPROVED: Reviewer caught Guruchandali mix (পড়িয়া vs উত্তর দাও, করিতে পারিবে vs সক্ষম হবে). Amended all examples to pure Promito Cholito (পড়ে, করতে পারবে) per NCTB national curriculum standards.
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
 
 ---
 
@@ -335,10 +335,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Suniti Kumar Chatterji, The Origin and Development of the Bengali Language, 1926, Bangla Academy Promito Bangla Bhashar Byakoron, Vol 1
 
 **Human Reviewer Decision Box**:
-- [x] **APPROVED** (Elevate to `reviewed`)
+- [ ] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
-- *Reviewer Notes*: Human review verified and approved: APPROVED. Guru-chandali Dosh (Sadhu-Cholito verb mixing prevention) rule and examples validated.
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
 
 ---
 
@@ -636,7 +636,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 ### Card 26: [CRD-TRN-005] Article 102 Constitutional Writs Taxonomy & Drafting (সংবিধানের ১০২ অনুচ্ছেদের রিট মামলার প্রমিত পরিভাষা)
 - **Domain**: `legal_constitutional` | **Profile**: `bd_standard` | **Register**: `statutory_legal`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
-- **Rule Summary**: Writ petitions under Article 102 of the Bangladesh Constitution operate on a clear statutory dual reality: (1) **Constitutional Citation (মূল সংবিধানের প্রামাণিক সাধু ধারা পাঠ)**: The 1972 Constitution was adopted in formal Sadhu; statutory quotations of Article 102 preserve verbatim phrasing (যাহা করিবার বাধ্যবাধকতা রহিয়াছে, তাহা করিবার নির্দেশ অথবা বিরত থাকিবার নির্দেশ); (2) **Modern High Court Practice (সুপ্রিম কোর্টের আধুনিক প্রমিত চলিত রিট পিটিশন ও প্রেয়ার)**: Advocates' pleadings, grounds, operative prayers, and judicial reporting in Bengali are drafted in formal Promito Cholito (বাধ্য করার জন্য পরমাদেশ, ঘোষণা করা হবে না, তা প্রদর্শনের জন্য রুল নিশি). Never mix constitutional Sadhu snippets into the Cholito narrative of the petition (গুরুচণ্ডালী দোষ বর্জন আবশ্যক).
+- **Rule Summary**: Writ petitions under Article 102 of the Bangladesh Constitution operate on a clear statutory dual reality: (1) Constitutional Citation (মূল সংবিধানের প্রামাণিক সাধু ধারা পাঠ): The 1972 Constitution was adopted in formal Sadhu; statutory quotations of Article 102 preserve verbatim phrasing (যাহা করিবার বাধ্যবাধকতা রহিয়াছে, তাহা করিবার নির্দেশ অথবা বিরত থাকিবার নির্দেশ); (2) Modern High Court Practice (সুপ্রিম কোর্টের আধুনিক প্রমিত চলিত রিট পিটিশন ও প্রেয়ার): Advocates' pleadings, grounds, operative prayers, and judicial reporting in Bengali are drafted in formal Promito Cholito (বাধ্য করার জন্য পরমাদেশ, ঘোষণা করা হবে না, তা প্রদর্শনের জন্য রুল নিশি). Never mix constitutional Sadhu snippets into the Cholito narrative of the petition (গুরুচণ্ডালী দোষ বর্জন আবশ্যক).
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
   - ✓ [সুপ্রিম কোর্টের আধুনিক প্রমিত চলিত রিট প্রার্থনা]: সংবিধানের ১০২(২)(ক)(১) অনুচ্ছেদের অধীন বিবাদীদের আইনগত দায়িত্ব পালনে বাধ্য করার জন্য পরমাদেশ জারির প্রার্থনা।
@@ -648,13 +648,13 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
   - ✗ বিবাদীকে সশরীরে হাজির করিবার নির্দেশ দেওয়া হলো এবং তিনি আগামী সপ্তাহে আসবেন। (ভয়ানক গুরুচণ্ডালী মিশ্রণ)
   - ✗ আটক ব্যক্তির ক্ষেত্রে সার্টিওরারি প্রার্থনা করা (Fatal writ category confusion).
 
-**Common LLM Error**: LLMs confuse Mandamus (compelling an act) with Certiorari (quashing an act), lack standard High Court prayer templates, or mix constitutional Sadhu clauses with Cholito verbs into Guruchandali.
+**Common LLM Error**: LLMs confuse Mandamus (compelling an act) with Certiorari (quashing an act) and lack standard High Court prayer templates.
 **Sources / Citations**: The Constitution of the People's Republic of Bangladesh (Article 102), Mahmudul Islam: Constitutional Law of Bangladesh (3rd Edition)
 
 **Human Reviewer Decision Box**:
-- [x] **REVISED & APPROVED** (Amended per reviewer feedback and approved)
+- [ ] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
-- *Reviewer Notes*: REVISED & APPROVED: Amended per reviewer guidance on institutional dual reality. Explicitly codified verbatim 1972 constitutional Sadhu citations alongside modern High Court Promito Cholito pleadings and prayers, updated writ engine, and added Guruchandali trap.
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
 
 ---
