@@ -50,11 +50,23 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
         packet += f"\n**Common LLM Error**: {card.get('common_llm_error')}\n"
         packet += f"**Sources / Citations**: {', '.join(card.get('sources', []))}\n\n"
 
+        rev = card.get("review")
         packet += "**Human Reviewer Decision Box**:\n"
-        packet += "- [ ] **APPROVED** (Elevate to `reviewed`)\n"
-        packet += "- [ ] **REVISE** (Needs amendment)\n"
-        packet += "- *Reviewer Handle / Name*: ____________________\n"
-        packet += "- *Reviewer Notes*: ____________________\n\n"
+        if rev and rev.get("status") == "APPROVED":
+            notes = rev.get("notes", "")
+            if "REVISED & APPROVED" in notes or "REVISED" in notes:
+                packet += "- [x] **REVISED & APPROVED** (Amended per reviewer feedback and approved)\n"
+                packet += "- [ ] **REVISE** (Needs amendment)\n"
+            else:
+                packet += "- [x] **APPROVED** (Elevate to `reviewed`)\n"
+                packet += "- [ ] **REVISE** (Needs amendment)\n"
+            packet += f"- *Reviewer Handle / Name*: {rev.get('reviewer_name')} ({rev.get('reviewer_affiliation')})\n"
+            packet += f"- *Reviewer Notes*: {notes}\n\n"
+        else:
+            packet += "- [ ] **APPROVED** (Elevate to `reviewed`)\n"
+            packet += "- [ ] **REVISE** (Needs amendment)\n"
+            packet += "- *Reviewer Handle / Name*: ____________________\n"
+            packet += "- *Reviewer Notes*: ____________________\n\n"
         packet += "---\n\n"
 
     return packet
