@@ -1,0 +1,30 @@
+# Bhashabid Source Registry
+sources:
+  - id: SRC-001
+    name: Mukto-Bangla Corpus
+    license: CC-BY 4.0
+    url: https://github.com/bangla-nlp/corpus
+    status: approved
+    domain: general_nlp
+    added_date: 2026-11-11
+  - id: SRC-002
+    name: Bengali Wikipedia Articles Dump
+    license: CC BY-SA 4.0
+    url: https://dumps.wikimedia.org/bnwiki/
+    status: approved
+    domain: encyclopedic_formal
+    added_date: 2026-11-11
+  - id: SRC-003
+    name: Bangla Academy Standard Spelling Rules
+    license: Public Guidance / Open Norms
+    url: https://banglaacademy.portal.gov.bd/
+    status: approved
+    domain: orthography_lexicography
+    added_date: 2026-11-11
+  - id: SRC-004
+    name: Open Government Data Bangladesh
+    license: Open Access (OGD License)
+    url: https://data.gov.bd/
+    status: approved
+    domain: government_reports
+    added_date: 2026-11-11

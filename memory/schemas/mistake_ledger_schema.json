@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Bhashabid Mistake Ledger Schema",
+  "type": "object",
+  "required": [
+    "id",
+    "date",
+    "task",
+    "model",
+    "input",
+    "output",
+    "expected",
+    "taxonomy",
+    "root_cause",
+    "severity",
+    "fix_ref",
+    "test_ref",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^MST-[0-9]{4,}$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "task": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "input": {
+      "type": "string"
+    },
+    "output": {
+      "type": "string"
+    },
+    "expected": {
+      "type": "string"
+    },
+    "taxonomy": {
+      "type": "string",
+      "enum": [
+        "number_digit",
+        "unicode_normalization",
+        "spelling",
+        "grammar_agreement",
+        "word_order_calque",
+        "register_honorific_mixing",
+        "punctuation",
+        "idiom_collocation",
+        "naming_transliteration",
+        "translation_fidelity",
+        "style_tone",
+        "factual_hallucination",
+        "skill_routing",
+        "tool_misuse"
+      ]
+    },
+    "root_cause": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "P3"
+      ]
+    },
+    "fix_ref": {
+      "type": "string"
+    },
+    "test_ref": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "OPEN",
+        "RESOLVED",
+        "VERIFIED"
+      ]
+    }
+  }
+}
