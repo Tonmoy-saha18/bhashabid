@@ -29,3 +29,4 @@ state/STOP
 # Local IDE installations
 .cursor/
 .cursorrules
+.gemini/
