@@ -86,11 +86,49 @@ def check_kill_switch() -> bool:
     stop_file = os.path.join(REPO_ROOT, "state", "STOP")
     return os.path.exists(stop_file)
 
+def sync_post_practice_git(auto_push: bool = False):
+    """
+    Synchronizes any modified review cards, review packets, or regression ledgers.
+    If auto_push is True, commits and pushes cleanly to remote.
+    """
+    import subprocess
+    try:
+        res = subprocess.run(["git", "status", "--porcelain"], cwd=REPO_ROOT, capture_output=True, text=True)
+        changes = res.stdout.strip()
+        if not changes:
+            return
+
+        tracked_prefixes = ("docs/review_queue", "knowledge/cards", "memory/mistakes", "eval/reports")
+        files_to_add = []
+        for line in changes.splitlines():
+            parts = line.strip().split()
+            if len(parts) >= 2:
+                fpath = parts[-1]
+                if any(fpath.startswith(prefix) for prefix in tracked_prefixes):
+                    files_to_add.append(fpath)
+
+        if files_to_add:
+            subprocess.run(["git", "add"] + files_to_add, cwd=REPO_ROOT, check=True)
+            msg = f"chore(practice): post-practice synchronization of {len(files_to_add)} review/learning artifacts"
+            subprocess.run(["git", "commit", "-m", msg], cwd=REPO_ROOT, check=True)
+            print(f"Post-practice git commit created for: {', '.join(files_to_add)}")
+
+            if auto_push:
+                print("Pushing post-practice updates to remote repository...")
+                push_res = subprocess.run(["git", "push", "origin", "main"], cwd=REPO_ROOT, capture_output=True, text=True)
+                if push_res.returncode == 0:
+                    print("Successfully pushed post-practice updates to origin/main.")
+                else:
+                    print(f"Notice: git push did not complete: {push_res.stderr.strip()}")
+    except Exception as ex:
+        print(f"Notice: post-practice git synchronization encountered: {ex}")
+
 def run_practice_cycle(
     duration_minutes: float = None,
     rounds: int = 1,
     domain_filter: str = None,
-    continuous: bool = False
+    continuous: bool = False,
+    auto_push: bool = False
 ) -> dict:
     start_time = datetime.now()
     effective_duration = duration_minutes if (continuous and duration_minutes) else 2.5
@@ -219,6 +257,20 @@ def run_practice_cycle(
 
     stats["report_file"] = report_path
     print(f"\nDaily Practice Report logged at: {report_path}")
+
+    # Clean up kill-switch state automatically if triggered
+    if stats["kill_switch_triggered"]:
+        stop_file = os.path.join(REPO_ROOT, "state", "STOP")
+        if os.path.exists(stop_file):
+            try:
+                os.remove(stop_file)
+                print("Cleaned up 'state/STOP' kill-switch automatically.")
+            except Exception:
+                pass
+
+    # Post-practice git synchronization and remote push if requested
+    sync_post_practice_git(auto_push=auto_push)
+
     print("=" * 80)
     return stats
 
@@ -228,11 +280,13 @@ if __name__ == "__main__":
     parser.add_argument("--duration-minutes", "--minutes", "-minutes", "-m", dest="duration_minutes", type=float, default=150.0, help="Window for continuous mode (default: 150 min)")
     parser.add_argument("--domain", default=None, help="Filter to specific domain")
     parser.add_argument("--continuous", action="store_true", help="Run continuously for duration-minutes (soak test mode)")
+    parser.add_argument("--push", action="store_true", help="Automatically commit and push post-practice updates")
     args = parser.parse_args()
 
     run_practice_cycle(
         duration_minutes=args.duration_minutes,
         rounds=args.rounds,
         domain_filter=args.domain,
-        continuous=args.continuous
+        continuous=args.continuous,
+        auto_push=args.push
     )

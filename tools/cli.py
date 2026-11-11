@@ -121,7 +121,8 @@ def handle_practice(args):
             duration_minutes=args.duration_minutes,
             rounds=args.rounds,
             domain_filter=args.domain,
-            continuous=args.continuous
+            continuous=args.continuous,
+            auto_push=getattr(args, "push", False)
         )
         return 0
     except Exception as e:
@@ -263,6 +264,7 @@ def main():
     p_prac.add_argument("--duration-minutes", "--minutes", "-minutes", "-m", dest="duration_minutes", type=float, default=150.0, help="Window for continuous mode (default: 150 min)")
     p_prac.add_argument("--domain", default=None, help="Filter to specific domain")
     p_prac.add_argument("--continuous", action="store_true", help="Run continuously for duration-minutes (soak test mode)")
+    p_prac.add_argument("--push", action="store_true", help="Automatically commit and push post-practice updates")
     p_prac.set_defaults(func=handle_practice)
 
     # install-skill
