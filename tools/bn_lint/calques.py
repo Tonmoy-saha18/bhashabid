@@ -1,11 +1,18 @@
+# tools/bn_lint/calques.py
 # English Calque and Unnatural Passive Linter
 import re
 from .models import LintIssue, LintSeverity
 
+B_L = r"(?<![\u0980-\u09FF])"
+B_R = r"(?![\u0980-\u09FF])"
+
 UNNATURAL_CALQUES = [
-    (r"\bদ্বারা\s+কৃত\b", "দ্বারা কৃত", "কর্তৃক সম্পাদিত / করা"),
-    (r"\bদ্বারা\s+চালিত\b", "দ্বারা চালিত", "চালিত / পরিচালিত"),
-    (r"কাজ\s+শব্দের\s+চেয়ে\s+জোরে\s+কথা\s+বলে", "কাজ শব্দের চেয়ে জোরে কথা বলে", "কথার চেয়ে কাজের মূল্য বেশি"),
+    (B_L + r"দ্বারা\s+সভাপতিত্ব\w*" + B_R, "দ্বারা সভাপতিত্ব", "সভাপতিত্বে অনুষ্ঠিত"),
+    (B_L + r"দ্বারা\s+সরবরাহ\w*" + B_R, "দ্বারা সরবরাহ", "সরবরাহ করবে / যোগান দেবে"),
+    (B_L + r"দ্বারা\s+অনুমোদিত" + B_R, "দ্বারা অনুমোদিত", "অনুমোদন করেছে / কর্তৃক অনুমোদিত"),
+    (B_L + r"দ্বারা\s+চালিত" + B_R, "দ্বারা চালিত", "চালিত / পরিচালিত"),
+    (B_L + r"দ্বারা\s+কৃত" + B_R, "দ্বারা কৃত", "সম্পাদিত / করা"),
+    (B_L + r"কাজ\s+শব্দের\s+চেয়ে\s+জোরে\s+কথা\s+বলে" + B_R, "কাজ শব্দের চেয়ে জোরে কথা বলে", "কথার চেয়ে কাজের মূল্য বেশি"),
 ]
 
 def check_calques(text: str) -> list[LintIssue]:
@@ -19,7 +26,7 @@ def check_calques(text: str) -> list[LintIssue]:
                 col = m.start() + 1
                 issues.append(LintIssue(
                     rule_id="RULE-LINT-CALQUE",
-                    message=f"অস্বাভাবিক ইংরেজি ক্যাল্ক (আক্ষরিক অনুবাদ): '{matched_label}' প্রমিত বাংলায় কৃত্রিম শোনায়।",
+                    message=f"অস্বাভাবিক ইংরেজি প্যাসিভ ক্যাল্ক: '{matched_label}' প্রমিত বাংলায় কৃত্রিম শোনায়।",
                     line=line_idx,
                     col=col,
                     severity=LintSeverity.WARNING,
