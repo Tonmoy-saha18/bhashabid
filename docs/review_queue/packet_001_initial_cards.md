@@ -318,7 +318,33 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ---
 
-### Card 13: [CRD-GRM-001] Sadhu-Cholito Verb Consistency (গুরুচণ্ডালী দোষ পরিহার)
+### Card 13: [CRD-DOM-013] Poetic Metaphors, Imagery & Figurative Diction (কাব্যিক রূপক, চিত্রকল্প ও ভাবার্থ প্রকাশ)
+- **Domain**: `creative_writing` | **Profile**: `bd_standard` | **Register**: `literary_poetic`
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
+- **Rule Summary**: Poetic translation and figurative creative prose in Bengali require discerning the three layers of meaning: Abhidha (অভিধা - literal sense), Lakshana (লক্ষণা - indicative/metaphoric sense), and Vyanjana (ব্যঞ্জনা - suggested/symbolic resonance). Key invariants: (1) Never translate somatic metaphors literally: "His heart turned to stone" must be translated as "তার হৃদয় পাষাণ হয়ে গেল" or "মন শক্ত হয়ে গেল" (never anatomical "তার হৃৎপিণ্ড পাথরে রূপান্তরিত হলো"). (2) Atmospheric & Sensory Imagery: Preserve authentic Bengali imagery—"Autumn mist" ➔ "হেমন্তের বিষণ্ণ কুয়াশা"; "Tears streaming down like monsoon rain" ➔ "চোখের কোণে শ্রাবণের ঢল"; "Golden dusk" ➔ "গোধূলির স্বর্ণাভা". (3) Literary Tropes: Avoid flattening rich allegories into dry expository sentences. Respect evocative rhythm and cadence in classical and modern verse (e.g. Jibanananda Das, Kazi Nazrul Islam, Rabindranath Tagore).
+
+**Positive Examples (শুদ্ধ প্রয়োগ)**:
+  - ✓ শোকের তীব্র আঘাতে তার কোমল হৃদয় যেন নিমিষেই পাষাণ হয়ে গেল।
+  - ✓ হেমন্তের বিষণ্ণ কুয়াশা চিরে রক্তিম সূর্য ডানা মেলল নদীর ওপারে।
+  - ✓ তার আঁখিপল্লবে খেলা করে এক অচেনা সমুদ্রের গভীর নীরবতা।
+
+**Negative Examples (ভ্রান্ত প্রয়োগ)**:
+  - ✗ তার হৃৎপিণ্ড পাথরে পরিণত হয়েছিল কারণ সে খুব দুঃখ পেয়েছিল।
+  - ✗ শরতের ধোঁয়া তার চোখের সামনে খুব ভারী হয়ে পড়েছিল।
+  - ✗ তার চোখগুলো পাখির বাসার মতো দেখতে লাগছিল।
+
+**Common LLM Error**: LLMs flatten nuanced poetic metaphors into anatomical or mechanical prose ('হৃৎপিণ্ড পাথরে পরিণত', 'পাখির বাসার মতো চোখ') and fail to invoke sensory and evocative Bengali figurative diction.
+**Sources / Citations**: Aloker Alo: Bengali Poetic Aesthetics & Metaphor Treasury, Bangla Academy Literary Prosody & Stylistics Manual, Jibanananda Das / Buddhadeva Bose Poetic Essays
+
+**Human Reviewer Decision Box**:
+- [x] **APPROVED** (Elevate to `reviewed`)
+- [ ] **REVISE** (Needs amendment)
+- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>))
+- *Reviewer Notes*: Validated and approved. Literary figurative diction, semantic tri-layer (Abhidha/Lakshana/Vyanjana), and poetic imagery standards verified.
+
+---
+
+### Card 14: [CRD-GRM-001] Sadhu-Cholito Verb Consistency (গুরুচণ্ডালী দোষ পরিহার)
 - **Domain**: `grammar` | **Profile**: `all` | **Register**: `formal`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Bengali prose must maintain strict stylistic consistency between Sadhu (সাধু) and Cholito (চলিত) registers. Mixing Sadhu verb forms (e.g. করিয়াছিলেন, যাইবে) with Cholito forms (e.g. করেছেন, যাবে) within the same discourse is a cardinal stylistic defect known as Guru-chandali Dosh.
@@ -342,7 +368,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ---
 
-### Card 14: [CRD-GRM-002] Honorific Concordance Across Pronouns and Verbs (আপনি / তুমি / তুই)
+### Card 15: [CRD-GRM-002] Honorific Concordance Across Pronouns and Verbs (আপনি / তুমি / তুই)
 - **Domain**: `grammar` | **Profile**: `all` | **Register**: `all`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Bengali pronouns possess a three-tier honorific system that strictly governs verbal inflection: formal (আপনি -> -েন/-বেন), familiar (তুমি -> -ো/-বে), and intimate/inferior (তুই -> -িস/-বি). Clashing pronoun honorific with inappropriate verb ending is a severe grammatical violation.
@@ -368,7 +394,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ---
 
-### Card 15: [CRD-GRM-003] Bengali Case Markers and Postposition Agreement (কারক ও বিভক্তি)
+### Card 16: [CRD-GRM-003] Bengali Case Markers and Postposition Agreement (কারক ও বিভক্তি)
 - **Domain**: `grammar` | **Profile**: `all` | **Register**: `all`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Bengali nominals take overt inflectional case suffixes (বিভক্তি) such as -এর/-র (genitive), -কে/-রে (accusative/dative), and -এ/-তে/-য়ে (locative). When governed by postpositions (জন্য, কাছে, থেকে, দ্বারা), the preceding noun or pronoun must assume the required oblique or genitive form.
@@ -392,7 +418,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ---
 
-### Card 16: [CRD-GRM-004] Bengali Euphonic Junctions (সন্ধি: স্বরসন্ধি ও ব্যঞ্জনসন্ধি)
+### Card 17: [CRD-GRM-004] Bengali Euphonic Junctions (সন্ধি: স্বরসন্ধি ও ব্যঞ্জনসন্ধি)
 - **Domain**: `grammar` | **Profile**: `all` | **Register**: `formal`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Sandhi joins adjacent sounds across morpheme boundaries. In Tatsama words, Sanskrit sandhi governs combinations (বিদ্যা + আলয় = বিদ্যালয়, পরি + ঈক্ষা = পরীক্ষা). In native Bengali words (খাঁটি বাংলা সন্ধি), phonetic assimilation is natural and non-pedantic (পাঁচ + জন = পাঁচজন).
@@ -416,7 +442,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ---
 
-### Card 17: [CRD-GRM-005] Bengali Compound Formation (সমাস: দ্বন্দ্ব, দ্বিগু, তৎপুরুষ ও কর্মধারয়)
+### Card 18: [CRD-GRM-005] Bengali Compound Formation (সমাস: দ্বন্দ্ব, দ্বিগু, তৎপুরুষ ও কর্মধারয়)
 - **Domain**: `grammar` | **Profile**: `all` | **Register**: `formal`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Samas condenses multi-word syntactic phrases (ব্যাসবাক্য) into single compound words (সমস্তপদ). Major types: Dwandwa (মা ও বাবা = মা-বাবা), Tatpurush (রাজার পুত্র = রাজপুত্র), Karmadharaya (নীল যে পদ্ম = নীলপদ্ম), and Bahubrihi (দশ আনন যার = দশানন).
@@ -439,7 +465,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ---
 
-### Card 18: [CRD-NUM-001] Irregular Bengali Cardinal Numbers 0-99 (০-৯৯ অনিয়মিত সংখ্যা)
+### Card 19: [CRD-NUM-001] Irregular Bengali Cardinal Numbers 0-99 (০-৯৯ অনিয়মিত সংখ্যা)
 - **Domain**: `numerals` | **Profile**: `bd_standard` | **Register**: `all`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Numbers 0 through 99 in Bengali do not follow a simple positional decimal compounding system. Each number from 1 to 99 has an irregular, phonetically evolved spelling defined by Bangla Academy standard orthography.
@@ -464,7 +490,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ---
 
-### Card 19: [CRD-ORT-001] Unicode NFC Canonicalization and Composite Graphemes (য়, ড়, ঢ়)
+### Card 20: [CRD-ORT-001] Unicode NFC Canonicalization and Composite Graphemes (য়, ড়, ঢ়)
 - **Domain**: `orthography` | **Profile**: `all` | **Register**: `all`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Bengali Unicode text must always be canonicalized to NFC form. In particular, composite sequences like য + ় (U+09BC) must be normalized to U+09DF (য়), ড + ় to U+09DC (ড়), and ঢ + ় to U+09DD (ঢ়) to prevent broken rendering, indexing failures, and search mismatch.
@@ -488,7 +514,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ---
 
-### Card 20: [CRD-ORT-002] Bangla Academy Loanword S-Rule (বিদেশি শব্দে 'স' বনাম 'ষ')
+### Card 21: [CRD-ORT-002] Bangla Academy Loanword S-Rule (বিদেশি শব্দে 'স' বনাম 'ষ')
 - **Domain**: `orthography` | **Profile**: `bd_standard` | **Register**: `formal`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: In the Bangladesh Standard (Bangla Academy) orthography, foreign loanwords (English, Persian, Arabic) with /s/ or /ʃ/ must use দন্ত্য-স ('স') or তালব্য-শ ('শ') based on phonetic convention, and NEVER মূর্ধন্য-ষ ('ষ'). Consequently, combinations like 'ষ্ট' or 'ষ্ঠ' in English loanwords are errors for 'স্ট'.
@@ -514,7 +540,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ---
 
-### Card 21: [CRD-ORT-003] Regional Orthographic Variations (বাংলাদেশ প্রমিত বনাম পশ্চিমবঙ্গ বানানরীতি)
+### Card 22: [CRD-ORT-003] Regional Orthographic Variations (বাংলাদেশ প্রমিত বনাম পশ্চিমবঙ্গ বানানরীতি)
 - **Domain**: `orthography` | **Profile**: `all` | **Register**: `formal`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: While core Sanskrit grammar is identical, modern standard Bengali possesses systematic regional orthographic variations between the Bangla Academy (Dhaka) standard and Paschimbanga Bangla Akademi (Kolkata) standard. Bangla Academy strictly enforces short-vowel ি (পাখি, হাতি, শাড়ি, বাড়ি, সরকারি, জাপানি) and loanword স (স্টেশন, মাস্টার). West Bengal orthography broadly accepts these but permits traditional tatbhava spellings in literature and prefers specific numeral variants (পাঁচশো, কুড়ি).
@@ -537,7 +563,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ---
 
-### Card 22: [CRD-TRN-001] Translation Idioms vs Literal English Calques (ভাবানুবাদ বনাম আক্ষরিক অনুবাদ)
+### Card 23: [CRD-TRN-001] Translation Idioms vs Literal English Calques (ভাবানুবাদ বনাম আক্ষরিক অনুবাদ)
 - **Domain**: `translation` | **Profile**: `all` | **Register**: `all`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Idiomatic expressions, proverbs, and metaphors must be translated by cultural equivalent (ভাবানুবাদ), never by literal word-for-word calque. Passive English sentences ('The road was inaugurated by the mayor') should be converted to active Bengali sentences ('মেয়র মহোদয় রাস্তাটি উদ্বোধন করলেন').
@@ -561,7 +587,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ---
 
-### Card 23: [CRD-TRN-002] High Court & Judicial Reporting Formulas (হাইকোর্টের রুল ও রিট মামলার প্রমিত পরিভাষা)
+### Card 24: [CRD-TRN-002] High Court & Judicial Reporting Formulas (হাইকোর্টের রুল ও রিট মামলার প্রমিত পরিভাষা)
 - **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: In Bangladeshi judicial reporting, High Court show-cause orders (Rule Nisi) follow a strict, standardized formula: '[বিষয়বস্তু] কেন [আইনগত ফলাফল] ঘোষণা করা হবে না, তা জানতে চেয়ে রুল জারি করেছেন হাইকোর্ট।' Translating 'issued a rule asking why... should not be declared illegal' literally as 'জিজ্ঞেস করে রুল জারি করেছে' is a catastrophic calque that destroys the formal legal register. Courts always take the honorific plural verb 'জারি করেছেন'.
@@ -585,7 +611,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ---
 
-### Card 24: [CRD-TRN-003] Macroeconomic & Financial News Syntax (অর্থনৈতিক সংবাদ ও বাংলাদেশ ব্যাংক পরিভাষা)
+### Card 25: [CRD-TRN-003] Macroeconomic & Financial News Syntax (অর্থনৈতিক সংবাদ ও বাংলাদেশ ব্যাংক পরিভাষা)
 - **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: In economic journalism (e.g. The Business Standard, Bangladesh Bank releases), numbers and statistical movements require precise conventions: percentages in prose should prefer 'শতাংশ' over '%' symbols in formal leads; interest rate changes use 'বেসিস পয়েন্ট' (basis points); policy rate is 'নীতি সুদহার'; movements 'driven by' must be rendered as active cause ('...কারণে মূল্যস্ফীতি দাঁড়িয়েছে') rather than clumsy passives ('...দ্বারা চালিত').
@@ -609,7 +635,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ---
 
-### Card 25: [CRD-TRN-004] Sports Vernacular & Cricket Reporting (ক্রিকেট ও ক্রীড়া সংবাদ পরিভাষা)
+### Card 26: [CRD-TRN-004] Sports Vernacular & Cricket Reporting (ক্রিকেট ও ক্রীড়া সংবাদ পরিভাষা)
 - **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Sports news in Bengali uses lively, active phrasing. The common English cliché 'conceded a defeat against X' must NEVER be translated as 'X-এর বিরুদ্ধে পরাজয় স্বীকার করেছে' (which sounds like military surrender). The standard, idiomatic sports phrasing is 'X-এর কাছে [উইকেট/রানে] হেরেছে' or 'পরাজিত হয়েছে'. Batsmen are referred to as 'ব্যাটার' or 'ব্যাটসম্যান', scores are 'অর্ধশতক' (half-century) and 'শতক' (century).
@@ -633,7 +659,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ---
 
-### Card 26: [CRD-TRN-005] Article 102 Constitutional Writs Taxonomy & Drafting (সংবিধানের ১০২ অনুচ্ছেদের রিট মামলার প্রমিত পরিভাষা)
+### Card 27: [CRD-TRN-005] Article 102 Constitutional Writs Taxonomy & Drafting (সংবিধানের ১০২ অনুচ্ছেদের রিট মামলার প্রমিত পরিভাষা)
 - **Domain**: `legal_constitutional` | **Profile**: `bd_standard` | **Register**: `statutory_legal`
 - **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Writ petitions under Article 102 of the Bangladesh Constitution operate on a clear statutory dual reality: (1) Constitutional Citation (মূল সংবিধানের প্রামাণিক সাধু ধারা পাঠ): The 1972 Constitution was adopted in formal Sadhu; statutory quotations of Article 102 preserve verbatim phrasing (যাহা করিবার বাধ্যবাধকতা রহিয়াছে, তাহা করিবার নির্দেশ অথবা বিরত থাকিবার নির্দেশ); (2) Modern High Court Practice (সুপ্রিম কোর্টের আধুনিক প্রমিত চলিত রিট পিটিশন ও প্রেয়ার): Advocates' pleadings, grounds, operative prayers, and judicial reporting in Bengali are drafted in formal Promito Cholito (বাধ্য করার জন্য পরমাদেশ, ঘোষণা করা হবে না, তা প্রদর্শনের জন্য রুল নিশি). Never mix constitutional Sadhu snippets into the Cholito narrative of the petition (গুরুচণ্ডালী দোষ বর্জন আবশ্যক).
@@ -656,5 +682,33 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 - [ ] **REVISE** (Needs amendment)
 - *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
 - *Reviewer Notes*: REVISED & APPROVED: Amended per reviewer guidance on institutional dual reality. Explicitly codified verbatim 1972 constitutional Sadhu citations alongside modern High Court Promito Cholito pleadings and prayers, updated writ engine, and added Guruchandali trap.
+
+---
+
+### Card 28: [CRD-TRN-006] Proverbs, Idioms & Metaphoric Equivalence (প্রবাদ-প্রবচন, বাগধারা ও রূপকার্থ সমীকরণ)
+- **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `literary_and_colloquial`
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
+- **Rule Summary**: Translating proverbs and idiomatic metaphors between English and Bengali requires deep cultural and semantic equivalence rather than literal lexical translation. Key invariants: (1) English proverbs must be mapped to their established Bengali counterparts: "A bad workman blames his tools" ➔ "নাচতে না জানলে উঠান বাঁকা" (never "খারাপ কর্মী তার সরঞ্জামকে দোষ দেয়"); "Barking dogs seldom bite" ➔ "যত গর্জে তত বর্ষে না" (never "ঘেউ ঘেউ করা কুকুর কদাচিৎ কামড়ায়"); "Too many cooks spoil the broth" ➔ "অধিক সন্ন্যাসীতে গাজন নষ্ট" (never "অধিক রাঁধুনি ঝোল নষ্ট করে"); "Make hay while the sun shines" ➔ "ঝোপ বুঝে কোপ মারা"; "A stitch in time saves nine" ➔ "সময়ের এক ফোঁড় অসময়ের দশ ফোঁড়". (2) Idioms and colloquial metaphors: "Piece of cake" ➔ "পানির মতো সহজ / দুধভাত" (never "কেকের টুকরো"); "Break a leg" ➔ "শুভকামনা" (never "পা ভেঙে ফেলো"); "Spill the beans" ➔ "হাঁড়ি ভেঙে দেওয়া" (never "শিম ছড়িয়ে দেওয়া"); "Beat around the bush" ➔ "ঘুরিয়ে-পেঁচিয়ে কথা বলা" (never "ঝোপের চারপাশে পেটানো"); "Burn the midnight oil" ➔ "রাত জেগে পরিশ্রম করা" (never "মধ্যরাতের তেল পোড়ানো"). (3) Bengali idioms (বাগধারা) must be preserved in natural contextual registers without artificial over-explanation.
+
+**Positive Examples (শুদ্ধ প্রয়োগ)**:
+  - ✓ কথায় বলে, নাচতে না জানলে উঠান বাঁকা; নিজের অদক্ষতা ঢাকতে সে এখন দলের অন্য সদস্যদের ওপর দোষ চাপাচ্ছে।
+  - ✓ অযথা ঘুরিয়ে-পেঁচিয়ে কথা না বলে মূল বিষয়ে আসুন।
+  - ✓ পরীক্ষাটি সত্যিই তার কাছে পানির মতো সহজ মনে হলো।
+  - ✓ কোনো গোপন বিষয় ছিল না, সে সবার সামনেই পুরো হাঁড়ি ভেঙে দিল।
+
+**Negative Examples (ভ্রান্ত প্রয়োগ)**:
+  - ✗ একজন খারাপ কর্মী তার সরঞ্জামকে দোষ দেয়, তাই সে দলের অন্য লোকদের দোষারোপ করছে।
+  - ✗ আপনি কেন সবসময় ঝোপের চারপাশে পেটাচ্ছেন? সরাসরি কথা বলুন।
+  - ✗ এই কাজটি তো একেবারে এক টুকরো কেক ছিল।
+  - ✗ তিনি সবার সামনে সব শিম ছড়িয়ে দিলেন এবং সত্য বেরিয়ে এলো।
+
+**Common LLM Error**: Frontier LLMs perform word-for-word calques on English proverbs and idioms ('ঝোপের চারপাশে পেটানো', 'কেকের টুকরো', 'শিম ছড়িয়ে দেওয়া', 'পা ভেঙে ফেলো'), making translated books, dialogues, and articles bizarre and unreadable.
+**Sources / Citations**: Bangla Academy Bengali-English & English-Bengali Dictionary, Mohammad Ali / Bhasha-Shahitya Samiti Probad-Probochon Sangroho, Bengali Idioms and Phrases Treasury (বাংলা বাগধারা ও প্রবচন কোষ)
+
+**Human Reviewer Decision Box**:
+- [x] **APPROVED** (Elevate to `reviewed`)
+- [ ] **REVISE** (Needs amendment)
+- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>))
+- *Reviewer Notes*: Validated and approved. Comprehensive proverb mapping and metaphoric anti-calque invariants established.
 
 ---

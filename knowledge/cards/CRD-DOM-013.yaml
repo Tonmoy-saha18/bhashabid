@@ -1,0 +1,29 @@
+id: CRD-DOM-013
+title: Poetic Metaphors, Imagery & Figurative Diction (কাব্যিক রূপক, চিত্রকল্প ও ভাবার্থ প্রকাশ)
+domain: creative_writing
+profile: bd_standard
+register: literary_poetic
+rule_summary: 'Poetic translation and figurative creative prose in Bengali require discerning the three layers of meaning: Abhidha (অভিধা - literal sense), Lakshana (লক্ষণা - indicative/metaphoric sense), and Vyanjana (ব্যঞ্জনা - suggested/symbolic resonance). Key invariants: (1) Never translate somatic metaphors literally: "His heart turned to stone" must be translated as "তার হৃদয় পাষাণ হয়ে গেল" or "মন শক্ত হয়ে গেল" (never anatomical "তার হৃৎপিণ্ড পাথরে রূপান্তরিত হলো"). (2) Atmospheric & Sensory Imagery: Preserve authentic Bengali imagery—"Autumn mist" ➔ "হেমন্তের বিষণ্ণ কুয়াশা"; "Tears streaming down like monsoon rain" ➔ "চোখের কোণে শ্রাবণের ঢল"; "Golden dusk" ➔ "গোধূলির স্বর্ণাভা". (3) Literary Tropes: Avoid flattening rich allegories into dry expository sentences. Respect evocative rhythm and cadence in classical and modern verse (e.g. Jibanananda Das, Kazi Nazrul Islam, Rabindranath Tagore).'
+good_examples:
+- শোকের তীব্র আঘাতে তার কোমল হৃদয় যেন নিমিষেই পাষাণ হয়ে গেল।
+- হেমন্তের বিষণ্ণ কুয়াশা চিরে রক্তিম সূর্য ডানা মেলল নদীর ওপারে।
+- তার আঁখিপল্লবে খেলা করে এক অচেনা সমুদ্রের গভীর নীরবতা।
+bad_examples:
+- তার হৃৎপিণ্ড পাথরে পরিণত হয়েছিল কারণ সে খুব দুঃখ পেয়েছিল।
+- শরতের ধোঁয়া তার চোখের সামনে খুব ভারী হয়ে পড়েছিল।
+- তার চোখগুলো পাখির বাসার মতো দেখতে লাগছিল।
+common_llm_error: LLMs flatten nuanced poetic metaphors into anatomical or mechanical prose ('হৃৎপিণ্ড পাথরে পরিণত', 'পাখির বাসার মতো চোখ') and fail to invoke sensory and evocative Bengali figurative diction.
+sources:
+- "Aloker Alo: Bengali Poetic Aesthetics & Metaphor Treasury"
+- "Bangla Academy Literary Prosody & Stylistics Manual"
+- "Jibanananda Das / Buddhadeva Bose Poetic Essays"
+confidence: reviewed
+created_date: 2026-11-12
+last_modified: '2026-11-12'
+review:
+  reviewer_name: Ashikur Rahman Bhuiyan
+  reviewer_affiliation: Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>)
+  reviewed_date: '2026-11-12'
+  status: APPROVED
+  notes: 'Validated and approved. Literary figurative diction, semantic tri-layer (Abhidha/Lakshana/Vyanjana), and poetic imagery standards verified.'
+  signature_hash: sha256:f52b719c836a0d24

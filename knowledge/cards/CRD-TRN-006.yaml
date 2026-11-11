@@ -1,0 +1,31 @@
+id: CRD-TRN-006
+title: Proverbs, Idioms & Metaphoric Equivalence (প্রবাদ-প্রবচন, বাগধারা ও রূপকার্থ সমীকরণ)
+domain: translation
+profile: bd_standard
+register: literary_and_colloquial
+rule_summary: 'Translating proverbs and idiomatic metaphors between English and Bengali requires deep cultural and semantic equivalence rather than literal lexical translation. Key invariants: (1) English proverbs must be mapped to their established Bengali counterparts: "A bad workman blames his tools" ➔ "নাচতে না জানলে উঠান বাঁকা" (never "খারাপ কর্মী তার সরঞ্জামকে দোষ দেয়"); "Barking dogs seldom bite" ➔ "যত গর্জে তত বর্ষে না" (never "ঘেউ ঘেউ করা কুকুর কদাচিৎ কামড়ায়"); "Too many cooks spoil the broth" ➔ "অধিক সন্ন্যাসীতে গাজন নষ্ট" (never "অধিক রাঁধুনি ঝোল নষ্ট করে"); "Make hay while the sun shines" ➔ "ঝোপ বুঝে কোপ মারা"; "A stitch in time saves nine" ➔ "সময়ের এক ফোঁড় অসময়ের দশ ফোঁড়". (2) Idioms and colloquial metaphors: "Piece of cake" ➔ "পানির মতো সহজ / দুধভাত" (never "কেকের টুকরো"); "Break a leg" ➔ "শুভকামনা" (never "পা ভেঙে ফেলো"); "Spill the beans" ➔ "হাঁড়ি ভেঙে দেওয়া" (never "শিম ছড়িয়ে দেওয়া"); "Beat around the bush" ➔ "ঘুরিয়ে-পেঁচিয়ে কথা বলা" (never "ঝোপের চারপাশে পেটানো"); "Burn the midnight oil" ➔ "রাত জেগে পরিশ্রম করা" (never "মধ্যরাতের তেল পোড়ানো"). (3) Bengali idioms (বাগধারা) must be preserved in natural contextual registers without artificial over-explanation.'
+good_examples:
+- কথায় বলে, নাচতে না জানলে উঠান বাঁকা; নিজের অদক্ষতা ঢাকতে সে এখন দলের অন্য সদস্যদের ওপর দোষ চাপাচ্ছে।
+- অযথা ঘুরিয়ে-পেঁচিয়ে কথা না বলে মূল বিষয়ে আসুন।
+- পরীক্ষাটি সত্যিই তার কাছে পানির মতো সহজ মনে হলো।
+- কোনো গোপন বিষয় ছিল না, সে সবার সামনেই পুরো হাঁড়ি ভেঙে দিল।
+bad_examples:
+- একজন খারাপ কর্মী তার সরঞ্জামকে দোষ দেয়, তাই সে দলের অন্য লোকদের দোষারোপ করছে।
+- আপনি কেন সবসময় ঝোপের চারপাশে পেটাচ্ছেন? সরাসরি কথা বলুন।
+- এই কাজটি তো একেবারে এক টুকরো কেক ছিল।
+- তিনি সবার সামনে সব শিম ছড়িয়ে দিলেন এবং সত্য বেরিয়ে এলো।
+common_llm_error: Frontier LLMs perform word-for-word calques on English proverbs and idioms ('ঝোপের চারপাশে পেটানো', 'কেকের টুকরো', 'শিম ছড়িয়ে দেওয়া', 'পা ভেঙে ফেলো'), making translated books, dialogues, and articles bizarre and unreadable.
+sources:
+- Bangla Academy Bengali-English & English-Bengali Dictionary
+- Mohammad Ali / Bhasha-Shahitya Samiti Probad-Probochon Sangroho
+- Bengali Idioms and Phrases Treasury (বাংলা বাগধারা ও প্রবচন কোষ)
+confidence: reviewed
+created_date: 2026-11-12
+last_modified: '2026-11-12'
+review:
+  reviewer_name: Ashikur Rahman Bhuiyan
+  reviewer_affiliation: Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>)
+  reviewed_date: '2026-11-12'
+  status: APPROVED
+  notes: 'Validated and approved. Comprehensive proverb mapping and metaphoric anti-calque invariants established.'
+  signature_hash: sha256:d82e449a0bc7f139
