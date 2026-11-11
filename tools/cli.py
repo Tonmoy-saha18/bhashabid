@@ -114,6 +114,15 @@ def handle_review(args):
         sys.stderr.write(f"Review Error: {e}\n")
         return 1
 
+def handle_practice(args):
+    try:
+        from .daily_practice_runner import run_practice_cycle
+        run_practice_cycle(duration_minutes=args.duration_minutes, domain_filter=args.domain)
+        return 0
+    except Exception as e:
+        sys.stderr.write(f"Practice Runner Error: {e}\n")
+        return 1
+
 def handle_lint(args):
     try:
         text = resolve_text_or_file(args.text)
@@ -194,6 +203,12 @@ def main():
     p_rev.add_argument("--action", default="approve", choices=["approve", "reject"])
     p_rev.add_argument("--notes", default="Verified and approved by human native speaker.")
     p_rev.set_defaults(func=handle_review)
+
+    # practice
+    p_prac = subparsers.add_parser("practice", help="Run automated multi-domain practice and learning cycle")
+    p_prac.add_argument("--duration-minutes", type=float, default=150.0, help="Window in minutes (e.g. 120-180)")
+    p_prac.add_argument("--domain", default=None, help="Filter to specific domain")
+    p_prac.set_defaults(func=handle_practice)
 
     args = parser.parse_args()
     if not args.command:
