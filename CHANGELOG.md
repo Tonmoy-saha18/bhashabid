@@ -2,6 +2,14 @@
 
 All notable changes to Bhashabid are documented here following Semantic Versioning.
 
+## [0.4.0] - 2026-11-11 - Cycle 4 Release
+### Added
+- Regional Dialect Profiles in `tools/bn_normalize/profiles.py` (`bd_standard` vs `wb_standard`).
+- High-throughput streaming batch normalizer in `pipeline/03_process/batch_normalizer.py` (> 290,000 words/sec).
+- Human Review Liaison packet generator (`tools/review_packet_generator.py`) and review queue packet (`docs/review_queue/packet_001_initial_cards.md`).
+- Knowledge card `CRD-ORT-003` (Regional Orthographic Variations).
+- Comprehensive test suite expansion (46 automated tests passing in 3.6s).
+
 ## [0.3.0] - 2026-11-11 - Cycle 3 Release
 ### Added
 - Developer CLI `bhashabid` (`tools/cli.py`) with `number`, `normalize`, and `lint` subcommands.

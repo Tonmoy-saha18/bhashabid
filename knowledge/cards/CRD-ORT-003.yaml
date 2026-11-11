@@ -1,0 +1,18 @@
+id: CRD-ORT-003
+title: "Regional Orthographic Variations (বাংলাদেশ প্রমিত বনাম পশ্চিমবঙ্গ বানানরীতি)"
+domain: orthography
+profile: all
+register: formal
+rule_summary: "While core Sanskrit grammar is identical, modern standard Bengali possesses systematic regional orthographic variations between the Bangla Academy (Dhaka) standard and Paschimbanga Bangla Akademi (Kolkata) standard. Bangla Academy strictly enforces short-vowel ি (পাখি, হাতি, শাড়ি, বাড়ি, সরকারি, জাপানি) and loanword স (স্টেশন, মাস্টার). West Bengal orthography broadly accepts these but permits traditional tatbhava spellings in literature and prefers specific numeral variants (পাঁচশো, কুড়ি)."
+good_examples:
+  - "বাংলাদেশ রীতি: তিনি রেলস্টেশনে অপেক্ষা করছেন এবং পাঁচশত টাকা জমা দিলেন।"
+  - "পশ্চিমবঙ্গ রীতি: তিনি রেলস্টেশনে অপেক্ষা করছেন এবং পাঁচশো টাকা জমা দিলেন।"
+bad_examples:
+  - "রেলষ্টেশনে পাঁচ শত (Inconsistent mixing without explicit profile)"
+common_llm_error: "LLMs guess regional variants randomly within the same paragraph, mixing পাঁচশত and পাঁচশো arbitrarily."
+sources:
+  - "Bangla Academy Promito Bangla Banan Riti (2012)"
+  - "Paschimbanga Bangla Akademi Banan Bidhi (2000)"
+confidence: data-supported
+created_date: 2026-11-11
+last_modified: 2026-11-11
