@@ -274,113 +274,154 @@ def install_skill(target: str = "all", workspace_dir: str = None, with_mcp: bool
 
 def uninstall_mcp(target: str = "all", workspace_dir: str = None) -> str:
     """
-    Removes Bhashabid MCP server configuration from Cursor, Claude Desktop, and Antigravity.
+    Removes Bhashabid MCP server configuration after scanning detected environments.
     """
     home = Path.home()
+    env_info = detect_environments()
     removed_from = []
+    skipped = []
 
     # 1. Cursor Global MCP (~/.cursor/mcp.json)
     if target in ["cursor", "all"]:
-        targets = [home / ".cursor" / "mcp.json"]
-        if workspace_dir:
-            targets.append(Path(workspace_dir) / ".cursor" / "mcp.json")
-        else:
-            targets.append(Path.cwd() / ".cursor" / "mcp.json")
+        if target == "cursor" or env_info["cursor"]["detected"]:
+            targets = [home / ".cursor" / "mcp.json"]
+            if workspace_dir:
+                targets.append(Path(workspace_dir) / ".cursor" / "mcp.json")
+            else:
+                targets.append(Path.cwd() / ".cursor" / "mcp.json")
 
-        for mcp_file in targets:
-            if mcp_file.exists():
-                try:
-                    with open(mcp_file, "r", encoding="utf-8") as f:
-                        data = json.load(f)
-                    if "mcpServers" in data and "bhashabid" in data["mcpServers"]:
-                        del data["mcpServers"]["bhashabid"]
-                        with open(mcp_file, "w", encoding="utf-8") as f:
-                            json.dump(data, f, indent=2, ensure_ascii=False)
-                        removed_from.append(str(mcp_file))
-                except Exception:
-                    pass
+            for mcp_file in targets:
+                if mcp_file.exists():
+                    try:
+                        with open(mcp_file, "r", encoding="utf-8") as f:
+                            data = json.load(f)
+                        if "mcpServers" in data and "bhashabid" in data["mcpServers"]:
+                            del data["mcpServers"]["bhashabid"]
+                            with open(mcp_file, "w", encoding="utf-8") as f:
+                                json.dump(data, f, indent=2, ensure_ascii=False)
+                            removed_from.append(f"Cursor MCP: {mcp_file}")
+                    except Exception:
+                        pass
+        else:
+            skipped.append("Cursor (Not detected)")
 
     # 2. Claude Desktop config
     if target in ["claude", "all"]:
         claude_cfg = get_claude_desktop_config_path()
-        if claude_cfg and claude_cfg.exists():
-            try:
-                with open(claude_cfg, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                if "mcpServers" in data and "bhashabid" in data["mcpServers"]:
-                    del data["mcpServers"]["bhashabid"]
-                    with open(claude_cfg, "w", encoding="utf-8") as f:
-                        json.dump(data, f, indent=2, ensure_ascii=False)
-                    removed_from.append(str(claude_cfg))
-            except Exception:
-                pass
+        if target == "claude" or (claude_cfg and claude_cfg.exists()) or env_info["claude"]["detected"]:
+            if claude_cfg and claude_cfg.exists():
+                try:
+                    with open(claude_cfg, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                    if "mcpServers" in data and "bhashabid" in data["mcpServers"]:
+                        del data["mcpServers"]["bhashabid"]
+                        with open(claude_cfg, "w", encoding="utf-8") as f:
+                            json.dump(data, f, indent=2, ensure_ascii=False)
+                        removed_from.append(f"Claude Desktop MCP: {claude_cfg}")
+                except Exception:
+                    pass
+        else:
+            skipped.append("Claude Desktop (Not detected)")
 
     # 3. Antigravity MCP (~/.gemini/antigravity/mcp_servers.json)
     if target in ["antigravity", "all"]:
-        ag_mcp = home / ".gemini" / "antigravity" / "mcp_servers.json"
-        if ag_mcp.exists():
-            try:
-                with open(ag_mcp, "r", encoding="utf-8") as f:
-                    ag_data = json.load(f)
-                if "mcpServers" in ag_data and "bhashabid" in ag_data["mcpServers"]:
-                    del ag_data["mcpServers"]["bhashabid"]
-                    with open(ag_mcp, "w", encoding="utf-8") as f:
-                        json.dump(ag_data, f, indent=2, ensure_ascii=False)
-                    removed_from.append(str(ag_mcp))
-            except Exception:
-                pass
+        if target == "antigravity" or env_info["antigravity"]["detected"]:
+            ag_mcp = home / ".gemini" / "antigravity" / "mcp_servers.json"
+            if ag_mcp.exists():
+                try:
+                    with open(ag_mcp, "r", encoding="utf-8") as f:
+                        ag_data = json.load(f)
+                    if "mcpServers" in ag_data and "bhashabid" in ag_data["mcpServers"]:
+                        del ag_data["mcpServers"]["bhashabid"]
+                        with open(ag_mcp, "w", encoding="utf-8") as f:
+                            json.dump(ag_data, f, indent=2, ensure_ascii=False)
+                        removed_from.append(f"Antigravity MCP: {ag_mcp}")
+                except Exception:
+                    pass
+        else:
+            skipped.append("Antigravity (Not detected)")
 
-    if not removed_from:
-        return "Notice: No active Bhashabid MCP server entries found for the specified target."
+    msg = ""
+    if removed_from:
+        msg += "✓ Bhashabid MCP server configuration successfully removed from:\n"
+        for rf in removed_from:
+            msg += f"  - {rf}\n"
+    else:
+        msg += "Notice: No active Bhashabid MCP server entries found for the specified target.\n"
 
-    msg = "✓ Bhashabid MCP server configuration successfully removed from:\n"
-    for rf in removed_from:
-        msg += f"  - {rf}\n"
+    if skipped:
+        msg += "Notice: Skipped environments not installed on this machine:\n"
+        for s in skipped:
+            msg += f"  - {s}\n"
+
     return msg
 
 def uninstall_skill(target: str = "all", workspace_dir: str = None, with_mcp: bool = True) -> str:
     """
-    Uninstalls Bhashabid skill files and reference guides.
+    Uninstalls Bhashabid skill files and reference guides after scanning detected environments.
     """
     home = Path.home()
     workspace = Path(workspace_dir) if workspace_dir else Path.cwd()
+    env_info = detect_environments()
     removed_paths = []
+    skipped = []
 
-    if target in ["antigravity", "all"]:
-        ag_global = home / ".gemini" / "antigravity" / "skills" / "bangla-expert"
-        if ag_global.exists():
-            shutil.rmtree(ag_global, ignore_errors=True)
-            removed_paths.append(str(ag_global))
-
-    if target in ["claude", "all"]:
-        cl_global = home / ".claude" / "skills" / "bangla-expert"
-        if cl_global.exists():
-            shutil.rmtree(cl_global, ignore_errors=True)
-            removed_paths.append(str(cl_global))
-
+    # 1. Cursor
     if target in ["cursor", "all"]:
-        # Cursor Global rules & references
-        cur_global_mdc = home / ".cursor" / "rules" / "bangla-expert.mdc"
-        if cur_global_mdc.exists():
-            cur_global_mdc.unlink(missing_ok=True)
-            removed_paths.append(str(cur_global_mdc))
+        if target == "cursor" or env_info["cursor"]["detected"]:
+            cur_global_mdc = home / ".cursor" / "rules" / "bangla-expert.mdc"
+            if cur_global_mdc.exists():
+                cur_global_mdc.unlink(missing_ok=True)
+                removed_paths.append(f"Cursor (Global Rule): {cur_global_mdc}")
 
-        cur_global_refs = home / ".cursor" / "bangla-references"
-        if cur_global_refs.exists():
-            shutil.rmtree(cur_global_refs, ignore_errors=True)
-            removed_paths.append(str(cur_global_refs))
+            cur_global_refs = home / ".cursor" / "bangla-references"
+            if cur_global_refs.exists():
+                shutil.rmtree(cur_global_refs, ignore_errors=True)
+                removed_paths.append(f"Cursor (References):  {cur_global_refs}")
 
-        # Also clean any legacy workspace rules in current directory
-        for p in [workspace / ".cursorrules", workspace / ".cursor" / "rules" / "bangla-expert.mdc"]:
-            if p.exists():
+            # Check home ~/.cursorrules
+            if (home / ".cursorrules").exists():
                 try:
-                    p.unlink(missing_ok=True)
-                    removed_paths.append(str(p))
+                    c = (home / ".cursorrules").read_text(encoding="utf-8")
+                    if "Bangla Academy" in c or "bhashabid" in c:
+                        (home / ".cursorrules").unlink(missing_ok=True)
+                        removed_paths.append(f"Cursor (~/.cursorrules): {home / '.cursorrules'}")
                 except Exception:
                     pass
-        if (workspace / ".cursor" / "bangla-references").exists():
-            shutil.rmtree(workspace / ".cursor" / "bangla-references", ignore_errors=True)
-            removed_paths.append(str(workspace / ".cursor" / "bangla-references"))
+        else:
+            skipped.append("Cursor (Not detected)")
+
+    # 2. Antigravity
+    if target in ["antigravity", "all"]:
+        if target == "antigravity" or env_info["antigravity"]["detected"]:
+            ag_global = home / ".gemini" / "antigravity" / "skills" / "bangla-expert"
+            if ag_global.exists():
+                shutil.rmtree(ag_global, ignore_errors=True)
+                removed_paths.append(f"Antigravity (Global Skill): {ag_global}")
+        else:
+            skipped.append("Antigravity (Not detected)")
+
+    # 3. Claude
+    if target in ["claude", "all"]:
+        if target == "claude" or env_info["claude"]["detected"]:
+            cl_global = home / ".claude" / "skills" / "bangla-expert"
+            if cl_global.exists():
+                shutil.rmtree(cl_global, ignore_errors=True)
+                removed_paths.append(f"Claude (Global Skill): {cl_global}")
+        else:
+            skipped.append("Claude (Not detected)")
+
+    # 4. Workspace Cleanups (if any legacy files exist in workspace)
+    for p in [workspace / ".cursorrules", workspace / ".cursor" / "rules" / "bangla-expert.mdc"]:
+        if p.exists():
+            try:
+                p.unlink(missing_ok=True)
+                removed_paths.append(f"Workspace Rule: {p}")
+            except Exception:
+                pass
+    if (workspace / ".cursor" / "bangla-references").exists():
+        shutil.rmtree(workspace / ".cursor" / "bangla-references", ignore_errors=True)
+        removed_paths.append(f"Workspace References: {workspace / '.cursor' / 'bangla-references'}")
 
     msg = ""
     if removed_paths:
@@ -389,6 +430,11 @@ def uninstall_skill(target: str = "all", workspace_dir: str = None, with_mcp: bo
             msg += f"  - {rp}\n"
     else:
         msg = "Notice: No installed Bhashabid skill files were found for the specified target.\n"
+
+    if skipped:
+        msg += "Notice: Skipped environments not installed on this machine:\n"
+        for s in skipped:
+            msg += f"  - {s}\n"
 
     if with_mcp:
         mcp_msg = uninstall_mcp(target=target, workspace_dir=str(workspace))
