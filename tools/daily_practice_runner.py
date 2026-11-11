@@ -83,10 +83,11 @@ def run_practice_cycle(
     start_time = datetime.now()
     effective_duration = duration_minutes if (continuous and duration_minutes) else 2.5
     end_time = start_time + timedelta(minutes=effective_duration) if continuous else None
+    target_rounds = max(rounds, int((duration_minutes or 150) // 150)) if not continuous else rounds
 
     stats = {
         "start_time": start_time.strftime("%Y-%m-%d %H:%M:%S"),
-        "mode": "Continuous Wall-Clock Daemon" if continuous else f"High-Throughput Batch ({rounds} round{'s' if rounds > 1 else ''})",
+        "mode": "Continuous Wall-Clock Daemon" if continuous else f"High-Throughput Batch ({target_rounds} round{'s' if target_rounds > 1 else ''})",
         "allocated_minutes": duration_minutes or 150.0,
         "elapsed_seconds": 0,
         "rounds_completed": 0,
@@ -104,7 +105,7 @@ def run_practice_cycle(
     if continuous:
         print(f"Mode: Continuous Soak Test | Target Window: {duration_minutes} minutes | End: {end_time.strftime('%H:%M:%S')}")
     else:
-        print(f"Mode: High-Throughput Execution | Target: 150 Minutes Worth of Practice across All 8 Domains")
+        print(f"Mode: High-Throughput Execution | Target: {duration_minutes or 150} Minutes Worth of Practice across All 8 Domains ({target_rounds} Rounds)")
     print("=" * 80)
 
     round_idx = 0
@@ -153,7 +154,7 @@ def run_practice_cycle(
                 break
             time.sleep(2)
         else:
-            if round_idx >= rounds:
+            if round_idx >= target_rounds:
                 break
 
     # Post-cycle verification: Run full regression test suite
