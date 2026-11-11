@@ -1,5 +1,27 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Testing & Coverage
 .pytest_cache/
+.coverage
+htmlcov/
+
+# Dynamic daily practice run logs
+eval/reports/daily_runs/*.md
+!eval/reports/daily_runs/.gitkeep
+
+# System & OS temporary files
+.DS_Store
+Thumbs.db
+*.log
+
+# Safety Kill Switch
 state/STOP
