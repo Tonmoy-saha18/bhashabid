@@ -27,22 +27,27 @@ def uninstall_mcp(target: str = "all", workspace_dir: str = None) -> str:
     Removes Bhashabid Model Context Protocol (MCP) server configuration from Cursor, Claude Desktop, and Antigravity.
     """
     workspace = Path(workspace_dir) if workspace_dir else Path.cwd()
+    home = Path.home()
     removed_from = []
 
-    # 1. Cursor project-level MCP config (.cursor/mcp.json)
+    # 1. Cursor MCP config (Global ~/.cursor/mcp.json and Workspace .cursor/mcp.json)
     if target in ["cursor", "all"]:
-        mcp_file = workspace / ".cursor" / "mcp.json"
-        if mcp_file.exists():
-            try:
-                with open(mcp_file, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                if "mcpServers" in data and "bhashabid" in data["mcpServers"]:
-                    del data["mcpServers"]["bhashabid"]
-                    with open(mcp_file, "w", encoding="utf-8") as f:
-                        json.dump(data, f, indent=2, ensure_ascii=False)
-                    removed_from.append(str(mcp_file))
-            except Exception:
-                pass
+        targets = [home / ".cursor" / "mcp.json"]
+        if workspace != home:
+            targets.append(workspace / ".cursor" / "mcp.json")
+
+        for mcp_file in targets:
+            if mcp_file.exists():
+                try:
+                    with open(mcp_file, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                    if "mcpServers" in data and "bhashabid" in data["mcpServers"]:
+                        del data["mcpServers"]["bhashabid"]
+                        with open(mcp_file, "w", encoding="utf-8") as f:
+                            json.dump(data, f, indent=2, ensure_ascii=False)
+                        removed_from.append(str(mcp_file))
+                except Exception:
+                    pass
 
     # 2. Claude Desktop config
     if target in ["claude", "all"]:
@@ -108,26 +113,29 @@ def install_mcp(target: str = "all", workspace_dir: str = None) -> str:
 
     configured_paths = []
 
-    # 1. Cursor project-level MCP config (.cursor/mcp.json)
+    # 1. Cursor MCP config (Global ~/.cursor/mcp.json and Workspace .cursor/mcp.json)
     if target in ["cursor", "all"]:
-        cur_dir = workspace / ".cursor"
-        os.makedirs(cur_dir, exist_ok=True)
-        mcp_file = cur_dir / "mcp.json"
+        home = Path.home()
+        cursor_mcp_targets = [home / ".cursor" / "mcp.json"]
+        if workspace != home:
+            cursor_mcp_targets.append(workspace / ".cursor" / "mcp.json")
 
-        data = {"mcpServers": {}}
-        if mcp_file.exists():
-            try:
-                with open(mcp_file, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-            except Exception:
-                data = {"mcpServers": {}}
-        if "mcpServers" not in data:
-            data["mcpServers"] = {}
-        data["mcpServers"]["bhashabid"] = mcp_entry
+        for mcp_file in cursor_mcp_targets:
+            os.makedirs(mcp_file.parent, exist_ok=True)
+            data = {"mcpServers": {}}
+            if mcp_file.exists():
+                try:
+                    with open(mcp_file, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                except Exception:
+                    data = {"mcpServers": {}}
+            if "mcpServers" not in data:
+                data["mcpServers"] = {}
+            data["mcpServers"]["bhashabid"] = mcp_entry
 
-        with open(mcp_file, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
-        configured_paths.append(str(mcp_file))
+            with open(mcp_file, "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
+            configured_paths.append(str(mcp_file))
 
     # 2. Claude Desktop config
     if target in ["claude", "all"]:
@@ -212,20 +220,33 @@ def install_skill(target: str = "antigravity", workspace_dir: str = None, with_m
         dest_paths.append(str(cl_global))
 
     if target in ["cursor", "all"]:
-        # Cursor rules directory in workspace
-        cur_rules = workspace / ".cursor" / "rules"
-        os.makedirs(cur_rules, exist_ok=True)
-        # Copy rule file to both .cursorrules (workspace root) and .cursor/rules/bangla-expert.mdc
         src_rule = Path(REPO_ROOT) / "adapters" / "cursor" / ".cursorrules"
+
+        # 1. Cursor Global configuration (~/.cursor/rules and ~/.cursor/bangla-references)
+        cur_global_rules = home / ".cursor" / "rules"
+        os.makedirs(cur_global_rules, exist_ok=True)
         if src_rule.exists():
-            shutil.copy(src_rule, workspace / ".cursorrules")
-            shutil.copy(src_rule, cur_rules / "bangla-expert.mdc")
-        # Also copy references into .cursor/bangla-references/ so Cursor AI can read them
-        cur_refs = workspace / ".cursor" / "bangla-references"
-        os.makedirs(cur_refs, exist_ok=True)
-        shutil.copytree(src_dir / "references", cur_refs, dirs_exist_ok=True)
-        dest_paths.append(str(workspace / ".cursorrules"))
-        dest_paths.append(str(cur_rules / "bangla-expert.mdc"))
+            shutil.copy(src_rule, cur_global_rules / "bangla-expert.mdc")
+            shutil.copy(src_rule, home / ".cursorrules")
+        cur_global_refs = home / ".cursor" / "bangla-references"
+        os.makedirs(cur_global_refs, exist_ok=True)
+        shutil.copytree(src_dir / "references", cur_global_refs, dirs_exist_ok=True)
+        dest_paths.append(str(cur_global_rules / "bangla-expert.mdc"))
+        dest_paths.append(str(cur_global_refs))
+
+        # 2. Cursor Local Workspace configuration
+        if workspace != home:
+            cur_rules = workspace / ".cursor" / "rules"
+            os.makedirs(cur_rules, exist_ok=True)
+            if src_rule.exists():
+                shutil.copy(src_rule, workspace / ".cursorrules")
+                shutil.copy(src_rule, cur_rules / "bangla-expert.mdc")
+            cur_refs = workspace / ".cursor" / "bangla-references"
+            os.makedirs(cur_refs, exist_ok=True)
+            shutil.copytree(src_dir / "references", cur_refs, dirs_exist_ok=True)
+            dest_paths.append(str(workspace / ".cursorrules"))
+            dest_paths.append(str(cur_rules / "bangla-expert.mdc"))
+            dest_paths.append(str(cur_refs))
 
     msg = f"✓ Bhashabid skill and all {len(list((src_dir / 'references').glob('*.md')))} reference guides successfully installed to:\n"
     for dp in dest_paths:
@@ -263,25 +284,43 @@ def uninstall_skill(target: str = "all", workspace_dir: str = None, with_mcp: bo
             removed_paths.append(str(cl_global))
 
     if target in ["cursor", "all"]:
-        cur_rule = workspace / ".cursorrules"
-        if cur_rule.exists():
-            try:
-                content = cur_rule.read_text(encoding="utf-8")
-                if "Bangla Academy" in content or "Bhashabid" in content or "bhashabid" in content:
-                    cur_rule.unlink(missing_ok=True)
-                    removed_paths.append(str(cur_rule))
-            except Exception:
-                pass
+        # 1. Cursor Global rules & references
+        cur_global_mdc = home / ".cursor" / "rules" / "bangla-expert.mdc"
+        if cur_global_mdc.exists():
+            cur_global_mdc.unlink(missing_ok=True)
+            removed_paths.append(str(cur_global_mdc))
 
-        cur_mdc = workspace / ".cursor" / "rules" / "bangla-expert.mdc"
-        if cur_mdc.exists():
-            cur_mdc.unlink(missing_ok=True)
-            removed_paths.append(str(cur_mdc))
+        cur_global_refs = home / ".cursor" / "bangla-references"
+        if cur_global_refs.exists():
+            shutil.rmtree(cur_global_refs, ignore_errors=True)
+            removed_paths.append(str(cur_global_refs))
 
-        cur_refs = workspace / ".cursor" / "bangla-references"
-        if cur_refs.exists():
-            shutil.rmtree(cur_refs, ignore_errors=True)
-            removed_paths.append(str(cur_refs))
+        # Check home and workspace .cursorrules
+        rule_files = [home / ".cursorrules"]
+        if workspace != home:
+            rule_files.append(workspace / ".cursorrules")
+
+        for cur_rule in rule_files:
+            if cur_rule.exists():
+                try:
+                    content = cur_rule.read_text(encoding="utf-8")
+                    if "Bangla Academy" in content or "Bhashabid" in content or "bhashabid" in content:
+                        cur_rule.unlink(missing_ok=True)
+                        removed_paths.append(str(cur_rule))
+                except Exception:
+                    pass
+
+        # 2. Workspace rules & references
+        if workspace != home:
+            cur_mdc = workspace / ".cursor" / "rules" / "bangla-expert.mdc"
+            if cur_mdc.exists():
+                cur_mdc.unlink(missing_ok=True)
+                removed_paths.append(str(cur_mdc))
+
+            cur_refs = workspace / ".cursor" / "bangla-references"
+            if cur_refs.exists():
+                shutil.rmtree(cur_refs, ignore_errors=True)
+                removed_paths.append(str(cur_refs))
 
     msg = ""
     if removed_paths:
