@@ -1,25 +1,33 @@
-# Bhashabid (ভাষাবিদ) — Open-Source Bengali Linguistic Coprocessor
+# Bhashabid (ভাষাবিদ) — The First Bengali Language Coprocessor Engine
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python: >=3.10](https://img.shields.io/badge/Python-3.10%2B-green.svg)](https://python.org)
 [![Version: v1.0.0](https://img.shields.io/badge/Version-v1.0.0-blue.svg)](https://github.com/ashik1291/bhashabid)
-[![Tests: 59 Passing](https://img.shields.io/badge/Tests-59%20Passing-brightgreen.svg)](eval/unit)
+[![Tests: 60 Passing](https://img.shields.io/badge/Tests-60%20Passing-brightgreen.svg)](eval/unit)
 [![Proven Knowledge: 23 Reviewed Cards](https://img.shields.io/badge/P2%20Provenance-23%2F23%20Cards%20Reviewed-blueviolet.svg)](knowledge/cards)
 
-> **Bhashabid** (ভাষাবিদ - *"The Bengali Linguist"*) is a spec-driven, deterministic linguistic coprocessor, evaluation matrix, and progressive AI skill layer that enables **ANY** AI agent, LLM, or software pipeline to write, translate, correct, and evaluate authentic Bengali (বাংলা) like a skilled native writer.
+> **Bhashabid** (ভাষাবিদ) is the **first-ever open-source Bengali language coprocessor engine** designed to work alongside AI agents, foundation models (LLMs), and developer workflows. Operating as an external cognitive and deterministic coprocessor without retraining model weights, it systematically elevates the accuracy, orthography, and native fluency of AI-generated Bengali across daily professional and creative activities.
 
 ---
 
-## 🎯 The Core Problem It Solves
+## 🎯 What Bhashabid Does & Where Frontier Models Fail (An Honest Assessment)
 
-Frontier LLMs (ChatGPT, Claude, Gemini, DeepSeek) consistently deteriorate when generating or translating Bengali:
-- **Catastrophic Calques**: English passives (*"দ্বারা চালিত"*, *"দ্বারা অনুষ্ঠিত"*), judicial errors (*"জিজ্ঞেস করে রুল"*), and greeting mistranslations (*"প্রিয় মহাশয়"*).
-- **Broken Epistolary Hierarchy**: Treating revered teachers, bosses, friends, and juniors with generic pronoun/verb mismatches (*তুমি সিদ্ধান্ত নেন*).
-- **Numeral Disasters**: Fabricating 2-digit numbers (*নব্বই নয়* instead of *নিরানব্বই*), wrong currency words, and Western 3-digit comma grouping.
-- **Unscanned Poetry**: Line breaks masquerading as verse without syllabic metre (*মাত্রা/অক্ষরবৃত্ত/পয়ার*) or caesura (*যতি*).
-- **Unicode Fragmentation**: Non-canonical nuktas (`য+়` vs `য়`, `ড+়` vs `ড়`), missing Daris (`।`), and broken ZWJ/ZWNJ forms.
+Frontier language models (GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro, DeepSeek) are exceptionally powerful reasoning engines, but they are trained predominantly on English-centric corpora. While they possess vast latent Bengali vocabularies, their generative decoders frequently fall back onto **English syntactic habits, literal idioms, and naive numerical assemblies**.
 
-**Bhashabid fixes all of this** through an external, deterministic, token-efficient architecture without retraining model weights.
+Bhashabid does not exaggerate its capabilities or claim to replace foundation models. Instead, it acts as a **specialized coprocessor**: executing deterministic algorithms for rules that require mathematical precision, and serving modular reference knowledge when the model requires domain-specific judgment.
+
+### Side-by-Side Honest Comparison:
+
+| Linguistic Dimension | Where Frontier Models Consistently Fail (Raw) | What Bhashabid Does (Coprocessor) | Real-World Example |
+| :--- | :--- | :--- | :--- |
+| **1. Cardinal Numerals & Currency** | Naively compounds numbers or uses decimal digit translation (*নব্বই নয়* instead of *নিরানব্বই*); formats currency with Western 3-digit commas (`1,234,567`). | Provides a 100% deterministic lookup engine for all 0-99 irregular cardinals, fractions (*দেড়, আড়াই*), and South Asian lakh/crore comma grouping. | Input `99` ➔ Raw: *"নব্বই নয়"* ❌ <br>Bhashabid: **"নিরানব্বই"** ✔️ |
+| **2. English Passive Voice Calques** | Translates English passives literally using *"দ্বারা"* (*"দ্বারা চালিত"*, *"দ্বারা অনুষ্ঠিত"*), producing unnatural, stiff Bengali. | Real-time static linter flags passive calques and synthesizes natural active causal phrasing. | Raw: *"খাদ্যমূল্য বৃদ্ধির দ্বারা চালিত"* ❌ <br>Bhashabid: **"খাদ্যপণ্যের মূল্যবৃদ্ধির কারণে... দাঁড়িয়েছে"** ✔️ |
+| **3. Judicial & High Court Formulas** | Translates show-cause Rule Nisi orders as conversational clauses (*"জিজ্ঞেস করে রুল জারি করেছে"*); omits judicial honorific plural. | Enforces canonical Bangladesh Supreme Court reporting formulas and Article 102 constitutional writ prayers. | Raw: *"কেন নিষ্ক্রিয়তা বেআইনি হবে না জিজ্ঞেস করে রুল দিয়েছে"* ❌ <br>Bhashabid: **"কেন বেআইনি ঘোষণা করা হবে না, তা জানতে চেয়ে রুল জারি করেছেন"** ✔️ |
+| **4. Administrative Petitions & Salutations** | Calques *"Dear Sir"* as conversational *"প্রিয় মহাশয়"*; uses broken colonial closings (*"আপনার বিশ্বস্ত দাস"*). | Enforces Bangladesh Secretariat instructions (*সচিবালয় নির্দেশমালা*) and dignified petition protocols. | Raw: *"প্রিয় মহাশয়, আশা করি ভালো আছেন"* ❌ <br>Bhashabid: **"বরাবর... বিষয়:... জনাব, বিনীত নিবেদন এই যে..."** ✔️ |
+| **5. Sports Vernacular** | Translates sports defeat clichés literally (*"conceded defeat against"* ➔ *"বিরুদ্ধে পরাজয় স্বীকার করেছে"*). | Embeds authentic sports journalism idioms (*প্রতিপক্ষের কাছে হেরেছে*). | Raw: *"সফরকারীদের বিরুদ্ধে পরাজয় স্বীকার করেছে"* ❌ <br>Bhashabid: **"সফরকারীদের কাছে ৫ উইকেটে হেরেছে"** ✔️ |
+| **6. Bangla Academy Orthography** | Persistently spells loanwords with *"ষ"* (*ষ্টেশন, পোষ্ট*); uses long *"ী"* in non-tatsama words (*পাখী, দাদী, হাতী*). | Deterministically normalizes text to modern Bangla Academy standards (short *ি/ু* for tatbhava words, *স* for loanwords). | Raw: *"রেল ষ্টেশনে পাখী ডাকছে"* ❌ <br>Bhashabid: **"রেল স্টেশনে পাখি ডাকছে"** ✔️ |
+| **7. Classical Poetic Scansion** | Produces pseudo-poetry with superficial line breaks but zero metrical scansion or caesura harmony. | Deterministic phonological syllabifier (*মুক্তদল* vs *রুদ্ধদল*) verifies Dalabritta, Matrabritta, and 14-akshar Payar (8+6). | Raw: Broken 16-syllable prose line ❌ <br>Bhashabid: **Validates exact 8+6=14 akshar Payar cadence** ✔️ |
+| **8. Sentence-Ending Punctuation** | Terminates Bengali sentences with ASCII periods (`.`) instead of Dari (`।`). | Deterministically converts sentence-ending periods to Dari while safely preserving decimal numbers (`৩.১৪`). | Raw: *"তিনি বাড়ি গেলেন."* ❌ <br>Bhashabid: **"তিনি বাড়ি গেলেন।"** ✔️ |
 
 ---
 

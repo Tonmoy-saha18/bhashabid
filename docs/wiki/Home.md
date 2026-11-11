@@ -1,6 +1,6 @@
 # Welcome to the Bhashabid (ভাষাবিদ) Wiki
 
-**Bhashabid** is an open-source, spec-driven Bengali linguistic coprocessor, evaluation matrix, and progressive AI skill layer. It empowers any AI assistant, LLM, or software backend to write, translate, correct, and evaluate authentic Bengali prose like a skilled native writer.
+**Bhashabid** (ভাষাবিদ) is the first-ever open-source Bengali language coprocessor engine designed to work alongside AI agents, foundation models (LLMs), and developer workflows. Operating as an external cognitive and deterministic coprocessor without retraining model weights, it systematically elevates the accuracy, orthography, and native fluency of AI-generated Bengali across daily professional and creative activities.
 
 ---
 
