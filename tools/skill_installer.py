@@ -22,6 +22,76 @@ def get_source_skill_dir() -> Path:
             return p_pkg
     raise FileNotFoundError("Could not locate source 'skills/bangla-expert' directory.")
 
+def uninstall_mcp(target: str = "all", workspace_dir: str = None) -> str:
+    """
+    Removes Bhashabid Model Context Protocol (MCP) server configuration from Cursor, Claude Desktop, and Antigravity.
+    """
+    workspace = Path(workspace_dir) if workspace_dir else Path.cwd()
+    removed_from = []
+
+    # 1. Cursor project-level MCP config (.cursor/mcp.json)
+    if target in ["cursor", "all"]:
+        mcp_file = workspace / ".cursor" / "mcp.json"
+        if mcp_file.exists():
+            try:
+                with open(mcp_file, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                if "mcpServers" in data and "bhashabid" in data["mcpServers"]:
+                    del data["mcpServers"]["bhashabid"]
+                    with open(mcp_file, "w", encoding="utf-8") as f:
+                        json.dump(data, f, indent=2, ensure_ascii=False)
+                    removed_from.append(str(mcp_file))
+            except Exception:
+                pass
+
+    # 2. Claude Desktop config
+    if target in ["claude", "all"]:
+        home = Path.home()
+        claude_config_path = None
+        if sys.platform == "win32":
+            appdata = os.environ.get("APPDATA")
+            if appdata:
+                claude_config_path = Path(appdata) / "Claude" / "claude_desktop_config.json"
+        elif sys.platform == "darwin":
+            claude_config_path = home / "Library" / "Application Support" / "Claude" / "claude_desktop_config.json"
+        else:
+            claude_config_path = home / ".config" / "Claude" / "claude_desktop_config.json"
+
+        if claude_config_path and claude_config_path.exists():
+            try:
+                with open(claude_config_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                if "mcpServers" in data and "bhashabid" in data["mcpServers"]:
+                    del data["mcpServers"]["bhashabid"]
+                    with open(claude_config_path, "w", encoding="utf-8") as f:
+                        json.dump(data, f, indent=2, ensure_ascii=False)
+                    removed_from.append(str(claude_config_path))
+            except Exception:
+                pass
+
+    # 3. Antigravity local workspace MCP (.gemini/mcp_servers.json)
+    if target in ["antigravity", "all"]:
+        ag_mcp = workspace / ".gemini" / "mcp_servers.json"
+        if ag_mcp.exists():
+            try:
+                with open(ag_mcp, "r", encoding="utf-8") as f:
+                    ag_data = json.load(f)
+                if "mcpServers" in ag_data and "bhashabid" in ag_data["mcpServers"]:
+                    del ag_data["mcpServers"]["bhashabid"]
+                    with open(ag_mcp, "w", encoding="utf-8") as f:
+                        json.dump(ag_data, f, indent=2, ensure_ascii=False)
+                    removed_from.append(str(ag_mcp))
+            except Exception:
+                pass
+
+    if not removed_from:
+        return "Notice: No active Bhashabid MCP server entries found for the specified target."
+
+    msg = "✓ Bhashabid MCP server configuration successfully removed from:\n"
+    for rf in removed_from:
+        msg += f"  - {rf}\n"
+    return msg
+
 def install_mcp(target: str = "all", workspace_dir: str = None) -> str:
     """
     Configures Bhashabid Model Context Protocol (MCP) server across Cursor, Claude Desktop, and Antigravity.
@@ -167,11 +237,75 @@ def install_skill(target: str = "antigravity", workspace_dir: str = None, with_m
 
     return msg
 
+def uninstall_skill(target: str = "all", workspace_dir: str = None, with_mcp: bool = True) -> str:
+    """
+    Uninstalls Bhashabid skill files, adapters, and reference guides from Antigravity, Claude, or Cursor.
+    """
+    home = Path.home()
+    workspace = Path(workspace_dir) if workspace_dir else Path.cwd()
+    removed_paths = []
+
+    if target in ["antigravity", "all"]:
+        ag_global = home / ".gemini" / "antigravity" / "skills" / "bangla-expert"
+        if ag_global.exists():
+            shutil.rmtree(ag_global, ignore_errors=True)
+            removed_paths.append(str(ag_global))
+
+        ag_local = workspace / ".gemini" / "skills" / "bangla-expert"
+        if ag_local.exists():
+            shutil.rmtree(ag_local, ignore_errors=True)
+            removed_paths.append(str(ag_local))
+
+    if target in ["claude", "all"]:
+        cl_global = home / ".claude" / "skills" / "bangla-expert"
+        if cl_global.exists():
+            shutil.rmtree(cl_global, ignore_errors=True)
+            removed_paths.append(str(cl_global))
+
+    if target in ["cursor", "all"]:
+        cur_rule = workspace / ".cursorrules"
+        if cur_rule.exists():
+            try:
+                content = cur_rule.read_text(encoding="utf-8")
+                if "Bangla Academy" in content or "Bhashabid" in content or "bhashabid" in content:
+                    cur_rule.unlink(missing_ok=True)
+                    removed_paths.append(str(cur_rule))
+            except Exception:
+                pass
+
+        cur_mdc = workspace / ".cursor" / "rules" / "bangla-expert.mdc"
+        if cur_mdc.exists():
+            cur_mdc.unlink(missing_ok=True)
+            removed_paths.append(str(cur_mdc))
+
+        cur_refs = workspace / ".cursor" / "bangla-references"
+        if cur_refs.exists():
+            shutil.rmtree(cur_refs, ignore_errors=True)
+            removed_paths.append(str(cur_refs))
+
+    msg = ""
+    if removed_paths:
+        msg = f"✓ Bhashabid skill and references successfully removed from:\n"
+        for rp in removed_paths:
+            msg += f"  - {rp}\n"
+    else:
+        msg = "Notice: No installed Bhashabid skill files were found for the specified target.\n"
+
+    if with_mcp:
+        mcp_msg = uninstall_mcp(target=target, workspace_dir=str(workspace))
+        msg += f"\n{mcp_msg}"
+
+    return msg
+
 if __name__ == "__main__":
     import argparse
-    parser = argparse.ArgumentParser(description="Install Bhashabid Skill and MCP Configuration")
+    parser = argparse.ArgumentParser(description="Install or Uninstall Bhashabid Skill and MCP Configuration")
+    parser.add_argument("--action", choices=["install", "uninstall"], default="install", help="Action to perform")
     parser.add_argument("--target", choices=["antigravity", "claude", "cursor", "all"], default="all")
     parser.add_argument("--workspace", default=None, help="Target workspace path (defaults to current dir)")
     parser.add_argument("--no-mcp", action="store_true", help="Skip MCP server configuration")
     args = parser.parse_args()
-    print(install_skill(args.target, args.workspace, with_mcp=not args.no_mcp))
+    if args.action == "uninstall":
+        print(uninstall_skill(args.target, args.workspace, with_mcp=not args.no_mcp))
+    else:
+        print(install_skill(args.target, args.workspace, with_mcp=not args.no_mcp))

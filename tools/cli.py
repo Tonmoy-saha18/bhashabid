@@ -149,6 +149,26 @@ def handle_install_mcp(args):
         sys.stderr.write(f"MCP Installer Error: {e}\n")
         return 1
 
+def handle_uninstall_skill(args):
+    try:
+        from .skill_installer import uninstall_skill
+        msg = uninstall_skill(target=args.target, workspace_dir=args.workspace, with_mcp=not getattr(args, "keep_mcp", False))
+        print(msg)
+        return 0
+    except Exception as e:
+        sys.stderr.write(f"Skill Uninstaller Error: {e}\n")
+        return 1
+
+def handle_uninstall_mcp(args):
+    try:
+        from .skill_installer import uninstall_mcp
+        msg = uninstall_mcp(target=args.target, workspace_dir=args.workspace)
+        print(msg)
+        return 0
+    except Exception as e:
+        sys.stderr.write(f"MCP Uninstaller Error: {e}\n")
+        return 1
+
 def handle_mcp(args):
     try:
         from .mcp_server.server import BhashabidMCPServer
@@ -289,6 +309,19 @@ def main():
     p_ins_mcp.add_argument("--target", choices=["cursor", "claude", "antigravity", "all"], default="all", help="Target AI environment")
     p_ins_mcp.add_argument("--workspace", default=None, help="Target workspace path (default: current directory)")
     p_ins_mcp.set_defaults(func=handle_install_mcp)
+
+    # uninstall-skill
+    p_unins = subparsers.add_parser("uninstall-skill", help="Uninstall Bhashabid skill and reference guides from Antigravity, Claude, or Cursor")
+    p_unins.add_argument("--target", choices=["antigravity", "claude", "cursor", "all"], default="all", help="Target AI environment")
+    p_unins.add_argument("--workspace", default=None, help="Target workspace path (default: current directory)")
+    p_unins.add_argument("--keep-mcp", action="store_true", help="Keep MCP server configurations intact while removing skills")
+    p_unins.set_defaults(func=handle_uninstall_skill)
+
+    # uninstall-mcp
+    p_unins_mcp = subparsers.add_parser("uninstall-mcp", help="Remove Bhashabid Model Context Protocol (MCP) server configuration from Cursor, Claude, or Antigravity")
+    p_unins_mcp.add_argument("--target", choices=["cursor", "claude", "antigravity", "all"], default="all", help="Target AI environment")
+    p_unins_mcp.add_argument("--workspace", default=None, help="Target workspace path (default: current directory)")
+    p_unins_mcp.set_defaults(func=handle_uninstall_mcp)
 
     # mcp
     p_mcp = subparsers.add_parser("mcp", help="Run Model Context Protocol (MCP) JSON-RPC stdio server")

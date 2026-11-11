@@ -65,6 +65,11 @@ bhashabid install-skill --target all
 bhashabid install-skill --target antigravity
 bhashabid install-skill --target claude
 bhashabid install-skill --target cursor
+
+# Uninstall cleanly at any time (ideal for Before-and-After benchmarking):
+bhashabid uninstall-skill --target all
+bhashabid uninstall-skill --target cursor      # Removes .cursorrules, rules/bangla-expert.mdc, and MCP
+bhashabid uninstall-mcp --target cursor        # Removes only MCP server entry
 ```
 * **Token Footprint**: Strictly **< 390 tokens** (progressive disclosure routes to modular guides on demand).
 * **Autonomous Lookup**: When handling legal writs, business news, petitions, or fiction, the agent automatically reads the appropriate reference guide without human intervention.

@@ -27,5 +27,43 @@ class TestAdapters(unittest.TestCase):
         self.assertTrue(os.path.exists(adr1))
         self.assertTrue(os.path.exists(adr2))
 
+    def test_installer_and_uninstaller_lifecycle(self):
+        import tempfile
+        import json
+        from pathlib import Path
+        from tools.skill_installer import install_skill, uninstall_skill, install_mcp, uninstall_mcp
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            # 1. Install to cursor in tempdir
+            msg_in = install_skill(target="cursor", workspace_dir=tmpdir, with_mcp=True)
+            self.assertIn("successfully installed", msg_in)
+
+            cur_rules = Path(tmpdir) / ".cursorrules"
+            cur_mdc = Path(tmpdir) / ".cursor" / "rules" / "bangla-expert.mdc"
+            cur_refs = Path(tmpdir) / ".cursor" / "bangla-references"
+            mcp_file = Path(tmpdir) / ".cursor" / "mcp.json"
+
+            self.assertTrue(cur_rules.exists())
+            self.assertTrue(cur_mdc.exists())
+            self.assertTrue(cur_refs.exists())
+            self.assertTrue(mcp_file.exists())
+
+            with open(mcp_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            self.assertIn("bhashabid", data.get("mcpServers", {}))
+
+            # 2. Uninstall from cursor
+            msg_un = uninstall_skill(target="cursor", workspace_dir=tmpdir, with_mcp=True)
+            self.assertIn("successfully removed", msg_un)
+
+            self.assertFalse(cur_rules.exists())
+            self.assertFalse(cur_mdc.exists())
+            self.assertFalse(cur_refs.exists())
+
+            # Verify MCP server entry was cleanly removed
+            with open(mcp_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            self.assertNotIn("bhashabid", data.get("mcpServers", {}))
+
 if __name__ == "__main__":
     unittest.main()

@@ -19,15 +19,18 @@ Even state-of-the-art LLMs suffer from four chronic defects when generating prof
 ## 2. Test Environments & Step-by-Step Execution Protocol
 
 ### Step A: The "BEFORE" Test (Raw Foundation Model Baseline)
-1. Open a fresh conversation in **Antigravity** or **Cursor** where Bhashabid skill is **NOT** installed.
-2. Ensure no custom rules or prompts are active in `.cursorrules` or `.gemini/antigravity`.
+1. Ensure a clean baseline by uninstalling any previous skill or rule configuration:
+   ```bash
+   bhashabid uninstall-skill --target all   # or --target cursor / antigravity
+   ```
+2. Open a fresh conversation in **Antigravity** or **Cursor** where Bhashabid skill is **NOT** active.
 3. Submit each of the **3 Test Prompts** below verbatim to the model.
 4. Save the raw output in `eval/benchmarks/results/case{1,2,3}_before.txt`.
 
 ### Step B: The "AFTER" Test (Bhashabid-Enabled Model)
-1. Install Bhashabid:
+1. Install Bhashabid with 1 command:
    ```bash
-   bhashabid install-skill --target antigravity   # or --target cursor
+   bhashabid install-skill --target cursor   # or --target antigravity / all
    ```
 2. Open a fresh conversation in the same IDE with Bhashabid active.
 3. Submit the **exact same 3 Test Prompts** verbatim.

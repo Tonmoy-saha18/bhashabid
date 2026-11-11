@@ -48,5 +48,18 @@ class TestCLI(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertIn("কোনো ব্যাকরণগত বা বানানজনিত ত্রুটি পাওয়া যায়নি", out)
 
+    def test_cli_install_and_uninstall(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmpdir:
+            # Test CLI install-skill
+            code, out, _ = self.run_cli(["install-skill", "--target", "cursor", "--workspace", tmpdir])
+            self.assertEqual(code, 0)
+            self.assertIn("successfully installed", out)
+
+            # Test CLI uninstall-skill
+            code, out, _ = self.run_cli(["uninstall-skill", "--target", "cursor", "--workspace", tmpdir])
+            self.assertEqual(code, 0)
+            self.assertIn("successfully removed", out)
+
 if __name__ == "__main__":
     unittest.main()
