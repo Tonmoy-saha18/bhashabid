@@ -112,6 +112,17 @@ def run_practice_cycle(
         "report_file": ""
     }
 
+    # Ingest real-world harvested corpora (BDNews24, TBS, Central Bank, PID, NCTB)
+    harvested_items = []
+    try:
+        from tools.corpus_harvester import CorpusHarvester
+        harvester = CorpusHarvester()
+        h_stats = harvester.harvest_all_sources()
+        harvested_items = harvester.get_practice_items()
+        print(f"Loaded {len(harvested_items)} real-world sentences from {h_stats.get('sources_scanned', 0)} external corpora.")
+    except Exception as e:
+        harvested_items = []
+
     print("=" * 80)
     print(f"BHASHABID DAILY PRACTICE & AUTONOMOUS LEARNING RUNNER")
     if continuous:
@@ -156,6 +167,12 @@ def run_practice_cycle(
                     issues = lint_text(text)
                     stats["lint_issues_trapped"] += len(issues)
                     stats["total_checks"] += 1
+
+        # Real-world external harvested corpora checks
+        for dom, raw_txt, cat in harvested_items:
+            issues = lint_text(raw_txt)
+            stats["lint_issues_trapped"] += len(issues)
+            stats["total_checks"] += 1
 
         elapsed = (datetime.now() - start_time).total_seconds()
         stats["elapsed_seconds"] = int(elapsed)

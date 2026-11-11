@@ -148,6 +148,34 @@ def handle_mcp(args):
         sys.stderr.write(f"MCP Server Error: {e}\n")
         return 1
 
+def handle_harvest(args):
+    try:
+        from .corpus_harvester import CorpusHarvester
+        harvester = CorpusHarvester(corpora_dir=args.dir)
+        if args.file:
+            results = harvester.harvest_file(args.file)
+            print(f"Audited {len(results)} sentences from {args.file}")
+        else:
+            stats = harvester.harvest_all_sources()
+            print("=" * 60)
+            print("BHASHABID REAL-WORLD CORPUS HARVESTER & AUDITOR")
+            print("=" * 60)
+            print(f"Sources Scanned:       {stats['sources_scanned']}")
+            print(f"Total Sentences:       {stats['total_sentences']}")
+            print(f"Clean Benchmark:       {stats['benchmark_clean']} (100% Valid Native Bengali)")
+            print(f"Canary Trapped:        {stats['canary_trapped']} (Flaws Caught)")
+            print(f"Anomalies Flagged:     {stats['anomalies']}")
+            print(f"Total Flaws Trapped:   {stats['flaws_detected']}")
+            print("=" * 60)
+
+        if args.report:
+            out_p = harvester.export_summary_report(None if args.report == "default" else args.report)
+            print(f"Audit report saved to: {out_p}")
+        return 0
+    except Exception as e:
+        sys.stderr.write(f"Harvester Error: {e}\n")
+        return 1
+
 def handle_lint(args):
     try:
         text = resolve_text_or_file(args.text)
@@ -246,6 +274,13 @@ def main():
     # mcp
     p_mcp = subparsers.add_parser("mcp", help="Run Model Context Protocol (MCP) JSON-RPC stdio server")
     p_mcp.set_defaults(func=handle_mcp)
+
+    # harvest
+    p_harv = subparsers.add_parser("harvest", help="Ingest and audit real-world corpora from news feeds, circulars, and textbooks")
+    p_harv.add_argument("--dir", default=None, help="Directory containing .jsonl corpora (default: eval/corpora/sources)")
+    p_harv.add_argument("--file", default=None, help="Specific file to harvest and audit")
+    p_harv.add_argument("--report", nargs="?", const="default", default=None, help="Generate markdown audit report")
+    p_harv.set_defaults(func=handle_harvest)
 
     args = parser.parse_args()
     if not args.command:

@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python: >=3.10](https://img.shields.io/badge/Python-3.10%2B-green.svg)](https://python.org)
 [![Version: v1.0.0](https://img.shields.io/badge/Version-v1.0.0-blue.svg)](https://github.com/ashik1291/bhashabid)
-[![Tests: 64 Passing](https://img.shields.io/badge/Tests-64%20Passing-brightgreen.svg)](eval/unit)
+[![Tests: 68 Passing](https://img.shields.io/badge/Tests-68%20Passing-brightgreen.svg)](eval/unit)
 [![Proven Knowledge: 26 Reviewed Cards](https://img.shields.io/badge/P2%20Provenance-26%2F26%20Cards%20Reviewed-blueviolet.svg)](knowledge/cards)
 
 > **Bhashabid** (ভাষাবিদ) is the **first-ever open-source Bengali language coprocessor engine** designed to work alongside AI agents, foundation models (LLMs), and developer workflows. Operating as an external cognitive and deterministic coprocessor without retraining model weights, it systematically elevates the accuracy, orthography, and native fluency of AI-generated Bengali across daily professional and creative activities.
@@ -112,6 +112,9 @@ bhashabid prosody "কাশীদাস কহে সাধু শুনে প
 
 # Draft High Court constitutional writ prayers
 bhashabid writ --remedy "detention" --subject "জনাব করিম" --authority "স্বরাষ্ট্র সচিব"
+
+# Ingest and audit real-world corpora (BDNews24, TBS, Central Bank, PID, NCTB)
+bhashabid harvest --report
 ```
 
 ### 5. In Python Code / Backend Pipelines
@@ -172,9 +175,10 @@ Bhashabid operates under strict constitutional rules:
 - [x] Full deterministic engine (`bn_numbers`, `bn_normalize`, `bn_lint`, `bn_prosody`, `bn_legal`).
 - [x] Progressive Agent Skill (`skills/bangla-expert/SKILL.md`) < 390 tokens with 7 modular route guides.
 - [x] Model Context Protocol (MCP) Server with 5 tools for Cursor, Claude Desktop, Windsurf, and Zed.
-- [x] Developer CLI with 7 subcommands (`number`, `normalize`, `lint`, `prosody`, `writ`, `review`, `practice`).
+- [x] Developer CLI with 8 subcommands (`number`, `normalize`, `lint`, `prosody`, `writ`, `review`, `practice`, `harvest`).
 - [x] 26 Knowledge Cards (100%) reviewed and signed off by lead human native speaker with SHA-256 signatures.
-- [x] 64/64 passing unit and regression tests (100% green).
+- [x] 68/68 passing unit and regression tests (100% green).
+- [x] Real-world Corpus Harvester and Parallel Newsroom Evaluator (`eval/corpora/`).
 - [x] Automated Daily Practice Engine (`tools/daily_practice_runner.py`).
 - [x] Complete GitHub Wiki Documentation (`docs/wiki/`).
 

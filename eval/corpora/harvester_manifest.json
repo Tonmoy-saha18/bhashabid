@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "corpora": [
+    {
+      "name": "bdnews24_tbs_parallel",
+      "path": "eval/corpora/sources/bdnews24_tbs_parallel.jsonl",
+      "type": "parallel_bilingual_newsroom",
+      "domains": ["Macroeconomic & Finance", "Judicial & High Court", "Sports Vernacular", "Corporate & Tech", "Disaster Early Warning"],
+      "authoritative_sources": ["The Business Standard", "BDNews24", "The Daily Star Bangla", "Prothom Alo Sports Desk", "Bangla Tribune"],
+      "license": "Fair Use / Quotation for Machine Evaluation & Benchmarking"
+    },
+    {
+      "name": "bangladesh_bank_pid_circulars",
+      "path": "eval/corpora/sources/bangladesh_bank_pid_circulars.jsonl",
+      "type": "statutory_circulars_and_gazettes",
+      "domains": ["Banking & Macroeconomics", "Administrative Governance", "Tax & Customs", "Official Administrative", "Land Conveyancing & Deeds"],
+      "authoritative_sources": ["Bangladesh Bank", "Press Information Department (PID)", "National Board of Revenue (NBR)", "Ministry of Land"],
+      "license": "Public Domain / Official Government Notifications"
+    },
+    {
+      "name": "nctb_wiki_encyclopedia",
+      "path": "eval/corpora/sources/nctb_wiki_encyclopedia.jsonl",
+      "type": "educational_pedagogy_and_literature",
+      "domains": ["Education & Pedagogy", "Science & Encyclopedic", "Poetic Prosody", "Agronomy & Crop Protection", "Healthcare & Medicine"],
+      "authoritative_sources": ["National Curriculum and Textbook Board (NCTB)", "Bangla Wikipedia", "Department of Agricultural Extension (DAE)", "DGHS"],
+      "license": "CC BY-SA 4.0 / Public Educational"
+    }
+  ]
+}
