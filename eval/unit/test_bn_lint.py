@@ -43,5 +43,22 @@ class TestBnLint(unittest.TestCase):
         issues = lint_text(text)
         self.assertTrue(any(i.rule_id == "RULE-LINT-CALQUE" for i in issues))
 
+    def test_judicial_calque_detection(self):
+        # High Court show-cause Rule Nisi calque 'জিজ্ঞেস করে একটি রুল'
+        text = "হাইকোর্ট কেন এটি বেআইনি হবে না জিজ্ঞেস করে একটি রুল জারি করেছে।"
+        issues = lint_text(text)
+        calque_issues = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"]
+        self.assertTrue(len(calque_issues) >= 1)
+        self.assertIn("জানতে চেয়ে রুল জারি করেছেন", calque_issues[0].suggestion)
+
+    def test_sports_calque_detection(self):
+        # Sports defeat calque 'পরাজয় স্বীকার করেছে'
+        text = "বাংলাদেশ সফরকারীদের বিরুদ্ধে পরাজয় স্বীকার করেছে।"
+        issues = lint_text(text)
+        calque_issues = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"]
+        self.assertTrue(len(calque_issues) >= 1)
+        from tools.bn_normalize import canonicalize_unicode
+        self.assertIn(canonicalize_unicode("পরাজিত হয়েছে / হেরেছে"), calque_issues[0].suggestion)
+
 if __name__ == "__main__":
     unittest.main()

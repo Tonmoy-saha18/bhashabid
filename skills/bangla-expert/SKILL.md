@@ -23,3 +23,4 @@ Load modular guides from `references/` when detailed context is required:
 - `references/numerals.md` -> 0-99 words, fractions, dates, currency, ordinals.
 - `references/orthography.md` -> Bangla Academy spelling, loanwords, Unicode NFC.
 - `references/grammar_registers.md` -> Sadhu/Cholito inflection tables, honorific concordance.
+- `references/journalism_domains.md` -> Legal show-cause formulas, macroeconomic phrasing, sports idiom.

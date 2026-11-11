@@ -1,0 +1,19 @@
+id: CRD-TRN-002
+title: "High Court & Judicial Reporting Formulas (হাইকোর্টের রুল ও রিট মামলার প্রমিত পরিভাষা)"
+domain: translation
+profile: bd_standard
+register: formal
+rule_summary: "In Bangladeshi judicial reporting, High Court show-cause orders (Rule Nisi) follow a strict, standardized formula: '[বিষয়বস্তু] কেন [আইনগত ফলাফল] ঘোষণা করা হবে না, তা জানতে চেয়ে রুল জারি করেছেন হাইকোর্ট।' Translating 'issued a rule asking why... should not be declared illegal' literally as 'জিজ্ঞেস করে রুল জারি করেছে' is a catastrophic calque that destroys the formal legal register. Courts always take the honorific plural verb 'জারি করেছেন'."
+good_examples:
+  - "নদী দখল নিয়ন্ত্রণে বিবাদীদের নিষ্ক্রিয়তা কেন বেআইনি ঘোষণা করা হবে না, তা জানতে চেয়ে রুল জারি করেছেন হাইকোর্ট।"
+  - "বিচারপতিদ্বয়ের সমন্বয়ে গঠিত বেঞ্চ এ আদেশ দেন।"
+bad_examples:
+  - "কেন নিষ্ক্রিয়তা বেআইনি হওয়া উচিত নয় তা জিজ্ঞেস করে একটি রুল জারি করেছে।"
+  - "হাইকোর্ট একটি রুল দিয়েছে কেন এটা করা হবে না।"
+common_llm_error: "LLMs translate 'asking why... should not' as conversational 'জিজ্ঞেস করে' and drop the judicial honorific plural."
+sources:
+  - "Supreme Court of Bangladesh Style & Terminology Norms"
+  - "Bangladesh Legal Reporting Handbook (BILS / Press Institute)"
+confidence: data-supported
+created_date: 2026-11-11
+last_modified: 2026-11-11

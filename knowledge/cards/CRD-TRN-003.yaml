@@ -1,0 +1,19 @@
+id: CRD-TRN-003
+title: "Macroeconomic & Financial News Syntax (অর্থনৈতিক সংবাদ ও বাংলাদেশ ব্যাংক পরিভাষা)"
+domain: translation
+profile: bd_standard
+register: formal
+rule_summary: "In economic journalism (e.g. The Business Standard, Bangladesh Bank releases), numbers and statistical movements require precise conventions: percentages in prose should prefer 'শতাংশ' over '%' symbols in formal leads; interest rate changes use 'বেসিস পয়েন্ট' (basis points); policy rate is 'নীতি সুদহার'; movements 'driven by' must be rendered as active cause ('...কারণে মূল্যস্ফীতি দাঁড়িয়েছে') rather than clumsy passives ('...দ্বারা চালিত')."
+good_examples:
+  - "খাদ্যপণ্যের মূল্যবৃদ্ধির কারণে অক্টোবরে সার্বিক মূল্যস্ফীতি বেড়ে দাঁড়িয়েছে ১০.৮৭ শতাংশে।"
+  - "বাংলাদেশ ব্যাংক তাদের নীতি সুদহার ৫০ বেসিস পয়েন্ট বাড়িয়ে ১০ শতাংশ নির্ধারণ করেছে।"
+bad_examples:
+  - "মূল্যস্ফীতি ১০.৮৭% হয়েছে, যা খাদ্যমূল্যের দ্বারা চালিত।"
+  - "কেন্দ্রীয় ব্যাংক পলিসি রেট ৫০ বেসিস পয়েন্টে হাইক করেছে।"
+common_llm_error: "LLMs paste English corporate jargon directly ('হাইক করেছে', 'দ্বারা চালিত') and rely exclusively on '%' symbols instead of 'শতাংশ'."
+sources:
+  - "Bangladesh Bank Monetary Policy Statement (MPS) Glossary"
+  - "The Business Standard (TBS) Bangla Desk Style Guide"
+confidence: data-supported
+created_date: 2026-11-11
+last_modified: 2026-11-11

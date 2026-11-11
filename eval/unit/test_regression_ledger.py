@@ -59,6 +59,19 @@ class TestLedgerRegressions(unittest.TestCase):
                     suggestion = issues[0].suggestion
                     self.assertIn("তুমি সিদ্ধান্ত নাও", suggestion)
                     self.assertIn("আপনি সিদ্ধান্ত নেন", suggestion)
+                elif task == "Judicial Show-Cause Translation":
+                    from tools.bn_lint import lint_text
+                    issues = lint_text(entry.get("output"))
+                    self.assertTrue(any(i.rule_id == "RULE-LINT-CALQUE" for i in issues))
+                    calque = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"][0]
+                    self.assertIn("জানতে চেয়ে রুল জারি করেছেন", calque.suggestion)
+                elif task == "Sports Defeat Reporting Translation":
+                    from tools.bn_lint import lint_text
+                    from tools.bn_normalize import canonicalize_unicode
+                    issues = lint_text(entry.get("output"))
+                    self.assertTrue(any(i.rule_id == "RULE-LINT-CALQUE" for i in issues))
+                    calque = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"][0]
+                    self.assertIn(canonicalize_unicode("পরাজিত হয়েছে / হেরেছে"), calque.suggestion)
 
 if __name__ == "__main__":
     unittest.main()

@@ -260,3 +260,75 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 - *Reviewer Notes*: ____________________
 
 ---
+
+### Card 11: [CRD-TRN-002] High Court & Judicial Reporting Formulas (হাইকোর্টের রুল ও রিট মামলার প্রমিত পরিভাষা)
+- **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Rule Summary**: In Bangladeshi judicial reporting, High Court show-cause orders (Rule Nisi) follow a strict, standardized formula: '[বিষয়বস্তু] কেন [আইনগত ফলাফল] ঘোষণা করা হবে না, তা জানতে চেয়ে রুল জারি করেছেন হাইকোর্ট।' Translating 'issued a rule asking why... should not be declared illegal' literally as 'জিজ্ঞেস করে রুল জারি করেছে' is a catastrophic calque that destroys the formal legal register. Courts always take the honorific plural verb 'জারি করেছেন'.
+
+**Positive Examples (শুদ্ধ প্রয়োগ)**:
+  - ✓ নদী দখল নিয়ন্ত্রণে বিবাদীদের নিষ্ক্রিয়তা কেন বেআইনি ঘোষণা করা হবে না, তা জানতে চেয়ে রুল জারি করেছেন হাইকোর্ট।
+  - ✓ বিচারপতিদ্বয়ের সমন্বয়ে গঠিত বেঞ্চ এ আদেশ দেন।
+
+**Negative Examples (ভ্রান্ত প্রয়োগ)**:
+  - ✗ কেন নিষ্ক্রিয়তা বেআইনি হওয়া উচিত নয় তা জিজ্ঞেস করে একটি রুল জারি করেছে।
+  - ✗ হাইকোর্ট একটি রুল দিয়েছে কেন এটা করা হবে না।
+
+**Common LLM Error**: LLMs translate 'asking why... should not' as conversational 'জিজ্ঞেস করে' and drop the judicial honorific plural.
+**Sources / Citations**: Supreme Court of Bangladesh Style & Terminology Norms, Bangladesh Legal Reporting Handbook (BILS / Press Institute)
+
+**Human Reviewer Decision Box**:
+- [ ] **APPROVED** (Elevate to `reviewed`)
+- [ ] **REVISE** (Needs amendment)
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
+
+---
+
+### Card 12: [CRD-TRN-003] Macroeconomic & Financial News Syntax (অর্থনৈতিক সংবাদ ও বাংলাদেশ ব্যাংক পরিভাষা)
+- **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Rule Summary**: In economic journalism (e.g. The Business Standard, Bangladesh Bank releases), numbers and statistical movements require precise conventions: percentages in prose should prefer 'শতাংশ' over '%' symbols in formal leads; interest rate changes use 'বেসিস পয়েন্ট' (basis points); policy rate is 'নীতি সুদহার'; movements 'driven by' must be rendered as active cause ('...কারণে মূল্যস্ফীতি দাঁড়িয়েছে') rather than clumsy passives ('...দ্বারা চালিত').
+
+**Positive Examples (শুদ্ধ প্রয়োগ)**:
+  - ✓ খাদ্যপণ্যের মূল্যবৃদ্ধির কারণে অক্টোবরে সার্বিক মূল্যস্ফীতি বেড়ে দাঁড়িয়েছে ১০.৮৭ শতাংশে।
+  - ✓ বাংলাদেশ ব্যাংক তাদের নীতি সুদহার ৫০ বেসিস পয়েন্ট বাড়িয়ে ১০ শতাংশ নির্ধারণ করেছে।
+
+**Negative Examples (ভ্রান্ত প্রয়োগ)**:
+  - ✗ মূল্যস্ফীতি ১০.৮৭% হয়েছে, যা খাদ্যমূল্যের দ্বারা চালিত।
+  - ✗ কেন্দ্রীয় ব্যাংক পলিসি রেট ৫০ বেসিস পয়েন্টে হাইক করেছে।
+
+**Common LLM Error**: LLMs paste English corporate jargon directly ('হাইক করেছে', 'দ্বারা চালিত') and rely exclusively on '%' symbols instead of 'শতাংশ'.
+**Sources / Citations**: Bangladesh Bank Monetary Policy Statement (MPS) Glossary, The Business Standard (TBS) Bangla Desk Style Guide
+
+**Human Reviewer Decision Box**:
+- [ ] **APPROVED** (Elevate to `reviewed`)
+- [ ] **REVISE** (Needs amendment)
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
+
+---
+
+### Card 13: [CRD-TRN-004] Sports Vernacular & Cricket Reporting (ক্রিকেট ও ক্রীড়া সংবাদ পরিভাষা)
+- **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Rule Summary**: Sports news in Bengali uses lively, active phrasing. The common English cliché 'conceded a defeat against X' must NEVER be translated as 'X-এর বিরুদ্ধে পরাজয় স্বীকার করেছে' (which sounds like military surrender). The standard, idiomatic sports phrasing is 'X-এর কাছে [উইকেট/রানে] হেরেছে' or 'পরাজিত হয়েছে'. Batsmen are referred to as 'ব্যাটার' or 'ব্যাটসম্যান', scores are 'অর্ধশতক' (half-century) and 'শতক' (century).
+
+**Positive Examples (শুদ্ধ প্রয়োগ)**:
+  - ✓ মিডল অর্ডার ব্যাটারের লড়াকু অর্ধশতক সত্ত্বেও সফরকারীদের কাছে ৫ উইকেটে হেরেছে বাংলাদেশ।
+  - ✓ টস জিতে ফিল্ডিংয়ের সিদ্ধান্ত নেয় স্বাগতিক দল।
+
+**Negative Examples (ভ্রান্ত প্রয়োগ)**:
+  - ✗ বাংলাদেশ সফরকারীদের বিরুদ্ধে পাঁচ উইকেটের পরাজয় স্বীকার করেছে।
+  - ✗ একটি সাহসী হাফ-সেঞ্চুরির পরেও দলটি আত্মসমর্পণ করেছে।
+
+**Common LLM Error**: LLMs translate 'conceded defeat' literally as 'পরাজয় স্বীকার করেছে' and 'against' as 'বিরুদ্ধে' instead of authentic sports 'কাছে'.
+**Sources / Citations**: Prothom Alo Khela Desk Style Manual, Pavilion Cricket Lexicon
+
+**Human Reviewer Decision Box**:
+- [ ] **APPROVED** (Elevate to `reviewed`)
+- [ ] **REVISE** (Needs amendment)
+- *Reviewer Handle / Name*: ____________________
+- *Reviewer Notes*: ____________________
+
+---

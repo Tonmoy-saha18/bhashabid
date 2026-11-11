@@ -1,0 +1,19 @@
+id: CRD-TRN-004
+title: "Sports Vernacular & Cricket Reporting (ক্রিকেট ও ক্রীড়া সংবাদ পরিভাষা)"
+domain: translation
+profile: bd_standard
+register: formal
+rule_summary: "Sports news in Bengali uses lively, active phrasing. The common English cliché 'conceded a defeat against X' must NEVER be translated as 'X-এর বিরুদ্ধে পরাজয় স্বীকার করেছে' (which sounds like military surrender). The standard, idiomatic sports phrasing is 'X-এর কাছে [উইকেট/রানে] হেরেছে' or 'পরাজিত হয়েছে'. Batsmen are referred to as 'ব্যাটার' or 'ব্যাটসম্যান', scores are 'অর্ধশতক' (half-century) and 'শতক' (century)."
+good_examples:
+  - "মিডল অর্ডার ব্যাটারের লড়াকু অর্ধশতক সত্ত্বেও সফরকারীদের কাছে ৫ উইকেটে হেরেছে বাংলাদেশ।"
+  - "টস জিতে ফিল্ডিংয়ের সিদ্ধান্ত নেয় স্বাগতিক দল।"
+bad_examples:
+  - "বাংলাদেশ সফরকারীদের বিরুদ্ধে পাঁচ উইকেটের পরাজয় স্বীকার করেছে।"
+  - "একটি সাহসী হাফ-সেঞ্চুরির পরেও দলটি আত্মসমর্পণ করেছে।"
+common_llm_error: "LLMs translate 'conceded defeat' literally as 'পরাজয় স্বীকার করেছে' and 'against' as 'বিরুদ্ধে' instead of authentic sports 'কাছে'."
+sources:
+  - "Prothom Alo Khela Desk Style Manual"
+  - "Pavilion Cricket Lexicon"
+confidence: data-supported
+created_date: 2026-11-11
+last_modified: 2026-11-11
