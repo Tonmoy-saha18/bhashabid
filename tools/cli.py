@@ -132,11 +132,21 @@ def handle_practice(args):
 def handle_install_skill(args):
     try:
         from .skill_installer import install_skill
-        msg = install_skill(target=args.target, workspace_dir=args.workspace)
+        msg = install_skill(target=args.target, workspace_dir=args.workspace, with_mcp=not getattr(args, "no_mcp", False))
         print(msg)
         return 0
     except Exception as e:
         sys.stderr.write(f"Skill Installer Error: {e}\n")
+        return 1
+
+def handle_install_mcp(args):
+    try:
+        from .skill_installer import install_mcp
+        msg = install_mcp(target=args.target, workspace_dir=args.workspace)
+        print(msg)
+        return 0
+    except Exception as e:
+        sys.stderr.write(f"MCP Installer Error: {e}\n")
         return 1
 
 def handle_mcp(args):
@@ -271,7 +281,14 @@ def main():
     p_ins = subparsers.add_parser("install-skill", help="Install Bhashabid skill with all references to Antigravity, Claude, or Cursor")
     p_ins.add_argument("--target", choices=["antigravity", "claude", "cursor", "all"], default="all", help="Target AI environment")
     p_ins.add_argument("--workspace", default=None, help="Target workspace path (default: current directory)")
+    p_ins.add_argument("--no-mcp", action="store_true", help="Skip automatic MCP server configuration")
     p_ins.set_defaults(func=handle_install_skill)
+
+    # install-mcp
+    p_ins_mcp = subparsers.add_parser("install-mcp", help="Install Bhashabid Model Context Protocol (MCP) server configuration into Cursor, Claude, or Antigravity")
+    p_ins_mcp.add_argument("--target", choices=["cursor", "claude", "antigravity", "all"], default="all", help="Target AI environment")
+    p_ins_mcp.add_argument("--workspace", default=None, help="Target workspace path (default: current directory)")
+    p_ins_mcp.set_defaults(func=handle_install_mcp)
 
     # mcp
     p_mcp = subparsers.add_parser("mcp", help="Run Model Context Protocol (MCP) JSON-RPC stdio server")
