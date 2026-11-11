@@ -116,10 +116,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Dhaka University Journal of Research Style Manual, Bangla Academy Research Methodology & Terminology Guidelines
 
 **Human Reviewer Decision Box**:
-- [ ] **APPROVED** (Elevate to `reviewed`)
+- [x] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: ____________________
-- *Reviewer Notes*: ____________________
+- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
+- *Reviewer Notes*: Human review verified and approved: APPROVED. Academic research prose, methodology terminology, and scholarly passive voice validated.
 
 ---
 
