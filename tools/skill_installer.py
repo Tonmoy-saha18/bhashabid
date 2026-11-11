@@ -52,14 +52,16 @@ def install_skill(target: str = "antigravity", workspace_dir: str = None) -> str
         # Cursor rules directory in workspace
         cur_rules = workspace / ".cursor" / "rules"
         os.makedirs(cur_rules, exist_ok=True)
-        # Copy rule file
+        # Copy rule file to both .cursorrules (workspace root) and .cursor/rules/bangla-expert.mdc
         src_rule = Path(REPO_ROOT) / "adapters" / "cursor" / ".cursorrules"
         if src_rule.exists():
+            shutil.copy(src_rule, workspace / ".cursorrules")
             shutil.copy(src_rule, cur_rules / "bangla-expert.mdc")
-        # Also copy references into .cursor/bangla-expert/ so Cursor AI can read them
+        # Also copy references into .cursor/bangla-references/ so Cursor AI can read them
         cur_refs = workspace / ".cursor" / "bangla-references"
         os.makedirs(cur_refs, exist_ok=True)
         shutil.copytree(src_dir / "references", cur_refs, dirs_exist_ok=True)
+        dest_paths.append(str(workspace / ".cursorrules"))
         dest_paths.append(str(cur_rules / "bangla-expert.mdc"))
 
     msg = f"✓ Bhashabid skill and all {len(list((src_dir / 'references').glob('*.md')))} reference guides successfully installed to:\n"

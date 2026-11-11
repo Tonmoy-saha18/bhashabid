@@ -25,3 +25,7 @@ Thumbs.db
 
 # Safety Kill Switch
 state/STOP
+
+# Local IDE installations
+.cursor/
+.cursorrules

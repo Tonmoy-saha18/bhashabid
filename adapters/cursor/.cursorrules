@@ -1,16 +1,34 @@
+---
+description: Bengali linguistic coprocessor rules (Bangla Academy Promito Cholito, anti-calque, statutory legal terminology)
+globs: *
+alwaysApply: true
+---
+
 # Bengali AI Coding & Writing Instructions (Bhashabid Rules)
 
-When generating or editing Bengali (বাংলা) text or documentation:
+When generating, reviewing, or editing Bengali (বাংলা) text or documentation:
+
 1. **Bangla Academy Orthography**:
    - Foreign loanwords use 'স'/'স্ট' (স্টেশন, পোস্ট, মাস্টার, বাস), NEVER 'ষ'/'ষ্ট' (ষ্টেশন, পোষ্ট).
    - Non-Sanskrit (tatbhava/desi) words use short-vowel 'ি' (পাখি, হাতি, দাদি, বাড়ি, সরকারি).
+
 2. **Numerals & South Asian Grouping**:
    - Format digit comma groupings in South Asian 3,2,2 format: ১২,৩৪,৫৬৭ (not 1,234,567).
    - Use exact standard Bengali words for numbers 0-99 (e.g. ৯৯ = নিরানব্বই, ৭৫ = পঁচাত্তর).
-3. **Register & Honorific Consistency**:
-   - Never mix Sadhu and Cholito verbs (avoid গুরুচণ্ডালী দোষ). Default to standard modern Cholito.
-   - Enforce honorific concord: আপনি -> -েন (করেন/যান), তুমি -> -ো (করো/যাও), তুই -> -িস (করিস/যাবি).
-4. **Punctuation**:
-   - Terminate sentences with Bengali Dari ('।'), never ASCII period ('.'). Preserve decimals (৩.১৪).
-5. **Anti-Calque**:
-   - Avoid clumsy literal translations of English passives ('দ্বারা কৃত'). Use authentic active Bengali syntax.
+
+3. **Register & Zero Guru-chandali (গুরুচণ্ডালী দোষ পরিহার)**:
+   - Default strictly to modern standard Promito Cholito (প্রমিত চলিত) across all sectors.
+   - Never mix Sadhu and Cholito verb suffixes (`হইবে`, `যদ্দারা`, `তাহাদিগকে`, `দর্শাইতে`, `করিলেন` mixed with `করা হোক`, `দেওয়া হয়`, `পারেন`).
+
+4. **Legal, Constitutional & High Court Drafting**:
+   - In High Court Article 102 writ petitions and corporate contracts, write in **formal Promito Cholito** (`পরমাদেশ জারি`, `ঘোষণা করা হবে না, তা প্রদর্শনের জন্য রুল নিশি`, `কার্যকর বলে গণ্য হবে`, `স্বাক্ষর করলেন`).
+   - The parties are **আবেদনকারী (Petitioner)** and **বিবাদীগণ / প্রতিপক্ষ (Respondents)** — NEVER use the literal translation calque 'উত্তরদাতাগণ'.
+   - Mandamus is **পরমাদেশ** (never 'নির্দেশনামা').
+   - Use statutory Supreme Court phrases: `আইনগত কর্তৃত্ববহির্ভূত ও আইনগত ফলাফলবিহীন`, `স্থিতাবস্থা (Status Quo)`.
+
+5. **Punctuation & Decimal Protection**:
+   - Terminate sentences with Bengali Dari ('।'), never ASCII period ('.').
+   - Never corrupt decimal points with Dari (use ৩.১৪, ১০.৮৭, never ৩।১৪, ১০।৮৭).
+
+6. **Anti-Calque & Idiomatic Phrasing**:
+   - Avoid clumsy literal translations of English passives ('দ্বারা চালিত', 'পরাজয় স্বীকার করেছে'). Use natural, authentic active Bengali syntax.
