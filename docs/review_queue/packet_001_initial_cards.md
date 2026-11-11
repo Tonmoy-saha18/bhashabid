@@ -335,10 +335,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Suniti Kumar Chatterji, The Origin and Development of the Bengali Language, 1926, Bangla Academy Promito Bangla Bhashar Byakoron, Vol 1
 
 **Human Reviewer Decision Box**:
-- [ ] **APPROVED** (Elevate to `reviewed`)
+- [x] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: ____________________
-- *Reviewer Notes*: ____________________
+- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
+- *Reviewer Notes*: Human review verified and approved: APPROVED. Guru-chandali Dosh (Sadhu-Cholito verb mixing prevention) rule and examples validated.
 
 ---
 
