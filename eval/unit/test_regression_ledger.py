@@ -96,6 +96,24 @@ class TestLedgerRegressions(unittest.TestCase):
                     self.assertTrue(any(i.rule_id == "RULE-LINT-CALQUE" for i in issues))
                     calques = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"]
                     self.assertTrue(any("যুগান্তকারী" in i.suggestion for i in calques))
+                elif task == "Land Deed Conveyancing Translation":
+                    from tools.bn_lint import lint_text
+                    issues = lint_text(entry.get("output"))
+                    self.assertTrue(any(i.rule_id == "RULE-LINT-CALQUE" for i in issues))
+                    calques = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"]
+                    self.assertTrue(any("সাফ-কবলা" in i.suggestion for i in calques))
+                elif task == "Meteorological Storm Surge Translation":
+                    from tools.bn_lint import lint_text
+                    issues = lint_text(entry.get("output"))
+                    self.assertTrue(any(i.rule_id == "RULE-LINT-CALQUE" for i in issues))
+                    calques = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"]
+                    self.assertTrue(any("জলোচ্ছ্বাস" in i.suggestion for i in calques))
+                elif task == "Agronomic Agrochemical Formulation":
+                    from tools.bn_lint import lint_text
+                    issues = lint_text(entry.get("output"))
+                    self.assertTrue(any(i.rule_id == "RULE-LINT-CALQUE" for i in issues))
+                    calques = [i for i in issues if i.rule_id == "RULE-LINT-CALQUE"]
+                    self.assertTrue(any("বালাইনাশক" in i.suggestion for i in calques))
 
 if __name__ == "__main__":
     unittest.main()
