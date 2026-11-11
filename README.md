@@ -31,6 +31,22 @@ Bhashabid does not exaggerate its capabilities or claim to replace foundation mo
 
 ---
 
+## 👥 Who Should Use Bhashabid & Why?
+
+Bhashabid is engineered for anyone who needs **authentic, dignified, and error-free Bengali** without falling victim to robotic machine-translation habits:
+
+| Persona / Sector | Why They Need Bhashabid | Key Capabilities Used |
+| :--- | :--- | :--- |
+| **Lawyers, Advocates & Legal Scholars** | Frontier LLMs fabricate colloquial terms for writs (calling *Habeas Corpus* "বন্দি মুক্তির আবেদন") or ruin legal notices by translating *"Without Prejudice"* as *"কোনো ক্ষতি ছাড়া"*. Bhashabid enforces authentic Supreme Court formulas, statutory Article 102 prayers, and precise Bengali terms (*স্বত্বহানি ব্যতিরেকে*). | `bhashabid writ` & [`constitutional_writs.md`](skills/bangla-expert/references/constitutional_writs.md) |
+| **Government & Corporate Officials** | Administrative letters, secretariat memos, and DC petitions must follow the official *Bangladesh Secretariat Instructions* (*সচিবালয় নির্দেশমালা*)—not casual English email calques (*"প্রিয় মহাশয়"*). Bhashabid enforces proper salutations and formal closings (*বিনীত নিবেদক*). | [`official_letters.md`](skills/bangla-expert/references/official_letters.md) & `bhashabid lint` |
+| **Journalists, Editors & Financial Analysts** | Macroeconomic and sports reporting require strict terminological precision (e.g., using Bangladesh Bank's *নীতি সুদহার* instead of *পলিসি রেট*; *মূল্যস্ফীতি* instead of *মুদ্রাস্ফীতি*). Bhashabid ensures active causal phrasing instead of awkward passive voice. | [`journalism_domains.md`](skills/bangla-expert/references/journalism_domains.md) & `bhashabid lint` |
+| **Healthcare & Medical Communicators** | Frontier LLMs make dangerous medical translation errors (e.g., translating clinical *"drugs"* into *"মাদক"* instead of *"ওষুধ/অ্যান্টিবায়োটিক"*). Bhashabid enforces safe, unambiguous clinical terms and emergency triage protocols. | [`academic_legal_medical.md`](skills/bangla-expert/references/academic_legal_medical.md) |
+| **Poets, Novelists & Creative Writers** | Generative AI models struggle with rhythm, breaking living spoken dialogue tags and mangling traditional 14-akshar Payar (8+6) verse. Bhashabid deterministically calculates syllables (*মুক্তদল/রুদ্ধদল*) and validates poetic metres. | `bhashabid prosody` & [`creative_writing.md`](skills/bangla-expert/references/creative_writing.md) |
+| **Software Engineers & AI Agent Builders** | Developers building Bengali bots, search engines, or RAG pipelines can plug in the **Model Context Protocol (MCP)** server or Python library to audit AI outputs locally at 50,000–500,000 words/second with **zero token cost ($0.00)**. | `bhashabid-mcp` & Python SDK |
+| **Students, Researchers & Everyday Users (No-Code)** | Anyone using ChatGPT, Claude, or Gemini in their web browser can simply paste `STANDALONE_ALL_IN_ONE.md` into Custom Instructions to instantly transform raw LLMs into seasoned native Bengali editors. | [`STANDALONE_ALL_IN_ONE.md`](skills/bangla-expert/STANDALONE_ALL_IN_ONE.md) |
+
+---
+
 ## 🚀 6 Ways to Use Bhashabid Today
 
 ### 1. As an Antigravity, Claude, or Cursor Skill (1-Command Install with ALL References)
@@ -56,7 +72,9 @@ This file packages the core invariants plus the distilled rules for all 8 sector
 ### 3. As an MCP Server (Cursor, Claude Desktop, Windsurf, Zed)
 Exposes Bhashabid's deterministic tools via the **Model Context Protocol (MCP)**:
 ```bash
-python -m tools.mcp_server
+# Run stdio MCP server for Claude Desktop / Cursor / Antigravity
+bhashabid-mcp
+# or: bhashabid mcp
 ```
 **Exposed Tools**:
 * `convert_number`: Exact 0-99 cardinal lookup, currency in words, South Asian grouping (`১২,৩৪,৫৬৭`).
