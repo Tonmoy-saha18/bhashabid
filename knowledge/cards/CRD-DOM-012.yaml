@@ -10,12 +10,12 @@ rule_summary: 'Enforce NCTB four-tier Creative Question (সৃজনশীল �
   marks), (গ) প্রয়োগমূলক (3 marks), and (ঘ) উচ্চতর দক্ষতামূলক (4 marks), preventing
   rubric distortion.'
 good_examples:
-- 'উদ্দীপকটি পড়িয়া নিচের প্রশ্নগুলোর উত্তর দাও: ... (ক) সালোকসংশ্লেষণ কাকে বলে? (খ)
+- 'উদ্দীপকটি পড়ে নিচের প্রশ্নগুলোর উত্তর দাও: ... (ক) সালোকসংশ্লেষণ কাকে বলে? (খ)
   উদ্ভিদের পাতায় শ্বসন প্রক্রিয়া কীভাবে সম্পন্ন হয়? ব্যাখ্যা করো। (গ) উদ্দীপকে বর্ণিত
   রফিকের কৃষি উদ্যোগে সালোকসংশ্লেষণের গুরুত্ব প্রয়োগ ব্যাখ্যা করো। (ঘ) ''সুষম পুষ্টি
   ব্যবস্থাপনায় উদ্দীপকের মডেলটি সর্বোত্তম সমাধান''—উক্তিটির যথার্থতা মূল্যায়ন করো।'
-- 'শিখনফল: শিক্ষার্থীরা ভাষা আন্দোলনের পটভূমি বর্ণনা করিতে পারিবে এবং শহীদ দিবসের
-  তাৎপর্য বিশ্লেষণ করিতে সক্ষম হইবে।'
+- 'শিখনফল: শিক্ষার্থীরা ভাষা আন্দোলনের পটভূমি বর্ণনা করতে পারবে এবং শহীদ দিবসের তাৎপর্য
+  বিশ্লেষণ করতে সক্ষম হবে।'
 bad_examples:
 - 'নিচের গল্পটি পড়ে প্রশ্নের উত্তর দাও: (ক) রফিক কে ছিল এবং কেন কাজ করেছিল বিস্তারিত
   লেখো? (খ) সালোকসংশ্লেষণের ওপর একটি রচনা লেখো।'
@@ -33,8 +33,9 @@ review:
   reviewer_affiliation: Lead Native-Speaker Reviewer
   reviewed_date: '2026-11-11'
   status: APPROVED
-  notes: Verified against NCTB Secondary exam framing guidelines and SESDP creative
-    questioning framework.
-  signature_hash: sha256:45a88652f91c8fe7
+  notes: 'Human review verified and approved: APPROVED. Resolved Guruchandali verb
+    conflict (পড়িয়া->পড়ে, করিতে পারিবে->করতে পারবে) per reviewer guidance. NCTB creative
+    question rubric validated.'
+  signature_hash: sha256:14c23ea667a2ebc6
 last_modified: '2026-11-11'
 created_date: '2026-11-11'

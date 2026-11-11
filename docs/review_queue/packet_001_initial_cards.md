@@ -163,10 +163,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Standard Chartered / Grameenphone Corporate Communications Corpus, Brand Forum Bangladesh Copywriting Handbook
 
 **Human Reviewer Decision Box**:
-- [ ] **APPROVED** (Elevate to `reviewed`)
+- [x] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: ____________________
-- *Reviewer Notes*: ____________________
+- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
+- *Reviewer Notes*: Human review verified and approved: APPROVED. Corporate copywriting, marketing terminology, and press release anatomy validated.
 
 ---
 
@@ -187,10 +187,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: The Contract Act 1872 (Bangladesh Ministry of Law Bengali Translation), Bangladesh Legal Form & Precedents Handbook
 
 **Human Reviewer Decision Box**:
-- [ ] **APPROVED** (Elevate to `reviewed`)
+- [x] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: ____________________
-- *Reviewer Notes*: ____________________
+- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
+- *Reviewer Notes*: Human review verified and approved: APPROVED. Legal drafting, statutory contract clauses, and attestation conventions validated.
 
 ---
 
@@ -211,10 +211,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Directorate General of Health Services (DGHS) Bangladesh Public Health Guidelines, World Health Organization (WHO) Bangla Advisory Bulletins
 
 **Human Reviewer Decision Box**:
-- [ ] **APPROVED** (Elevate to `reviewed`)
+- [x] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: ____________________
-- *Reviewer Notes*: ____________________
+- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
+- *Reviewer Notes*: Human review verified and approved: APPROVED. Healthcare communication, medical advisory tone, and precise dosage conventions validated.
 
 ---
 
@@ -235,10 +235,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Prabodh Chandra Sen: বাংলা ছন্দ পরিক্রমা, Amulyadhan Mukhopadhyay: আধুনিক বাংলা ছন্দদর্শন
 
 **Human Reviewer Decision Box**:
-- [ ] **APPROVED** (Elevate to `reviewed`)
+- [x] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: ____________________
-- *Reviewer Notes*: ____________________
+- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
+- *Reviewer Notes*: Human review verified and approved: APPROVED. Classical Bengali prosody, dalabritta/matrabritta/payar metre rules validated.
 
 ---
 
@@ -261,10 +261,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: The Registration Act 1908 (Bangladesh Ministry of Law Bengali Translation), The State Acquisition and Tenancy Act 1950, Land Ministry Deed Drafting Manual (ভূমি মন্ত্রণালয় দলিল লিখন ও রেজিস্ট্রি নির্দেশিকা)
 
 **Human Reviewer Decision Box**:
-- [ ] **APPROVED** (Elevate to `reviewed`)
+- [x] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: ____________________
-- *Reviewer Notes*: ____________________
+- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
+- *Reviewer Notes*: Human review verified and approved: APPROVED. Statutory land registry deeds, survey records (CS/SA/RS/BS), and conveyance taxonomy validated.
 
 ---
 
@@ -274,9 +274,9 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 - **Rule Summary**: Enforce canonical meteorological and agronomic terminology in early warnings (মহাবিপদ সংকেত, জলোচ্ছ্বাস, নিম্নচাপ) and crop husbandry (আমন, বোরো, বালাইনাশক প্রয়োগ, সুষম সার) in accordance with BMD and DAE standards.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
-  - ✓ ঘূর্ণিঝড়ের প্রভাবে উপকূলীয় জেলাসমূহে স্বাভাবিক জোয়ারের চেয়ে ৫-৭ ফুট অধিক উচ্চতার বায়ুতাড়িত জলোচ্ছ্বাসের আশঙ্কা রহিয়াছে।
-  - ✓ চট্টগ্রাম ও কক্সবাজার সমুদ্রবন্দরকে ৮ নম্বর মহাবিপদ সংকেত প্রদর্শন করিতে বলা হইয়াছে।
-  - ✓ বোরো ধানের চারা রোপণের ১৫-২০ দিন পর প্রথম কিস্তির ইউরিয়া সার উপরিপ্রয়োগ করিতে হইবে এবং মাজরা পোকা দমনে অনুমোদিত বালাইনাশক ব্যবহার আবশ্যক।
+  - ✓ ঘূর্ণিঝড়ের প্রভাবে উপকূলীয় জেলাসমূহে স্বাভাবিক জোয়ারের চেয়ে ৫-৭ ফুট অধিক উচ্চতার বায়ুতাড়িত জলোচ্ছ্বাসের আশঙ্কা রয়েছে।
+  - ✓ চট্টগ্রাম ও কক্সবাজার সমুদ্রবন্দরকে ৮ নম্বর মহাবিপদ সংকেত প্রদর্শন করতে বলা হয়েছে।
+  - ✓ বোরো ধানের চারা রোপণের ১৫-২০ দিন পর প্রথম কিস্তির ইউরিয়া সার উপরিপ্রয়োগ করতে হবে এবং মাজরা পোকা দমনে অনুমোদিত বালাইনাশক ব্যবহার আবশ্যক।
 
 **Negative Examples (ভ্রান্ত প্রয়োগ)**:
   - ✗ ঘূর্ণিঝড়ের প্রভাবে উপকূলীয় অঞ্চলে ৫-৭ ফুট উচ্চতার ঝড় বৃদ্ধি দেখা যেতে পারে।
@@ -287,10 +287,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: Bangladesh Meteorological Department (BMD) Cyclone Warning Protocol & Terminology, Department of Agricultural Extension (DAE) Krishi Diary & Crop Manual, Disaster Management Act 2012 (Official Bengali Text)
 
 **Human Reviewer Decision Box**:
-- [ ] **APPROVED** (Elevate to `reviewed`)
+- [x] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: ____________________
-- *Reviewer Notes*: ____________________
+- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
+- *Reviewer Notes*: Human review verified and approved: APPROVED. Converted Sadhu verb forms to modern standard Cholito in accordance with reviewer guidance. Early warnings and crop husbandry validated.
 
 ---
 
@@ -300,8 +300,8 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 - **Rule Summary**: Enforce NCTB four-tier Creative Question (সৃজনশীল প্রশ্ন) architecture: উদ্দীপক (Stimulus/Stem), followed by (ক) জ্ঞানমূলক (1 mark), (খ) অনুধাবনমূলক (2 marks), (গ) প্রয়োগমূলক (3 marks), and (ঘ) উচ্চতর দক্ষতামূলক (4 marks), preventing rubric distortion.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
-  - ✓ উদ্দীপকটি পড়িয়া নিচের প্রশ্নগুলোর উত্তর দাও: ... (ক) সালোকসংশ্লেষণ কাকে বলে? (খ) উদ্ভিদের পাতায় শ্বসন প্রক্রিয়া কীভাবে সম্পন্ন হয়? ব্যাখ্যা করো। (গ) উদ্দীপকে বর্ণিত রফিকের কৃষি উদ্যোগে সালোকসংশ্লেষণের গুরুত্ব প্রয়োগ ব্যাখ্যা করো। (ঘ) 'সুষম পুষ্টি ব্যবস্থাপনায় উদ্দীপকের মডেলটি সর্বোত্তম সমাধান'—উক্তিটির যথার্থতা মূল্যায়ন করো।
-  - ✓ শিখনফল: শিক্ষার্থীরা ভাষা আন্দোলনের পটভূমি বর্ণনা করিতে পারিবে এবং শহীদ দিবসের তাৎপর্য বিশ্লেষণ করিতে সক্ষম হইবে।
+  - ✓ উদ্দীপকটি পড়ে নিচের প্রশ্নগুলোর উত্তর দাও: ... (ক) সালোকসংশ্লেষণ কাকে বলে? (খ) উদ্ভিদের পাতায় শ্বসন প্রক্রিয়া কীভাবে সম্পন্ন হয়? ব্যাখ্যা করো। (গ) উদ্দীপকে বর্ণিত রফিকের কৃষি উদ্যোগে সালোকসংশ্লেষণের গুরুত্ব প্রয়োগ ব্যাখ্যা করো। (ঘ) 'সুষম পুষ্টি ব্যবস্থাপনায় উদ্দীপকের মডেলটি সর্বোত্তম সমাধান'—উক্তিটির যথার্থতা মূল্যায়ন করো।
+  - ✓ শিখনফল: শিক্ষার্থীরা ভাষা আন্দোলনের পটভূমি বর্ণনা করতে পারবে এবং শহীদ দিবসের তাৎপর্য বিশ্লেষণ করতে সক্ষম হবে।
 
 **Negative Examples (ভ্রান্ত প্রয়োগ)**:
   - ✗ নিচের গল্পটি পড়ে প্রশ্নের উত্তর দাও: (ক) রফিক কে ছিল এবং কেন কাজ করেছিল বিস্তারিত লেখো? (খ) সালোকসংশ্লেষণের ওপর একটি রচনা লেখো।
@@ -311,10 +311,10 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 **Sources / Citations**: National Curriculum and Textbook Board (NCTB) Teacher's Curriculum Guide, Secondary Education Sector Development Project (SESDP) Creative Questioning Rubric, National Education Policy 2010 (জাতীয় শিক্ষানীতি ২০১০)
 
 **Human Reviewer Decision Box**:
-- [ ] **APPROVED** (Elevate to `reviewed`)
+- [x] **APPROVED** (Elevate to `reviewed`)
 - [ ] **REVISE** (Needs amendment)
-- *Reviewer Handle / Name*: ____________________
-- *Reviewer Notes*: ____________________
+- *Reviewer Handle / Name*: Ashikur Rahman Bhuiyan (Lead Native-Speaker Reviewer)
+- *Reviewer Notes*: Human review verified and approved: APPROVED. Resolved Guruchandali verb conflict (পড়িয়া->পড়ে, করিতে পারিবে->করতে পারবে) per reviewer guidance. NCTB creative question rubric validated.
 
 ---
 

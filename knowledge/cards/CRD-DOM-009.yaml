@@ -28,8 +28,9 @@ created_date: 2026-11-11
 last_modified: '2026-11-11'
 review:
   reviewer_name: Ashikur Rahman Bhuiyan
-  reviewer_affiliation: Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>)
+  reviewer_affiliation: Lead Native-Speaker Reviewer
   reviewed_date: '2026-11-11'
   status: APPROVED
-  notes: Reviewed and approved by human native speaker for v1.0.0 release.
+  notes: 'Human review verified and approved: APPROVED. Classical Bengali prosody,
+    dalabritta/matrabritta/payar metre rules validated.'
   signature_hash: sha256:701b7391f6877f53

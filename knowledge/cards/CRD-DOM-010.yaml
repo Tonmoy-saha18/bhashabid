@@ -30,8 +30,8 @@ review:
   reviewer_affiliation: Lead Native-Speaker Reviewer
   reviewed_date: '2026-11-11'
   status: APPROVED
-  notes: Verified against Ministry of Land statutory deed drafting conventions and
-    Directorate of Registration forms.
+  notes: 'Human review verified and approved: APPROVED. Statutory land registry deeds,
+    survey records (CS/SA/RS/BS), and conveyance taxonomy validated.'
   signature_hash: sha256:e70678f2b8435b0b
 last_modified: '2026-11-11'
 created_date: '2026-11-11'
