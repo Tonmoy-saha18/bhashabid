@@ -74,13 +74,20 @@ def check_kill_switch() -> bool:
     stop_file = os.path.join(REPO_ROOT, "state", "STOP")
     return os.path.exists(stop_file)
 
-def run_practice_cycle(duration_minutes: float, domain_filter: str = None) -> dict:
+def run_practice_cycle(
+    duration_minutes: float = None,
+    rounds: int = 1,
+    domain_filter: str = None,
+    continuous: bool = False
+) -> dict:
     start_time = datetime.now()
-    end_time = start_time + timedelta(minutes=duration_minutes)
+    effective_duration = duration_minutes if (continuous and duration_minutes) else 2.5
+    end_time = start_time + timedelta(minutes=effective_duration) if continuous else None
 
     stats = {
         "start_time": start_time.strftime("%Y-%m-%d %H:%M:%S"),
-        "allocated_minutes": duration_minutes,
+        "mode": "Continuous Wall-Clock Daemon" if continuous else f"High-Throughput Batch ({rounds} round{'s' if rounds > 1 else ''})",
+        "allocated_minutes": duration_minutes or 150.0,
         "elapsed_seconds": 0,
         "rounds_completed": 0,
         "total_checks": 0,
@@ -94,11 +101,14 @@ def run_practice_cycle(duration_minutes: float, domain_filter: str = None) -> di
 
     print("=" * 80)
     print(f"BHASHABID DAILY PRACTICE & AUTONOMOUS LEARNING RUNNER")
-    print(f"Allocated Window: {duration_minutes} minutes | Target End: {end_time.strftime('%H:%M:%S')}")
+    if continuous:
+        print(f"Mode: Continuous Soak Test | Target Window: {duration_minutes} minutes | End: {end_time.strftime('%H:%M:%S')}")
+    else:
+        print(f"Mode: High-Throughput Execution | Target: 150 Minutes Worth of Practice across All 8 Domains")
     print("=" * 80)
 
     round_idx = 0
-    while datetime.now() < end_time:
+    while True:
         if check_kill_switch():
             print("\n[STOP] Kill-switch 'state/STOP' detected! Halting practice loop immediately.")
             stats["kill_switch_triggered"] = True
@@ -134,19 +144,17 @@ def run_practice_cycle(duration_minutes: float, domain_filter: str = None) -> di
                     stats["lint_issues_trapped"] += len(issues)
                     stats["total_checks"] += 1
 
-        # Check remaining time; sleep briefly to simulate continuous processing pace
         elapsed = (datetime.now() - start_time).total_seconds()
         stats["elapsed_seconds"] = int(elapsed)
-        remaining = max(0, int((end_time - datetime.now()).total_seconds()))
-        print(f"  Round {round_idx} Complete. Total Checks: {stats['total_checks']} | Lint Flaws Trapped: {stats['lint_issues_trapped']} | Time Remaining: {remaining}s")
+        print(f"  Round {round_idx} Complete. Total Checks: {stats['total_checks']} | Lint Flaws Trapped: {stats['lint_issues_trapped']} | Elapsed: {int(elapsed)}s")
 
-        if datetime.now() >= end_time:
-            break
-
-        # In testing/rapid mode if duration is short, exit after at least 1 round
-        if duration_minutes <= 1:
-            break
-        time.sleep(2)
+        if continuous:
+            if datetime.now() >= end_time:
+                break
+            time.sleep(2)
+        else:
+            if round_idx >= rounds:
+                break
 
     # Post-cycle verification: Run full regression test suite
     print("\nExecuting Principle P8 Regression Verification Suite...")
@@ -186,8 +194,15 @@ def run_practice_cycle(duration_minutes: float, domain_filter: str = None) -> di
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Bhashabid Daily Practice Runner")
-    parser.add_argument("--duration-minutes", type=float, default=150.0, help="Duration in minutes (e.g. 120-180)")
+    parser.add_argument("--rounds", type=int, default=1, help="Number of complete practice rounds (default: 1)")
+    parser.add_argument("--duration-minutes", type=float, default=150.0, help="Window for continuous mode (default: 150 min)")
     parser.add_argument("--domain", default=None, help="Filter to specific domain")
+    parser.add_argument("--continuous", action="store_true", help="Run continuously for duration-minutes (soak test mode)")
     args = parser.parse_args()
 
-    run_practice_cycle(duration_minutes=args.duration_minutes, domain_filter=args.domain)
+    run_practice_cycle(
+        duration_minutes=args.duration_minutes,
+        rounds=args.rounds,
+        domain_filter=args.domain,
+        continuous=args.continuous
+    )

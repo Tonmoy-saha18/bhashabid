@@ -117,7 +117,12 @@ def handle_review(args):
 def handle_practice(args):
     try:
         from .daily_practice_runner import run_practice_cycle
-        run_practice_cycle(duration_minutes=args.duration_minutes, domain_filter=args.domain)
+        run_practice_cycle(
+            duration_minutes=args.duration_minutes,
+            rounds=args.rounds,
+            domain_filter=args.domain,
+            continuous=args.continuous
+        )
         return 0
     except Exception as e:
         sys.stderr.write(f"Practice Runner Error: {e}\n")
@@ -216,8 +221,10 @@ def main():
 
     # practice
     p_prac = subparsers.add_parser("practice", help="Run automated multi-domain practice and learning cycle")
-    p_prac.add_argument("--duration-minutes", type=float, default=150.0, help="Window in minutes (e.g. 120-180)")
+    p_prac.add_argument("--rounds", type=int, default=1, help="Number of complete practice rounds (default: 1)")
+    p_prac.add_argument("--duration-minutes", type=float, default=150.0, help="Window for continuous mode (default: 150 min)")
     p_prac.add_argument("--domain", default=None, help="Filter to specific domain")
+    p_prac.add_argument("--continuous", action="store_true", help="Run continuously for duration-minutes (soak test mode)")
     p_prac.set_defaults(func=handle_practice)
 
     # install-skill
