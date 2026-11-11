@@ -169,6 +169,15 @@ def handle_uninstall_mcp(args):
         sys.stderr.write(f"MCP Uninstaller Error: {e}\n")
         return 1
 
+def handle_status(args):
+    try:
+        from .skill_installer import format_status_report
+        print(format_status_report())
+        return 0
+    except Exception as e:
+        sys.stderr.write(f"Status Error: {e}\n")
+        return 1
+
 def handle_mcp(args):
     try:
         from .mcp_server.server import BhashabidMCPServer
@@ -322,6 +331,10 @@ def main():
     p_unins_mcp.add_argument("--target", choices=["cursor", "claude", "antigravity", "all"], default="all", help="Target AI environment")
     p_unins_mcp.add_argument("--workspace", default=None, help="Target workspace path (default: current directory)")
     p_unins_mcp.set_defaults(func=handle_uninstall_mcp)
+
+    # status
+    p_stat = subparsers.add_parser("status", help="Show Bhashabid global installation & health status across detected AI IDEs")
+    p_stat.set_defaults(func=handle_status)
 
     # mcp
     p_mcp = subparsers.add_parser("mcp", help="Run Model Context Protocol (MCP) JSON-RPC stdio server")
