@@ -28,5 +28,12 @@ class TestSkillIntegrity(unittest.TestCase):
             self.assertTrue(os.path.exists(full_ref_path), f"Reference file {ref} must exist")
             self.assertGreater(os.path.getsize(full_ref_path), 50, f"Reference file {ref} should not be empty")
 
+    def test_skill_installer_tool(self):
+        from tools.skill_installer import get_source_skill_dir
+        src = get_source_skill_dir()
+        self.assertTrue((src / "SKILL.md").exists())
+        self.assertTrue((src / "references").exists())
+        self.assertTrue((src / "STANDALONE_ALL_IN_ONE.md").exists())
+
 if __name__ == "__main__":
     unittest.main()

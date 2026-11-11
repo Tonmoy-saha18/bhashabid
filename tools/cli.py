@@ -123,6 +123,16 @@ def handle_practice(args):
         sys.stderr.write(f"Practice Runner Error: {e}\n")
         return 1
 
+def handle_install_skill(args):
+    try:
+        from .skill_installer import install_skill
+        msg = install_skill(target=args.target, workspace_dir=args.workspace)
+        print(msg)
+        return 0
+    except Exception as e:
+        sys.stderr.write(f"Skill Installer Error: {e}\n")
+        return 1
+
 def handle_lint(args):
     try:
         text = resolve_text_or_file(args.text)
@@ -209,6 +219,12 @@ def main():
     p_prac.add_argument("--duration-minutes", type=float, default=150.0, help="Window in minutes (e.g. 120-180)")
     p_prac.add_argument("--domain", default=None, help="Filter to specific domain")
     p_prac.set_defaults(func=handle_practice)
+
+    # install-skill
+    p_ins = subparsers.add_parser("install-skill", help="Install Bhashabid skill with all references to Antigravity, Claude, or Cursor")
+    p_ins.add_argument("--target", choices=["antigravity", "claude", "cursor", "all"], default="all", help="Target AI environment")
+    p_ins.add_argument("--workspace", default=None, help="Target workspace path (default: current directory)")
+    p_ins.set_defaults(func=handle_install_skill)
 
     args = parser.parse_args()
     if not args.command:

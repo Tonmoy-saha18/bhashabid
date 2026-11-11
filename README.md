@@ -25,19 +25,25 @@ Frontier LLMs (ChatGPT, Claude, Gemini, DeepSeek) consistently deteriorate when 
 
 ## 🚀 6 Ways to Use Bhashabid Today
 
-### 1. As an Antigravity or Claude Skill (Zero-Config Agent Injection)
-Simply reference or copy [`skills/bangla-expert/SKILL.md`](skills/bangla-expert/SKILL.md) into your agent configuration:
-* **Token Footprint**: Strictly **< 390 tokens** (progressive disclosure routes to modular guides on demand).
-* **Auto-Routing**: Automatically directs models to specialized modules for legal writs, macroeconomics, petitions, fiction dialogue, and healthcare.
+### 1. As an Antigravity, Claude, or Cursor Skill (1-Command Install with ALL References)
+To install the skill along with **all 8 specialized reference guides** into your AI environment, run the built-in installer:
+```bash
+# Install to all detected environments (Antigravity, Claude, and Cursor)
+bhashabid install-skill --target all
 
-### 2. Universal Prompt / Context Injection (ChatGPT, Claude, Gemini, DeepSeek)
-Copy the text of [`skills/bangla-expert/SKILL.md`](skills/bangla-expert/SKILL.md) into your system prompt or chat context:
-```markdown
-You are an expert native Bengali writer adhering strictly to Bangla Academy orthography.
-Always use standard cardinal numerals (৯৯ = নিরানব্বই), Dari (।), strict honorific concordance,
-and zero English passive "দ্বারা" calques.
+# Or install specifically:
+bhashabid install-skill --target antigravity
+bhashabid install-skill --target claude
+bhashabid install-skill --target cursor
 ```
-Instantly transforms generic, robotic Bengali outputs into natural, newsroom-grade prose.
+* **Token Footprint**: Strictly **< 390 tokens** (progressive disclosure routes to modular guides on demand).
+* **Autonomous Lookup**: When handling legal writs, business news, petitions, or fiction, the agent automatically reads the appropriate reference guide without human intervention.
+
+### 2. Universal All-In-One Prompt (ChatGPT, Claude Web, Gemini Web, DeepSeek)
+For users who only have a web browser chat box and cannot install files, copy the single consolidated bundle:
+👉 **[`skills/bangla-expert/STANDALONE_ALL_IN_ONE.md`](skills/bangla-expert/STANDALONE_ALL_IN_ONE.md)**
+
+This file packages the core invariants plus the distilled rules for all 8 sectors into a single ready-to-paste prompt.
 
 ### 3. As an MCP Server (Cursor, Claude Desktop, Windsurf, Zed)
 Exposes Bhashabid's deterministic tools via the **Model Context Protocol (MCP)**:

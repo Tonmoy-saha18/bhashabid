@@ -26,6 +26,12 @@ pip install git+https://github.com/ashik1291/bhashabid.git
 
 The `bhashabid` executable provides instant terminal access to all linguistic engines:
 
+### Install Skill with all References in 1 Command
+```bash
+# Automatically install SKILL.md and all 8 reference guides to Antigravity, Claude, or Cursor
+bhashabid install-skill --target all
+```
+
 ### Numeral & Currency Conversion
 ```bash
 bhashabid number 99
