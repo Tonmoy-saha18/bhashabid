@@ -48,6 +48,32 @@ class BhashabidMCPServer:
                     },
                     "required": ["text"]
                 }
+            },
+            {
+                "name": "prosody_scan",
+                "description": "Scan Bengali verse for poetic metre (Payar, Matrabritta, Dalabritta) and verify caesura and rhyme.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "text": {"type": "string", "description": "The Bengali verse line."},
+                        "metre": {"type": "string", "enum": ["aksharbritta", "matrabritta", "dalabritta"], "default": "aksharbritta"},
+                        "verify_payar": {"type": "boolean", "default": False}
+                    },
+                    "required": ["text"]
+                }
+            },
+            {
+                "name": "generate_writ_prayer",
+                "description": "Generate Article 102 High Court constitutional writ prayers in statutory Bengali.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "remedy": {"type": "string", "description": "Core remedy (e.g. detention, illegal order, public office)."},
+                        "subject": {"type": "string", "description": "Subject matter of the grievance."},
+                        "authority": {"type": "string", "description": "Respondent authority name."}
+                    },
+                    "required": ["remedy", "subject", "authority"]
+                }
             }
         ]
 
@@ -87,6 +113,44 @@ class BhashabidMCPServer:
                 for issue in issues
             ]
             return {"issues": diagnostics, "issue_count": len(diagnostics)}
+
+        elif name == "prosody_scan":
+            from ..bn_prosody import scan_line, verify_payar
+            raw_text = arguments.get("text", "")
+            metre = arguments.get("metre", "aksharbritta")
+            if arguments.get("verify_payar", False):
+                res = verify_payar(raw_text)
+                return {
+                    "is_valid_payar": res.is_valid_payar,
+                    "part1_morae": res.part1_morae,
+                    "part2_morae": res.part2_morae,
+                    "total_morae": res.total_morae,
+                    "explanation": res.explanation
+                }
+            else:
+                res = scan_line(raw_text, metre_system=metre)
+                return {
+                    "metre_system": res.metre_system,
+                    "total_morae": res.total_morae,
+                    "total_syllables": res.total_syllables,
+                    "open_syllables": res.open_syllables,
+                    "closed_syllables": res.closed_syllables,
+                    "word_mora_breakdown": res.word_mora_breakdown,
+                    "scansion_notation": res.scansion_notation
+                }
+
+        elif name == "generate_writ_prayer":
+            from ..bn_legal import determine_writ_type, generate_writ_prayer, CONSTITUTIONAL_PROVISIONS
+            rem = arguments.get("remedy", "")
+            subj = arguments.get("subject", "")
+            auth = arguments.get("authority", "")
+            wtype = determine_writ_type(rem)
+            prayers = generate_writ_prayer(wtype, subj, auth)
+            return {
+                "writ_type": wtype.value,
+                "constitutional_article": CONSTITUTIONAL_PROVISIONS.get(wtype, ""),
+                "prayers": prayers
+            }
 
         else:
             raise ValueError(f"Unknown tool: {name}")
