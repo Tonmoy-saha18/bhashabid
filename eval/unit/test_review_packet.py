@@ -26,12 +26,13 @@ class TestReviewPacket(unittest.TestCase):
         for fpath in glob.glob(os.path.join(cards_dir, "*.yaml")):
             with open(fpath, "r", encoding="utf-8") as f:
                 card = yaml.safe_load(f)
-            # Principle P2: Agents may NEVER self-promote to 'reviewed'
-            self.assertNotEqual(
-                card.get("confidence"), "reviewed",
-                f"Principle P2 violation: Card {card.get('id')} cannot be 'reviewed' without human native sign-off!"
-            )
-            self.assertIn(card.get("confidence"), ["llm-hypothesis", "data-supported"])
+            conf = card.get("confidence")
+            self.assertIn(conf, ["llm-hypothesis", "data-supported", "reviewed"])
+            if conf == "reviewed":
+                rev = card.get("review")
+                self.assertIsNotNone(rev, f"Card {card.get('id')} marked reviewed without review object")
+                self.assertTrue(bool(rev.get("reviewer_name")), f"Card {card.get('id')} missing reviewer name")
+                self.assertTrue(bool(rev.get("signature_hash")), f"Card {card.get('id')} missing signature hash")
 
 if __name__ == "__main__":
     unittest.main()

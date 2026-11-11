@@ -1,19 +1,34 @@
 id: CRD-DOM-003
-title: "Literary Fiction & Story Writing (কথাসাহিত্য, গল্প ও সংলাপ লিখন শৈলী)"
+title: Literary Fiction & Story Writing (কথাসাহিত্য, গল্প ও সংলাপ লিখন শৈলী)
 domain: creative_writing
 profile: bd_standard
 register: literary
-rule_summary: "In contemporary Bengali fiction, prose narrative is written in rhythmic, natural Cholito (or deliberate Sadhu in historical contexts), while character dialogues MUST reflect authentic spoken register (চলতি কথ্য ভাষা). Dialogue tags should avoid repetitive mechanical English calques ('তিনি বললেন যে...'). Instead, embed dialogue naturally in character action and emotional cues. Avoid wooden, translated-sounding conversational lines."
+rule_summary: In contemporary Bengali fiction, prose narrative is written in rhythmic,
+  natural Cholito (or deliberate Sadhu in historical contexts), while character dialogues
+  MUST reflect authentic spoken register (চলতি কথ্য ভাষা). Dialogue tags should avoid
+  repetitive mechanical English calques ('তিনি বললেন যে...'). Instead, embed dialogue
+  naturally in character action and emotional cues. Avoid wooden, translated-sounding
+  conversational lines.
 good_examples:
-  - "চায়ের কাপে শেষ চুমুক দিয়ে রাতুল জানালার বাইরে তাকাল। ফিসফিস করে বলল, 'বৃষ্টিটা আজ আর থামবে বলে মনে হয় না।' "
-  - "'তুই কি সত্যি বলছিস?' শিমুর চোখে অবিশ্বাস স্পষ্ট।"
+- 'চায়ের কাপে শেষ চুমুক দিয়ে রাতুল জানালার বাইরে তাকাল। ফিসফিস করে বলল, ''বৃষ্টিটা
+  আজ আর থামবে বলে মনে হয় না।'' '
+- '''তুই কি সত্যি বলছিস?'' শিমুর চোখে অবিশ্বাস স্পষ্ট।'
 bad_examples:
-  - "তিনি বললেন যে, 'আমি আপনাকে ভালোবাসি এবং এটি আমার অবশ্য কর্তব্য।'"
-  - "রাতুল বলল, 'তুমি কি এখন সেখানে গমন করিতেছ?'"
-common_llm_error: "Characters speak like translated English legal transcripts or exhibit wooden dialogue tag repetition ('তিনি বললেন যে...')."
+- তিনি বললেন যে, 'আমি আপনাকে ভালোবাসি এবং এটি আমার অবশ্য কর্তব্য।'
+- রাতুল বলল, 'তুমি কি এখন সেখানে গমন করিতেছ?'
+common_llm_error: Characters speak like translated English legal transcripts or exhibit
+  wooden dialogue tag repetition ('তিনি বললেন যে...').
 sources:
-  - "Syed Manzoorul Islam: কথাসাহিত্য ও শিল্পরীতি"
-  - "Humayun Ahmed & Modern Fiction Stylistic Corpus"
-confidence: data-supported
+- 'Syed Manzoorul Islam: কথাসাহিত্য ও শিল্পরীতি'
+- Humayun Ahmed & Modern Fiction Stylistic Corpus
+confidence: reviewed
 created_date: 2026-11-11
-last_modified: 2026-11-11
+last_modified: '2026-11-11'
+review:
+  reviewer_name: Ashikur Rahman Bhuiyan
+  reviewer_affiliation: Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>)
+  reviewed_date: '2026-11-11'
+  status: APPROVED
+  notes: Reviewed and approved by human native speaker. Verified linguistic validity,
+    correct register, and Bangla Academy orthography.
+  signature_hash: sha256:e2129a52188e87ce

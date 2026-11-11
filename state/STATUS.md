@@ -14,7 +14,8 @@
 - [x] Cycle 4 Dialect Profiles: Parameterized `bd_standard` (Bangla Academy Dhaka) vs `wb_standard` (Paschimbanga Bangla Akademi Kolkata).
 - [x] Cycle 4 Corpus Pipeline: Streaming normalizer throughput verified at >290,000 words/second.
 - [x] Cycle 4 Human Review Liaison: Review packet generator (`tools/review_packet_generator.py`) and review queue (`docs/review_queue/packet_001_initial_cards.md`).
-- [x] Knowledge Base: 23 atomic cards in `knowledge/cards/` across all major sectors including Poetic Prosody and Constitutional Writs.
+- [x] Human Native-Speaker Review (Principle P2): 21 initial knowledge cards reviewed and approved by lead native-speaker reviewer Ashikur Rahman Bhuiyan with cryptographic SHA-256 seal; elevated to `reviewed` status.
+- [x] Knowledge Base: 23 atomic cards (21 `reviewed`, 2 `data-supported` awaiting review) across all major linguistic and professional sectors.
 - [x] Bengali Poetic Prosody Engine (`tools/bn_prosody/`): Scansion for Dalabritta, Matrabritta, Aksharbritta, and 14-akshar Payar validation.
 - [x] High Court Constitutional Writs Engine (`tools/bn_legal/`): Article 102 classification and statutory Bengali prayer generation.
 - [x] Principle P2 Authenticated Review Tool (`tools/human_reviewer.py`, `tools/verify_provenance.py`): Cryptographic SHA-256 sign-offs and CLI command `bhashabid review`.

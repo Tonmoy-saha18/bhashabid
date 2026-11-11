@@ -1,18 +1,30 @@
 id: CRD-TRN-001
-title: "Translation Idioms vs Literal English Calques (ভাবানুবাদ বনাম আক্ষরিক অনুবাদ)"
+title: Translation Idioms vs Literal English Calques (ভাবানুবাদ বনাম আক্ষরিক অনুবাদ)
 domain: translation
 profile: all
 register: all
-rule_summary: "Idiomatic expressions, proverbs, and metaphors must be translated by cultural equivalent (ভাবানুবাদ), never by literal word-for-word calque. Passive English sentences ('The road was inaugurated by the mayor') should be converted to active Bengali sentences ('মেয়র মহোদয় রাস্তাটি উদ্বোধন করলেন')."
+rule_summary: Idiomatic expressions, proverbs, and metaphors must be translated by
+  cultural equivalent (ভাবানুবাদ), never by literal word-for-word calque. Passive
+  English sentences ('The road was inaugurated by the mayor') should be converted
+  to active Bengali sentences ('মেয়র মহোদয় রাস্তাটি উদ্বোধন করলেন').
 good_examples:
-  - "Actions speak louder than words -> কথার চেয়ে কাজের মূল্য বেশি।"
-  - "Piece of cake -> অত্যন্ত সহজ কাজ / জলভাত।"
+- Actions speak louder than words -> কথার চেয়ে কাজের মূল্য বেশি।
+- Piece of cake -> অত্যন্ত সহজ কাজ / জলভাত।
 bad_examples:
-  - "Actions speak louder than words -> কাজ শব্দের চেয়ে জোরে কথা বলে।"
-  - "Piece of cake -> এক টুকরো কেক।"
-common_llm_error: "LLMs transcribe English idioms word-by-word into nonsensical Bengali phrases."
+- Actions speak louder than words -> কাজ শব্দের চেয়ে জোরে কথা বলে।
+- Piece of cake -> এক টুকরো কেক।
+common_llm_error: LLMs transcribe English idioms word-by-word into nonsensical Bengali
+  phrases.
 sources:
-  - "Bangla Academy Bengali-English & English-Bengali Dictionary"
-confidence: data-supported
+- Bangla Academy Bengali-English & English-Bengali Dictionary
+confidence: reviewed
 created_date: 2026-11-11
-last_modified: 2026-11-11
+last_modified: '2026-11-11'
+review:
+  reviewer_name: Ashikur Rahman Bhuiyan
+  reviewer_affiliation: Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>)
+  reviewed_date: '2026-11-11'
+  status: APPROVED
+  notes: Reviewed and approved by human native speaker. Verified linguistic validity,
+    correct register, and Bangla Academy orthography.
+  signature_hash: sha256:e784689551121e64

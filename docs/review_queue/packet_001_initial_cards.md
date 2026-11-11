@@ -20,7 +20,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 1: [CRD-DOM-001] Official Administrative Applications & Petitions (দাপ্তরিক আবেদন ও দরখাস্তের প্রমিত কাঠামো)
 - **Domain**: `administrative_applications` | **Profile**: `bd_standard` | **Register**: `formal`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Official applications in Bangladesh to government ministries, educational institutions, or corporate leadership follow an exact formal protocol: (1) 'বরাবর, [পদবি], [প্রতিষ্ঠান/দপ্তর]', (2) 'বিষয়: [নির্দিষ্ট বিষয়ের বিবরণ]', (3) Formal salutation 'জনাব / মহোদয়,', (4) Opening 'বিনীত নিবেদন এই যে,', (5) Concluding prayer 'অতএব, মহোদয়ের সমীপে বিনীত প্রার্থনা...', (6) Sign-off 'বিনীত / নিবেদক'. Translating 'Dear Sir' as 'প্রিয় মহাশয়' or using conversational greetings destroys official protocol.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -52,7 +52,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 2: [CRD-DOM-002] Letter Writing & Correspondence Registers (চিঠিপত্র ও সামাজিক যোগাযোগের অনুশাসন)
 - **Domain**: `letter_writing` | **Profile**: `bd_standard` | **Register**: `parameterized`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Bengali epistolary tradition strictly matches salutation and sign-off to social relationship: (1) To seniors/teachers/parents: 'শ্রদ্ধেয় / শ্রদ্ধেয়া' -> 'প্রণামান্তে / ভক্তাবনত / আপনার স্নেহধন্য'; (2) To peers/friends: 'প্রিয় / সুপ্রিয়' -> 'ইতি / তোমারই বন্ধু'; (3) To juniors: 'স্নেহের / কল্যাণীয়াসু' -> 'শুভাকাঙ্ক্ষী / তোমার শুভাকাঙ্ক্ষী'; (4) Business/institutional: 'সুধী / মহোদয়' -> 'ধন্যবাদান্তে / বিনীত'. English email sign-offs ('Yours faithfully') must NEVER be translated as 'আপনার বিশ্বস্তভাবে'.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -77,7 +77,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 3: [CRD-DOM-003] Literary Fiction & Story Writing (কথাসাহিত্য, গল্প ও সংলাপ লিখন শৈলী)
 - **Domain**: `creative_writing` | **Profile**: `bd_standard` | **Register**: `literary`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: In contemporary Bengali fiction, prose narrative is written in rhythmic, natural Cholito (or deliberate Sadhu in historical contexts), while character dialogues MUST reflect authentic spoken register (চলতি কথ্য ভাষা). Dialogue tags should avoid repetitive mechanical English calques ('তিনি বললেন যে...'). Instead, embed dialogue naturally in character action and emotional cues. Avoid wooden, translated-sounding conversational lines.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -101,7 +101,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 4: [CRD-DOM-004] Academic & Scholarly Research Prose (শিক্ষায়তনিক ও গবেষণা প্রবন্ধ শৈলী)
 - **Domain**: `academic_writing` | **Profile**: `bd_standard` | **Register**: `formal_academic`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Scholarly Bengali prose requires rigorous objective tone, standard academic terminology, and formal syntactic cohesion. Crucial conventions: (1) Thematic sections use standard Bengali terms: 'সারসংক্ষেপ' (Abstract), 'উপক্রমণিকা / ভূমিকা' (Introduction), 'অনুমিত সিদ্ধান্ত / প্রকল্প' (Hypothesis), 'গবেষণা পদ্ধতি' (Methodology), 'তথ্য বিশ্লেষণ' (Data Analysis), 'গ্রন্থপঞ্জি / তথ্যসূত্র' (Bibliography). (2) Avoid personal colloquialisms; use scholarly passive/impersonal markers: 'উপাত্ত বিশ্লেষণে পরিলক্ষিত হয়...', 'গবেষণার ফলাফল থেকে প্রতীয়মান হয়...'. (3) Never translate 'This paper argues' literally as 'এই পেপারটি তর্ক করে'.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -125,7 +125,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 5: [CRD-DOM-005] Book Authoring & Non-Fiction Essays (মননশীল প্রবন্ধ ও গ্রন্থ প্রণয়ন রীতি)
 - **Domain**: `book_authoring` | **Profile**: `bd_standard` | **Register**: `formal_essay`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Non-fiction authoring and intellectual essays (মননশীল প্রবন্ধ) require structural balance, erudite transitions, and rich rhetorical flow. Standard book anatomy: 'উৎসর্গ' (Dedication), 'প্রাককথন / ভূমিকা' (Preface/Prologue), 'সূচিপত্র' (Contents), 'অধ্যায়' (Chapter), 'পাদটীকা' (Footnotes), 'পরিশিষ্ট' (Appendix). Transitions between paragraphs should employ sophisticated connectors: 'বস্তুত', 'পক্ষান্তরে', 'ফলশ্রুতিতে', 'অনুরূপভাবে', 'বলা বাহুল্য'. Avoid repetitive English transitional calques ('এখন আমরা পরের বিষয়ে কথা বলব').
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -149,7 +149,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 6: [CRD-DOM-006] Corporate & Marketing Copywriting (কর্পোরেট যোগাযোগ ও বাণিজ্যিক কপিরাইটিং)
 - **Domain**: `commercial_copywriting` | **Profile**: `bd_standard` | **Register**: `persuasive_professional`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Effective Bengali corporate copy balances modern dynamism with linguistic elegance. Avoid phonetic English transliteration buzzwords that sound unnatural in Bengali (e.g. 'গেম চেঞ্জার', 'ডিসরাপ্ট', 'পেইন পয়েন্ট'). Instead, use evocative, crisp Bengali expressions: 'যুগান্তকারী সমাধান' (game changer), 'কষ্টসাধ্য সমস্যা / সংকট' (pain point), 'সীমাহীন সম্ভাবনা' (limitless potential). Press releases must follow the standard headline-dateline-lead structure ('সংবাদ বিজ্ঞপ্তি / প্রেস রিলিজ', 'ঢাকা, [তারিখ]').
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -172,7 +172,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 7: [CRD-DOM-007] Legal Drafting & Contracts (আইনি দলিল, চুক্তিপত্র ও নোটিশ লিখন)
 - **Domain**: `legal_drafting` | **Profile**: `bd_standard` | **Register**: `statutory_legal`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Legal agreements, deeds, and statutory notices demand unambiguous contractual terminology and strict formatting. Key conventions: (1) Contract preamble identifies parties clearly: '১ম পক্ষ / গ্রহীতা', '২য় পক্ষ / দাতা'; (2) Operative clauses are numbered as 'শর্তাবলী'; (3) Formal legal terminology: 'অত্র চুক্তি' (this agreement), 'দ্বিপাক্ষিক সম্মতি' (mutual consent), 'বাতিলযোগ্য' (voidable), 'আইনগত প্রতিকার' (legal remedy); (4) Attestation section: 'স্বাক্ষীগণের স্বাক্ষর', 'পক্ষগণের স্বাক্ষর ও সীলমোহর'. Never use informal conversational words in contractual clauses.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -196,7 +196,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 8: [CRD-DOM-008] Healthcare & Medical Public Advisories (চিকিৎসাসেবা ও জনস্বাস্থ্য যোগাযোগ)
 - **Domain**: `healthcare_communication` | **Profile**: `bd_standard` | **Register**: `formal_advisory`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Health advisories and patient communication must be scientifically accurate, reassuring, and completely unambiguous. Crucial rules: (1) Terminology: 'উপসর্গ' (symptom), 'লক্ষণ' (sign), 'প্রতিরোধমূলক ব্যবস্থা' (precaution), 'পার্শ্বপ্রতিক্রিয়া' (side effect), 'সেবনবিধি' (dosage instructions). (2) Dosage instructions must be crystal-clear: 'প্রতি ৮ ঘণ্টা পর পর ১টি করে ট্যাবলেট ভরা পেটে সেব্য' (never vague 'দিনে কয়েকবার'). (3) Emergency guidance: always provide explicit referral direction ('জরুরি পরিস্থিতিতে নিকটস্থ হাসপাতালে বা চিকিৎসকের পরামর্শ নিন'). (4) Do not translate 'drug' as 'মাদক' in medical context; use 'ওষুধ / ভেষজ'.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -244,7 +244,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 10: [CRD-GRM-001] Sadhu-Cholito Verb Consistency (গুরুচণ্ডালী দোষ পরিহার)
 - **Domain**: `grammar` | **Profile**: `all` | **Register**: `formal`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Bengali prose must maintain strict stylistic consistency between Sadhu (সাধু) and Cholito (চলিত) registers. Mixing Sadhu verb forms (e.g. করিয়াছিলেন, যাইবে) with Cholito forms (e.g. করেছেন, যাবে) within the same discourse is a cardinal stylistic defect known as Guru-chandali Dosh.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -268,7 +268,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 11: [CRD-GRM-002] Honorific Concordance Across Pronouns and Verbs (আপনি / তুমি / তুই)
 - **Domain**: `grammar` | **Profile**: `all` | **Register**: `all`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Bengali pronouns possess a three-tier honorific system that strictly governs verbal inflection: formal (আপনি -> -েন/-বেন), familiar (তুমি -> -ো/-বে), and intimate/inferior (তুই -> -িস/-বি). Clashing pronoun honorific with inappropriate verb ending is a severe grammatical violation.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -294,7 +294,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 12: [CRD-GRM-003] Bengali Case Markers and Postposition Agreement (কারক ও বিভক্তি)
 - **Domain**: `grammar` | **Profile**: `all` | **Register**: `all`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Bengali nominals take overt inflectional case suffixes (বিভক্তি) such as -এর/-র (genitive), -কে/-রে (accusative/dative), and -এ/-তে/-য়ে (locative). When governed by postpositions (জন্য, কাছে, থেকে, দ্বারা), the preceding noun or pronoun must assume the required oblique or genitive form.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -318,7 +318,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 13: [CRD-GRM-004] Bengali Euphonic Junctions (সন্ধি: স্বরসন্ধি ও ব্যঞ্জনসন্ধি)
 - **Domain**: `grammar` | **Profile**: `all` | **Register**: `formal`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Sandhi joins adjacent sounds across morpheme boundaries. In Tatsama words, Sanskrit sandhi governs combinations (বিদ্যা + আলয় = বিদ্যালয়, পরি + ঈক্ষা = পরীক্ষা). In native Bengali words (খাঁটি বাংলা সন্ধি), phonetic assimilation is natural and non-pedantic (পাঁচ + জন = পাঁচজন).
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -342,7 +342,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 14: [CRD-GRM-005] Bengali Compound Formation (সমাস: দ্বন্দ্ব, দ্বিগু, তৎপুরুষ ও কর্মধারয়)
 - **Domain**: `grammar` | **Profile**: `all` | **Register**: `formal`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Samas condenses multi-word syntactic phrases (ব্যাসবাক্য) into single compound words (সমস্তপদ). Major types: Dwandwa (মা ও বাবা = মা-বাবা), Tatpurush (রাজার পুত্র = রাজপুত্র), Karmadharaya (নীল যে পদ্ম = নীলপদ্ম), and Bahubrihi (দশ আনন যার = দশানন).
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -365,7 +365,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 15: [CRD-NUM-001] Irregular Bengali Cardinal Numbers 0-99 (০-৯৯ অনিয়মিত সংখ্যা)
 - **Domain**: `numerals` | **Profile**: `bd_standard` | **Register**: `all`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Numbers 0 through 99 in Bengali do not follow a simple positional decimal compounding system. Each number from 1 to 99 has an irregular, phonetically evolved spelling defined by Bangla Academy standard orthography.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -390,7 +390,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 16: [CRD-ORT-001] Unicode NFC Canonicalization and Composite Graphemes (য়, ড়, ঢ়)
 - **Domain**: `orthography` | **Profile**: `all` | **Register**: `all`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Bengali Unicode text must always be canonicalized to NFC form. In particular, composite sequences like য + ় (U+09BC) must be normalized to U+09DF (য়), ড + ় to U+09DC (ড়), and ঢ + ় to U+09DD (ঢ়) to prevent broken rendering, indexing failures, and search mismatch.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -414,7 +414,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 17: [CRD-ORT-002] Bangla Academy Loanword S-Rule (বিদেশি শব্দে 'স' বনাম 'ষ')
 - **Domain**: `orthography` | **Profile**: `bd_standard` | **Register**: `formal`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: In the Bangladesh Standard (Bangla Academy) orthography, foreign loanwords (English, Persian, Arabic) with /s/ or /ʃ/ must use দন্ত্য-স ('স') or তালব্য-শ ('শ') based on phonetic convention, and NEVER মূর্ধন্য-ষ ('ষ'). Consequently, combinations like 'ষ্ট' or 'ষ্ঠ' in English loanwords are errors for 'স্ট'.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -440,7 +440,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 18: [CRD-ORT-003] Regional Orthographic Variations (বাংলাদেশ প্রমিত বনাম পশ্চিমবঙ্গ বানানরীতি)
 - **Domain**: `orthography` | **Profile**: `all` | **Register**: `formal`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: While core Sanskrit grammar is identical, modern standard Bengali possesses systematic regional orthographic variations between the Bangla Academy (Dhaka) standard and Paschimbanga Bangla Akademi (Kolkata) standard. Bangla Academy strictly enforces short-vowel ি (পাখি, হাতি, শাড়ি, বাড়ি, সরকারি, জাপানি) and loanword স (স্টেশন, মাস্টার). West Bengal orthography broadly accepts these but permits traditional tatbhava spellings in literature and prefers specific numeral variants (পাঁচশো, কুড়ি).
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -463,7 +463,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 19: [CRD-TRN-001] Translation Idioms vs Literal English Calques (ভাবানুবাদ বনাম আক্ষরিক অনুবাদ)
 - **Domain**: `translation` | **Profile**: `all` | **Register**: `all`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Idiomatic expressions, proverbs, and metaphors must be translated by cultural equivalent (ভাবানুবাদ), never by literal word-for-word calque. Passive English sentences ('The road was inaugurated by the mayor') should be converted to active Bengali sentences ('মেয়র মহোদয় রাস্তাটি উদ্বোধন করলেন').
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -487,7 +487,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 20: [CRD-TRN-002] High Court & Judicial Reporting Formulas (হাইকোর্টের রুল ও রিট মামলার প্রমিত পরিভাষা)
 - **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: In Bangladeshi judicial reporting, High Court show-cause orders (Rule Nisi) follow a strict, standardized formula: '[বিষয়বস্তু] কেন [আইনগত ফলাফল] ঘোষণা করা হবে না, তা জানতে চেয়ে রুল জারি করেছেন হাইকোর্ট।' Translating 'issued a rule asking why... should not be declared illegal' literally as 'জিজ্ঞেস করে রুল জারি করেছে' is a catastrophic calque that destroys the formal legal register. Courts always take the honorific plural verb 'জারি করেছেন'.
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -511,7 +511,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 21: [CRD-TRN-003] Macroeconomic & Financial News Syntax (অর্থনৈতিক সংবাদ ও বাংলাদেশ ব্যাংক পরিভাষা)
 - **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: In economic journalism (e.g. The Business Standard, Bangladesh Bank releases), numbers and statistical movements require precise conventions: percentages in prose should prefer 'শতাংশ' over '%' symbols in formal leads; interest rate changes use 'বেসিস পয়েন্ট' (basis points); policy rate is 'নীতি সুদহার'; movements 'driven by' must be rendered as active cause ('...কারণে মূল্যস্ফীতি দাঁড়িয়েছে') rather than clumsy passives ('...দ্বারা চালিত').
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
@@ -535,7 +535,7 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 
 ### Card 22: [CRD-TRN-004] Sports Vernacular & Cricket Reporting (ক্রিকেট ও ক্রীড়া সংবাদ পরিভাষা)
 - **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
-- **Confidence Tier**: `data-supported` (Candidate for Human Review)
+- **Confidence Tier**: `reviewed` (Candidate for Human Review)
 - **Rule Summary**: Sports news in Bengali uses lively, active phrasing. The common English cliché 'conceded a defeat against X' must NEVER be translated as 'X-এর বিরুদ্ধে পরাজয় স্বীকার করেছে' (which sounds like military surrender). The standard, idiomatic sports phrasing is 'X-এর কাছে [উইকেট/রানে] হেরেছে' or 'পরাজিত হয়েছে'. Batsmen are referred to as 'ব্যাটার' or 'ব্যাটসম্যান', scores are 'অর্ধশতক' (half-century) and 'শতক' (century).
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:

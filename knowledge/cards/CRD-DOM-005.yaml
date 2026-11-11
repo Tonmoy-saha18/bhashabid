@@ -1,19 +1,35 @@
 id: CRD-DOM-005
-title: "Book Authoring & Non-Fiction Essays (মননশীল প্রবন্ধ ও গ্রন্থ প্রণয়ন রীতি)"
+title: Book Authoring & Non-Fiction Essays (মননশীল প্রবন্ধ ও গ্রন্থ প্রণয়ন রীতি)
 domain: book_authoring
 profile: bd_standard
 register: formal_essay
-rule_summary: "Non-fiction authoring and intellectual essays (মননশীল প্রবন্ধ) require structural balance, erudite transitions, and rich rhetorical flow. Standard book anatomy: 'উৎসর্গ' (Dedication), 'প্রাককথন / ভূমিকা' (Preface/Prologue), 'সূচিপত্র' (Contents), 'অধ্যায়' (Chapter), 'পাদটীকা' (Footnotes), 'পরিশিষ্ট' (Appendix). Transitions between paragraphs should employ sophisticated connectors: 'বস্তুত', 'পক্ষান্তরে', 'ফলশ্রুতিতে', 'অনুরূপভাবে', 'বলা বাহুল্য'. Avoid repetitive English transitional calques ('এখন আমরা পরের বিষয়ে কথা বলব')."
+rule_summary: 'Non-fiction authoring and intellectual essays (মননশীল প্রবন্ধ) require
+  structural balance, erudite transitions, and rich rhetorical flow. Standard book
+  anatomy: ''উৎসর্গ'' (Dedication), ''প্রাককথন / ভূমিকা'' (Preface/Prologue), ''সূচিপত্র''
+  (Contents), ''অধ্যায়'' (Chapter), ''পাদটীকা'' (Footnotes), ''পরিশিষ্ট'' (Appendix).
+  Transitions between paragraphs should employ sophisticated connectors: ''বস্তুত'',
+  ''পক্ষান্তরে'', ''ফলশ্রুতিতে'', ''অনুরূপভাবে'', ''বলা বাহুল্য''. Avoid repetitive
+  English transitional calques (''এখন আমরা পরের বিষয়ে কথা বলব'').'
 good_examples:
-  - "বস্তুত, উনিশ শতকের নবজাগরণ বাঙালির মননজগতে যে বৈপ্লবিক পরিবর্তন এনেছিল, তার প্রভাব সমকালীন সাহিত্যে সুস্পষ্ট।"
-  - "পক্ষান্তরে, গ্রামীণ অর্থনীতিতে এ পরিবর্তনের প্রভাব ছিল সম্পূর্ণ ভিন্ন মাত্রার।"
+- বস্তুত, উনিশ শতকের নবজাগরণ বাঙালির মননজগতে যে বৈপ্লবিক পরিবর্তন এনেছিল, তার প্রভাব
+  সমকালীন সাহিত্যে সুস্পষ্ট।
+- পক্ষান্তরে, গ্রামীণ অর্থনীতিতে এ পরিবর্তনের প্রভাব ছিল সম্পূর্ণ ভিন্ন মাত্রার।
 bad_examples:
-  - "এখন আমি পরবর্তী অধ্যায়ে আলোচনা করব কেন মানুষ বই পড়ে।"
-  - "প্রথমত... দ্বিতীয়ত... তৃতীয়ত... (mechanically overused without conceptual progression)."
-common_llm_error: "LLMs sound like bulleted presentation slides rather than coherent book chapters, lacking literary transitions."
+- এখন আমি পরবর্তী অধ্যায়ে আলোচনা করব কেন মানুষ বই পড়ে।
+- প্রথমত... দ্বিতীয়ত... তৃতীয়ত... (mechanically overused without conceptual progression).
+common_llm_error: LLMs sound like bulleted presentation slides rather than coherent
+  book chapters, lacking literary transitions.
 sources:
-  - "Abul Mansur Ahmad / Shibnarayan Ray Essay Collections"
-  - "Bangla Academy Prabandha Stylistic Standards"
-confidence: data-supported
+- Abul Mansur Ahmad / Shibnarayan Ray Essay Collections
+- Bangla Academy Prabandha Stylistic Standards
+confidence: reviewed
 created_date: 2026-11-11
-last_modified: 2026-11-11
+last_modified: '2026-11-11'
+review:
+  reviewer_name: Ashikur Rahman Bhuiyan
+  reviewer_affiliation: Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>)
+  reviewed_date: '2026-11-11'
+  status: APPROVED
+  notes: Reviewed and approved by human native speaker. Verified linguistic validity,
+    correct register, and Bangla Academy orthography.
+  signature_hash: sha256:7cde67e95f16b825

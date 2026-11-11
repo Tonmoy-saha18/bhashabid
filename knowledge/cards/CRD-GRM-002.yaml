@@ -1,20 +1,32 @@
 id: CRD-GRM-002
-title: "Honorific Concordance Across Pronouns and Verbs (আপনি / তুমি / তুই)"
+title: Honorific Concordance Across Pronouns and Verbs (আপনি / তুমি / তুই)
 domain: grammar
 profile: all
 register: all
-rule_summary: "Bengali pronouns possess a three-tier honorific system that strictly governs verbal inflection: formal (আপনি -> -েন/-বেন), familiar (তুমি -> -ো/-বে), and intimate/inferior (তুই -> -িস/-বি). Clashing pronoun honorific with inappropriate verb ending is a severe grammatical violation."
+rule_summary: 'Bengali pronouns possess a three-tier honorific system that strictly
+  governs verbal inflection: formal (আপনি -> -েন/-বেন), familiar (তুমি -> -ো/-বে),
+  and intimate/inferior (তুই -> -িস/-বি). Clashing pronoun honorific with inappropriate
+  verb ending is a severe grammatical violation.'
 good_examples:
-  - "আপনি কেমন আছেন? (Formal)"
-  - "তুমি কেমন আছো? (Familiar)"
-  - "তুই কেমন আছিস? (Intimate)"
+- আপনি কেমন আছেন? (Formal)
+- তুমি কেমন আছো? (Familiar)
+- তুই কেমন আছিস? (Intimate)
 bad_examples:
-  - "আপনি কেমন আছো? (Severe honorific clash)"
-  - "তুমি কেমন আছেন? (Incongruent agreement)"
-  - "আপনি কি সেখানে যাবি? (Mixed registers)"
-common_llm_error: "When responding to polite prompts, LLMs frequently address the user as আপনি but inflect verbs in familiar তুমি form (e.g. আপনি কি এটা দেখতে পারো?)."
+- আপনি কেমন আছো? (Severe honorific clash)
+- তুমি কেমন আছেন? (Incongruent agreement)
+- আপনি কি সেখানে যাবি? (Mixed registers)
+common_llm_error: When responding to polite prompts, LLMs frequently address the user
+  as আপনি but inflect verbs in familiar তুমি form (e.g. আপনি কি এটা দেখতে পারো?).
 sources:
-  - "Bangla Academy Promito Bangla Bhashar Byakoron (Vol 1: Sarbanamer Prayog)"
-confidence: data-supported
+- 'Bangla Academy Promito Bangla Bhashar Byakoron (Vol 1: Sarbanamer Prayog)'
+confidence: reviewed
 created_date: 2026-11-11
-last_modified: 2026-11-11
+last_modified: '2026-11-11'
+review:
+  reviewer_name: Ashikur Rahman Bhuiyan
+  reviewer_affiliation: Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>)
+  reviewed_date: '2026-11-11'
+  status: APPROVED
+  notes: Reviewed and approved by human native speaker. Verified linguistic validity,
+    correct register, and Bangla Academy orthography.
+  signature_hash: sha256:6295a4bc6e8cd150

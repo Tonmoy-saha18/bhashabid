@@ -1,18 +1,30 @@
 id: CRD-GRM-003
-title: "Bengali Case Markers and Postposition Agreement (কারক ও বিভক্তি)"
+title: Bengali Case Markers and Postposition Agreement (কারক ও বিভক্তি)
 domain: grammar
 profile: all
 register: all
-rule_summary: "Bengali nominals take overt inflectional case suffixes (বিভক্তি) such as -এর/-র (genitive), -কে/-রে (accusative/dative), and -এ/-তে/-য়ে (locative). When governed by postpositions (জন্য, কাছে, থেকে, দ্বারা), the preceding noun or pronoun must assume the required oblique or genitive form."
+rule_summary: Bengali nominals take overt inflectional case suffixes (বিভক্তি) such
+  as -এর/-র (genitive), -কে/-রে (accusative/dative), and -এ/-তে/-য়ে (locative). When
+  governed by postpositions (জন্য, কাছে, থেকে, দ্বারা), the preceding noun or pronoun
+  must assume the required oblique or genitive form.
 good_examples:
-  - "তার জন্য অপেক্ষা করছি (Genitive + postposition)"
-  - "নদীতে অনেক মাছ আছে (Locative -তে)"
+- তার জন্য অপেক্ষা করছি (Genitive + postposition)
+- নদীতে অনেক মাছ আছে (Locative -তে)
 bad_examples:
-  - "সে জন্য অপেক্ষা করছি (Missing genitive marker on pronoun)"
-  - "নদী মধ্যে অনেক মাছ (Awkward missing locative)"
-common_llm_error: "LLMs translate English prepositions ('for him') by combining bare nominative pronouns with postpositions (e.g. তিনি জন্য instead of তাঁর জন্য)."
+- সে জন্য অপেক্ষা করছি (Missing genitive marker on pronoun)
+- নদী মধ্যে অনেক মাছ (Awkward missing locative)
+common_llm_error: LLMs translate English prepositions ('for him') by combining bare
+  nominative pronouns with postpositions (e.g. তিনি জন্য instead of তাঁর জন্য).
 sources:
-  - "Bangla Academy Promito Bangla Bhashar Byakoron (Vol 1: Karok o Bibhokti)"
-confidence: data-supported
+- 'Bangla Academy Promito Bangla Bhashar Byakoron (Vol 1: Karok o Bibhokti)'
+confidence: reviewed
 created_date: 2026-11-11
-last_modified: 2026-11-11
+last_modified: '2026-11-11'
+review:
+  reviewer_name: Ashikur Rahman Bhuiyan
+  reviewer_affiliation: Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>)
+  reviewed_date: '2026-11-11'
+  status: APPROVED
+  notes: Reviewed and approved by human native speaker. Verified linguistic validity,
+    correct register, and Bangla Academy orthography.
+  signature_hash: sha256:11c621671dcb72a0

@@ -1,18 +1,36 @@
 id: CRD-DOM-006
-title: "Corporate & Marketing Copywriting (কর্পোরেট যোগাযোগ ও বাণিজ্যিক কপিরাইটিং)"
+title: Corporate & Marketing Copywriting (কর্পোরেট যোগাযোগ ও বাণিজ্যিক কপিরাইটিং)
 domain: commercial_copywriting
 profile: bd_standard
 register: persuasive_professional
-rule_summary: "Effective Bengali corporate copy balances modern dynamism with linguistic elegance. Avoid phonetic English transliteration buzzwords that sound unnatural in Bengali (e.g. 'গেম চেঞ্জার', 'ডিসরাপ্ট', 'পেইন পয়েন্ট'). Instead, use evocative, crisp Bengali expressions: 'যুগান্তকারী সমাধান' (game changer), 'কষ্টসাধ্য সমস্যা / সংকট' (pain point), 'সীমাহীন সম্ভাবনা' (limitless potential). Press releases must follow the standard headline-dateline-lead structure ('সংবাদ বিজ্ঞপ্তি / প্রেস রিলিজ', 'ঢাকা, [তারিখ]')."
+rule_summary: 'Effective Bengali corporate copy balances modern dynamism with linguistic
+  elegance. Avoid phonetic English transliteration buzzwords that sound unnatural
+  in Bengali (e.g. ''গেম চেঞ্জার'', ''ডিসরাপ্ট'', ''পেইন পয়েন্ট''). Instead, use evocative,
+  crisp Bengali expressions: ''যুগান্তকারী সমাধান'' (game changer), ''কষ্টসাধ্য সমস্যা
+  / সংকট'' (pain point), ''সীমাহীন সম্ভাবনা'' (limitless potential). Press releases
+  must follow the standard headline-dateline-lead structure (''সংবাদ বিজ্ঞপ্তি / প্রেস
+  রিলিজ'', ''ঢাকা, [তারিখ]'').'
 good_examples:
-  - "গ্রাহকদের দোরগোড়ায় আধুনিক ও নিরাপদ ব্যাংকিং সেবা পৌঁছে দিতে আমাদের এই যুগান্তকারী উদ্যোগ।"
-  - "সংবাদ বিজ্ঞপ্তি: দেশের প্রথম কৃত্রিম বুদ্ধিমত্তাভিত্তিক স্বাস্থ্যসেবা অ্যাপ উন্মোচন করল 'আরোগ্য'। ঢাকা, ১১ নভেম্বর ২০২৬।"
+- গ্রাহকদের দোরগোড়ায় আধুনিক ও নিরাপদ ব্যাংকিং সেবা পৌঁছে দিতে আমাদের এই যুগান্তকারী
+  উদ্যোগ।
+- 'সংবাদ বিজ্ঞপ্তি: দেশের প্রথম কৃত্রিম বুদ্ধিমত্তাভিত্তিক স্বাস্থ্যসেবা অ্যাপ উন্মোচন
+  করল ''আরোগ্য''। ঢাকা, ১১ নভেম্বর ২০২৬।'
 bad_examples:
-  - "আমাদের নতুন প্রোডাক্ট একটি সম্পূর্ণ গেম চেঞ্জার যা মার্কেটে ডিজরাপশন আনবে এবং কাস্টমারের পেইন পয়েন্ট সলভ করবে।"
-common_llm_error: "LLMs paste Silicon Valley jargon directly in Bengali script without idiomatic translation."
+- আমাদের নতুন প্রোডাক্ট একটি সম্পূর্ণ গেম চেঞ্জার যা মার্কেটে ডিজরাপশন আনবে এবং কাস্টমারের
+  পেইন পয়েন্ট সলভ করবে।
+common_llm_error: LLMs paste Silicon Valley jargon directly in Bengali script without
+  idiomatic translation.
 sources:
-  - "Standard Chartered / Grameenphone Corporate Communications Corpus"
-  - "Brand Forum Bangladesh Copywriting Handbook"
-confidence: data-supported
+- Standard Chartered / Grameenphone Corporate Communications Corpus
+- Brand Forum Bangladesh Copywriting Handbook
+confidence: reviewed
 created_date: 2026-11-11
-last_modified: 2026-11-11
+last_modified: '2026-11-11'
+review:
+  reviewer_name: Ashikur Rahman Bhuiyan
+  reviewer_affiliation: Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>)
+  reviewed_date: '2026-11-11'
+  status: APPROVED
+  notes: Reviewed and approved by human native speaker. Verified linguistic validity,
+    correct register, and Bangla Academy orthography.
+  signature_hash: sha256:bf9b17bbb348fd3a

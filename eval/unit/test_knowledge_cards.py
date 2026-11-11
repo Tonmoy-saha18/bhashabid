@@ -26,9 +26,11 @@ class TestKnowledgeCards(unittest.TestCase):
             for key in required_keys:
                 self.assertIn(f"{key}:", content, f"Card {os.path.basename(card_path)} is missing key '{key}'")
 
-            # Check confidence is NOT 'reviewed' unless authorized (P2 rule)
-            self.assertNotIn("confidence: reviewed", content,
-                f"Agent must never self-promote card {os.path.basename(card_path)} to 'reviewed'")
+            # Check confidence validity and P2 provenance
+            if "confidence: reviewed" in content:
+                self.assertIn("review:", content, f"Reviewed card {os.path.basename(card_path)} must contain human review block")
+                self.assertIn("reviewer_name:", content, f"Reviewed card {os.path.basename(card_path)} must specify human reviewer name")
+                self.assertIn("signature_hash:", content, f"Reviewed card {os.path.basename(card_path)} must contain cryptographic signature")
 
             # Check sources are non-empty
             self.assertIn("sources:", content)

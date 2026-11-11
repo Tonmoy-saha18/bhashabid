@@ -1,20 +1,31 @@
 id: CRD-NUM-001
-title: "Irregular Bengali Cardinal Numbers 0-99 (০-৯৯ অনিয়মিত সংখ্যা)"
+title: Irregular Bengali Cardinal Numbers 0-99 (০-৯৯ অনিয়মিত সংখ্যা)
 domain: numerals
 profile: bd_standard
 register: all
-rule_summary: "Numbers 0 through 99 in Bengali do not follow a simple positional decimal compounding system. Each number from 1 to 99 has an irregular, phonetically evolved spelling defined by Bangla Academy standard orthography."
+rule_summary: Numbers 0 through 99 in Bengali do not follow a simple positional decimal
+  compounding system. Each number from 1 to 99 has an irregular, phonetically evolved
+  spelling defined by Bangla Academy standard orthography.
 good_examples:
-  - "৯৯ = নিরানব্বই"
-  - "৭৫ = পঁচাত্তর"
-  - "৮৩ = তিরাশি"
+- ৯৯ = নিরানব্বই
+- ৭৫ = পঁচাত্তর
+- ৮৩ = তিরাশি
 bad_examples:
-  - "৯৯ = নয়-দশ-নয়"
-  - "৭৫ = পাঁচ-সত্তর"
-common_llm_error: "LLMs attempt to compose 2-digit numbers by joining tens and ones words naively, producing unnatural non-existent Bengali words."
+- ৯৯ = নয়-দশ-নয়
+- ৭৫ = পাঁচ-সত্তর
+common_llm_error: LLMs attempt to compose 2-digit numbers by joining tens and ones
+  words naively, producing unnatural non-existent Bengali words.
 sources:
-  - "Bangla Academy Promito Bangla Bhashar Byakoron (Vol 1 & 2), 2012"
-  - "Samsad Bengali-English Dictionary (6th Ed.)"
-confidence: data-supported
+- Bangla Academy Promito Bangla Bhashar Byakoron (Vol 1 & 2), 2012
+- Samsad Bengali-English Dictionary (6th Ed.)
+confidence: reviewed
 created_date: 2026-11-11
-last_modified: 2026-11-11
+last_modified: '2026-11-11'
+review:
+  reviewer_name: Ashikur Rahman Bhuiyan
+  reviewer_affiliation: Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>)
+  reviewed_date: '2026-11-11'
+  status: APPROVED
+  notes: Reviewed and approved by human native speaker. Verified linguistic validity,
+    correct register, and Bangla Academy orthography.
+  signature_hash: sha256:3d8471ca88058639

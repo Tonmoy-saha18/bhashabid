@@ -1,20 +1,35 @@
 id: CRD-DOM-002
-title: "Letter Writing & Correspondence Registers (চিঠিপত্র ও সামাজিক যোগাযোগের অনুশাসন)"
+title: Letter Writing & Correspondence Registers (চিঠিপত্র ও সামাজিক যোগাযোগের অনুশাসন)
 domain: letter_writing
 profile: bd_standard
 register: parameterized
-rule_summary: "Bengali epistolary tradition strictly matches salutation and sign-off to social relationship: (1) To seniors/teachers/parents: 'শ্রদ্ধেয় / শ্রদ্ধেয়া' -> 'প্রণামান্তে / ভক্তাবনত / আপনার স্নেহধন্য'; (2) To peers/friends: 'প্রিয় / সুপ্রিয়' -> 'ইতি / তোমারই বন্ধু'; (3) To juniors: 'স্নেহের / কল্যাণীয়াসু' -> 'শুভাকাঙ্ক্ষী / তোমার শুভাকাঙ্ক্ষী'; (4) Business/institutional: 'সুধী / মহোদয়' -> 'ধন্যবাদান্তে / বিনীত'. English email sign-offs ('Yours faithfully') must NEVER be translated as 'আপনার বিশ্বস্তভাবে'."
+rule_summary: 'Bengali epistolary tradition strictly matches salutation and sign-off
+  to social relationship: (1) To seniors/teachers/parents: ''শ্রদ্ধেয় / শ্রদ্ধেয়া''
+  -> ''প্রণামান্তে / ভক্তাবনত / আপনার স্নেহধন্য''; (2) To peers/friends: ''প্রিয় /
+  সুপ্রিয়'' -> ''ইতি / তোমারই বন্ধু''; (3) To juniors: ''স্নেহের / কল্যাণীয়াসু'' ->
+  ''শুভাকাঙ্ক্ষী / তোমার শুভাকাঙ্ক্ষী''; (4) Business/institutional: ''সুধী / মহোদয়''
+  -> ''ধন্যবাদান্তে / বিনীত''. English email sign-offs (''Yours faithfully'') must
+  NEVER be translated as ''আপনার বিশ্বস্তভাবে''.'
 good_examples:
-  - "শ্রদ্ধেয় বাবা, আমার ভক্তিপূর্ণ সালাম গ্রহণ করবেন... ইতি, আপনার স্নেহের সন্তান।"
-  - "প্রিয় সুজন, আশা করি ভালো আছিস... ইতি, তোর বন্ধু রাহুল।"
-  - "মহোদয়, আপনার পত্রের জন্য ধন্যবাদ... ধন্যবাদান্তে, ক খ গ।"
+- শ্রদ্ধেয় বাবা, আমার ভক্তিপূর্ণ সালাম গ্রহণ করবেন... ইতি, আপনার স্নেহের সন্তান।
+- প্রিয় সুজন, আশা করি ভালো আছিস... ইতি, তোর বন্ধু রাহুল।
+- মহোদয়, আপনার পত্রের জন্য ধন্যবাদ... ধন্যবাদান্তে, ক খ গ।
 bad_examples:
-  - "প্রিয় প্রধান শিক্ষক মহাশয়... আপনার বিশ্বস্তভাবে।"
-  - "প্রিয় বাবা, আমি তোমাকে ভালোবাসি... তোমার বিশ্বস্ত।"
-common_llm_error: "LLMs apply 'প্রিয়' universally regardless of hierarchy and translate 'Yours faithfully' as 'আপনার বিশ্বস্তভাবে'."
+- প্রিয় প্রধান শিক্ষক মহাশয়... আপনার বিশ্বস্তভাবে।
+- প্রিয় বাবা, আমি তোমাকে ভালোবাসি... তোমার বিশ্বস্ত।
+common_llm_error: LLMs apply 'প্রিয়' universally regardless of hierarchy and translate
+  'Yours faithfully' as 'আপনার বিশ্বস্তভাবে'.
 sources:
-  - "Bangla Academy Letters & Epistolary Standards"
-  - "Standard Bangla Grammar & Composition (NCTB Class 9-10)"
-confidence: data-supported
+- Bangla Academy Letters & Epistolary Standards
+- Standard Bangla Grammar & Composition (NCTB Class 9-10)
+confidence: reviewed
 created_date: 2026-11-11
-last_modified: 2026-11-11
+last_modified: '2026-11-11'
+review:
+  reviewer_name: Ashikur Rahman Bhuiyan
+  reviewer_affiliation: Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>)
+  reviewed_date: '2026-11-11'
+  status: APPROVED
+  notes: Reviewed and approved by human native speaker. Verified linguistic validity,
+    correct register, and Bangla Academy orthography.
+  signature_hash: sha256:a4fb1a4beb36af1e

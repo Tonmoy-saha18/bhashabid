@@ -1,17 +1,29 @@
 id: CRD-GRM-005
-title: "Bengali Compound Formation (সমাস: দ্বন্দ্ব, দ্বিগু, তৎপুরুষ ও কর্মধারয়)"
+title: 'Bengali Compound Formation (সমাস: দ্বন্দ্ব, দ্বিগু, তৎপুরুষ ও কর্মধারয়)'
 domain: grammar
 profile: all
 register: formal
-rule_summary: "Samas condenses multi-word syntactic phrases (ব্যাসবাক্য) into single compound words (সমস্তপদ). Major types: Dwandwa (মা ও বাবা = মা-বাবা), Tatpurush (রাজার পুত্র = রাজপুত্র), Karmadharaya (নীল যে পদ্ম = নীলপদ্ম), and Bahubrihi (দশ আনন যার = দশানন)."
+rule_summary: 'Samas condenses multi-word syntactic phrases (ব্যাসবাক্য) into single
+  compound words (সমস্তপদ). Major types: Dwandwa (মা ও বাবা = মা-বাবা), Tatpurush
+  (রাজার পুত্র = রাজপুত্র), Karmadharaya (নীল যে পদ্ম = নীলপদ্ম), and Bahubrihi (দশ
+  আনন যার = দশানন).'
 good_examples:
-  - "পিতা-মাতা (দ্বন্দ্ব সমাস)"
-  - "স্মৃতিসৌধ (স্মৃতিরক্ষার্থে সৌধ - মধ্যপদলোপী কর্মধারয়)"
+- পিতা-মাতা (দ্বন্দ্ব সমাস)
+- স্মৃতিসৌধ (স্মৃতিরক্ষার্থে সৌধ - মধ্যপদলোপী কর্মধারয়)
 bad_examples:
-  - "পিতা এবং মাতা (Uncondensed in formal administrative contexts)"
-common_llm_error: "LLMs often generate overly verbose periphrastic explanations where concise standard compound words exist."
+- পিতা এবং মাতা (Uncondensed in formal administrative contexts)
+common_llm_error: LLMs often generate overly verbose periphrastic explanations where
+  concise standard compound words exist.
 sources:
-  - "Bangla Academy Promito Bangla Bhashar Byakoron (Vol 1: Samas)"
-confidence: data-supported
+- 'Bangla Academy Promito Bangla Bhashar Byakoron (Vol 1: Samas)'
+confidence: reviewed
 created_date: 2026-11-11
-last_modified: 2026-11-11
+last_modified: '2026-11-11'
+review:
+  reviewer_name: Ashikur Rahman Bhuiyan
+  reviewer_affiliation: Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>)
+  reviewed_date: '2026-11-11'
+  status: APPROVED
+  notes: Reviewed and approved by human native speaker. Verified linguistic validity,
+    correct register, and Bangla Academy orthography.
+  signature_hash: sha256:a7e0d01adc2b54b2

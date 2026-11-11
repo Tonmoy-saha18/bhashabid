@@ -1,19 +1,31 @@
 id: CRD-GRM-001
-title: "Sadhu-Cholito Verb Consistency (গুরুচণ্ডালী দোষ পরিহার)"
+title: Sadhu-Cholito Verb Consistency (গুরুচণ্ডালী দোষ পরিহার)
 domain: grammar
 profile: all
 register: formal
-rule_summary: "Bengali prose must maintain strict stylistic consistency between Sadhu (সাধু) and Cholito (চলিত) registers. Mixing Sadhu verb forms (e.g. করিয়াছিলেন, যাইবে) with Cholito forms (e.g. করেছেন, যাবে) within the same discourse is a cardinal stylistic defect known as Guru-chandali Dosh."
+rule_summary: Bengali prose must maintain strict stylistic consistency between Sadhu
+  (সাধু) and Cholito (চলিত) registers. Mixing Sadhu verb forms (e.g. করিয়াছিলেন,
+  যাইবে) with Cholito forms (e.g. করেছেন, যাবে) within the same discourse is a cardinal
+  stylistic defect known as Guru-chandali Dosh.
 good_examples:
-  - "তিনি কাজটি করেছিলেন এবং বাড়ি ফিরেছিলেন। (বিশুদ্ধ চলিত)"
-  - "তিনি কার্যটি করিয়াছিলেন এবং গৃহে ফিরিয়াছিলেন। (বিশুদ্ধ সাধু)"
+- তিনি কাজটি করেছিলেন এবং বাড়ি ফিরেছিলেন। (বিশুদ্ধ চলিত)
+- তিনি কার্যটি করিয়াছিলেন এবং গৃহে ফিরিয়াছিলেন। (বিশুদ্ধ সাধু)
 bad_examples:
-  - "তিনি কাজটি করিয়াছিলেন এবং বাড়ি ফিরেছিলেন। (মিশ্রিত / গুরুচণ্ডালী)"
-  - "আমরা সেখানে যাব এবং আহার গ্রহণ করিব। (মিশ্রিত)"
-common_llm_error: "LLMs switch between Sadhu and Cholito verb suffixes midway through complex compound sentences due to inconsistent context attention."
+- তিনি কাজটি করিয়াছিলেন এবং বাড়ি ফিরেছিলেন। (মিশ্রিত / গুরুচণ্ডালী)
+- আমরা সেখানে যাব এবং আহার গ্রহণ করিব। (মিশ্রিত)
+common_llm_error: LLMs switch between Sadhu and Cholito verb suffixes midway through
+  complex compound sentences due to inconsistent context attention.
 sources:
-  - "Suniti Kumar Chatterji, The Origin and Development of the Bengali Language, 1926"
-  - "Bangla Academy Promito Bangla Bhashar Byakoron, Vol 1"
-confidence: data-supported
+- Suniti Kumar Chatterji, The Origin and Development of the Bengali Language, 1926
+- Bangla Academy Promito Bangla Bhashar Byakoron, Vol 1
+confidence: reviewed
 created_date: 2026-11-11
-last_modified: 2026-11-11
+last_modified: '2026-11-11'
+review:
+  reviewer_name: Ashikur Rahman Bhuiyan
+  reviewer_affiliation: Native Bengali Speaker & Project Architect (<ashikur.bhuiyan@brainstation-23.com>)
+  reviewed_date: '2026-11-11'
+  status: APPROVED
+  notes: Reviewed and approved by human native speaker. Verified linguistic validity,
+    correct register, and Bangla Academy orthography.
+  signature_hash: sha256:1a68538ec3ddd6d9

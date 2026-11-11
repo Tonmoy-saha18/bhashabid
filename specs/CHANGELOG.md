@@ -1,5 +1,11 @@
 # Specifications & Features Changelog
 
+## [2026-11-11] - Principle P2 Human Review Milestones
+- **21 Knowledge Cards Promoted to `reviewed`**:
+  - Reviewer: Ashikur Rahman Bhuiyan (`ashikur.bhuiyan@brainstation-23.com`)
+  - Status: `APPROVED` with cryptographic SHA-256 signatures sealed in cards (`CRD-DOM-001..008`, `CRD-GRM-001..005`, `CRD-NUM-001`, `CRD-ORT-001..003`, `CRD-TRN-001..004`).
+  - Principle P2 provenance audit verified 100% compliant.
+
 ## [2026-11-11] - Advanced Prosody, Constitutional Writs & Authenticated Human Review Solutions
 - **Bengali Poetic Prosody Engine** (`tools/bn_prosody/`):
   - Phonetic syllabifier (`মুক্তদল` vs `রুদ্ধদল`).
