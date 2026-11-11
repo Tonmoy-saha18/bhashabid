@@ -1,0 +1,19 @@
+id: CRD-TRN-005
+title: "Article 102 Constitutional Writs Taxonomy & Drafting (সংবিধানের ১০২ অনুচ্ছেদের রিট মামলার প্রমিত পরিভাষা)"
+domain: legal_constitutional
+profile: bd_standard
+register: statutory_legal
+rule_summary: "Writ petitions under Article 102 of the Bangladesh Constitution require strict taxonomy and specialized statutory phrasing: (1) Habeas Corpus [Art 102(2)(b)(i)]: challenges illegal detention, seeking 'অবৈধ আটকাদেশ বাতিল ও সশরীরে হাজির করিবার নির্দেশ'; (2) Mandamus [Art 102(2)(a)(i)]: compels a public authority to perform a statutory duty, praying 'আইনানুযায়ী দায়িত্ব পালনে বাধ্যকরণে পরমাদেশ জারি'; (3) Certiorari [Art 102(2)(a)(ii)]: quashes an ultra vires order, praying 'বিতর্কিত আদেশটি আইনগত কর্তৃত্ববহির্ভূত ও বাতিল ঘোষণা'; (4) Prohibition [Art 102(2)(a)(i)]: restrains an authority from exceeding jurisdiction, praying 'এখতিয়ারবহির্ভূত কার্য হইতে বিরত থাকিবার নির্দেশ'; (5) Quo Warranto [Art 102(2)(b)(ii)]: challenges the legal authority of a public office holder, praying 'কোন্ কর্তৃত্ববলে পদ ধারণ করিতেছেন তাহা প্রদর্শন এবং পদ শূন্য ঘোষণা'. Conflating these distinct writs or drafting informal prayers renders a writ non-maintainable."
+good_examples:
+  - "সংবিধানের ১০২(২)(ক)(১) অনুচ্ছেদের অধীন বিবাদীদের আইনগত দায়িত্ব পালনে বাধ্য করিতে পরমাদেশ জারির প্রার্থনা।"
+  - "বিবাদীর বিতর্কিত বহিষ্কার আদেশটি কেন আইনগত কর্তৃত্ববহির্ভূত ঘোষণা করা হইবে না, তাহা প্রদর্শন করিবার জন্য রুল নিশি জারি।"
+bad_examples:
+  - "হাইকোর্টে একটা কেস করা হয়েছে যাতে তাকে চাকরি থেকে বাদ না দেয় (Informal and unmaintainable)."
+  - "আটক ব্যক্তির ক্ষেত্রে সার্টিওরারি প্রার্থনা করা (Fatal writ category confusion)."
+common_llm_error: "LLMs confuse Mandamus (compelling an act) with Certiorari (quashing an act) and lack standard High Court prayer templates."
+sources:
+  - "The Constitution of the People's Republic of Bangladesh (Article 102)"
+  - "Mahmudul Islam: Constitutional Law of Bangladesh (3rd Edition)"
+confidence: data-supported
+created_date: 2026-11-11
+last_modified: 2026-11-11

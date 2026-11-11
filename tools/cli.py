@@ -62,6 +62,58 @@ def handle_normalize(args):
         sys.stderr.write(f"Error: {e}\n")
         return 1
 
+def handle_prosody(args):
+    try:
+        from .bn_prosody import scan_line, verify_payar
+        text = resolve_text_or_file(args.text)
+        if args.verify_payar:
+            res = verify_payar(text)
+            print(f"পয়ার ছন্দ যাচাই: {'শুদ্ধ (VALID)' if res.is_valid_payar else 'ভগ্ন (INVALID)'}")
+            print(f"পর্ব ১ (৮ মাত্রা): {res.part1_morae} | পর্ব ২ (৬ মাত্রা): {res.part2_morae} | মোট: {res.total_morae}")
+            print(f"বিশ্লেষণ: {res.explanation}")
+        else:
+            res = scan_line(text, metre_system=args.metre)
+            print(f"ছন্দোরীতি: {res.metre_system}")
+            print(f"মোট মাত্রাসংখ্যা: {res.total_morae} | মোট দলসংখ্যা: {res.total_syllables} (মুক্তদল: {res.open_syllables}, রুদ্ধদল: {res.closed_syllables})")
+            print(f"পর্ব বিন্যাস: {res.word_mora_breakdown}")
+            print(f"ছন্দোলিপি সংকেত: {res.scansion_notation}")
+        return 0
+    except Exception as e:
+        sys.stderr.write(f"Error: {e}\n")
+        return 1
+
+def handle_writ(args):
+    try:
+        from .bn_legal import determine_writ_type, generate_writ_prayer, CONSTITUTIONAL_PROVISIONS
+        wtype = determine_writ_type(args.remedy)
+        prov = CONSTITUTIONAL_PROVISIONS.get(wtype, "")
+        prayers = generate_writ_prayer(wtype, args.subject, args.authority)
+        print(f"=== সাংবিধানিক রিট পরামর্শ (Article 102) ===")
+        print(f"রিটের প্রকৃতি: {wtype.value}")
+        print(f"সংবিধানিক অনুচ্ছেদ: {prov}")
+        print(f"\nপ্রার্থিত প্রতিকার (Operative Prayers):")
+        for idx, p in enumerate(prayers, start=1):
+            print(f" {idx}. {p}")
+        return 0
+    except Exception as e:
+        sys.stderr.write(f"Error: {e}\n")
+        return 1
+
+def handle_review(args):
+    try:
+        from .human_reviewer import apply_human_review
+        apply_human_review(
+            card_id=args.card,
+            reviewer_name=args.reviewer,
+            reviewer_affiliation=args.affiliation,
+            action=args.action,
+            notes=args.notes
+        )
+        return 0
+    except Exception as e:
+        sys.stderr.write(f"Review Error: {e}\n")
+        return 1
+
 def handle_lint(args):
     try:
         text = resolve_text_or_file(args.text)
@@ -119,6 +171,29 @@ def main():
     p_lint.add_argument("text", help="Bengali text string or path to text file")
     p_lint.add_argument("--json", action="store_true", help="Output results in JSON format")
     p_lint.set_defaults(func=handle_lint)
+
+    # prosody
+    p_prosody = subparsers.add_parser("prosody", help="Analyze Bengali poetic metre, scansion, and Payar conformity")
+    p_prosody.add_argument("text", help="Bengali verse line")
+    p_prosody.add_argument("--metre", choices=["aksharbritta", "matrabritta", "dalabritta"], default="aksharbritta")
+    p_prosody.add_argument("--verify-payar", action="store_true", help="Verify 14-akshar Payar metre (8+6)")
+    p_prosody.set_defaults(func=handle_prosody)
+
+    # writ
+    p_writ = subparsers.add_parser("writ", help="Generate Article 102 High Court constitutional writ prayers")
+    p_writ.add_argument("--remedy", required=True, help="Remedy sought (e.g. detention, illegal order, public office)")
+    p_writ.add_argument("--subject", required=True, help="Subject matter of the grievance")
+    p_writ.add_argument("--authority", required=True, help="Respondent authority name")
+    p_writ.set_defaults(func=handle_writ)
+
+    # review
+    p_rev = subparsers.add_parser("review", help="Human native-speaker review sign-off tool (Principle P2)")
+    p_rev.add_argument("--card", required=True, help="Card ID, e.g. CRD-NUM-001")
+    p_rev.add_argument("--reviewer", required=True, help="Full name of human reviewer")
+    p_rev.add_argument("--affiliation", required=True, help="Reviewer qualification or affiliation")
+    p_rev.add_argument("--action", default="approve", choices=["approve", "reject"])
+    p_rev.add_argument("--notes", default="Verified and approved by human native speaker.")
+    p_rev.set_defaults(func=handle_review)
 
     args = parser.parse_args()
     if not args.command:

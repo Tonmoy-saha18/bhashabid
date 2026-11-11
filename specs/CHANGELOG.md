@@ -1,5 +1,21 @@
 # Specifications & Features Changelog
 
+## [2026-11-11] - Advanced Prosody, Constitutional Writs & Authenticated Human Review Solutions
+- **Bengali Poetic Prosody Engine** (`tools/bn_prosody/`):
+  - Phonetic syllabifier (`মুক্তদল` vs `রুদ্ধদল`).
+  - Mora counting across 3 classical metres (দলবৃত্ত, মাত্রাবৃত্ত, অক্ষরবৃত্ত).
+  - 14-akshar Payar metre validator (৮ + ৬ পর্ব ও মধ্যযতি) and end-rhyme (অন্ত্যমিল) checker.
+  - Knowledge card: `CRD-DOM-009.yaml`.
+- **Article 102 Constitutional Writs Engine** (`tools/bn_legal/`):
+  - Statutory grounding for 5 constitutional writs (Habeas Corpus, Mandamus, Certiorari, Prohibition, Quo Warranto).
+  - Deterministic prayer generator and classification engine.
+  - Knowledge card: `CRD-TRN-005.yaml` & Reference guide: `references/constitutional_writs.md`.
+- **Principle P2 Authenticated Human Review Protocol** (`tools/human_reviewer.py` & `tools/verify_provenance.py`):
+  - Native-speaker review harness with cryptographic SHA-256 content checksums.
+  - Strict P2 audit preventing agent self-promotions.
+- **Developer CLI Expanded** (`tools/cli.py`): Added `prosody`, `writ`, and `review` subcommands.
+- **Test Suite**: Expanded to 59/59 passing unit tests.
+
 ## [2026-11-11] - Multi-Domain Sector Expansion & Stress Audit
 - **8 Core Domains Added**:
   - `CRD-DOM-001`: Official Administrative Applications & Petitions (দাপ্তরিক আবেদন ও দরখাস্ত)

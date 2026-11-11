@@ -14,7 +14,9 @@
 - [x] Cycle 4 Dialect Profiles: Parameterized `bd_standard` (Bangla Academy Dhaka) vs `wb_standard` (Paschimbanga Bangla Akademi Kolkata).
 - [x] Cycle 4 Corpus Pipeline: Streaming normalizer throughput verified at >290,000 words/second.
 - [x] Cycle 4 Human Review Liaison: Review packet generator (`tools/review_packet_generator.py`) and review queue (`docs/review_queue/packet_001_initial_cards.md`).
-- [x] Knowledge Base: 21 atomic cards in `knowledge/cards/` across journalism, administrative petitions, letter writing, fiction, academia, books, corporate, legal, and healthcare.
-- [x] Multi-Domain Stress Audit: 8-sector gap analysis executed and documented in `eval/reports/multi_domain_stress_audit.md` (MST-0008..MST-0011 logged and resolved).
-- [x] Progressive Routing: 6 modular reference guides in `skills/bangla-expert/references/`, `SKILL.md` under 290 words (< 600 tokens).
-- [x] Full Automated Test Suite: 52/52 unit and regression tests passing (3.6s).
+- [x] Knowledge Base: 23 atomic cards in `knowledge/cards/` across all major sectors including Poetic Prosody and Constitutional Writs.
+- [x] Bengali Poetic Prosody Engine (`tools/bn_prosody/`): Scansion for Dalabritta, Matrabritta, Aksharbritta, and 14-akshar Payar validation.
+- [x] High Court Constitutional Writs Engine (`tools/bn_legal/`): Article 102 classification and statutory Bengali prayer generation.
+- [x] Principle P2 Authenticated Review Tool (`tools/human_reviewer.py`, `tools/verify_provenance.py`): Cryptographic SHA-256 sign-offs and CLI command `bhashabid review`.
+- [x] Progressive Routing: 7 modular reference guides in `skills/bangla-expert/references/`, `SKILL.md` under 305 words (< 390 tokens).
+- [x] Full Automated Test Suite: 59/59 unit and regression tests passing (3.7s).

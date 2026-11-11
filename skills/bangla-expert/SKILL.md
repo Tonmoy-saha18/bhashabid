@@ -27,3 +27,4 @@ Load modular guides from `references/` when detailed context is required:
 - `references/official_letters.md` -> Administrative applications, formal petitions, and epistolary hierarchy.
 - `references/creative_writing.md` -> Fiction dialogue authenticity, pacing, book anatomy, and essay transitions.
 - `references/academic_legal_medical.md` -> Research papers, contract clauses, and healthcare advisories.
+- `references/constitutional_writs.md` -> Article 102 High Court writ taxonomy, grounds, and statutory prayers.
