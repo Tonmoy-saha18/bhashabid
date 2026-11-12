@@ -22,12 +22,12 @@ class BhashabidMCPServer:
         self.tools = [
             {
                 "name": "convert_number",
-                "description": "Convert integers, floating-point decimals, and currencies into standard Bengali words, fractions, or South Asian lakh/crore comma grouping.",
+                "description": "Convert integers, floating-point decimals, fractions, ordinals, and currencies into standard Bengali words, fractions, ordinals, or South Asian lakh/crore comma grouping.",
                 "parameters": {
                     "type": "object",
                     "properties": {
                         "number": {"description": "The number to convert (integer, float, or string like '89079490.7890' or '৮৯০৭৯৪৯০.৭৮৯০')."},
-                        "format": {"type": "string", "enum": ["words", "grouped", "currency"], "default": "words"}
+                        "format": {"type": "string", "enum": ["words", "grouped", "currency", "fraction", "ordinal", "date_ordinal"], "default": "words"}
                     },
                     "required": ["number"]
                 }
@@ -96,6 +96,18 @@ class BhashabidMCPServer:
                 return {"result": res}
             elif fmt == "currency":
                 res = format_currency_words(float(val_ascii))
+                return {"result": res}
+            elif fmt == "fraction":
+                from ..bn_numbers import fraction_to_bangla_words
+                res = fraction_to_bangla_words(float(val_ascii))
+                return {"result": res}
+            elif fmt == "ordinal":
+                from ..bn_numbers import to_classical_ordinal
+                res = to_classical_ordinal(int(val_ascii))
+                return {"result": res}
+            elif fmt == "date_ordinal":
+                from ..bn_numbers import to_date_ordinal
+                res = to_date_ordinal(int(val_ascii))
                 return {"result": res}
             else:
                 if "." in val_ascii:

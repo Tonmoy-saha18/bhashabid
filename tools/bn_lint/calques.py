@@ -49,7 +49,7 @@ PROTECTED_STATUTORY_PATTERNS = [
     re.compile(canonicalize_unicode(r"(?:আইন|সংবিধান|বিধি|আদালত|আদেশ)\s+দ্বারা\s+(?:অনুমোদিত|নির্ধারিত|অর্পিত|স্বীকৃত|প্রণীত|নির্দেশিত)"))
 ]
 
-def check_calques(text: str) -> list[LintIssue]:
+def check_calques(text: str, profile: str = "bd_standard") -> list[LintIssue]:
     issues = []
     lines = text.splitlines()
 

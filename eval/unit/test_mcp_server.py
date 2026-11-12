@@ -44,6 +44,15 @@ class TestMCPServer(unittest.TestCase):
         res_curr = self.server.call_tool("convert_number", {"number": "50.25", "format": "currency"})
         self.assertEqual(res_curr["result"], "পঞ্চাশ টাকা পঁচিশ পয়সা")
 
+        res_frac = self.server.call_tool("convert_number", {"number": 2.5, "format": "fraction"})
+        self.assertEqual(res_frac["result"], "আড়াই")
+
+        res_ord = self.server.call_tool("convert_number", {"number": 35, "format": "ordinal"})
+        self.assertEqual(res_ord["result"], "৩৫-তম")
+
+        res_date_ord = self.server.call_tool("convert_number", {"number": 26, "format": "date_ordinal"})
+        self.assertEqual(res_date_ord["result"], "২৬শে")
+
     def test_call_normalize_text(self):
         res = self.server.call_tool("normalize_text", {"text": "তিনি রেলষ্টেশনে গেলেন."})
         self.assertEqual(res["result"], "তিনি রেলস্টেশনে গেলেন।")

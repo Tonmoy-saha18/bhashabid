@@ -50,11 +50,32 @@ class TestBnNormalize(unittest.TestCase):
         # Collapse duplicate Daris
         self.assertEqual(normalize_punctuation("তিনি বললেন।।"), "তিনি বললেন।")
 
+    def test_url_and_email_preservation_in_punctuation(self):
+        url_text = "ওয়েবসাইট ভিজিট করুন https://www.tbsnews.net সাইটে."
+        expected_url = "ওয়েবসাইট ভিজিট করুন https://www.tbsnews.net সাইটে।"
+        self.assertEqual(normalize_punctuation(url_text), expected_url)
+
+        email_text = "যোগাযোগ: info@bangladesh.gov.bd অথবা help@test.com."
+        expected_email = "যোগাযোগ: info@bangladesh.gov.bd অথবা help@test.com।"
+        self.assertEqual(normalize_punctuation(email_text), expected_email)
+
+    def test_legacy_opentype_khanda_ta(self):
+        # Legacy OpenType Bijoy/Avro ZWJ: ত + ্ + ZWJ (\u09a4\u09cd\u200d)
+        legacy_zwj = "\u09a4\u09cd\u200d"
+        # Standard decomposed ZWNJ: ত + ্ + ZWNJ (\u09a4\u09cd\u200c)
+        legacy_zwnj = "\u09a4\u09cd\u200c"
+        self.assertEqual(canonicalize_unicode(legacy_zwj), "ৎ")
+        self.assertEqual(canonicalize_unicode(legacy_zwnj), "ৎ")
+
     def test_bangla_academy_loanword_s(self):
         # Foreign loanwords with S
         text = "তিনি রেলষ্টেশনে গিয়ে ডাকঘরে চিঠি পোষ্ট করলেন এবং মাষ্টারমশাইয়ের সাথে দেখা করলেন।"
         expected = "তিনি রেলস্টেশনে গিয়ে ডাকঘরে চিঠি পোস্ট করলেন এবং মাস্টারমশাইয়ের সাথে দেখা করলেন।"
         self.assertEqual(normalize_orthography(text), expected)
+
+        # Cardinal number 62 (বাষট্টি) must NEVER be altered to বাসট্টি
+        self.assertEqual(normalize_orthography("বাষট্টি"), "বাষট্টি")
+        self.assertEqual(normalize_orthography("সুভাষ বাষে উঠলেন"), "সুভাষ বাসে উঠলেন")
 
     def test_tatbhava_short_vowels(self):
         text = "গাছের ডালে পাখী গান গায় এবং বনে হাতী হাঁটে।"

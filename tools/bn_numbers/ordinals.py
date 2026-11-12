@@ -1,5 +1,6 @@
 # Classical and calendar ordinals
 from .dates import DATE_ORDINALS
+from .digits import to_bangla_digits
 
 CLASSICAL_ORDINALS = {
     1: "প্রথম", 2: "দ্বিতীয়", 3: "তৃতীয়", 4: "চতুর্থ", 5: "পঞ্চম",
@@ -11,13 +12,13 @@ CLASSICAL_ORDINALS = {
 }
 
 def to_classical_ordinal(n: int) -> str:
-    """Return classical Sanskrit-derived ordinal in Bengali (e.g. 1 -> প্রথম)."""
+    """Return classical Sanskrit-derived ordinal in Bengali (e.g. 1 -> প্রথম, 35 -> ৩৫-তম)."""
     if n in CLASSICAL_ORDINALS:
         return CLASSICAL_ORDINALS[n]
-    return f"{n}-তম"
+    return f"{to_bangla_digits(n)}-তম"
 
 def to_date_ordinal(day: int) -> str:
-    """Return calendar date ordinal (e.g. 1 -> ১লা, 21 -> ২১শে)."""
+    """Return calendar date ordinal (e.g. 1 -> ১লা, 21 -> ২১শে, 32 -> ৩২ই)."""
     if day in DATE_ORDINALS:
         return DATE_ORDINALS[day]
-    return f"{day}ই"
+    return f"{to_bangla_digits(day)}ই"

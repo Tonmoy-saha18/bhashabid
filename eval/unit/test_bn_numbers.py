@@ -84,6 +84,8 @@ class TestBnNumbers(unittest.TestCase):
     def test_decimals_digit_by_digit(self):
         self.assertEqual(decimal_to_bangla_words("3.14"), "তিন দশমিক এক চার")
         self.assertEqual(decimal_to_bangla_words(0.05), "শূন্য দশমিক শূন্য পাঁচ")
+        self.assertEqual(decimal_to_bangla_words("-0.75"), "মাইনাস শূন্য দশমিক সাত পাঁচ")
+        self.assertEqual(decimal_to_bangla_words("-5.25"), "মাইনাস পাঁচ দশমিক দুই পাঁচ")
         self.assertEqual(
             decimal_to_bangla_words("89079490.7890"),
             "আট কোটি নব্বই লাখ ঊনআশি হাজার চার শত নব্বই দশমিক সাত আট নয় শূন্য"
@@ -102,12 +104,16 @@ class TestBnNumbers(unittest.TestCase):
         self.assertEqual(format_currency_words(50.25), "পঞ্চাশ টাকা পঁচিশ পয়সা")
         self.assertEqual(format_currency_words(100), "এক শত টাকা")
         self.assertEqual(format_currency_words(0.50), "পঞ্চাশ পয়সা")
+        self.assertEqual(format_currency_words(-50.25), "মাইনাস পঞ্চাশ টাকা পঁচিশ পয়সা")
+        self.assertEqual(format_currency_words(-0.50), "মাইনাস পঞ্চাশ পয়সা")
+        self.assertEqual(format_currency_words(0), "শূন্য টাকা")
 
     def test_classical_ordinals(self):
         self.assertEqual(to_classical_ordinal(1), "প্রথম")
         self.assertEqual(to_classical_ordinal(2), "দ্বিতীয়")
         self.assertEqual(to_classical_ordinal(3), "তৃতীয়")
         self.assertEqual(to_classical_ordinal(10), "দশম")
+        self.assertEqual(to_classical_ordinal(35), "৩৫-তম")
 
     def test_date_ordinals(self):
         self.assertEqual(to_date_ordinal(1), "১লা")
@@ -116,6 +122,7 @@ class TestBnNumbers(unittest.TestCase):
         self.assertEqual(to_date_ordinal(5), "৫ই")
         self.assertEqual(to_date_ordinal(21), "২১শে")
         self.assertEqual(to_date_ordinal(31), "৩১শে")
+        self.assertEqual(to_date_ordinal(32), "৩২ই")
 
     def test_date_formatting(self):
         self.assertEqual(format_date_bangla(2026, 3, 26), "২৬শে মার্চ, ২০২৬")

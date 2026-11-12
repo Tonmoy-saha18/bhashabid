@@ -53,9 +53,8 @@ def normalize_orthography(text: str, profile: str = "bd_standard") -> str:
         for bad_stem, good_stem in LOANWORD_S_ROOTS:
             text = text.replace(bad_stem, good_stem)
 
-        # Handle 'বাষ' (bus) carefully to avoid altering 'বাষ্প' (vapor/steam)
-        # Replaces 'বাষ' when not part of 'বাষ্প'
-        text = re.sub(r"বাষ(?!্প)", "বাস", text)
+        # Handle 'বাষ' (bus) strictly at word boundaries to avoid altering 'বাষট্টি' (62), 'সুভাষ', or 'বাষ্প' (vapor)
+        text = re.sub(r"(?<![\u0980-\u09FF])বাষ(?=(?:ে|ের|টা|টি|গুলো|গুলা)?(?![\u0980-\u09FF]))", "বাস", text)
 
         # 2. Tatbhava short-vowel replacements
         for bad_stem, good_stem in TATBHAVA_SHORT_VOWEL_ROOTS:

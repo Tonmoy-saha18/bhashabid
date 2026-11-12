@@ -16,6 +16,7 @@ from tools.bn_normalize.unicode import canonicalize_unicode
 
 DRAFTS_DIR = os.path.join(REPO_ROOT, "knowledge", "cards", "drafts")
 CARDS_DIR = os.path.join(REPO_ROOT, "knowledge", "cards")
+REJECTED_DIR = os.path.join(REPO_ROOT, "knowledge", "cards", "rejected")
 
 class CardSynthesizer:
     """
@@ -27,6 +28,7 @@ class CardSynthesizer:
     def __init__(self, drafts_dir: Optional[str] = None):
         self.drafts_dir = drafts_dir or DRAFTS_DIR
         os.makedirs(self.drafts_dir, exist_ok=True)
+        os.makedirs(REJECTED_DIR, exist_ok=True)
 
     @staticmethod
     def get_existing_card_ids() -> set:
@@ -35,6 +37,9 @@ class CardSynthesizer:
             stem = Path(f).stem
             existing.add(stem)
         for f in glob.glob(os.path.join(DRAFTS_DIR, "*.yaml")):
+            stem = Path(f).stem
+            existing.add(stem)
+        for f in glob.glob(os.path.join(REJECTED_DIR, "*.yaml")):
             stem = Path(f).stem
             existing.add(stem)
         return existing
@@ -48,16 +53,17 @@ class CardSynthesizer:
         return f"CRD-DFT-{num:03d}"
 
     @staticmethod
-    def find_existing_card_by_pattern(pattern: str, title: str) -> Optional[Tuple[str, Dict, bool]]:
+    def find_existing_card_by_pattern(pattern: str, title: str) -> Optional[Tuple[str, Dict, str]]:
         """
         Duplicate Guard: Checks if a linguistic pattern or title is already covered
-        in production cards (knowledge/cards/*.yaml) or existing drafts (knowledge/cards/drafts/*.yaml).
-        Returns (filepath, card_dict, is_draft) or None.
+        in production cards (knowledge/cards/*.yaml), rejected cards (knowledge/cards/rejected/*.yaml),
+        or existing drafts (knowledge/cards/drafts/*.yaml).
+        Returns (filepath, card_dict, category) where category is 'production', 'rejected', or 'draft'.
         """
         norm_pattern = pattern.strip().lower()
         norm_title = title.strip().lower()
 
-        # Check production cards first
+        # 1. Check production cards
         for f in glob.glob(os.path.join(CARDS_DIR, "*.yaml")):
             try:
                 with open(f, "r", encoding="utf-8") as yf:
@@ -67,11 +73,25 @@ class CardSynthesizer:
                 c_title = (c.get("title") or "").strip().lower()
                 c_summary = (c.get("rule_summary") or "").strip().lower()
                 if norm_pattern in c_title or norm_pattern in c_summary or norm_title == c_title:
-                    return (f, c, False)
+                    return (f, c, "production")
             except Exception:
                 continue
 
-        # Check existing draft cards
+        # 2. Check rejected cards (prevent re-synthesizing noise rejected by human reviewers)
+        for f in glob.glob(os.path.join(REJECTED_DIR, "*.yaml")):
+            try:
+                with open(f, "r", encoding="utf-8") as yf:
+                    c = yaml.safe_load(yf)
+                if not c or not isinstance(c, dict):
+                    continue
+                c_title = (c.get("title") or "").strip().lower()
+                c_summary = (c.get("rule_summary") or "").strip().lower()
+                if norm_pattern in c_title or norm_pattern in c_summary or norm_title == c_title:
+                    return (f, c, "rejected")
+            except Exception:
+                continue
+
+        # 3. Check existing draft cards
         for f in glob.glob(os.path.join(DRAFTS_DIR, "*.yaml")):
             try:
                 with open(f, "r", encoding="utf-8") as yf:
@@ -81,7 +101,7 @@ class CardSynthesizer:
                 c_title = (c.get("title") or "").strip().lower()
                 c_summary = (c.get("rule_summary") or "").strip().lower()
                 if norm_pattern in c_title or norm_pattern in c_summary or norm_title == c_title:
-                    return (f, c, True)
+                    return (f, c, "draft")
             except Exception:
                 continue
 
@@ -163,9 +183,9 @@ class CardSynthesizer:
                 # DUPLICATE GUARD CHECK
                 existing = self.find_existing_card_by_pattern(matched, title)
                 if existing:
-                    filepath, card_data, is_draft = existing
-                    if not is_draft:
-                        # Already covered by a production card, skip
+                    filepath, card_data, category = existing
+                    if category in ["production", "rejected"]:
+                        # Already covered by production or rejected by human review; skip completely
                         continue
                     else:
                         # Merge new unique examples into existing draft card

@@ -27,11 +27,33 @@ class TestBnLint(unittest.TestCase):
         issues2 = lint_text(text2)
         self.assertTrue(any(i.rule_id == "RULE-LINT-GURU-CHANDALI" for i in issues2))
 
+        # Pure classical Sadhu must NOT trigger false positives
+        pure_sadhu = "তিনি তথায় গিয়াছিলেন এবং সেখানে ছিলেন।"
+        sadhu_issues = lint_text(pure_sadhu)
+        self.assertEqual(len(sadhu_issues), 0, "Pure Sadhu text must not be flagged as Guru-chandali")
+
     def test_honorific_clash_detection(self):
         # 'আপনি' with 'করো'
         text = "আপনি কি কাজটি আজ করো?"
         issues = lint_text(text)
         self.assertTrue(any("HONORIFIC" in i.rule_id for i in issues))
+
+        # 3rd person honorific pronoun 'তিনি' with non-honorific verb 'গেল'
+        text_tini = "তিনি কাল ঢাকা গেল।"
+        issues_tini = lint_text(text_tini)
+        self.assertTrue(any(i.rule_id == "RULE-LINT-HONORIFIC-TINI" for i in issues_tini))
+        self.assertIn("তিনি কাল ঢাকা গেলেন", issues_tini[0].suggestion)
+
+        # 3rd person ordinary pronoun 'সে' with honorific verb 'বললেন'
+        text_se = "সে বললেন যে আসবেন।"
+        issues_se = lint_text(text_se)
+        self.assertTrue(any(i.rule_id == "RULE-LINT-HONORIFIC-SE" for i in issues_se))
+        self.assertIn("সে বলল", issues_se[0].suggestion)
+
+        # Multiple honorific clashes on the same line must ALL be captured
+        multi_text = "তুমি আসেন এবং তুমি যান।"
+        multi_issues = [i for i in lint_text(multi_text) if "HONORIFIC" in i.rule_id]
+        self.assertEqual(len(multi_issues), 2, "Both clashes on single line must be captured")
 
     def test_bidirectional_honorific_suggestions(self):
         # 'তুমি সিদ্ধান্ত নেন' must suggest both 'তুমি সিদ্ধান্ত নাও' and 'আপনি সিদ্ধান্ত নেন'
