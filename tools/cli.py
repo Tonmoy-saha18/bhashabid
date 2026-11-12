@@ -410,7 +410,7 @@ def main():
     # practice
     p_prac = subparsers.add_parser("practice", help="Run automated multi-domain practice and learning cycle")
     p_prac.add_argument("--rounds", type=int, default=1, help="Number of complete practice rounds (default: 1)")
-    p_prac.add_argument("--duration-minutes", "--minutes", "-minutes", "-m", dest="duration_minutes", type=float, default=150.0, help="Window for continuous mode (default: 150 min)")
+    p_prac.add_argument("--duration-minutes", "--duration", "--minutes", "-minutes", "-m", dest="duration_minutes", type=float, default=150.0, help="Window for continuous mode (default: 150 min)")
     p_prac.add_argument("--domain", default=None, help="Filter to specific domain")
     p_prac.add_argument("--continuous", action="store_true", help="Run continuously for duration-minutes (soak test mode)")
     p_prac.add_argument("--commit", action="store_true", help="Automatically commit post-practice updates locally")
