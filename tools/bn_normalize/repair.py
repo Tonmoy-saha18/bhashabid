@@ -70,6 +70,10 @@ def repair_text(text: str, profile: str = "bd_standard") -> Tuple[str, List[Dict
     if not text:
         return "", []
 
+    # If text contains no Bengali characters, leave completely intact
+    if not re.search(r"[\u0980-\u09FF]", text):
+        return text, []
+
     applied_fixes = []
     current_text = canonicalize_unicode(text)
 

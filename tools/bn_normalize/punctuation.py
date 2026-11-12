@@ -42,7 +42,7 @@ def normalize_punctuation(text: str, convert_period_to_dari: bool = True) -> str
 
     text = URL_OR_EMAIL_PATTERN.sub(_mask_url_or_email, text)
 
-    if convert_period_to_dari:
+    if convert_period_to_dari and re.search(r"[\u0980-\u09FF]", text):
         # 1. Do not convert if followed by ASCII/Bengali digit (decimals like 3.14, ৩.১৪)
         # 2. Do not convert if between ASCII alphanumeric characters (like site.com, node.js, e.g.)
         # 3. Only convert when preceded by Bengali word or at true sentence terminator

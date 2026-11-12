@@ -1,9 +1,10 @@
 # Currency formatting in Bengali (টাকা এবং পয়সা)
 from .words import number_to_bangla_words, StyleProfile
 
-def format_currency_words(amount: float | int, profile: StyleProfile | None = None) -> str:
+def format_currency_words(amount: float | int | str, profile: StyleProfile | None = None) -> str:
     """
     Format monetary amounts in Bengali words with support for negative balances.
+    Accepts float, int, or string amounts (with Bengali or ASCII digits).
     Example: 50.25  -> "পঞ্চাশ টাকা পঁচিশ পয়সা"
              -50.25 -> "মাইনাস পঞ্চাশ টাকা পঁচিশ পয়সা"
              100    -> "একশত টাকা"
@@ -12,6 +13,14 @@ def format_currency_words(amount: float | int, profile: StyleProfile | None = No
     """
     if profile is None:
         profile = StyleProfile()
+
+    if isinstance(amount, str):
+        from .digits import to_ascii_digits
+        clean_str = to_ascii_digits(amount.strip().replace(",", ""))
+        try:
+            amount = float(clean_str)
+        except ValueError:
+            raise ValueError(f"Invalid monetary amount string: '{amount}'")
 
     is_negative = (amount < 0)
     abs_amount = abs(amount)
