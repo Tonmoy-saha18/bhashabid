@@ -255,6 +255,8 @@ Comprehensive documentation is available in the [`docs/wiki/`](docs/wiki/) direc
 - [Poetic Prosody & Payar Verification](docs/wiki/Poetic-Prosody-&-Payar.md)
 - [Article 102 Constitutional Writs](docs/wiki/Constitutional-Writs-(Article-102).md)
 - [Principle P2 Provenance & Human Review](docs/wiki/Principle-P2-Provenance-&-Review.md)
+- [Centralized Linguistic Review Hub & GitHub PR Guide](docs/review_queue/README.md)
+- [Active Pending Reviews Dashboard](docs/review_queue/PENDING_REVIEWS.md)
 
 ---
 

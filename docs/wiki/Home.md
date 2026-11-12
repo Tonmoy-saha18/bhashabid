@@ -18,6 +18,8 @@
    - High Court writ petitions (Habeas Corpus, Mandamus, Certiorari, Prohibition, Quo Warranto) and statutory prayers.
 6. [Principle P2 Provenance & Human Review](Principle-P2-Provenance-&-Review.md)
    - The cryptographic review protocol and verification system that keeps Bhashabid scientifically honest.
+7. [Centralized Linguistic Review Hub](../review_queue/README.md)
+   - Community guidelines for reviewing and submitting candidate cards via GitHub Pull Requests.
 
 ---
 

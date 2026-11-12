@@ -31,9 +31,18 @@ Bhashabid provides comprehensive stylistic and register coverage across 8 primar
 - Terminology: `নীতি সুদহার` (Policy rate), `বেসিস পয়েন্ট` (Basis points), `মূল্যস্ফীতি` (Inflation).
 - Avoid passive: Use active causal phrasing (*"মূল্যবৃদ্ধির কারণে... দাঁড়িয়েছে"*) rather than passive calques (*"মূল্যের দ্বারা চালিত"*).
 
-## 5. Literary Fiction & Story Writing
+## 5. Literary Fiction, Proverbs & Poetic Metaphors
 - **Spoken Authenticity**: Dialogue must reflect living colloquial Cholito (*কথ্য রীতি*): `“তুই কি সত্যি বলছিস?”`
-- **Action-Embedded Tags**: Avoid mechanical repetition of `তিনি বললেন যে...`. Embed speech in physical character actions.
+- **Action-Embedded Tags**: Avoid mechanical repetition of `তিনি বললেন যে...`. Embed speech in physical character actions (`চায়ের কাপে শেষ চুমুক দিয়ে রাতুল জানালার বাইরে তাকাল...`).
+- **Proverbs & Idioms (*প্রবাদ-প্রবচন ও বাগধারা*)**: Enforce cultural equivalence rather than literal English word calques:
+  - `A bad workman blames his tools` ➔ **`নাচতে না জানলে উঠান বাঁকা`** (Never: "খারাপ কর্মী তার সরঞ্জামকে দোষ দেয়")
+  - `To beat around the bush` ➔ **`ঘুরিয়ে-পেঁচিয়ে কথা বলা`** (Never: "ঝোপের চারপাশে পেটানো")
+  - `Spill the beans` ➔ **`হাঁড়ি ভেঙে দেওয়া`** (Never: "শিম ছড়িয়ে দেওয়া")
+  - `Piece of cake` ➔ **`পানির মতো সহজ / দুধভাত`** (Never: "কেকের টুকরো")
+- **Figurative Tri-Layer Semantics (*অভিধা, লক্ষণা, ব্যঞ্জনা*)**:
+  - Distinguish literal meaning (*অভিধা*) from evocative metaphor (*লক্ষণা/ব্যঞ্জনা*).
+  - Somatic emotional metaphors: `"His heart turned to stone"` ➔ **`তার হৃদয় পাষাণ হয়ে গেল`** (Never anatomical: *"তার হৃৎপিণ্ড পাথরে পরিণত হয়েছিল"*).
+  - Atmospheric nature imagery: `হেমন্তের বিষণ্ণ কুয়াশা`, `চোখের কোণে শ্রাবণের ঢল`, `গোধূলির স্বর্ণাভা`।
 
 ## 6. Classical Poetic Prosody (ছন্দ ও পয়ার)
 - Syllabic mora counting across:

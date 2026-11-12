@@ -68,6 +68,24 @@ bhashabid prosody "কাশীদাস কহে সাধু শুনে প
 bhashabid writ --remedy "detention" --subject "জনাব করিম" --authority "স্বরাষ্ট্র সচিব"
 ```
 
+### System Health & Installation Audit
+```bash
+# Check integration status across Cursor, Antigravity, and Claude
+bhashabid status
+```
+
+### Knowledge Distillation & Skill Synchronization
+```bash
+# Re-compile approved cards, verify < 390 token budget, and sync globally
+bhashabid distill
+```
+
+### Human Linguistic Review (Principle P2 Sign-Off)
+```bash
+# Approve a pending draft card from knowledge/cards/drafts/
+bhashabid review --card CRD-DFT-001 --reviewer "Your Name" --affiliation "Native Speaker" --action approve
+```
+
 ---
 
 ## 3. Python SDK Usage

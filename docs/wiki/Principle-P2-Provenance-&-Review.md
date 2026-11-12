@@ -45,9 +45,19 @@ python tools/verify_provenance.py
 **Output**:
 ```text
 === PRINCIPLE P2 PROVENANCE INTEGRITY AUDIT ===
-Total Cards: 23
+Total Cards: 28
 Data-Supported Cards: 0
-Human-Reviewed Cards: 23
+Human-Reviewed Cards: 28
 Rejected Cards: 0
 ALL CARDS FULLY COMPLIANT WITH PRINCIPLE P2.
 ```
+
+---
+
+## 📥 Review Queue & Community Contributions
+
+All candidate cards generated from the autonomous practice and harvest loops are quarantined in `knowledge/cards/drafts/` and displayed in the centralized review dashboard:
+👉 **[`docs/review_queue/PENDING_REVIEWS.md`](../review_queue/PENDING_REVIEWS.md)**
+
+To contribute reviews or sign off on candidate cards via GitHub Pull Requests, follow the guide at:
+👉 **[`docs/review_queue/README.md`](../review_queue/README.md)**
