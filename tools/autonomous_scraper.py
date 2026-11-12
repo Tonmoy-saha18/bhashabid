@@ -8,6 +8,7 @@ import json
 import time
 import urllib.request
 import urllib.error
+import urllib.parse
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from typing import List, Dict, Optional, Tuple
@@ -18,8 +19,16 @@ if REPO_ROOT not in sys.path:
 
 from tools.bn_normalize.unicode import canonicalize_unicode
 
-# Authoritative live RSS and open API feeds covering key professional sectors
+# Authoritative live RSS and open API feeds covering all 11 professional sectors of Bhashabid
 DEFAULT_FEEDS = [
+    # Sector 1: Constitutional Law & Writs
+    {
+        "name": "BBC News Bangla (Judicial & Legal)",
+        "url": "https://feeds.bbci.co.uk/bengali/rss.xml",
+        "domain": "Constitutional Law & Writs",
+        "sector": 1
+    },
+    # Sector 2: Macroeconomics & Banking
     {
         "name": "The Business Standard (TBS Bangla)",
         "url": "https://www.tbsnews.net/bangla/rss.xml",
@@ -27,34 +36,86 @@ DEFAULT_FEEDS = [
         "sector": 2
     },
     {
-        "name": "The Daily Star Bangla",
+        "name": "Prothom Alo (National & Economy)",
+        "url": "https://www.prothomalo.com/feed",
+        "domain": "Macroeconomics & Banking",
+        "sector": 2
+    },
+    # Sector 3: Healthcare & Clinical Epidemiology
+    {
+        "name": "Bangla Wikipedia Clinical Medicine & Epidemiology",
+        "url": "https://bn.wikipedia.org/w/api.php?action=query&generator=categorymembers&gcmtitle=" + urllib.parse.quote("Category:চিকিৎসাবিজ্ঞান") + "&gcmnamespace=0&gcmlimit=4&prop=extracts&exintro=1&explaintext=1&format=json",
+        "domain": "Healthcare & Epidemiology",
+        "sector": 3,
+        "is_json_api": True
+    },
+    # Sector 4: Administrative Governance & Memos
+    {
+        "name": "The Daily Star Bangla (Governance & Administration)",
         "url": "https://bangla.thedailystar.net/rss.xml",
         "domain": "Administrative Governance & Memos",
         "sector": 4
     },
+    # Sector 5: Creative Fiction & Dialogue
     {
-        "name": "BBC News Bangla",
-        "url": "https://feeds.bbci.co.uk/bengali/rss.xml",
-        "domain": "Judicial & International",
-        "sector": 1
+        "name": "Bangla Wikipedia Bengali Literature & Fiction",
+        "url": "https://bn.wikipedia.org/w/api.php?action=query&generator=categorymembers&gcmtitle=" + urllib.parse.quote("Category:বাংলা_সাহিত্য") + "&gcmnamespace=0&gcmlimit=4&prop=extracts&exintro=1&explaintext=1&format=json",
+        "domain": "Creative Fiction & Dialogue",
+        "sector": 5,
+        "is_json_api": True
     },
+    # Sector 6: Classical Poetry & Payar Prosody
     {
-        "name": "Prothom Alo (National & Economy)",
-        "url": "https://www.prothomalo.com/feed",
-        "domain": "Macroeconomic & Finance",
-        "sector": 2
+        "name": "Bangla Wikipedia Poetry & Classical Verse",
+        "url": "https://bn.wikipedia.org/w/api.php?action=query&generator=categorymembers&gcmtitle=" + urllib.parse.quote("Category:বাংলা_কবিতা") + "&gcmnamespace=0&gcmlimit=4&prop=extracts&exintro=1&explaintext=1&format=json",
+        "domain": "Classical Poetry & Prosody",
+        "sector": 6,
+        "is_json_api": True
     },
+    # Sector 7: Academic Research & Methodology
     {
-        "name": "Deutsche Welle (DW Bangla)",
-        "url": "https://rss.dw.com/rdf/rss-ben-all",
-        "domain": "Environmental & Human Rights",
-        "sector": 6
-    },
-    {
-        "name": "Bangla Wikipedia Academic Articles",
-        "url": "https://bn.wikipedia.org/w/api.php?action=query&generator=random&grnnamespace=0&grnlimit=5&prop=extracts&exintro=1&explaintext=1&format=json",
+        "name": "Bangla Wikipedia Linguistics & Academic Research",
+        "url": "https://bn.wikipedia.org/w/api.php?action=query&generator=categorymembers&gcmtitle=" + urllib.parse.quote("Category:ভাষাবিজ্ঞান") + "&gcmnamespace=0&gcmlimit=4&prop=extracts&exintro=1&explaintext=1&format=json",
         "domain": "Academic Research & Methodology",
         "sector": 7,
+        "is_json_api": True
+    },
+    # Sector 8: Land Registry & Deeds
+    {
+        "name": "Bangla Wikipedia Land Law & Property Registry",
+        "url": "https://bn.wikipedia.org/w/api.php?action=query&generator=categorymembers&gcmtitle=" + urllib.parse.quote("Category:আইন") + "&gcmnamespace=0&gcmlimit=4&prop=extracts&exintro=1&explaintext=1&format=json",
+        "domain": "Land Registry & Deeds",
+        "sector": 8,
+        "is_json_api": True
+    },
+    # Sector 9: Agronomy & Disaster Management
+    {
+        "name": "Deutsche Welle (DW Bangla - Climate & Disaster)",
+        "url": "https://rss.dw.com/rdf/rss-ben-all",
+        "domain": "Agronomy & Disaster Management",
+        "sector": 9
+    },
+    {
+        "name": "Bangla Wikipedia Agriculture & Agronomy",
+        "url": "https://bn.wikipedia.org/w/api.php?action=query&generator=categorymembers&gcmtitle=" + urllib.parse.quote("Category:বাংলাদেশের_কৃষি") + "&gcmnamespace=0&gcmlimit=4&prop=extracts&exintro=1&explaintext=1&format=json",
+        "domain": "Agronomy & Disaster Management",
+        "sector": 9,
+        "is_json_api": True
+    },
+    # Sector 10: ICT & Software Engineering
+    {
+        "name": "Bangla Wikipedia Information Technology & Computing",
+        "url": "https://bn.wikipedia.org/w/api.php?action=query&generator=categorymembers&gcmtitle=" + urllib.parse.quote("Category:তথ্য_প্রযুক্তি") + "&gcmnamespace=0&gcmlimit=4&prop=extracts&exintro=1&explaintext=1&format=json",
+        "domain": "ICT & Software Engineering",
+        "sector": 10,
+        "is_json_api": True
+    },
+    # Sector 11: Education & NCTB Pedagogy
+    {
+        "name": "Bangla Wikipedia Education & Pedagogy",
+        "url": "https://bn.wikipedia.org/w/api.php?action=query&generator=categorymembers&gcmtitle=" + urllib.parse.quote("Category:শিক্ষা") + "&gcmnamespace=0&gcmlimit=4&prop=extracts&exintro=1&explaintext=1&format=json",
+        "domain": "Education & NCTB Pedagogy",
+        "sector": 11,
         "is_json_api": True
     }
 ]

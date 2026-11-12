@@ -1,0 +1,29 @@
+id: CRD-DFT-006
+title: 'Candidate Rule for Pattern: ঝোপের চারপাশে পেটাচ্ছেন'
+domain: translation
+profile: bd_standard
+register: formal
+rule_summary: Automatically flagged pattern 'ঝোপের চারপাশে পেটাচ্ছেন' requires naturalization
+  to active causal phrasing (e.g. 'স্বাভাবিক বাংলা প্রকাশভঙ্গি 'ঘুরিয়ে-পেঁচিয়ে কথা
+  বলা / মূল প্রসঙ্গ এড়িয়ে যাওয়া' ব্যবহার করুন।').
+good_examples:
+- স্বাভাবিক বাংলা প্রকাশভঙ্গি 'ঘুরিয়ে-পেঁচিয়ে কথা বলা / মূল প্রসঙ্গ এড়িয়ে যাওয়া' ব্যবহার
+  করুন।
+bad_examples:
+- ঝোপের চারপাশে পেটাচ্ছেন
+common_llm_error: LLMs emit literal calques or non-standard syntax for 'ঝোপের চারপাশে
+  পেটাচ্ছেন'.
+sources:
+- Corpus Harvester Anomaly Detector
+- Bangla Academy Corpus
+confidence: candidate
+created_date: '2026-11-12'
+last_modified: '2026-11-12'
+review:
+  reviewer_name: null
+  reviewer_affiliation: null
+  reviewed_date: null
+  status: PENDING_HUMAN_REVIEW
+  notes: Candidate card synthesized by Bhashabid Autonomous Learning Loop. Pending
+    human native-speaker sign-off.
+  signature_hash: null

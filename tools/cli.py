@@ -302,6 +302,37 @@ def handle_lint(args):
         sys.stderr.write(f"Error: {e}\n")
         return 1
 
+def handle_ledger(args):
+    try:
+        from .learning_benchmark_ledger import LearningBenchmarkLedger
+        ledger = LearningBenchmarkLedger()
+        if getattr(args, "report", False):
+            path = ledger.export_research_report()
+            print(f"Research learning ledger exported to: {path}")
+        d = ledger.data
+        total_sents = d["cumulative_sentences_practiced"]
+        total_flaws = d["cumulative_flaws_trapped"]
+        overall_prec = round((1.0 - (total_flaws / max(1, d["cumulative_checks_evaluated"]))) * 100, 2)
+        print("=" * 70)
+        print("BHASHABID EMPIRICAL LEARNING BENCHMARK LEDGER")
+        print("=" * 70)
+        print(f"Cumulative Sessions:        {d['cumulative_practice_sessions']}")
+        print(f"Cumulative Practice Rounds: {d['cumulative_rounds_completed']}")
+        print(f"Total Sentences Practiced:  {total_sents:,}")
+        print(f"Linguistic Checks Evaluated:{d['cumulative_checks_evaluated']:,}")
+        print(f"Anomalies / Flaws Trapped:  {total_flaws:,}")
+        print(f"Dynamic Batches Ingested:   {d['cumulative_fresh_batches_ingested']}")
+        print(f"System Precision:           {overall_prec}%")
+        print("-" * 70)
+        print("11-SECTOR DISTRIBUTION:")
+        for idx, (sec, cnt) in enumerate(d["sector_sentence_distribution"].items(), start=1):
+            print(f" {idx:2d}. {sec:36s} : {cnt:,} sentences")
+        print("=" * 70)
+        return 0
+    except Exception as e:
+        sys.stderr.write(f"Ledger Error: {e}\n")
+        return 1
+
 def main():
     parser = argparse.ArgumentParser(
         prog="bhashabid",
@@ -412,6 +443,11 @@ def main():
     p_harv.add_argument("--scrape", action="store_true", help="Autonomously scrape live RSS feeds from TBS, Daily Star, Prothom Alo, and Wikipedia")
     p_harv.add_argument("--report", nargs="?", const="default", default=None, help="Generate markdown audit report")
     p_harv.set_defaults(func=handle_harvest)
+
+    # ledger
+    p_ledger = subparsers.add_parser("ledger", help="Display empirical learning ledger & multi-sector benchmark")
+    p_ledger.add_argument("--report", action="store_true", help="Export research report markdown file")
+    p_ledger.set_defaults(func=handle_ledger)
 
     args = parser.parse_args()
     if not args.command:

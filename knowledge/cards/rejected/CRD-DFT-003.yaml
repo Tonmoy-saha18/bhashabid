@@ -21,14 +21,13 @@ common_llm_error: LLMs emit literal calques or non-standard syntax for 'Byline, 
 sources:
 - Corpus Harvester Anomaly Detector
 - Bangla Academy Corpus
-confidence: candidate
+confidence: rejected
 created_date: '2026-11-12'
 last_modified: '2026-11-12'
 review:
-  reviewer_name: null
-  reviewer_affiliation: null
-  reviewed_date: null
-  status: PENDING_HUMAN_REVIEW
-  notes: Candidate card synthesized by Bhashabid Autonomous Learning Loop. Pending
-    human native-speaker sign-off.
-  signature_hash: null
+  reviewer_name: Ashikur Rahman
+  reviewer_affiliation: Lead Architect
+  reviewed_date: '2026-11-12'
+  status: REJECTED
+  notes: Scraper CMS noise, not a Bengali linguistic invariant.
+  signature_hash: sha256:c4f9e9906ae858ca

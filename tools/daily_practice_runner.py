@@ -189,6 +189,9 @@ def run_practice_cycle(
     print("=" * 80)
 
     round_idx = 0
+    consecutive_confident_rounds = 0
+    sector_cumulative_counts = {}
+
     while True:
         if check_kill_switch():
             print("\n[STOP] Kill-switch 'state/STOP' detected! Halting practice loop immediately.")
@@ -246,10 +249,15 @@ def run_practice_cycle(
 
         # 2. Track 2: Real-World Harvested Corpora (New Data across 11 sectors)
         printed_harvest_sample = 0
+        round_harvest_checks = 0
+        round_harvest_flaws = 0
         for dom, raw_txt, cat in harvested_items:
             issues = lint_text(raw_txt)
             stats["lint_issues_trapped"] += len(issues)
             stats["total_checks"] += 1
+            round_harvest_checks += 1
+            round_harvest_flaws += len(issues)
+            sector_cumulative_counts[dom] = sector_cumulative_counts.get(dom, 0) + 1
             if is_sample_round and printed_harvest_sample < 2:
                 status_label = f"Trapped {len(issues)} flaws -> '{issues[0].message}'" if issues else "Verified 100% authentic clean Bengali"
                 print(f"    • [NEW / HARVESTED] [Sector: {dom}]")
@@ -279,6 +287,45 @@ def run_practice_cycle(
         elapsed = (datetime.now() - start_time).total_seconds()
         stats["elapsed_seconds"] = int(elapsed)
         print(f"  Round {round_idx} Complete. Total Checks: {stats['total_checks']} | Lint Flaws Trapped: {stats['lint_issues_trapped']} | Elapsed: {int(elapsed)}s")
+
+        # Evaluate Confidence & Saturation on current batch:
+        round_precision = 1.0 - (round_harvest_flaws / max(1, round_harvest_checks))
+        is_confident = (round_precision >= 0.95)
+        if is_confident:
+            consecutive_confident_rounds += 1
+        else:
+            consecutive_confident_rounds = 0
+
+        # Dynamic Ingestion Trigger (Confident Time achieved on current batch):
+        if continuous and consecutive_confident_rounds >= 3:
+            print("\n" + "=" * 80)
+            print(f"✓ CONFIDENCE SATURATION HIT ({consecutive_confident_rounds} Consecutive Mastered Rounds)")
+            print(f"  Batch Precision: {round_precision*100:.1f}% | Mastered: {len(harvested_items)} sentences across 11 sectors")
+            print("  Action: Dynamically streaming FRESH real-world data across ALL 11 SECTORS...")
+            print("=" * 80)
+            try:
+                from tools.autonomous_scraper import AutonomousScraper
+                scraper = AutonomousScraper()
+                fresh_file = scraper.execute_saturation_hook()
+                if fresh_file and harvester:
+                    harvester.harvest_all_sources(archive_inbox=True)
+                    harvested_items = harvester.get_practice_items()
+                    print(f"✓ Fresh Ingestion Active: Swapped in {len(harvested_items)} new sentences across all 11 sectors!")
+                    try:
+                        from tools.learning_benchmark_ledger import LearningBenchmarkLedger
+                        ledger = LearningBenchmarkLedger()
+                        ledger.record_confidence_milestone(
+                            round_idx=round_idx,
+                            saturation_score=round_precision,
+                            clean_precision=round_precision,
+                            batch_size=len(harvested_items),
+                            new_batch_ingested=fresh_file
+                        )
+                    except Exception:
+                        pass
+                consecutive_confident_rounds = 0
+            except Exception as se:
+                print(f"Notice: Dynamic saturation ingestion note: {se}")
 
         if continuous:
             if datetime.now() >= end_time:
@@ -353,6 +400,22 @@ def run_practice_cycle(
 
     stats["report_file"] = report_path
     print(f"\nDaily Practice Report logged at: {report_path}")
+
+    # Update persistent Cumulative Learning Benchmark Ledger
+    try:
+        from tools.learning_benchmark_ledger import LearningBenchmarkLedger
+        ledger = LearningBenchmarkLedger()
+        ledger.record_practice_session(
+            rounds=stats["rounds_completed"],
+            total_checks=stats["total_checks"],
+            sentences_practiced=stats["rounds_completed"] * len(harvested_items),
+            flaws_trapped=stats["lint_issues_trapped"],
+            sector_counts=sector_cumulative_counts
+        )
+        ledger_report = ledger.export_research_report()
+        print(f"Cumulative Research Learning Ledger updated at: {ledger_report}")
+    except Exception as le:
+        print(f"Notice: Learning ledger update note: {le}")
 
     # Clean up kill-switch state automatically if triggered
     if stats["kill_switch_triggered"]:

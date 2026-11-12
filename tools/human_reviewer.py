@@ -22,6 +22,10 @@ def list_pending_reviews() -> list[dict]:
             with open(f, "r", encoding="utf-8") as yf:
                 data = yaml.safe_load(yf)
             if data and isinstance(data, dict):
+                status = data.get("review", {}).get("status", "PENDING_HUMAN_REVIEW")
+                confidence = data.get("confidence", "candidate")
+                if status in ["APPROVED", "REJECTED"] or confidence in ["reviewed", "rejected"]:
+                    continue
                 pending.append({
                     "id": data.get("id", os.path.basename(f)),
                     "title": data.get("title", "Untitled"),
@@ -102,7 +106,8 @@ def apply_human_review(
         raise ValueError(f"Unknown review action: {action}")
 
     # If approved and it was in drafts, promote it to production knowledge/cards/
-    # and remove the draft file to prevent duplicate title collisions
+    # and remove the draft file to prevent duplicate title collisions.
+    # If rejected, archive it to knowledge/cards/rejected/.
     if action.lower() == "approve" and is_draft:
         target_path = os.path.join(REPO_ROOT, "knowledge", "cards", f"{card_id}.yaml")
         with open(target_path, "w", encoding="utf-8") as f:
@@ -110,16 +115,25 @@ def apply_human_review(
         if os.path.exists(card_path):
             os.remove(card_path)
         print(f"Card {card_id} successfully promoted to production knowledge/cards/.")
-
-        # Refresh review queue packet automatically
-        try:
-            from tools.review_packet_generator import write_packet
-            write_packet()
-        except Exception:
-            pass
+    elif action.lower() == "reject" and is_draft:
+        rejected_dir = os.path.join(REPO_ROOT, "knowledge", "cards", "rejected")
+        os.makedirs(rejected_dir, exist_ok=True)
+        target_path = os.path.join(rejected_dir, f"{card_id}.yaml")
+        with open(target_path, "w", encoding="utf-8") as f:
+            yaml.dump(card, f, sort_keys=False, allow_unicode=True)
+        if os.path.exists(card_path):
+            os.remove(card_path)
+        print(f"Card {card_id} archived to knowledge/cards/rejected/.")
     else:
         with open(card_path, "w", encoding="utf-8") as f:
             yaml.dump(card, f, sort_keys=False, allow_unicode=True)
+
+    # Refresh review queue packet automatically
+    try:
+        from tools.review_packet_generator import write_packet
+        write_packet()
+    except Exception:
+        pass
 
     print(f"Card {card_id} successfully signed off as '{card['confidence']}' by {reviewer_name}.")
     return True

@@ -16,7 +16,7 @@ Constitutional Rule: **Principle P2 (Human Native Provenance Required)**
 
 ---
 
-## 📥 Pending Candidate Queue (3 Cards Awaiting Human Review)
+## 📥 Pending Candidate Queue (5 Cards Awaiting Human Review)
 
 ### Draft 1: [CRD-DFT-001] Candidate Rule for Pattern: দ্বারা চালিত
 - **File**: `knowledge\cards\drafts\CRD-DFT-001.yaml`
@@ -66,24 +66,68 @@ bhashabid review --card CRD-DFT-002 --reviewer "Ashikur Rahman Bhuiyan" --affili
 
 ---
 
-### Draft 3: [CRD-DFT-003] Candidate Rule for Pattern: Byline, News, type, Web, Publish, date, 
-- **File**: `knowledge\cards\drafts\CRD-DFT-003.yaml`
+### Draft 3: [CRD-DFT-004] Candidate Rule for Pattern: জিজ্ঞেস করে একটি রুল
+- **File**: `knowledge\cards\drafts\CRD-DFT-004.yaml`
 - **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
 - **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
-- **Rule Summary**: Automatically flagged pattern 'Byline, News, type, Web, Publish, date, Friday, October, Tags, URL, category, News, category, Featured, image, News, images, Hide, Featured, Image, Details, summary, Long, Read, Title, position, Left' requires naturalization to active causal phrasing (e.g. 'প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।').
+- **Rule Summary**: Automatically flagged pattern 'জিজ্ঞেস করে একটি রুল' requires naturalization to active causal phrasing (e.g. 'স্বাভাবিক বাংলা প্রকাশভঙ্গি 'কেন ... হবে না, তা জানতে চেয়ে রুল জারি করেছেন' ব্যবহার করুন।').
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
-  - ✓ প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।
+  - ✓ স্বাভাবিক বাংলা প্রকাশভঙ্গি 'কেন ... হবে না, তা জানতে চেয়ে রুল জারি করেছেন' ব্যবহার করুন।
 
 **Negative Examples (ভ্রান্ত প্রয়োগ)**:
-  - ✗ Byline, News, type, Web, Publish, date, Friday, October, Tags, URL, category, News, category, Featured, image, News, images, Hide, Featured, Image, Details, summary, Long, Read, Title, position, Left
+  - ✗ জিজ্ঞেস করে একটি রুল
 
-**Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'Byline, News, type, Web, Publish, date, Friday, October, Tags, URL, category, News, category, Featured, image, News, images, Hide, Featured, Image, Details, summary, Long, Read, Title, position, Left'.
+**Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'জিজ্ঞেস করে একটি রুল'.
 **Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus
 
 **Quick Action Command**:
 ```bash
-bhashabid review --card CRD-DFT-003 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
+bhashabid review --card CRD-DFT-004 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
+```
+
+---
+
+### Draft 4: [CRD-DFT-005] Candidate Rule for Pattern: বড় বিপদের সংকেত
+- **File**: `knowledge\cards\drafts\CRD-DFT-005.yaml`
+- **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
+- **Rule Summary**: Automatically flagged pattern 'বড় বিপদের সংকেত' requires naturalization to active causal phrasing (e.g. 'স্বাভাবিক বাংলা প্রকাশভঙ্গি 'মহাবিপদ সংকেত' ব্যবহার করুন।').
+
+**Positive Examples (শুদ্ধ প্রয়োগ)**:
+  - ✓ স্বাভাবিক বাংলা প্রকাশভঙ্গি 'মহাবিপদ সংকেত' ব্যবহার করুন।
+
+**Negative Examples (ভ্রান্ত প্রয়োগ)**:
+  - ✗ বড় বিপদের সংকেত
+
+**Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'বড় বিপদের সংকেত'.
+**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus
+
+**Quick Action Command**:
+```bash
+bhashabid review --card CRD-DFT-005 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
+```
+
+---
+
+### Draft 5: [CRD-DFT-006] Candidate Rule for Pattern: ঝোপের চারপাশে পেটাচ্ছেন
+- **File**: `knowledge\cards\drafts\CRD-DFT-006.yaml`
+- **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
+- **Rule Summary**: Automatically flagged pattern 'ঝোপের চারপাশে পেটাচ্ছেন' requires naturalization to active causal phrasing (e.g. 'স্বাভাবিক বাংলা প্রকাশভঙ্গি 'ঘুরিয়ে-পেঁচিয়ে কথা বলা / মূল প্রসঙ্গ এড়িয়ে যাওয়া' ব্যবহার করুন।').
+
+**Positive Examples (শুদ্ধ প্রয়োগ)**:
+  - ✓ স্বাভাবিক বাংলা প্রকাশভঙ্গি 'ঘুরিয়ে-পেঁচিয়ে কথা বলা / মূল প্রসঙ্গ এড়িয়ে যাওয়া' ব্যবহার করুন।
+
+**Negative Examples (ভ্রান্ত প্রয়োগ)**:
+  - ✗ ঝোপের চারপাশে পেটাচ্ছেন
+
+**Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'ঝোপের চারপাশে পেটাচ্ছেন'.
+**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus
+
+**Quick Action Command**:
+```bash
+bhashabid review --card CRD-DFT-006 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
 ```
 
 ---
