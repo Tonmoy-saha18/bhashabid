@@ -94,11 +94,16 @@ class TestBnNumbers(unittest.TestCase):
     def test_fractions(self):
         self.assertEqual(fraction_to_bangla_words(0.25), "এক-চতুর্থাংশ")
         self.assertEqual(fraction_to_bangla_words(0.5), "অর্ধেক")
+        self.assertEqual(fraction_to_bangla_words(-0.5), "মাইনাস অর্ধেক")
         self.assertEqual(fraction_to_bangla_words(1.5), "দেড়")
+        self.assertEqual(fraction_to_bangla_words(-1.5), "মাইনাস দেড়")
         self.assertEqual(fraction_to_bangla_words(2.5), "আড়াই")
+        self.assertEqual(fraction_to_bangla_words(-2.5), "মাইনাস আড়াই")
         self.assertEqual(fraction_to_bangla_words(1.25), "সোয়া এক")
         self.assertEqual(fraction_to_bangla_words(3.5), "সাড়ে তিন")
         self.assertEqual(fraction_to_bangla_words(4.75), "পৌনে পাঁচ")
+        self.assertEqual(fraction_to_bangla_words(101.5), "সাড়ে এক শত এক")
+        self.assertEqual(fraction_to_bangla_words(100.75), "পৌনে এক শত এক")
 
     def test_currency(self):
         self.assertEqual(format_currency_words(50.25), "পঞ্চাশ টাকা পঁচিশ পয়সা")

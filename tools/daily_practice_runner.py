@@ -364,15 +364,16 @@ def run_practice_cycle(
         distiller = SkillDistiller()
         distiller.distill_all(auto_install=True)
 
-        # Autonomous Ingestion Hook: If batch is saturated, autonomously scrape fresh data for the next cycle
-        try:
-            from tools.autonomous_scraper import AutonomousScraper
-            scraper = AutonomousScraper()
-            fresh_batch = scraper.execute_saturation_hook()
-            if fresh_batch:
-                print(f"Autonomous Ingestion Hook: Scraped fresh real-world batch -> {fresh_batch}")
-        except Exception as se:
-            print(f"Notice: Autonomous scraper encountered: {se}")
+        # Autonomous Ingestion Hook: Trigger scraper only when batch precision saturation is achieved
+        if not continuous and round_idx >= 3 and round_precision >= 0.95:
+            try:
+                from tools.autonomous_scraper import AutonomousScraper
+                scraper = AutonomousScraper()
+                fresh_batch = scraper.execute_saturation_hook()
+                if fresh_batch:
+                    print(f"Autonomous Ingestion Hook: Scraped fresh real-world batch -> {fresh_batch}")
+            except Exception as se:
+                print(f"Notice: Autonomous scraper encountered: {se}")
     except Exception as ex:
         print(f"Notice: Automated card feedback loop encountered: {ex}")
 
@@ -408,7 +409,7 @@ def run_practice_cycle(
         ledger.record_practice_session(
             rounds=stats["rounds_completed"],
             total_checks=stats["total_checks"],
-            sentences_practiced=stats["rounds_completed"] * len(harvested_items),
+            sentences_practiced=sum(sector_cumulative_counts.values()) or (stats["rounds_completed"] * len(harvested_items)),
             flaws_trapped=stats["lint_issues_trapped"],
             sector_counts=sector_cumulative_counts
         )

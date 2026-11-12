@@ -1,58 +1,65 @@
 # Fractions (সোয়া, দেড়, আড়াই, সাড়ে, পৌনে, আধ)
-from .words import BASE_0_TO_99
+from .words import number_to_bangla_words, StyleProfile
 
-def fraction_to_bangla_words(val: float) -> str:
+def fraction_to_bangla_words(val: float, profile: StyleProfile | None = None) -> str:
     """
-    Convert common fractional values to idiomatic Bengali fraction words.
+    Convert common fractional values to idiomatic Bengali fraction words,
+    supporting negative values and numbers >= 100 without ASCII leaks.
     Examples:
-      0.25 -> "এক-চতুর্থাংশ"
-      0.5  -> "অর্ধেক"
-      0.75 -> "পৌনে এক"
-      1.25 -> "সোয়া এক"
-      1.5  -> "দেড়"
-      1.75 -> "পৌনে দুই"
-      2.25 -> "সোয়া দুই"
-      2.5  -> "আড়াই"
-      2.75 -> "পৌনে তিন"
-      3.5  -> "সাড়ে তিন"
-      4.75 -> "পৌনে পাঁচ"
+      0.25   -> "এক-চতুর্থাংশ"
+      0.5    -> "অর্ধেক"
+      -0.5   -> "মাইনাস অর্ধেক"
+      0.75   -> "পৌনে এক"
+      1.25   -> "সোয়া এক"
+      1.5    -> "দেড়"
+      -1.5   -> "মাইনাস দেড়"
+      2.5    -> "আড়াই"
+      -2.5   -> "মাইনাস আড়াই"
+      3.5    -> "সাড়ে তিন"
+      101.5  -> "সাড়ে এক শত এক"
+      100.75 -> "পৌনে এক শত এক"
     """
+    if profile is None:
+        profile = StyleProfile()
+
     val = round(val, 4)
-    whole = int(val)
-    frac = round(val - whole, 4)
-    
-    # Simple proper fractions
+    is_neg = (val < 0)
+    abs_val = abs(val)
+    whole = int(abs_val)
+    frac = round(abs_val - whole, 4)
+
+    def _get_word(n: int) -> str:
+        return number_to_bangla_words(n, profile)
+
+    # Simple proper fractions (whole == 0)
     if whole == 0:
         if frac == 0.25:
-            return "এক-চতুর্থাংশ"
+            res = "এক-চতুর্থাংশ"
         elif frac == 0.5:
-            return "অর্ধেক"
+            res = "অর্ধেক"
         elif frac == 0.75:
-            return "পৌনে এক"
-            
+            res = "পৌনে এক"
+        else:
+            from .decimals import decimal_to_bangla_words
+            return decimal_to_bangla_words(val, profile)
+        return f"{profile.negative_prefix} {res}" if is_neg else res
+
     # Mixed fractions
     if frac == 0.0:
-        return BASE_0_TO_99.get(whole, str(whole))
-        
-    if frac == 0.25:
-        # সোয়া + whole
-        whole_word = BASE_0_TO_99.get(whole, str(whole))
-        return f"সোয়া {whole_word}"
-        
-    if frac == 0.5:
+        res = _get_word(whole)
+    elif frac == 0.25:
+        res = f"সোয়া {_get_word(whole)}"
+    elif frac == 0.5:
         if whole == 1:
-            return "দেড়"
+            res = "দেড়"
         elif whole == 2:
-            return "আড়াই"
+            res = "আড়াই"
         else:
-            whole_word = BASE_0_TO_99.get(whole, str(whole))
-            return f"সাড়ে {whole_word}"
-            
-    if frac == 0.75:
-        # পৌনে + (whole + 1)
-        next_word = BASE_0_TO_99.get(whole + 1, str(whole + 1))
-        return f"পৌনে {next_word}"
-        
-    # Default fallback to decimal
-    from .decimals import decimal_to_bangla_words
-    return decimal_to_bangla_words(val)
+            res = f"সাড়ে {_get_word(whole)}"
+    elif frac == 0.75:
+        res = f"পৌনে {_get_word(whole + 1)}"
+    else:
+        from .decimals import decimal_to_bangla_words
+        return decimal_to_bangla_words(val, profile)
+
+    return f"{profile.negative_prefix} {res}" if is_neg else res
