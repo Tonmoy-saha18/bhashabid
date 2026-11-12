@@ -156,11 +156,20 @@ class CorpusHarvester:
         return results
 
     def harvest_all_sources(self) -> Dict:
-        """Ingests and audits all corpora in eval/corpora/sources/."""
+        """Ingests and audits all corpora in eval/corpora/sources/ and dynamic inbox in eval/corpora/inbox/."""
         source_files = sorted(glob.glob(os.path.join(self.corpora_dir, "*.jsonl")))
-        total_files = len(source_files)
         
-        for sf in source_files:
+        # Also check dynamic ingestion inbox
+        inbox_dir = os.path.join(os.path.dirname(self.corpora_dir), "inbox")
+        inbox_files = []
+        if os.path.exists(inbox_dir):
+            for ext in ("*.jsonl", "*.txt", "*.md"):
+                inbox_files.extend(glob.glob(os.path.join(inbox_dir, ext)))
+        
+        all_files = source_files + [f for f in inbox_files if not f.endswith("README.md")]
+        total_files = len(all_files)
+        
+        for sf in all_files:
             self.harvest_file(sf)
 
         stats = {
