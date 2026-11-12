@@ -1,6 +1,6 @@
 # Welcome to the Bhashabid (ভাষাবিদ) Wiki
 
-**Bhashabid** (ভাষাবিদ) is the first-ever open-source Bengali language coprocessor engine designed to work alongside AI agents, foundation models (LLMs), and developer workflows. Operating as an external cognitive and deterministic coprocessor without retraining model weights, it systematically elevates the accuracy, orthography, and native fluency of AI-generated Bengali across daily professional and creative activities.
+**Bhashabid** (ভাষাবিদ) is the first-ever open-source Bengali language coprocessor engine featuring a **constitutionally supervised self-learning loop**. Operating as an external cognitive and deterministic coprocessor without retraining model weights, it continuously harvests real-world anomalies, synthesizes candidate rules, and distills high-level invariants under human verification (P2) and a strict < 390 token ceiling—systematically elevating the accuracy, orthography, and native fluency of AI-generated Bengali across daily professional and creative activities.
 
 ---
 
@@ -21,9 +21,9 @@
 
 ---
 
-## 🏛️ Architectural Pillars
+## 🏛️ The 4 Pioneering Architectural Pillars
 
-- **Deterministic Tools for Rules**: Grammatical, numerical, and phonological tasks are solved with deterministic algorithms with 100% test coverage.
-- **Knowledge for Judgment**: Stylistic, literary, and domain-specific conventions are codified into atomic knowledge cards.
-- **Progressive Skill Routing**: Agents load modular reference files only on demand, maintaining a core prompt size of < 390 tokens.
-- **Permanent Mistake Memory**: Every trapped flaw is permanently sealed in `memory/mistakes/ledger.jsonl` and tested in `test_regression_ledger.py`.
+- **Pillar 1: Hard Programmatic Token Ceiling (< 390 tokens)**: Progressive disclosure keeps core rules ultra-lightweight (~302 tokens), preventing context exhaustion.
+- **Pillar 2: Supervised Self-Learning Distillation Loop**: Unlike un-gated self-learning agents (e.g. Hermes) that risk linguistic hallucination, Bhashabid uses an anomaly harvester, candidate card synthesizer, and human-in-the-loop (P2) cryptographic sign-off before compiling invariants.
+- **Pillar 3: Modular Domain Isolation**: 11 professional sectors across 8 modular guides load strictly on demand; unrelated domain knowledge burns 0.0 tokens.
+- **Pillar 4: Deterministic MCP Offloading ($0.00 Token Cost)**: Irregular 0-99 numbers, South Asian currency commas, Unicode NFC, and 14-akshar Payar scansion run in microsecond Python algorithms.
