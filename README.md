@@ -152,12 +152,17 @@ bhashabid-mcp
 * `generate_writ_prayer`: Drafts Article 102 High Court constitutional writ prayers in statutory Bengali.
 
 ### 4. As a Command-Line Tool (CLI)
-Install locally:
+Install globally from PyPI:
 ```bash
-pip install -e .
+pip install bhashabid
 ```
+*(Or install locally in editable mode for core engine development: `pip install -e .` — see [PyPI Release SOP](docs/wiki/Publishing-PyPI.md))*.
+
 Run any linguistic task instantly:
 ```bash
+# Review candidate cards awaiting human sign-off (Principle P2)
+bhashabid review --list
+
 # Convert numbers to authentic Bengali words
 bhashabid number 99 --format words
 # Output: নিরানব্বই

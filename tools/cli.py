@@ -101,7 +101,26 @@ def handle_writ(args):
 
 def handle_review(args):
     try:
-        from .human_reviewer import apply_human_review
+        from .human_reviewer import apply_human_review, list_pending_reviews
+        if getattr(args, "list", False):
+            pending = list_pending_reviews()
+            print("=" * 80)
+            print("BHASHABID PRINCIPLE P2: PENDING HUMAN REVIEW QUEUE")
+            print("=" * 80)
+            if not pending:
+                print("No candidate cards currently pending review.")
+            else:
+                for idx, c in enumerate(pending, start=1):
+                    print(f"[{idx}] {c['id']} — {c['title']} ({c['domain']})")
+                    print(f"    Summary: {c['summary']}")
+                    print(f"    Created: {c['created_date']}")
+                    print("-" * 80)
+            return 0
+
+        if not args.card or not args.reviewer or not args.affiliation:
+            sys.stderr.write("Review Error: --card, --reviewer, and --affiliation are required for sign-off. Use --list to view pending cards.\n")
+            return 1
+
         apply_human_review(
             card_id=args.card,
             reviewer_name=args.reviewer,
@@ -320,14 +339,15 @@ def main():
     p_writ = subparsers.add_parser("writ", help="Generate Article 102 High Court constitutional writ prayers")
     p_writ.add_argument("--remedy", required=True, help="Remedy sought (e.g. detention, illegal order, public office)")
     p_writ.add_argument("--subject", required=True, help="Subject matter of the grievance")
-    p_writ.add_argument("--authority", required=True, help="Respondent authority name")
+    p_writ.add_argument("--authority", default="সংশ্লিষ্ট কর্তৃপক্ষ (Concerned Authority)", help="Respondent authority name (default: সংশ্লিষ্ট কর্তৃপক্ষ)")
     p_writ.set_defaults(func=handle_writ)
 
     # review
     p_rev = subparsers.add_parser("review", help="Human native-speaker review sign-off tool (Principle P2)")
-    p_rev.add_argument("--card", required=True, help="Card ID, e.g. CRD-NUM-001")
-    p_rev.add_argument("--reviewer", required=True, help="Full name of human reviewer")
-    p_rev.add_argument("--affiliation", required=True, help="Reviewer qualification or affiliation")
+    p_rev.add_argument("--list", action="store_true", help="List all candidate cards awaiting human review")
+    p_rev.add_argument("--card", default=None, help="Card ID to sign off, e.g. CRD-DFT-001")
+    p_rev.add_argument("--reviewer", default=None, help="Full name of human reviewer")
+    p_rev.add_argument("--affiliation", default=None, help="Reviewer qualification or affiliation")
     p_rev.add_argument("--action", default="approve", choices=["approve", "reject"])
     p_rev.add_argument("--notes", default="Verified and approved by human native speaker.")
     p_rev.set_defaults(func=handle_review)

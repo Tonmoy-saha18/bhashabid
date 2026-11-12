@@ -33,9 +33,9 @@ DEFAULT_FEEDS = [
         "sector": 4
     },
     {
-        "name": "BDNews24 Bangla",
-        "url": "https://bangla.bdnews24.com/rss.xml",
-        "domain": "Judicial & High Court",
+        "name": "BBC News Bangla",
+        "url": "https://feeds.bbci.co.uk/bengali/rss.xml",
+        "domain": "Judicial & International",
         "sector": 1
     },
     {
@@ -43,6 +43,12 @@ DEFAULT_FEEDS = [
         "url": "https://www.prothomalo.com/feed",
         "domain": "Macroeconomic & Finance",
         "sector": 2
+    },
+    {
+        "name": "Deutsche Welle (DW Bangla)",
+        "url": "https://rss.dw.com/rdf/rss-ben-all",
+        "domain": "Environmental & Human Rights",
+        "sector": 6
     },
     {
         "name": "Bangla Wikipedia Academic Articles",
@@ -119,15 +125,22 @@ class AutonomousScraper:
                 except Exception as je:
                     print(f"Notice: JSON API parse note for {name}: {je}")
             else:
-                # Handle RSS XML
-                root = ET.fromstring(content_bytes)
+                # Handle RSS XML with pre-cleaning for stray ampersands
+                raw_text = content_bytes.decode("utf-8", errors="ignore")
+                clean_xml = re.sub(r"&(?!(?:amp|lt|gt|quot|apos|#\d+|#x[0-9a-fA-F]+);)", "&amp;", raw_text)
+                root = ET.fromstring(clean_xml.encode("utf-8"))
                 channel = root.find("channel")
-                raw_items = channel.findall("item") if channel is not None else root.findall(".//item")
+                raw_items = []
+                if channel is not None:
+                    raw_items = channel.findall("item")
+                if not raw_items:
+                    raw_items = root.findall(".//item")
+                if not raw_items:
+                    raw_items = root.findall(".//{http://purl.org/rss/1.0/}item")
 
                 for it in raw_items[:10]:
-                    title_elem = it.find("title")
-                    desc_elem = it.find("description")
-                    # Check for content:encoded if available
+                    title_elem = it.find("title") or it.find("{http://purl.org/rss/1.0/}title")
+                    desc_elem = it.find("description") or it.find("{http://purl.org/rss/1.0/}description")
                     content_elem = it.find("{http://purl.org/rss/1.0/modules/content/}encoded")
 
                     title_text = self.sanitize_article_text(title_elem.text if title_elem is not None else "")

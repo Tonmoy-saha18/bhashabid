@@ -9,6 +9,31 @@ from typing import Optional
 
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
+def list_pending_reviews() -> list[dict]:
+    """
+    Returns a list of all candidate cards currently in knowledge/cards/drafts/
+    awaiting authenticated human native-speaker review.
+    """
+    import glob
+    drafts_dir = os.path.join(REPO_ROOT, "knowledge", "cards", "drafts")
+    pending = []
+    for f in sorted(glob.glob(os.path.join(drafts_dir, "*.yaml"))):
+        try:
+            with open(f, "r", encoding="utf-8") as yf:
+                data = yaml.safe_load(yf)
+            if data and isinstance(data, dict):
+                pending.append({
+                    "id": data.get("id", os.path.basename(f)),
+                    "title": data.get("title", "Untitled"),
+                    "domain": data.get("domain", "General"),
+                    "summary": data.get("rule_summary", ""),
+                    "created_date": data.get("created_date", "Unknown"),
+                    "file_path": f
+                })
+        except Exception:
+            continue
+    return pending
+
 def compute_card_hash(card_dict: dict) -> str:
     """Computes a SHA-256 checksum of card content excluding review metadata."""
     core = {
@@ -77,15 +102,21 @@ def apply_human_review(
         raise ValueError(f"Unknown review action: {action}")
 
     # If approved and it was in drafts, promote it to production knowledge/cards/
-    # AND preserve the draft card in knowledge/cards/drafts/ so contributors' PR history & credit remain visible
+    # and remove the draft file to prevent duplicate title collisions
     if action.lower() == "approve" and is_draft:
         target_path = os.path.join(REPO_ROOT, "knowledge", "cards", f"{card_id}.yaml")
         with open(target_path, "w", encoding="utf-8") as f:
             yaml.dump(card, f, sort_keys=False, allow_unicode=True)
-        # Keep draft updated with approval signature for public contributor record
-        with open(card_path, "w", encoding="utf-8") as f:
-            yaml.dump(card, f, sort_keys=False, allow_unicode=True)
-        print(f"Card {card_id} successfully promoted to production knowledge/cards/ and preserved in drafts/ for contributor credit.")
+        if os.path.exists(card_path):
+            os.remove(card_path)
+        print(f"Card {card_id} successfully promoted to production knowledge/cards/.")
+
+        # Refresh review queue packet automatically
+        try:
+            from tools.review_packet_generator import write_packet
+            write_packet()
+        except Exception:
+            pass
     else:
         with open(card_path, "w", encoding="utf-8") as f:
             yaml.dump(card, f, sort_keys=False, allow_unicode=True)
