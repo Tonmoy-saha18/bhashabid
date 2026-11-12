@@ -30,3 +30,8 @@ state/STOP
 .cursor/
 .cursorrules
 .gemini/
+
+# Large visual assets & infographics
+docs/assets/*.png
+docs/assets/*.jpg
+docs/assets/*.jpeg
