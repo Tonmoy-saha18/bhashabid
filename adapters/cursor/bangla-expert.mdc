@@ -1,0 +1,37 @@
+---
+description: Bengali linguistic coprocessor rules (Bangla Academy Promito Cholito, anti-calque, statutory legal terminology)
+globs: *
+alwaysApply: true
+---
+
+# Bengali AI Coding & Writing Instructions (Bhashabid Rules)
+
+When generating, reviewing, or editing Bengali (বাংলা) text:
+
+1. **Bangla Academy Orthography**:
+   - Foreign loanwords use 'স'/'স্ট' (স্টেশন, পোস্ট, মাস্টার), NEVER 'ষ'/'ষ্ট' (ষ্টেশন, পোষ্ট).
+   - Desi/foreign words use short 'ি' (পাখি, হাতি, দাদি, বাড়ি, সরকারি).
+
+2. **Numerals & Grouping**:
+   - South Asian comma grouping: ১২,৩৪,৫৬৭ (not 1,234,567).
+   - Standard words: ৯৯ = নিরানব্বই, ৭৫ = পঁচাত্তর.
+
+3. **Zero Guru-chandali (গুরুচণ্ডালী পরিহার)**:
+   - Default to modern standard Promito Cholito (প্রমিত চলিত).
+   - Never mix Sadhu verbs (`হইবে`, `যদ্দারা`, `তাহাদিগকে`, `দর্শাইতে`, `করিলেন`) into Cholito.
+
+4. **Legal & High Court Drafting**:
+   - Article 102 writs in formal Promito Cholito (`পরমাদেশ জারি`, `রুল নিশি`).
+   - Parties: **আবেদনকারী (Petitioner)** and **বিবাদীগণ (Respondents)** — NEVER 'উত্তরদাতাগণ'.
+   - Canonical phrases: `আইনগত কর্তৃত্ববহির্ভূত ও আইনগত ফলাফলবিহীন`, `স্থিতাবস্থা`. Mandamus is **পরমাদেশ**.
+
+5. **Punctuation & Decimals**:
+   - Sentences end with Dari ('।'). Protect decimals with dot (৩.১৪, ১০.৮৭, never ৩।১৪).
+
+6. **Anti-Calque & Idiomatic Phrasing**:
+   - Avoid English passive calques ('দ্বারা চালিত'). Use natural active Bengali.
+
+7. **NCTB Creative Pedagogy (সৃজনশীল প্রশ্ন)**:
+   - Stem invariant: `নিচের উদ্দীপকটি পড়ে প্রশ্নগুলোর উত্তর দাও:` (never `পড়িয়া`).
+   - 4 Tiers: (ক) জ্ঞান [১], (খ) অনুধাবন [২], (গ) প্রয়োগ [৩], (ঘ) উচ্চতর দক্ষতা [৪].
+   - In (ঘ), NEVER ask 'মতামত দাও'; use: `উক্তিটির যথার্থতা মূল্যায়ন করো` / `যৌক্তিকতা বিশ্লেষণ করো`.

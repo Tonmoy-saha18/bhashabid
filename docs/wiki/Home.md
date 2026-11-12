@@ -10,11 +10,11 @@
    - CLI usage, Python SDK, MCP setup, and agent prompt injection.
 2. [The 8 Core Writing Domains](The-8-Writing-Domains.md)
    - Deep dive into how Bhashabid handles petitions, news, fiction, academic papers, books, contracts, and healthcare.
-3. [Model Context Protocol (MCP) Integration](Model-Context-Protocol-(MCP).md)
+3. [Model Context Protocol (MCP) Integration](Model-Context-Protocol-MCP.md)
    - Connecting Bhashabid to Cursor, Claude Desktop, Windsurf, and Zed.
 4. [Poetic Prosody & Payar Verification](Poetic-Prosody-&-Payar.md)
    - Phonological syllabification, mora counting, Aksharbritta, Matrabritta, and Payar (8+6=14) scansion.
-5. [Article 102 Constitutional Writs](Constitutional-Writs-(Article-102).md)
+5. [Article 102 Constitutional Writs](Constitutional-Writs-Article-102.md)
    - High Court writ petitions (Habeas Corpus, Mandamus, Certiorari, Prohibition, Quo Warranto) and statutory prayers.
 6. [Principle P2 Provenance & Human Review](Principle-P2-Provenance-&-Review.md)
    - The cryptographic review protocol and verification system that keeps Bhashabid scientifically honest.
