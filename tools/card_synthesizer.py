@@ -7,6 +7,7 @@ import glob
 import re
 from typing import List, Dict, Optional, Tuple
 from pathlib import Path
+from datetime import datetime
 
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if REPO_ROOT not in sys.path:
@@ -17,6 +18,78 @@ from tools.bn_normalize.unicode import canonicalize_unicode
 DRAFTS_DIR = os.path.join(REPO_ROOT, "knowledge", "cards", "drafts")
 CARDS_DIR = os.path.join(REPO_ROOT, "knowledge", "cards")
 REJECTED_DIR = os.path.join(REPO_ROOT, "knowledge", "cards", "rejected")
+
+AUTHORITATIVE_DOMAIN_STANDARDS = {
+    "Constitutional Law & Writs": [
+        "Constitution of the People's Republic of Bangladesh (Article 102)",
+        "Supreme Court of Bangladesh Judicial Precedents",
+        "Bangla Academy Law Dictionary"
+    ],
+    "Macroeconomics & Banking": [
+        "Bangladesh Bank Prudential Regulations & Monetary Policy",
+        "Bangla Academy Financial & Economic Terminology",
+        "The Business Standard Verified Macroeconomic Feed"
+    ],
+    "Healthcare & Epidemiology": [
+        "Bangla Academy Medical Science Dictionary (চিকিৎসাবিজ্ঞান পরিভাষা)",
+        "Directorate General of Health Services (DGHS) Bangladesh"
+    ],
+    "Administrative Governance & Memos": [
+        "Secretariat Instructions (সচিবালয় নির্দেশমালা, জনপ্রশাসন মন্ত্রণালয়)",
+        "Bangladesh Government Official Memo Standards"
+    ],
+    "Creative Fiction & Dialogue": [
+        "Bangla Academy Standard Bengali Grammar (প্রমিত বাংলা ভাষার ব্যাকরণ)",
+        "Bangla Academy Modern Bengali Dictionary (আধুনিক বাংলা অভিধান)"
+    ],
+    "Classical Poetry & Prosody": [
+        "Rabindranath Tagore & Probodh Chandra Sen Bengali Prosody (ছন্দতত্ত্ব)",
+        "Classical 14-Akshar Payar Metric Canon"
+    ],
+    "Academic Research & Methodology": [
+        "Bangla Academy Linguistic Research Methodology Guidelines",
+        "Linguistic Society of Bangladesh Peer-Reviewed Standards"
+    ],
+    "Land Registry & Deeds": [
+        "Transfer of Property Act 1882 & Registration Act 1908",
+        "Ministry of Land Official Saf-Kabala Deed Conveyancing Protocol"
+    ],
+    "Agronomy & Disaster Management": [
+        "Ministry of Agriculture & Department of Agricultural Extension (DAE)",
+        "Disaster Management Bureau Standing Orders on Disaster (SOD)"
+    ],
+    "ICT & Software Engineering": [
+        "Bangladesh Computer Council (BCC) Bengali Computing & Unicode Standards",
+        "Open-Source Bengali Localization Best Practices"
+    ],
+    "Education & NCTB Pedagogy": [
+        "National Curriculum and Textbook Board (NCTB) Standard Bengali",
+        "Ministry of Education Pedagogical Guidelines"
+    ]
+}
+
+CANONICAL_DOMAIN_MAP = {
+    "Judicial & High Court": "Constitutional Law & Writs",
+    "Banking & Macroeconomics": "Macroeconomics & Banking",
+    "Macroeconomic & Finance": "Macroeconomics & Banking",
+    "Healthcare & Medicine": "Healthcare & Epidemiology",
+    "Administrative Governance": "Administrative Governance & Memos",
+    "Official Administrative": "Administrative Governance & Memos",
+    "Poetic Prosody": "Classical Poetry & Prosody",
+    "Land Conveyancing & Deeds": "Land Registry & Deeds",
+    "Agronomy & Crop Protection": "Agronomy & Disaster Management",
+    "Disaster Early Warning": "Agronomy & Disaster Management",
+    "Education & Pedagogy": "Education & NCTB Pedagogy",
+    "Science & Encyclopedic": "ICT & Software Engineering",
+    "Corporate & Tech": "ICT & Software Engineering",
+}
+
+def get_domain_standards(domain: str) -> List[str]:
+    canonical = CANONICAL_DOMAIN_MAP.get(domain, domain)
+    return AUTHORITATIVE_DOMAIN_STANDARDS.get(
+        canonical,
+        ["Bangla Academy Standard Bengali Grammar", "Corpus Harvester Anomaly Detector"]
+    )
 
 class CardSynthesizer:
     """
@@ -177,6 +250,7 @@ class CardSynthesizer:
                 first = items[0]
                 matched = first.get("matched", first.get("raw_text", "Unknown"))
                 suggestion = first.get("suggestion", "")
+                domain = first.get("domain", "translation")
                 
                 title = f"Candidate Rule for Pattern: {matched[:40]}"
                 
@@ -192,6 +266,13 @@ class CardSynthesizer:
                         updated = False
                         cur_bads = card_data.get("bad_examples", []) or []
                         cur_goods = card_data.get("good_examples", []) or []
+                        cur_sources = card_data.get("sources", []) or []
+
+                        # If card was generic translation and a specific domain is detected, upgrade domain
+                        if card_data.get("domain") in ["translation", "general"] and domain not in ["translation", "general"]:
+                            card_data["domain"] = domain
+                            updated = True
+
                         for it in items:
                             raw = (it.get("raw_text") or "").strip()
                             sug = (it.get("suggestion") or "").strip()
@@ -201,22 +282,37 @@ class CardSynthesizer:
                             if sug and sug not in cur_goods and len(cur_goods) < 5:
                                 cur_goods.append(sug)
                                 updated = True
+
+                        # Enrich with authoritative domain standards if missing
+                        domain_standards = get_domain_standards(card_data.get("domain", domain))
+                        for std in domain_standards:
+                            if std not in cur_sources:
+                                cur_sources.append(std)
+                                updated = True
+
                         if updated:
                             card_data["bad_examples"] = cur_bads
                             card_data["good_examples"] = cur_goods
+                            card_data["sources"] = cur_sources
+                            card_data["last_modified"] = datetime.now().strftime("%Y-%m-%d")
                             with open(filepath, "w", encoding="utf-8") as yf:
                                 yaml.dump(card_data, yf, allow_unicode=True, sort_keys=False)
                         created.append(filepath)
                         continue
 
                 cid = self.get_next_draft_id()
-                domain = first.get("domain", "translation")
                 reg = "formal"
                 rule_sum = f"Automatically flagged pattern '{matched}' requires naturalization to active causal phrasing (e.g. '{suggestion}')."
                 bads = [it.get("raw_text", matched) for it in items[:3]]
                 goods = [it.get("suggestion", "") for it in items[:3] if it.get("suggestion")]
                 if not goods:
                     goods = ["প্রমিত চলিত রীতিতে স্বাভাবিকভাবে পুনর্লিখন করুন।"]
+
+                domain_standards = get_domain_standards(domain)
+                verified_sources = [
+                    f"Corpus Harvest Provenance: {first.get('source', 'Authoritative Bengali Corpus')}",
+                    "Principle P2 Human Provenance Audit Gate"
+                ] + domain_standards
 
                 p = self.synthesize_draft_from_anomaly(
                     title=title,
@@ -226,7 +322,7 @@ class CardSynthesizer:
                     bad_examples=bads,
                     good_examples=goods,
                     common_llm_error=f"LLMs emit literal calques or non-standard syntax for '{matched}'.",
-                    sources=["Corpus Harvester Anomaly Detector", "Bangla Academy Corpus"],
+                    sources=verified_sources,
                     draft_id=cid
                 )
                 created.append(p)

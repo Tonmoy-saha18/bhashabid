@@ -350,8 +350,15 @@ def run_practice_cycle(
         from tools.skill_distiller import SkillDistiller
         
         if harvester and hasattr(harvester, "harvested"):
-            anomalies = [s.flaws for s in harvester.harvested if s.category in ["ANOMALY_CANDIDATE", "CANARY_TRAPPED"]]
-            flat_anomalies = [item for sublist in anomalies for item in sublist]
+            anomalies = []
+            for s in harvester.harvested:
+                if s.category in ["ANOMALY_CANDIDATE", "CANARY_TRAPPED"]:
+                    for f in s.flaws:
+                        f.setdefault("domain", s.domain)
+                        f.setdefault("source", s.source)
+                        f.setdefault("raw_text", s.raw_text)
+                        anomalies.append(f)
+            flat_anomalies = anomalies
             if flat_anomalies:
                 synthesizer = CardSynthesizer()
                 created_drafts = synthesizer.cluster_and_synthesize_anomalies(flat_anomalies)

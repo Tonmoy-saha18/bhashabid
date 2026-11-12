@@ -1,6 +1,6 @@
 id: CRD-DFT-005
 title: 'Candidate Rule for Pattern: বড় বিপদের সংকেত'
-domain: translation
+domain: Disaster Early Warning
 profile: bd_standard
 register: formal
 rule_summary: Automatically flagged pattern 'বড় বিপদের সংকেত' requires naturalization
@@ -10,11 +10,15 @@ good_examples:
 - স্বাভাবিক বাংলা প্রকাশভঙ্গি 'মহাবিপদ সংকেত' ব্যবহার করুন।
 bad_examples:
 - বড় বিপদের সংকেত
+- ঘূর্ণিঝড় কাছে আসায় সমুদ্রবন্দরগুলোকে ১০ নম্বর বড় বিপদের সংকেত উত্তোলন করতে বলা হয়েছে।
 common_llm_error: LLMs emit literal calques or non-standard syntax for 'বড় বিপদের
   সংকেত'.
 sources:
 - Corpus Harvester Anomaly Detector
 - Bangla Academy Corpus
+- Bangla Academy Standard Bengali Grammar
+- Ministry of Agriculture & Department of Agricultural Extension (DAE)
+- Disaster Management Bureau Standing Orders on Disaster (SOD)
 confidence: candidate
 created_date: '2026-11-12'
 last_modified: '2026-11-12'

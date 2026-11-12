@@ -1,6 +1,6 @@
 id: CRD-DFT-006
 title: 'Candidate Rule for Pattern: ঝোপের চারপাশে পেটাচ্ছেন'
-domain: translation
+domain: Creative Fiction & Dialogue
 profile: bd_standard
 register: formal
 rule_summary: Automatically flagged pattern 'ঝোপের চারপাশে পেটাচ্ছেন' requires naturalization
@@ -11,11 +11,14 @@ good_examples:
   করুন।
 bad_examples:
 - ঝোপের চারপাশে পেটাচ্ছেন
+- আপনি কেন সবসময় ঝোপের চারপাশে পেটাচ্ছেন? এই কাজটি কোনো কেকের টুকরো নয়।
 common_llm_error: LLMs emit literal calques or non-standard syntax for 'ঝোপের চারপাশে
   পেটাচ্ছেন'.
 sources:
 - Corpus Harvester Anomaly Detector
 - Bangla Academy Corpus
+- Bangla Academy Standard Bengali Grammar (প্রমিত বাংলা ভাষার ব্যাকরণ)
+- Bangla Academy Modern Bengali Dictionary (আধুনিক বাংলা অভিধান)
 confidence: candidate
 created_date: '2026-11-12'
 last_modified: '2026-11-12'

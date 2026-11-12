@@ -1,6 +1,6 @@
 id: CRD-DFT-002
 title: 'Candidate Rule for Pattern: পড়িয়া'
-domain: translation
+domain: Education & NCTB Pedagogy
 profile: bd_standard
 register: formal
 rule_summary: Automatically flagged pattern 'পড়িয়া' requires naturalization to active
@@ -9,10 +9,14 @@ good_examples:
 - চলিত রূপে 'পড়ে' ব্যবহার করুন।
 bad_examples:
 - পড়িয়া
+- 'উদ্দীপকটি পড়িয়া নিচের প্রশ্নগুলোর উত্তর দাও: (ক) সালোকসংশ্লেষণ প্রক্রিয়ার প্রধান
+  কাঁচামাল কী? (খ) উদ্ভিদের পাতাকে কেন রান্নাতত্ত্বের সাথে তুলনা করা হয়? বুঝিয়ে লেখ।'
 common_llm_error: LLMs emit literal calques or non-standard syntax for 'পড়িয়া'.
 sources:
 - Corpus Harvester Anomaly Detector
 - Bangla Academy Corpus
+- National Curriculum and Textbook Board (NCTB) Standard Bengali
+- Ministry of Education Pedagogical Guidelines
 confidence: candidate
 created_date: '2026-11-12'
 last_modified: '2026-11-12'

@@ -96,7 +96,10 @@ class CorpusHarvester:
                 "rule_id": i.rule_id,
                 "message": i.message,
                 "matched": i.matched_text,
-                "suggestion": i.suggestion
+                "suggestion": i.suggestion,
+                "raw_text": sentence_text,
+                "domain": domain,
+                "source": source
             }
             for i in issues
         ]
@@ -106,7 +109,10 @@ class CorpusHarvester:
                 "rule_id": "RULE-ANOMALY-RAW-ENGLISH",
                 "message": f"অস্বাভাবিক কাঁচা ইংরেজি শব্দ পাওয়া গেছে: {', '.join(unquoted_en)}",
                 "matched": ", ".join(unquoted_en),
-                "suggestion": "প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।"
+                "suggestion": "প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।",
+                "raw_text": sentence_text,
+                "domain": domain,
+                "source": source
             })
 
         return HarvestedSentence(
@@ -162,6 +168,7 @@ class CorpusHarvester:
         If archive_inbox is True, moves processed dynamic inbox files to eval/corpora/inbox/archive/
         to prevent redundant re-auditing and queue bloat.
         """
+        self.harvested = []
         source_files = sorted(glob.glob(os.path.join(self.corpora_dir, "*.jsonl")))
         
         # Check dynamic ingestion inbox

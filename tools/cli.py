@@ -213,8 +213,15 @@ def handle_synthesize_cards(args):
         from .card_synthesizer import CardSynthesizer
         harvester = CorpusHarvester(corpora_dir=getattr(args, "dir", None))
         harvester.harvest_all_sources()
-        anomalies = [s.flaws for s in harvester.harvested if s.category in ["ANOMALY_CANDIDATE", "CANARY_TRAPPED"]]
-        flat_anomalies = [item for sublist in anomalies for item in sublist]
+        anomalies = []
+        for s in harvester.harvested:
+            if s.category in ["ANOMALY_CANDIDATE", "CANARY_TRAPPED"]:
+                for f in s.flaws:
+                    f.setdefault("domain", s.domain)
+                    f.setdefault("source", s.source)
+                    f.setdefault("raw_text", s.raw_text)
+                    anomalies.append(f)
+        flat_anomalies = anomalies
         synthesizer = CardSynthesizer()
         created = synthesizer.cluster_and_synthesize_anomalies(flat_anomalies)
         print(f"✓ Synthesized {len(created)} candidate knowledge cards in knowledge/cards/drafts/")

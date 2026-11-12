@@ -46,7 +46,7 @@ bhashabid review --card CRD-DFT-001 --reviewer "Ashikur Rahman Bhuiyan" --affili
 
 ### Draft 2: [CRD-DFT-002] Candidate Rule for Pattern: পড়িয়া
 - **File**: `knowledge\cards\drafts\CRD-DFT-002.yaml`
-- **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Domain**: `Education & NCTB Pedagogy` | **Profile**: `bd_standard` | **Register**: `formal`
 - **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
 - **Rule Summary**: Automatically flagged pattern 'পড়িয়া' requires naturalization to active causal phrasing (e.g. 'চলিত রূপে 'পড়ে' ব্যবহার করুন।').
 
@@ -55,9 +55,10 @@ bhashabid review --card CRD-DFT-001 --reviewer "Ashikur Rahman Bhuiyan" --affili
 
 **Negative Examples (ভ্রান্ত প্রয়োগ)**:
   - ✗ পড়িয়া
+  - ✗ উদ্দীপকটি পড়িয়া নিচের প্রশ্নগুলোর উত্তর দাও: (ক) সালোকসংশ্লেষণ প্রক্রিয়ার প্রধান কাঁচামাল কী? (খ) উদ্ভিদের পাতাকে কেন রান্নাতত্ত্বের সাথে তুলনা করা হয়? বুঝিয়ে লেখ।
 
 **Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'পড়িয়া'.
-**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus
+**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus, National Curriculum and Textbook Board (NCTB) Standard Bengali, Ministry of Education Pedagogical Guidelines
 
 **Quick Action Command**:
 ```bash
@@ -68,7 +69,7 @@ bhashabid review --card CRD-DFT-002 --reviewer "Ashikur Rahman Bhuiyan" --affili
 
 ### Draft 3: [CRD-DFT-004] Candidate Rule for Pattern: জিজ্ঞেস করে একটি রুল
 - **File**: `knowledge\cards\drafts\CRD-DFT-004.yaml`
-- **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Domain**: `Judicial & High Court` | **Profile**: `bd_standard` | **Register**: `formal`
 - **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
 - **Rule Summary**: Automatically flagged pattern 'জিজ্ঞেস করে একটি রুল' requires naturalization to active causal phrasing (e.g. 'স্বাভাবিক বাংলা প্রকাশভঙ্গি 'কেন ... হবে না, তা জানতে চেয়ে রুল জারি করেছেন' ব্যবহার করুন।').
 
@@ -77,9 +78,10 @@ bhashabid review --card CRD-DFT-002 --reviewer "Ashikur Rahman Bhuiyan" --affili
 
 **Negative Examples (ভ্রান্ত প্রয়োগ)**:
   - ✗ জিজ্ঞেস করে একটি রুল
+  - ✗ হাইকোর্ট সরকারকে জিজ্ঞেস করে একটি রুল জারি করেছে কেন আটক বেআইনি হবে না।
 
 **Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'জিজ্ঞেস করে একটি রুল'.
-**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus
+**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus, Bangla Academy Standard Bengali Grammar, Constitution of the People's Republic of Bangladesh (Article 102), Supreme Court of Bangladesh Judicial Precedents, Bangla Academy Law Dictionary
 
 **Quick Action Command**:
 ```bash
@@ -90,7 +92,7 @@ bhashabid review --card CRD-DFT-004 --reviewer "Ashikur Rahman Bhuiyan" --affili
 
 ### Draft 4: [CRD-DFT-005] Candidate Rule for Pattern: বড় বিপদের সংকেত
 - **File**: `knowledge\cards\drafts\CRD-DFT-005.yaml`
-- **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Domain**: `Disaster Early Warning` | **Profile**: `bd_standard` | **Register**: `formal`
 - **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
 - **Rule Summary**: Automatically flagged pattern 'বড় বিপদের সংকেত' requires naturalization to active causal phrasing (e.g. 'স্বাভাবিক বাংলা প্রকাশভঙ্গি 'মহাবিপদ সংকেত' ব্যবহার করুন।').
 
@@ -99,9 +101,10 @@ bhashabid review --card CRD-DFT-004 --reviewer "Ashikur Rahman Bhuiyan" --affili
 
 **Negative Examples (ভ্রান্ত প্রয়োগ)**:
   - ✗ বড় বিপদের সংকেত
+  - ✗ ঘূর্ণিঝড় কাছে আসায় সমুদ্রবন্দরগুলোকে ১০ নম্বর বড় বিপদের সংকেত উত্তোলন করতে বলা হয়েছে।
 
 **Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'বড় বিপদের সংকেত'.
-**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus
+**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus, Bangla Academy Standard Bengali Grammar, Ministry of Agriculture & Department of Agricultural Extension (DAE), Disaster Management Bureau Standing Orders on Disaster (SOD)
 
 **Quick Action Command**:
 ```bash
@@ -112,7 +115,7 @@ bhashabid review --card CRD-DFT-005 --reviewer "Ashikur Rahman Bhuiyan" --affili
 
 ### Draft 5: [CRD-DFT-006] Candidate Rule for Pattern: ঝোপের চারপাশে পেটাচ্ছেন
 - **File**: `knowledge\cards\drafts\CRD-DFT-006.yaml`
-- **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Domain**: `Creative Fiction & Dialogue` | **Profile**: `bd_standard` | **Register**: `formal`
 - **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
 - **Rule Summary**: Automatically flagged pattern 'ঝোপের চারপাশে পেটাচ্ছেন' requires naturalization to active causal phrasing (e.g. 'স্বাভাবিক বাংলা প্রকাশভঙ্গি 'ঘুরিয়ে-পেঁচিয়ে কথা বলা / মূল প্রসঙ্গ এড়িয়ে যাওয়া' ব্যবহার করুন।').
 
@@ -121,9 +124,10 @@ bhashabid review --card CRD-DFT-005 --reviewer "Ashikur Rahman Bhuiyan" --affili
 
 **Negative Examples (ভ্রান্ত প্রয়োগ)**:
   - ✗ ঝোপের চারপাশে পেটাচ্ছেন
+  - ✗ আপনি কেন সবসময় ঝোপের চারপাশে পেটাচ্ছেন? এই কাজটি কোনো কেকের টুকরো নয়।
 
 **Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'ঝোপের চারপাশে পেটাচ্ছেন'.
-**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus
+**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus, Bangla Academy Standard Bengali Grammar (প্রমিত বাংলা ভাষার ব্যাকরণ), Bangla Academy Modern Bengali Dictionary (আধুনিক বাংলা অভিধান)
 
 **Quick Action Command**:
 ```bash

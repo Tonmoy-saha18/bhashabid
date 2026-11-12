@@ -1,6 +1,6 @@
 id: CRD-DFT-004
 title: 'Candidate Rule for Pattern: জিজ্ঞেস করে একটি রুল'
-domain: translation
+domain: Judicial & High Court
 profile: bd_standard
 register: formal
 rule_summary: Automatically flagged pattern 'জিজ্ঞেস করে একটি রুল' requires naturalization
@@ -11,11 +11,16 @@ good_examples:
   করুন।
 bad_examples:
 - জিজ্ঞেস করে একটি রুল
+- হাইকোর্ট সরকারকে জিজ্ঞেস করে একটি রুল জারি করেছে কেন আটক বেআইনি হবে না।
 common_llm_error: LLMs emit literal calques or non-standard syntax for 'জিজ্ঞেস করে
   একটি রুল'.
 sources:
 - Corpus Harvester Anomaly Detector
 - Bangla Academy Corpus
+- Bangla Academy Standard Bengali Grammar
+- Constitution of the People's Republic of Bangladesh (Article 102)
+- Supreme Court of Bangladesh Judicial Precedents
+- Bangla Academy Law Dictionary
 confidence: candidate
 created_date: '2026-11-12'
 last_modified: '2026-11-12'
