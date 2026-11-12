@@ -1,29 +1,104 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "description": "Multi-domain authoritative corpora across all 11 professional sectors of Bhashabid.",
   "corpora": [
     {
-      "name": "bdnews24_tbs_parallel",
-      "path": "eval/corpora/sources/bdnews24_tbs_parallel.jsonl",
-      "type": "parallel_bilingual_newsroom",
-      "domains": ["Macroeconomic & Finance", "Judicial & High Court", "Sports Vernacular", "Corporate & Tech", "Disaster Early Warning"],
-      "authoritative_sources": ["The Business Standard", "BDNews24", "The Daily Star Bangla", "Prothom Alo Sports Desk", "Bangla Tribune"],
-      "license": "Fair Use / Quotation for Machine Evaluation & Benchmarking"
+      "name": "legal_constitutional_writs",
+      "path": "eval/corpora/sources/legal_constitutional_writs.jsonl",
+      "sector": 1,
+      "domain": "Constitutional Law & Writs",
+      "sources": ["Supreme Court of Bangladesh", "High Court Division", "Law Commission"]
+    },
+    {
+      "name": "macroeconomics_banking",
+      "path": "eval/corpora/sources/macroeconomics_banking.jsonl",
+      "sector": 2,
+      "domain": "Macroeconomics & Banking",
+      "sources": ["Bangladesh Bank", "BIBM", "Ministry of Finance", "Financial Express"]
+    },
+    {
+      "name": "healthcare_clinical_epidemiology",
+      "path": "eval/corpora/sources/healthcare_clinical_epidemiology.jsonl",
+      "sector": 3,
+      "domain": "Healthcare & Epidemiology",
+      "sources": ["DGHS", "IEDCR", "BMA", "BSMMU Clinical Protocol Desk"]
+    },
+    {
+      "name": "administrative_governance_memos",
+      "path": "eval/corpora/sources/administrative_governance_memos.jsonl",
+      "sector": 4,
+      "domain": "Administrative Governance & Memos",
+      "sources": ["Cabinet Division", "Ministry of Public Administration (MoPA)", "DC Offices"]
+    },
+    {
+      "name": "creative_fiction_dialogue",
+      "path": "eval/corpora/sources/creative_fiction_dialogue.jsonl",
+      "sector": 5,
+      "domain": "Creative Fiction & Dialogue",
+      "sources": ["Modern Bengali Literature", "Dialogic Anthologies", "Proverbial Calque Bank"]
+    },
+    {
+      "name": "classical_poetry_payar_prosody",
+      "path": "eval/corpora/sources/classical_poetry_payar_prosody.jsonl",
+      "sector": 6,
+      "domain": "Classical Poetry & Prosody",
+      "sources": ["Kashiram Das", "Krittibas Ojha", "Michael Madhusudan Dutt", "Rabindranath Tagore"]
+    },
+    {
+      "name": "academic_research_theses",
+      "path": "eval/corpora/sources/academic_research_theses.jsonl",
+      "sector": 7,
+      "domain": "Academic Research & Methodology",
+      "sources": ["University of Dhaka Review", "Bangla Academy Bhashatotto Journal", "Doctoral Dissertations"]
+    },
+    {
+      "name": "land_registry_khatiyan_deeds",
+      "path": "eval/corpora/sources/land_registry_khatiyan_deeds.jsonl",
+      "sector": 8,
+      "domain": "Land Registry & Deeds",
+      "sources": ["Directorate of Land Records and Surveys (DLRS)", "Sub-Registry Precedents", "AC Land Courts"]
+    },
+    {
+      "name": "agronomy_meteorology_disaster",
+      "path": "eval/corpora/sources/agronomy_meteorology_disaster.jsonl",
+      "sector": 9,
+      "domain": "Agronomy & Disaster Management",
+      "sources": ["Department of Agricultural Extension (DAE)", "Bangladesh Meteorological Department (BMD)", "FFWC"]
+    },
+    {
+      "name": "ict_software_cloud_engineering",
+      "path": "eval/corpora/sources/ict_software_cloud_engineering.jsonl",
+      "sector": 10,
+      "domain": "ICT & Software Engineering",
+      "sources": ["Bangladesh Computer Council", "BGD e-GOV CIRT", "Open Source Engineering Teams"]
+    },
+    {
+      "name": "education_nctb_pedagogy",
+      "path": "eval/corpora/sources/education_nctb_pedagogy.jsonl",
+      "sector": 11,
+      "domain": "Education & NCTB Pedagogy",
+      "sources": ["National Curriculum and Textbook Board (NCTB)", "Board of Intermediate and Secondary Education"]
     },
     {
       "name": "bangladesh_bank_pid_circulars",
       "path": "eval/corpora/sources/bangladesh_bank_pid_circulars.jsonl",
-      "type": "statutory_circulars_and_gazettes",
-      "domains": ["Banking & Macroeconomics", "Administrative Governance", "Tax & Customs", "Official Administrative", "Land Conveyancing & Deeds"],
-      "authoritative_sources": ["Bangladesh Bank", "Press Information Department (PID)", "National Board of Revenue (NBR)", "Ministry of Land"],
-      "license": "Public Domain / Official Government Notifications"
+      "sector": 2,
+      "domain": "Statutory Circulars & Gazettes",
+      "sources": ["Bangladesh Bank", "Press Information Department (PID)", "NBR"]
+    },
+    {
+      "name": "bdnews24_tbs_parallel",
+      "path": "eval/corpora/sources/bdnews24_tbs_parallel.jsonl",
+      "sector": 2,
+      "domain": "Bilingual Newsroom Parallel",
+      "sources": ["The Business Standard", "BDNews24", "The Daily Star"]
     },
     {
       "name": "nctb_wiki_encyclopedia",
       "path": "eval/corpora/sources/nctb_wiki_encyclopedia.jsonl",
-      "type": "educational_pedagogy_and_literature",
-      "domains": ["Education & Pedagogy", "Science & Encyclopedic", "Poetic Prosody", "Agronomy & Crop Protection", "Healthcare & Medicine"],
-      "authoritative_sources": ["National Curriculum and Textbook Board (NCTB)", "Bangla Wikipedia", "Department of Agricultural Extension (DAE)", "DGHS"],
-      "license": "CC BY-SA 4.0 / Public Educational"
+      "sector": 11,
+      "domain": "Curriculum & Encyclopedia",
+      "sources": ["NCTB", "Bangla Wikipedia", "DAE"]
     }
   ]
 }

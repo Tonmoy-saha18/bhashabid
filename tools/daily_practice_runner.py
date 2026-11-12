@@ -211,11 +211,23 @@ def run_practice_cycle(
                     stats["lint_issues_trapped"] += len(issues)
                     stats["total_checks"] += 1
 
-        # Real-world external harvested corpora checks
+        # Real-world external harvested corpora checks across all 11 sectors
         for dom, raw_txt, cat in harvested_items:
             issues = lint_text(raw_txt)
             stats["lint_issues_trapped"] += len(issues)
             stats["total_checks"] += 1
+
+        # Dynamic Adversarial Variations (Fresh unseen perturbations each round to foster real continuous growth)
+        try:
+            from tools.adversarial_generator import AdversarialGenerator
+            adv_gen = AdversarialGenerator()
+            dynamic_batch = adv_gen.generate_dynamic_batch(harvested_items, sample_size=25)
+            for dom, dynamic_txt, adv_cat in dynamic_batch:
+                issues = lint_text(dynamic_txt)
+                stats["lint_issues_trapped"] += len(issues)
+                stats["total_checks"] += 1
+        except Exception as ex:
+            pass
 
         elapsed = (datetime.now() - start_time).total_seconds()
         stats["elapsed_seconds"] = int(elapsed)
