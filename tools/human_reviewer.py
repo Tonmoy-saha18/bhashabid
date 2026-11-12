@@ -76,16 +76,16 @@ def apply_human_review(
     else:
         raise ValueError(f"Unknown review action: {action}")
 
-    # If approved and it was in drafts, promote it to knowledge/cards/
+    # If approved and it was in drafts, promote it to production knowledge/cards/
+    # AND preserve the draft card in knowledge/cards/drafts/ so contributors' PR history & credit remain visible
     if action.lower() == "approve" and is_draft:
         target_path = os.path.join(REPO_ROOT, "knowledge", "cards", f"{card_id}.yaml")
         with open(target_path, "w", encoding="utf-8") as f:
             yaml.dump(card, f, sort_keys=False, allow_unicode=True)
-        try:
-            os.remove(card_path)
-        except Exception:
-            pass
-        print(f"Card {card_id} successfully promoted from drafts to production knowledge/cards/.")
+        # Keep draft updated with approval signature for public contributor record
+        with open(card_path, "w", encoding="utf-8") as f:
+            yaml.dump(card, f, sort_keys=False, allow_unicode=True)
+        print(f"Card {card_id} successfully promoted to production knowledge/cards/ and preserved in drafts/ for contributor credit.")
     else:
         with open(card_path, "w", encoding="utf-8") as f:
             yaml.dump(card, f, sort_keys=False, allow_unicode=True)

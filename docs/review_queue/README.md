@@ -24,7 +24,7 @@ This repository enables contributors, linguists, and researchers worldwide to pa
 
 ### Step 1: Browse Pending Candidate Cards
 Open the central dashboard:
-👉 **[`docs/review_queue/packet_001_initial_cards.md`](packet_001_initial_cards.md)**  
+👉 **[`docs/review_queue/PENDING_REVIEWS.md`](PENDING_REVIEWS.md)**  
 Look at the **`## 📥 Pending Candidate Queue`** at the top, or inspect raw files in **[`knowledge/cards/drafts/`](../../knowledge/cards/drafts/)**.
 
 ### Step 2: Choose Your Review Action

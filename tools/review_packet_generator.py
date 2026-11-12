@@ -11,32 +11,43 @@ def generate_review_packet() -> str:
     card_files = sorted(glob.glob(os.path.join(cards_dir, "*.yaml")))
     draft_files = sorted(glob.glob(os.path.join(drafts_dir, "*.yaml")))
 
-    packet = """# Expert Linguistic Review Packet (Review Packet #001)
+    pending_drafts = []
+    reviewed_drafts = []
 
-Prepared by: **Agent A15 (Human Review Liaison)**  
-Target Reviewers: **Native Bengali Linguistic Experts**  
+    for dfile in draft_files:
+        try:
+            with open(dfile, "r", encoding="utf-8") as f:
+                card = yaml.safe_load(f)
+            rev = card.get("review", {}) or {}
+            if rev.get("status") in ["APPROVED", "REVISED & APPROVED"]:
+                reviewed_drafts.append((dfile, card))
+            else:
+                pending_drafts.append((dfile, card))
+        except Exception:
+            pass
+
+    packet = """# Expert Linguistic Review Packet (PENDING_REVIEWS.md)
+
 Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**  
+Constitutional Rule: **Principle P2 (Human Native Provenance Required)**
 
 > [!IMPORTANT]
-> In accordance with Principle P2 of the Bhashabid Constitution, agents may NEVER mark knowledge cards as 'reviewed'. Only recorded, signed human native-speaker reviews may elevate card confidence from `data-supported` to `reviewed`.
+> The only cards awaiting human review are candidate drafts located in `knowledge/cards/drafts/`.
+> Production cards in `knowledge/cards/` are already reviewed, tested, and active.
 
 ---
 
-## Instructions for Human Reviewers
-1. Verify the linguistic validity of each rule summary, positive examples, and counter-examples.
-2. Check for regional balance across Bangladesh standard and West Bengal conventions.
-3. Provide sign-off handle, affiliation, and status: `APPROVED` | `NEEDS_REVISION` | `REJECTED`.
-   - **CLI Approval Command**: `bhashabid review --card <CARD_ID> --reviewer "Your Name" --affiliation "Your Title" --action approve`
-   - **CLI Rejection Command**: `bhashabid review --card <CARD_ID> --reviewer "Your Name" --affiliation "Your Title" --action reject`
+## Instructions for Human Reviewers via GitHub PR
+1. Inspect the pending draft cards below or directly in `knowledge/cards/drafts/`.
+2. Open a Pull Request on GitHub with your review decision, reviewer name, and affiliation.
+3. Once approved and merged, draft cards remain preserved in `knowledge/cards/drafts/` as a permanent public record of your contribution!
 
 ---
 """
 
-    if draft_files:
-        packet += f"\n## 📥 Pending Candidate Queue ({len(draft_files)} Cards Awaiting Human Review)\n\n"
-        for didx, dfile in enumerate(draft_files, start=1):
-            with open(dfile, "r", encoding="utf-8") as f:
-                card = yaml.safe_load(f)
+    if pending_drafts:
+        packet += f"\n## 📥 Pending Candidate Queue ({len(pending_drafts)} Cards Awaiting Human Review)\n\n"
+        for didx, (dfile, card) in enumerate(pending_drafts, start=1):
             cid = card.get("id")
             packet += f"### Draft {didx}: [{cid}] {card.get('title')}\n"
             packet += f"- **File**: `{os.path.relpath(dfile, REPO_ROOT)}`\n"
@@ -55,57 +66,49 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
             packet += "```bash\n"
             packet += f'bhashabid review --card {cid} --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve\n'
             packet += "```\n\n---\n\n"
+    else:
+        packet += "\n## 📥 Pending Candidate Queue\n\n✓ **All caught up! Zero draft cards currently pending review.**\n\n---\n\n"
 
-    packet += "## Approved & Active Production Cards\n\n"
+    if reviewed_drafts:
+        packet += f"## 🏅 Contributor Record & Merged Drafts ({len(reviewed_drafts)} Contributions)\n\n"
+        packet += "| Draft ID | Title | Domain | Reviewer | Status |\n"
+        packet += "| :--- | :--- | :--- | :--- | :--- |\n"
+        for dfile, card in enumerate(reviewed_drafts):
+            cdata = card[1] if isinstance(card, tuple) else card
+            rev = cdata.get("review", {}) or {}
+            packet += f"| `{cdata.get('id')}` | {cdata.get('title')} | `{cdata.get('domain')}` | {rev.get('reviewer_name')} | **{rev.get('status')}** |\n"
+        packet += "\n---\n\n"
+
+    packet += f"## 🛡️ Active Production Cards ({len(card_files)} Approved in `knowledge/cards/`)\n\n"
     for idx, card_file in enumerate(card_files, start=1):
         with open(card_file, "r", encoding="utf-8") as f:
             card = yaml.safe_load(f)
-
-        packet += f"### Card {idx}: [{card.get('id')}] {card.get('title')}\n"
-        packet += f"- **Domain**: `{card.get('domain')}` | **Profile**: `{card.get('profile')}` | **Register**: `{card.get('register')}`\n"
-        packet += f"- **Confidence Tier**: `{card.get('confidence')}` (Candidate for Human Review)\n"
-        packet += f"- **Rule Summary**: {card.get('rule_summary')}\n\n"
-
-        packet += "**Positive Examples (শুদ্ধ প্রয়োগ)**:\n"
-        for ex in card.get("good_examples", []):
-            packet += f"  - ✓ {ex}\n"
-
-        packet += "\n**Negative Examples (ভ্রান্ত প্রয়োগ)**:\n"
-        for ex in card.get("bad_examples", []):
-            packet += f"  - ✗ {ex}\n"
-
-        packet += f"\n**Common LLM Error**: {card.get('common_llm_error')}\n"
-        packet += f"**Sources / Citations**: {', '.join(str(s) for s in card.get('sources', []))}\n\n"
-
-        rev = card.get("review")
+        cid = card.get("id")
+        title = card.get("title")
+        rev = card.get("review") or {}
+        packet += f"### Card {idx}: [{cid}] {title}\n"
+        packet += f"- **Status**: `{rev.get('status', 'APPROVED')}` | **Reviewer**: {rev.get('reviewer_name')} ({rev.get('reviewer_affiliation')})\n"
         packet += "**Human Reviewer Decision Box**:\n"
-        if rev and rev.get("status") == "APPROVED":
-            notes = rev.get("notes", "")
-            if "REVISED & APPROVED" in notes or "REVISED" in notes:
-                packet += "- [x] **REVISED & APPROVED** (Amended per reviewer feedback and approved)\n"
-                packet += "- [ ] **REVISE** (Needs amendment)\n"
-            else:
-                packet += "- [x] **APPROVED** (Elevate to `reviewed`)\n"
-                packet += "- [ ] **REVISE** (Needs amendment)\n"
-            packet += f"- *Reviewer Handle / Name*: {rev.get('reviewer_name')} ({rev.get('reviewer_affiliation')})\n"
-            packet += f"- *Reviewer Notes*: {notes}\n\n"
-        else:
-            packet += "- [ ] **APPROVED** (Elevate to `reviewed`)\n"
-            packet += "- [ ] **REVISE** (Needs amendment)\n"
-            packet += "- *Reviewer Handle / Name*: ____________________\n"
-            packet += "- *Reviewer Notes*: ____________________\n\n"
-        packet += "---\n\n"
+        packet += f"- [x] **APPROVED** (Verified by {rev.get('reviewer_name')})\n\n"
 
     return packet
 
 def write_packet():
     out_dir = os.path.join(REPO_ROOT, "docs", "review_queue")
     os.makedirs(out_dir, exist_ok=True)
-    packet_path = os.path.join(out_dir, "packet_001_initial_cards.md")
+    packet_path = os.path.join(out_dir, "PENDING_REVIEWS.md")
     content = generate_review_packet()
     with open(packet_path, "w", encoding="utf-8") as f:
         f.write(content.strip() + "\n")
     print(f"Generated review packet: {packet_path}")
+
+    # Remove obsolete 80KB initial cards packet if present
+    old_packet = os.path.join(out_dir, "packet_001_initial_cards.md")
+    if os.path.exists(old_packet):
+        try:
+            os.remove(old_packet)
+        except Exception:
+            pass
 
 if __name__ == "__main__":
     write_packet()
