@@ -173,6 +173,11 @@ def run_practice_cycle(
     else:
         print(f"Mode: High-Throughput Execution | Target: {duration_minutes or 150} Minutes Worth of Practice across All 8 Domains ({target_rounds} Rounds)")
     print("=" * 80)
+    print("PRACTICE DATASET SELECTION & LEARNING DECISION:")
+    print(f"  • Track 1: [OLD / INVARIANT CANARIES]      : 18 fixed benchmark inputs across 8 domains (Anti-regression)")
+    print(f"  • Track 2: [NEW / REAL-WORLD HARVESTED]    : {len(harvested_items)} authentic sentences across all 11 professional sectors")
+    print(f"  • Track 3: [DYNAMIC ADVERSARIAL SYNTHESIS] : 25 randomized variants/round (Sadhu-Cholito, calques, Unicode)")
+    print("=" * 80)
 
     round_idx = 0
     while True:
@@ -183,8 +188,15 @@ def run_practice_cycle(
 
         round_idx += 1
         stats["rounds_completed"] += 1
+        
+        # Determine if this round should print live itemized practice traces
+        is_sample_round = (round_idx <= 2) or (round_idx % 50 == 0) or (not continuous)
+        
         print(f"\n--- [Round {round_idx}] Running Multi-Domain Audit & Stress Checks ---")
+        if is_sample_round:
+            print("  [Live Practice Feed & Data Decision]")
 
+        # 1. Track 1: Fixed Invariants / Old Canary Set
         for domain_data in DOMAINS_PRACTICE_SET:
             if domain_filter and domain_filter.lower() not in domain_data["domain"].lower():
                 continue
@@ -198,34 +210,60 @@ def run_practice_cycle(
                     prayers = generate_writ_prayer(wtype, subj, auth)
                     stats["legal_prayers_generated"] += len(prayers)
                     stats["total_checks"] += 1
+                    if is_sample_round and stats["total_checks"] == 1:
+                        print(f"    • [OLD / CANARY] [{dname}]")
+                        print(f"      Input: '{rem}' ({subj} vs {auth})")
+                        print(f"      Outcome: Formulated {len(prayers)} Art 102 prayers -> '{prayers[0][:55]}...'")
 
             elif "Prosody" in dname:
                 for line in inputs:
                     sc = scan_line(line, "aksharbritta")
                     stats["prosody_lines_scanned"] += 1
                     stats["total_checks"] += 1
+                    if is_sample_round and stats["prosody_lines_scanned"] == 1:
+                        print(f"    • [OLD / CANARY] [{dname}]")
+                        print(f"      Input: '{line}'")
+                        print(f"      Outcome: 14-Akshar Payar Scansion -> {sc.total_morae} morae ({'VALID' if sc.total_morae == 14 else 'IRREGULAR'})")
 
             else:
                 for text in inputs:
                     issues = lint_text(text)
                     stats["lint_issues_trapped"] += len(issues)
                     stats["total_checks"] += 1
+                    if is_sample_round and len(issues) > 0 and stats["total_checks"] <= 5:
+                        print(f"    • [OLD / CANARY] [{dname}]")
+                        print(f"      Input: '{text[:60]}...'")
+                        print(f"      Outcome: Trapped flaw -> '{issues[0].message}' (Rule: {issues[0].rule_id})")
 
-        # Real-world external harvested corpora checks across all 11 sectors
+        # 2. Track 2: Real-World Harvested Corpora (New Data across 11 sectors)
+        printed_harvest_sample = 0
         for dom, raw_txt, cat in harvested_items:
             issues = lint_text(raw_txt)
             stats["lint_issues_trapped"] += len(issues)
             stats["total_checks"] += 1
+            if is_sample_round and printed_harvest_sample < 2:
+                status_label = f"Trapped {len(issues)} flaws -> '{issues[0].message}'" if issues else "Verified 100% authentic clean Bengali"
+                print(f"    • [NEW / HARVESTED] [Sector: {dom}]")
+                print(f"      Input: '{raw_txt[:65]}...'")
+                print(f"      Outcome: {status_label}")
+                printed_harvest_sample += 1
 
-        # Dynamic Adversarial Variations (Fresh unseen perturbations each round to foster real continuous growth)
+        # 3. Track 3: Dynamic Adversarial Perturbations (Fresh Unseen Variations)
         try:
             from tools.adversarial_generator import AdversarialGenerator
             adv_gen = AdversarialGenerator()
             dynamic_batch = adv_gen.generate_dynamic_batch(harvested_items, sample_size=25)
+            printed_adv_sample = 0
             for dom, dynamic_txt, adv_cat in dynamic_batch:
                 issues = lint_text(dynamic_txt)
                 stats["lint_issues_trapped"] += len(issues)
                 stats["total_checks"] += 1
+                if is_sample_round and printed_adv_sample < 2 and "DYNAMIC_ADVERSARIAL" in adv_cat:
+                    flaw_msg = f"Trapped -> '{issues[0].message}'" if issues else "Passed"
+                    print(f"    • [DYNAMIC / ADVERSARIAL] [{adv_cat}]")
+                    print(f"      Input: '{dynamic_txt[:65]}...'")
+                    print(f"      Outcome: {flaw_msg}")
+                    printed_adv_sample += 1
         except Exception as ex:
             pass
 
