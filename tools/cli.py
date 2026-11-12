@@ -74,6 +74,30 @@ def handle_normalize(args):
         sys.stderr.write(f"Error: {e}\n")
         return 1
 
+def handle_repair(args):
+    try:
+        from .bn_normalize.repair import repair_text
+        text = resolve_text_or_file(args.text)
+        repaired, fixes = repair_text(text, profile=args.profile)
+        if getattr(args, "json", False):
+            import json
+            print(json.dumps({
+                "original": text,
+                "repaired": repaired,
+                "fixes_count": len(fixes),
+                "fixes": fixes
+            }, ensure_ascii=False, indent=2))
+        else:
+            print(repaired)
+            if fixes and getattr(args, "verbose", False):
+                print("\n[Applied Fixes]:")
+                for f in fixes:
+                    print(f"  - {f['description']}")
+        return 0
+    except Exception as e:
+        sys.stderr.write(f"Repair Error: {e}\n")
+        return 1
+
 def handle_prosody(args):
     try:
         from .bn_prosody import scan_line, verify_payar
@@ -376,6 +400,14 @@ def main():
     p_norm.add_argument("text", help="Bengali text string or path to text file")
     p_norm.add_argument("--profile", default="bd_standard", choices=["bd_standard", "wb_standard"])
     p_norm.set_defaults(func=handle_normalize)
+
+    # repair
+    p_rep = subparsers.add_parser("repair", help="Automatically repair and normalize Bengali text flaws")
+    p_rep.add_argument("text", help="Bengali text string or path to text file")
+    p_rep.add_argument("--profile", default="bd_standard", choices=["bd_standard", "wb_standard"])
+    p_rep.add_argument("--json", action="store_true", help="Output results in JSON format")
+    p_rep.add_argument("--verbose", "-v", action="store_true", help="Show applied repair explanations")
+    p_rep.set_defaults(func=handle_repair)
 
     # lint
     p_lint = subparsers.add_parser("lint", help="Lint Bengali text for Guru-chandali, honorifics, and calques")

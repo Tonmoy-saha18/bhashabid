@@ -3,6 +3,7 @@ from .normalizer import normalize, normalize_text
 from .unicode import canonicalize_unicode, is_nfc_normalized
 from .punctuation import normalize_punctuation
 from .orthography import normalize_orthography
+from .repair import repair_text
 
 __all__ = [
     "normalize",
@@ -10,5 +11,6 @@ __all__ = [
     "canonicalize_unicode",
     "is_nfc_normalized",
     "normalize_punctuation",
-    "normalize_orthography"
+    "normalize_orthography",
+    "repair_text"
 ]

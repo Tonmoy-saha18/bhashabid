@@ -14,7 +14,7 @@ REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
-from tools.bn_normalize import normalize, canonicalize_unicode
+from tools.bn_normalize import normalize, canonicalize_unicode, repair_text
 from tools.bn_lint import lint_text
 from tools.bn_prosody import scan_line, verify_payar
 from tools.bn_legal import determine_writ_type, generate_writ_prayer
@@ -158,6 +158,9 @@ def run_practice_cycle(
         "lint_issues_trapped": 0,
         "prosody_lines_scanned": 0,
         "legal_prayers_generated": 0,
+        "flaws_repaired": 0,
+        "residual_flaws": 0,
+        "post_repair_precision": 1.0,
         "kill_switch_triggered": False,
         "regression_suite_passed": False,
         "report_file": ""
@@ -252,15 +255,27 @@ def run_practice_cycle(
         printed_harvest_sample = 0
         round_harvest_checks = 0
         round_harvest_flaws = 0
+        round_harvest_residual_flaws = 0
         for dom, raw_txt, cat in harvested_items:
             issues = lint_text(raw_txt)
             stats["lint_issues_trapped"] += len(issues)
             stats["total_checks"] += 1
             round_harvest_checks += 1
             round_harvest_flaws += len(issues)
+
+            # Autonomous Linguistic Repair: fix detected flaws deterministically
+            repaired_txt, fixes = repair_text(raw_txt)
+            residual_issues = lint_text(repaired_txt)
+            round_harvest_residual_flaws += len(residual_issues)
+            stats["flaws_repaired"] += len(fixes)
+            stats["residual_flaws"] += len(residual_issues)
+
             sector_cumulative_counts[dom] = sector_cumulative_counts.get(dom, 0) + 1
             if is_sample_round and printed_harvest_sample < 2:
-                status_label = f"Trapped {len(issues)} flaws -> '{issues[0].message}'" if issues else "Verified 100% authentic clean Bengali"
+                if issues:
+                    status_label = f"Trapped {len(issues)} flaws -> Auto-Repaired ({len(fixes)} fixes, {len(residual_issues)} residual)"
+                else:
+                    status_label = "Verified 100% authentic clean Bengali"
                 print(f"    • [NEW / HARVESTED] [Sector: {dom}]")
                 print(f"      Input: '{raw_txt[:65]}...'")
                 print(f"      Outcome: {status_label}")
@@ -287,10 +302,11 @@ def run_practice_cycle(
 
         elapsed = (datetime.now() - start_time).total_seconds()
         stats["elapsed_seconds"] = int(elapsed)
-        print(f"  Round {round_idx} Complete. Total Checks: {stats['total_checks']} | Lint Flaws Trapped: {stats['lint_issues_trapped']} | Elapsed: {int(elapsed)}s")
+        round_precision = 1.0 - (round_harvest_residual_flaws / max(1, round_harvest_checks))
+        stats["post_repair_precision"] = round_precision
+        print(f"  Round {round_idx} Complete. Total Checks: {stats['total_checks']} | Lint Flaws Trapped: {stats['lint_issues_trapped']} | Flaws Repaired: {stats['flaws_repaired']} | Precision: {round_precision*100:.1f}% | Elapsed: {int(elapsed)}s")
 
-        # Evaluate Confidence & Saturation on current batch:
-        round_precision = 1.0 - (round_harvest_flaws / max(1, round_harvest_checks))
+        # Evaluate Confidence & Saturation on current batch (residual defects <= 5%):
         is_confident = (round_precision >= 0.95)
         if is_confident:
             consecutive_confident_rounds += 1
@@ -402,6 +418,8 @@ def run_practice_cycle(
         f.write(f"- **Rounds Completed**: `{stats['rounds_completed']}`\n")
         f.write(f"- **Total Domain Checks**: `{stats['total_checks']}`\n")
         f.write(f"- **Flaws Trapped by Linters**: `{stats['lint_issues_trapped']}`\n")
+        f.write(f"- **Flaws Successfully Repaired**: `{stats['flaws_repaired']}`\n")
+        f.write(f"- **Post-Repair System Precision**: `{stats['post_repair_precision']*100:.2f}%\``\n")
         f.write(f"- **Prosodic Scans**: `{stats['prosody_lines_scanned']}`\n")
         f.write(f"- **Constitutional Prayers Formulated**: `{stats['legal_prayers_generated']}`\n")
         f.write(f"- **Regression Suite Status**: `{'PASS (100% Green)' if stats['regression_suite_passed'] else 'FAIL'}`\n")

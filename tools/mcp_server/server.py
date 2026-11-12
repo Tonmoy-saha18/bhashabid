@@ -56,6 +56,18 @@ class BhashabidMCPServer:
                 }
             },
             {
+                "name": "repair_text",
+                "description": "Automatically repair and normalize Bengali text flaws: Unicode, orthography, punctuation, Guru-chandali, English translation calques, and honorific concordance.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "text": {"type": "string", "description": "The Bengali text to repair and normalize."},
+                        "profile": {"type": "string", "default": "bd_standard"}
+                    },
+                    "required": ["text"]
+                }
+            },
+            {
                 "name": "prosody_scan",
                 "description": "Scan Bengali verse for poetic metre (Payar, Matrabritta, Dalabritta) and verify caesura and rhyme.",
                 "parameters": {
@@ -138,6 +150,18 @@ class BhashabidMCPServer:
                 for issue in issues
             ]
             return {"issues": diagnostics, "issue_count": len(diagnostics)}
+
+        elif name == "repair_text":
+            from ..bn_normalize.repair import repair_text
+            raw_text = arguments.get("text", "")
+            profile = arguments.get("profile", "bd_standard")
+            repaired, fixes = repair_text(raw_text, profile=profile)
+            return {
+                "original": raw_text,
+                "repaired": repaired,
+                "fixes_count": len(fixes),
+                "fixes": fixes
+            }
 
         elif name == "prosody_scan":
             from ..bn_prosody import scan_line, verify_payar
