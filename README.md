@@ -44,20 +44,20 @@ Most AI prompt templates and linguistic toolkits suffer from severe context bloa
 
 ```mermaid
 graph TD
-    UserReq["User Prompt / AI Agent Task"] --> Router{"Core Skill Kernel (< 390 tokens)"}
+    UserReq["User Prompt / AI Agent Task"] --> Router["Core Skill Kernel (Under 390 tokens)"]
     
     subgraph Pillar1 ["Pillar 1: Programmatic Token Ceiling"]
-        Router -->|Strict Budget Enforcement| ActiveContext["< 390 Token Invariant Routing"]
+        Router -->|"Strict Budget Enforcement"| ActiveContext["Under 390 Token Invariant Routing"]
     end
     
     subgraph Pillar3 ["Pillar 3: Modular Domain Isolation"]
-        Router -.->|On-Demand Only| LegalGuide["constitutional_writs.md (0 tokens if unrelated)"]
-        Router -.->|On-Demand Only| BankingGuide["journalism_domains.md (0 tokens if unrelated)"]
-        Router -.->|On-Demand Only| CreativeGuide["creative_writing.md (0 tokens if unrelated)"]
+        Router -.->|"On-Demand Only"| LegalGuide["constitutional_writs.md (0 tokens if unrelated)"]
+        Router -.->|"On-Demand Only"| BankingGuide["journalism_domains.md (0 tokens if unrelated)"]
+        Router -.->|"On-Demand Only"| CreativeGuide["creative_writing.md (0 tokens if unrelated)"]
     end
     
     subgraph Pillar4 ["Pillar 4: Deterministic MCP Offloading"]
-        ActiveContext ==>|Zero Token Cost $0.00| FastPython["Python Engine (500k words/sec)"]
+        ActiveContext ==>|"Zero Token Cost ($0.00)"| FastPython["Python Engine (500k words/sec)"]
         FastPython --> ExactNum["Exact 0-99 Numbers (নিরানব্বই)"]
         FastPython --> LakhCrore["Lakh/Crore Comma Grouping (১২,৩৪,৫৬৭)"]
         FastPython --> UnicodeNFC["Unicode NFC & Dari (।) Normalizer"]
@@ -68,7 +68,7 @@ graph TD
         RealWorldAnomalies["Harvester: Real-World Error Anomalies"] --> Synthesizer["tools/card_synthesizer.py"]
         Synthesizer --> ReviewP2["Human Native Sign-Off (P2)"]
         ReviewP2 --> Distiller["tools/skill_distiller.py"]
-        Distiller -->|Extracts Invariants (1 rule = 50k phrases)| CoreInvariants["Zero-Bloat Invariant Updates"]
+        Distiller -->|"Extracts Invariants: 1 rule covers 50k phrases"| CoreInvariants["Zero-Bloat Invariant Updates"]
         CoreInvariants --> Router
     end
 ```
@@ -264,5 +264,28 @@ Comprehensive documentation is available in the [`docs/wiki/`](docs/wiki/) direc
 
 ## 📄 License
 
-* **Code & Deterministic Engines**: Apache 2.0 (Open-source, commercial-friendly).
-* **Knowledge Cards & Documentation**: CC BY-SA 4.0.
+This project is licensed under the permissive terms of the **[MIT License](LICENSE)** (also available as **[LICENSE.txt](LICENSE.txt)**).
+
+```text
+MIT License
+
+Copyright (c) 2026 Md. Ashikur Rahman Bhuiyan and Bhashabid Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

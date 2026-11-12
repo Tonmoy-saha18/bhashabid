@@ -3,7 +3,7 @@
 All knowledge cards, linguistic datasets, and evaluation benchmarks in Bhashabid must adhere to strict licensing requirements.
 
 ## Licensing Policy
-1. Code is released under the Apache-2.0 License.
+1. Code, tools, and engines are released under the MIT License (see LICENSE and LICENSE.txt).
 2. Linguistic knowledge cards, grammar guides, and reference documents are licensed under CC BY-SA 4.0.
 3. No raw copyrighted text is stored in full. Only metadata, structural patterns, derived statistics, and minimal syntactic examples are retained.
 4. Crawlers and scrapers strictly respect `robots.txt` and terms of service.
