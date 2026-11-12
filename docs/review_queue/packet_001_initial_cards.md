@@ -13,10 +13,66 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 1. Verify the linguistic validity of each rule summary, positive examples, and counter-examples.
 2. Check for regional balance across Bangladesh standard and West Bengal conventions.
 3. Provide sign-off handle, affiliation, and status: `APPROVED` | `NEEDS_REVISION` | `REJECTED`.
+   - **CLI Approval Command**: `bhashabid review --card <CARD_ID> --reviewer "Your Name" --affiliation "Your Title" --action approve`
+   - **CLI Rejection Command**: `bhashabid review --card <CARD_ID> --reviewer "Your Name" --affiliation "Your Title" --action reject`
 
 ---
 
-## Review Queue Cards
+## 📥 Pending Candidate Queue (2 Cards Awaiting Human Review)
+
+### Draft 1: [CRD-DFT-001] Candidate Rule for Pattern: দ্বারা চালিত
+- **File**: `knowledge\cards\drafts\CRD-DFT-001.yaml`
+- **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
+- **Rule Summary**: Automatically flagged pattern 'দ্বারা চালিত' requires naturalization to 'স্বাভাবিক বাংলা প্রকাশভঙ্গি 'চালিত / পরিচালিত' ব্যবহার করুন।'.
+
+**Positive Examples (শুদ্ধ প্রয়োগ)**:
+  - ✓ স্বাভাবিক বাংলা প্রকাশভঙ্গি 'চালিত / পরিচালিত' ব্যবহার করুন।
+  - ✓ স্বাভাবিক বাংলা প্রকাশভঙ্গি 'কেন ... হবে না, তা জানতে চেয়ে রুল জারি করেছেন' ব্যবহার করুন।
+  - ✓ স্বাভাবিক বাংলা প্রকাশভঙ্গি 'মহাবিপদ সংকেত' ব্যবহার করুন।
+
+**Negative Examples (ভ্রান্ত প্রয়োগ)**:
+  - ✗ দ্বারা চালিত
+  - ✗ দ্বারা চালিত
+  - ✗ দ্বারা চালিত
+
+**Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'দ্বারা চালিত'.
+**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus
+
+**Quick Action Command**:
+```bash
+bhashabid review --card CRD-DFT-001 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
+```
+
+---
+
+### Draft 2: [CRD-DFT-002] Candidate Rule for Pattern: দ্বারা চালিত
+- **File**: `knowledge\cards\drafts\CRD-DFT-002.yaml`
+- **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
+- **Rule Summary**: Automatically flagged pattern 'দ্বারা চালিত' requires naturalization to 'স্বাভাবিক বাংলা প্রকাশভঙ্গি 'চালিত / পরিচালিত' ব্যবহার করুন।'.
+
+**Positive Examples (শুদ্ধ প্রয়োগ)**:
+  - ✓ স্বাভাবিক বাংলা প্রকাশভঙ্গি 'চালিত / পরিচালিত' ব্যবহার করুন।
+  - ✓ স্বাভাবিক বাংলা প্রকাশভঙ্গি 'কেন ... হবে না, তা জানতে চেয়ে রুল জারি করেছেন' ব্যবহার করুন।
+  - ✓ স্বাভাবিক বাংলা প্রকাশভঙ্গি 'মহাবিপদ সংকেত' ব্যবহার করুন।
+
+**Negative Examples (ভ্রান্ত প্রয়োগ)**:
+  - ✗ দ্বারা চালিত
+  - ✗ দ্বারা চালিত
+  - ✗ দ্বারা চালিত
+
+**Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'দ্বারা চালিত'.
+**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus
+
+**Quick Action Command**:
+```bash
+bhashabid review --card CRD-DFT-002 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
+```
+
+---
+
+## Approved & Active Production Cards
 
 ### Card 1: [CRD-DOM-001] Official Administrative Applications & Petitions (দাপ্তরিক আবেদন ও দরখাস্তের প্রমিত কাঠামো)
 - **Domain**: `administrative_applications` | **Profile**: `bd_standard` | **Register**: `formal`

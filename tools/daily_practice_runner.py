@@ -156,6 +156,7 @@ def run_practice_cycle(
 
     # Ingest real-world harvested corpora (BDNews24, TBS, Central Bank, PID, NCTB)
     harvested_items = []
+    harvester = None
     try:
         from tools.corpus_harvester import CorpusHarvester
         harvester = CorpusHarvester()
@@ -237,16 +238,27 @@ def run_practice_cycle(
     test_result = runner.run(suite)
     stats["regression_suite_passed"] = test_result.wasSuccessful()
 
-    # Synthesize draft knowledge cards from any flagged anomalies
+    # Synthesize draft knowledge cards from any flagged anomalies (Feedback Loop)
     try:
         from tools.card_synthesizer import CardSynthesizer
         from tools.skill_distiller import SkillDistiller
+        
+        if harvester and hasattr(harvester, "harvested"):
+            anomalies = [s.flaws for s in harvester.harvested if s.category in ["ANOMALY_CANDIDATE", "CANARY_TRAPPED"]]
+            flat_anomalies = [item for sublist in anomalies for item in sublist]
+            if flat_anomalies:
+                synthesizer = CardSynthesizer()
+                created_drafts = synthesizer.cluster_and_synthesize_anomalies(flat_anomalies)
+                if created_drafts:
+                    print(f"Autonomous Feedback Loop: Synthesized {len(created_drafts)} candidate knowledge cards in knowledge/cards/drafts/")
+                    for d in created_drafts:
+                        print(f"  - {d}")
         
         # Distill approved cards and enforce token budget
         distiller = SkillDistiller()
         distiller.distill_all(auto_install=True)
     except Exception as ex:
-        print(f"Notice: Skill distillation encountered: {ex}")
+        print(f"Notice: Automated card feedback loop encountered: {ex}")
 
     # Regenerate human review packet
     write_packet()

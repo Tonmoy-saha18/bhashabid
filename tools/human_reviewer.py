@@ -38,8 +38,14 @@ def apply_human_review(
         raise ValueError("Principle P2 Violation: Reviewer name and affiliation must be provided.")
 
     card_path = os.path.join(REPO_ROOT, "knowledge", "cards", f"{card_id}.yaml")
+    is_draft = False
     if not os.path.exists(card_path):
-        raise FileNotFoundError(f"Card {card_id} not found at {card_path}")
+        draft_path = os.path.join(REPO_ROOT, "knowledge", "cards", "drafts", f"{card_id}.yaml")
+        if os.path.exists(draft_path):
+            card_path = draft_path
+            is_draft = True
+        else:
+            raise FileNotFoundError(f"Card {card_id} not found in knowledge/cards/ or knowledge/cards/drafts/")
 
     with open(card_path, "r", encoding="utf-8") as f:
         card = yaml.safe_load(f)
@@ -70,8 +76,19 @@ def apply_human_review(
     else:
         raise ValueError(f"Unknown review action: {action}")
 
-    with open(card_path, "w", encoding="utf-8") as f:
-        yaml.dump(card, f, sort_keys=False, allow_unicode=True)
+    # If approved and it was in drafts, promote it to knowledge/cards/
+    if action.lower() == "approve" and is_draft:
+        target_path = os.path.join(REPO_ROOT, "knowledge", "cards", f"{card_id}.yaml")
+        with open(target_path, "w", encoding="utf-8") as f:
+            yaml.dump(card, f, sort_keys=False, allow_unicode=True)
+        try:
+            os.remove(card_path)
+        except Exception:
+            pass
+        print(f"Card {card_id} successfully promoted from drafts to production knowledge/cards/.")
+    else:
+        with open(card_path, "w", encoding="utf-8") as f:
+            yaml.dump(card, f, sort_keys=False, allow_unicode=True)
 
     print(f"Card {card_id} successfully signed off as '{card['confidence']}' by {reviewer_name}.")
     return True

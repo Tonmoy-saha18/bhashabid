@@ -7,7 +7,9 @@ REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 def generate_review_packet() -> str:
     cards_dir = os.path.join(REPO_ROOT, "knowledge", "cards")
+    drafts_dir = os.path.join(cards_dir, "drafts")
     card_files = sorted(glob.glob(os.path.join(cards_dir, "*.yaml")))
+    draft_files = sorted(glob.glob(os.path.join(drafts_dir, "*.yaml")))
 
     packet = """# Expert Linguistic Review Packet (Review Packet #001)
 
@@ -24,12 +26,37 @@ Standard: **Bangla Academy (Dhaka) & Paschimbanga Bangla Akademi (Kolkata)**
 1. Verify the linguistic validity of each rule summary, positive examples, and counter-examples.
 2. Check for regional balance across Bangladesh standard and West Bengal conventions.
 3. Provide sign-off handle, affiliation, and status: `APPROVED` | `NEEDS_REVISION` | `REJECTED`.
+   - **CLI Approval Command**: `bhashabid review --card <CARD_ID> --reviewer "Your Name" --affiliation "Your Title" --action approve`
+   - **CLI Rejection Command**: `bhashabid review --card <CARD_ID> --reviewer "Your Name" --affiliation "Your Title" --action reject`
 
 ---
-
-## Review Queue Cards
-
 """
+
+    if draft_files:
+        packet += f"\n## 📥 Pending Candidate Queue ({len(draft_files)} Cards Awaiting Human Review)\n\n"
+        for didx, dfile in enumerate(draft_files, start=1):
+            with open(dfile, "r", encoding="utf-8") as f:
+                card = yaml.safe_load(f)
+            cid = card.get("id")
+            packet += f"### Draft {didx}: [{cid}] {card.get('title')}\n"
+            packet += f"- **File**: `{os.path.relpath(dfile, REPO_ROOT)}`\n"
+            packet += f"- **Domain**: `{card.get('domain')}` | **Profile**: `{card.get('profile')}` | **Register**: `{card.get('register')}`\n"
+            packet += f"- **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)\n"
+            packet += f"- **Rule Summary**: {card.get('rule_summary')}\n\n"
+            packet += "**Positive Examples (শুদ্ধ প্রয়োগ)**:\n"
+            for ex in card.get("good_examples", []):
+                packet += f"  - ✓ {ex}\n"
+            packet += "\n**Negative Examples (ভ্রান্ত প্রয়োগ)**:\n"
+            for ex in card.get("bad_examples", []):
+                packet += f"  - ✗ {ex}\n"
+            packet += f"\n**Common LLM Error**: {card.get('common_llm_error')}\n"
+            packet += f"**Sources / Citations**: {', '.join(str(s) for s in card.get('sources', []))}\n\n"
+            packet += "**Quick Action Command**:\n"
+            packet += "```bash\n"
+            packet += f'bhashabid review --card {cid} --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve\n'
+            packet += "```\n\n---\n\n"
+
+    packet += "## Approved & Active Production Cards\n\n"
     for idx, card_file in enumerate(card_files, start=1):
         with open(card_file, "r", encoding="utf-8") as f:
             card = yaml.safe_load(f)
