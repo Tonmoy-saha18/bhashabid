@@ -1,0 +1,35 @@
+id: CRD-DFT-018
+title: 'Candidate Rule for Pattern: তিনি চেয়ার থেকে উঠে দাঁড়িয়ে বললেন যে বিদ'
+domain: Creative Fiction & Dialogue
+profile: bd_standard
+register: formal
+rule_summary: 'Automatically flagged pattern ''তিনি চেয়ার থেকে উঠে দাঁড়িয়ে বললেন যে
+  বিদায় নেওয়ার সময় হয়েছে'' requires naturalization to active causal phrasing (e.g.
+  ''বিকল্প ১ (সম্ভ্রমাত্মক ক্রিয়াপদ): ''তিনি চেয়ার থেকে উঠে দাঁড়িয়ে বললেন যে বিদায়
+  নেওয়ার সময় হয়েছেন'' অথবা বিকল্প ২ (সাধারণ সর্বনাম): ''সে চেয়ার থেকে উঠে দাঁড়িয়ে
+  বললেন যে বিদায় নেওয়ার সময় হয়েছে'''').'
+good_examples:
+- 'বিকল্প ১ (সম্ভ্রমাত্মক ক্রিয়াপদ): ''তিনি চেয়ার থেকে উঠে দাঁড়িয়ে বললেন যে বিদায়
+  নেওয়ার সময় হয়েছেন'' অথবা বিকল্প ২ (সাধারণ সর্বনাম): ''সে চেয়ার থেকে উঠে দাঁড়িয়ে
+  বললেন যে বিদায় নেওয়ার সময় হয়েছে'''
+bad_examples:
+- খোলা জানালার বাইরে সন্ধ্যার হালকা বাতাস বইছিল, তিনি চেয়ার থেকে উঠে দাঁড়িয়ে বললেন
+  যে বিদায় নেওয়ার সময় হয়েছে।
+common_llm_error: LLMs emit literal calques or non-standard syntax for 'তিনি চেয়ার
+  থেকে উঠে দাঁড়িয়ে বললেন যে বিদায় নেওয়ার সময় হয়েছে'.
+sources:
+- 'Corpus Harvest Provenance: Learning from Mistakes Engine (Offline Autonomous Synthesis)'
+- Principle P2 Human Provenance Audit Gate
+- Bangla Academy Standard Bengali Grammar (প্রমিত বাংলা ভাষার ব্যাকরণ)
+- Bangla Academy Modern Bengali Dictionary (আধুনিক বাংলা অভিধান)
+confidence: candidate
+created_date: '2026-11-12'
+last_modified: '2026-11-12'
+review:
+  reviewer_name: null
+  reviewer_affiliation: null
+  reviewed_date: null
+  status: PENDING_HUMAN_REVIEW
+  notes: Candidate card synthesized by Bhashabid Autonomous Learning Loop. Pending
+    human native-speaker sign-off.
+  signature_hash: null

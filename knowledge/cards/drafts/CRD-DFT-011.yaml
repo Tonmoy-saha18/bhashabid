@@ -1,0 +1,30 @@
+id: CRD-DFT-011
+title: 'Candidate Rule for Pattern: MissingDaughter'
+domain: Macroeconomics & Banking
+profile: bd_standard
+register: formal
+rule_summary: Automatically flagged pattern 'MissingDaughter' requires naturalization
+  to active causal phrasing (e.g. 'প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।').
+good_examples:
+- প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।
+bad_examples:
+- 'বিডিওএসএনের #MissingDaughter কার্যক্রমের অংশ হিসেবে আয়োজিত এ প্রতিযোগিতার লক্ষ্য
+  মেয়েদের প্রোগ্রামিংয়ে আগ্রহী করে তোলা এবং প্রযুক্তি খাতে তাদের অংশগ্রহণ বাড়ানো'
+common_llm_error: LLMs emit literal calques or non-standard syntax for 'MissingDaughter'.
+sources:
+- 'Corpus Harvest Provenance: Prothom Alo (National & Economy)'
+- Principle P2 Human Provenance Audit Gate
+- Bangladesh Bank Prudential Regulations & Monetary Policy
+- Bangla Academy Financial & Economic Terminology
+- The Business Standard Verified Macroeconomic Feed
+confidence: candidate
+created_date: '2026-11-12'
+last_modified: '2026-11-12'
+review:
+  reviewer_name: null
+  reviewer_affiliation: null
+  reviewed_date: null
+  status: PENDING_HUMAN_REVIEW
+  notes: Candidate card synthesized by Bhashabid Autonomous Learning Loop. Pending
+    human native-speaker sign-off.
+  signature_hash: null

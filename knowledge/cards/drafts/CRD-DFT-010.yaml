@@ -1,0 +1,29 @@
+id: CRD-DFT-010
+title: 'Candidate Rule for Pattern: Salesians, Don, Bosco'
+domain: Education & NCTB Pedagogy
+profile: bd_standard
+register: formal
+rule_summary: Automatically flagged pattern 'Salesians, Don, Bosco' requires naturalization
+  to active causal phrasing (e.g. 'প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।').
+good_examples:
+- প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।
+bad_examples:
+- Salesians of Don Bosco (SDB)র অধীনস্থ ডনবস্কো সোসাইটি বিশ্ববিদ্যালয়টি পরিচালনা করেন
+common_llm_error: LLMs emit literal calques or non-standard syntax for 'Salesians,
+  Don, Bosco'.
+sources:
+- 'Corpus Harvest Provenance: Bangla Wikipedia Education & Pedagogy'
+- Principle P2 Human Provenance Audit Gate
+- National Curriculum and Textbook Board (NCTB) Standard Bengali
+- Ministry of Education Pedagogical Guidelines
+confidence: candidate
+created_date: '2026-11-12'
+last_modified: '2026-11-12'
+review:
+  reviewer_name: null
+  reviewer_affiliation: null
+  reviewed_date: null
+  status: PENDING_HUMAN_REVIEW
+  notes: Candidate card synthesized by Bhashabid Autonomous Learning Loop. Pending
+    human native-speaker sign-off.
+  signature_hash: null

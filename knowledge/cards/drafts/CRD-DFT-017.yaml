@@ -1,0 +1,30 @@
+id: CRD-DFT-017
+title: 'Candidate Rule for Pattern: Ahan, Loves, Him'
+domain: Academic Research & Methodology
+profile: bd_standard
+register: formal
+rule_summary: Automatically flagged pattern 'Ahan, Loves, Him' requires naturalization
+  to active causal phrasing (e.g. 'প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।').
+good_examples:
+- প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।
+bad_examples:
+- '"Ahan(S) Loves(V) Him(O)" হলো একটি ইংরেজি বাক্য যা আলোচ্য পদক্রমঅনুসরণ করে গঠিত
+  হয়েছে'
+common_llm_error: LLMs emit literal calques or non-standard syntax for 'Ahan, Loves,
+  Him'.
+sources:
+- 'Corpus Harvest Provenance: Bangla Wikipedia Bengali Grammar & Philology'
+- Principle P2 Human Provenance Audit Gate
+- Bangla Academy Linguistic Research Methodology Guidelines
+- Linguistic Society of Bangladesh Peer-Reviewed Standards
+confidence: candidate
+created_date: '2026-11-12'
+last_modified: '2026-11-12'
+review:
+  reviewer_name: null
+  reviewer_affiliation: null
+  reviewed_date: null
+  status: PENDING_HUMAN_REVIEW
+  notes: Candidate card synthesized by Bhashabid Autonomous Learning Loop. Pending
+    human native-speaker sign-off.
+  signature_hash: null

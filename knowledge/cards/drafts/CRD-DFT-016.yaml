@@ -1,0 +1,30 @@
+id: CRD-DFT-016
+title: 'Candidate Rule for Pattern: SVO'
+domain: Academic Research & Methodology
+profile: bd_standard
+register: formal
+rule_summary: Automatically flagged pattern 'SVO' requires naturalization to active
+  causal phrasing (e.g. 'প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।').
+good_examples:
+- প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।
+bad_examples:
+- এ ধরনের পদক্রমকে ইংরেজিতে সংক্ষেপে SVO(Subject-Verb-Object) বলা হয়
+- ইংরেজি একটি উল্লেখযোগ্য SVO ভাষা
+- যেমন- "অহন(কর্তা) ভালোবাসে(ক্রিয়া) তাকে(কর্ম)" হলো একটি SVO পদক্রম
+common_llm_error: LLMs emit literal calques or non-standard syntax for 'SVO'.
+sources:
+- 'Corpus Harvest Provenance: Bangla Wikipedia Bengali Grammar & Philology'
+- Principle P2 Human Provenance Audit Gate
+- Bangla Academy Linguistic Research Methodology Guidelines
+- Linguistic Society of Bangladesh Peer-Reviewed Standards
+confidence: candidate
+created_date: '2026-11-12'
+last_modified: '2026-11-12'
+review:
+  reviewer_name: null
+  reviewer_affiliation: null
+  reviewed_date: null
+  status: PENDING_HUMAN_REVIEW
+  notes: Candidate card synthesized by Bhashabid Autonomous Learning Loop. Pending
+    human native-speaker sign-off.
+  signature_hash: null

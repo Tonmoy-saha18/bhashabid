@@ -1,0 +1,28 @@
+id: CRD-DFT-012
+title: 'Candidate Rule for Pattern: abdul, alim'
+domain: ICT & Software Engineering
+profile: bd_standard
+register: formal
+rule_summary: Automatically flagged pattern 'abdul, alim' requires naturalization
+  to active causal phrasing (e.g. 'প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।').
+good_examples:
+- প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।
+bad_examples:
+- md abdul alim m2a এটি প্রতিষ্ঠা করেন
+common_llm_error: LLMs emit literal calques or non-standard syntax for 'abdul, alim'.
+sources:
+- 'Corpus Harvest Provenance: Bangla Wikipedia Information Technology & Computing'
+- Principle P2 Human Provenance Audit Gate
+- Bangladesh Computer Council (BCC) Bengali Computing & Unicode Standards
+- Open-Source Bengali Localization Best Practices
+confidence: candidate
+created_date: '2026-11-12'
+last_modified: '2026-11-12'
+review:
+  reviewer_name: null
+  reviewer_affiliation: null
+  reviewed_date: null
+  status: PENDING_HUMAN_REVIEW
+  notes: Candidate card synthesized by Bhashabid Autonomous Learning Loop. Pending
+    human native-speaker sign-off.
+  signature_hash: null

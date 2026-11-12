@@ -1,0 +1,33 @@
+id: CRD-DFT-013
+title: 'Candidate Rule for Pattern: Career, Era, Opportunities, and, Challen'
+domain: Macroeconomics & Banking
+profile: bd_standard
+register: formal
+rule_summary: Automatically flagged pattern 'Career, Era, Opportunities, and, Challenges'
+  requires naturalization to active causal phrasing (e.g. 'প্রমিত বাংলা অনুবাদ বা
+  বন্ধনীসহ ব্যবহার করুন।').
+good_examples:
+- প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।
+bad_examples:
+- 'খুদে ভক্তের জন্য কেন কেঁদেছিলেন হুমায়ূন আহমেদ প্রতিযোগিতার পাশাপাশি বিকেল ৩টায়
+  ‘Career in AI Era: Opportunities and Challenges’ শীর্ষক একটি প্যানেল আলোচনা অনুষ্ঠিত
+  হবে'
+common_llm_error: LLMs emit literal calques or non-standard syntax for 'Career, Era,
+  Opportunities, and, Challenges'.
+sources:
+- 'Corpus Harvest Provenance: Prothom Alo (National & Economy)'
+- Principle P2 Human Provenance Audit Gate
+- Bangladesh Bank Prudential Regulations & Monetary Policy
+- Bangla Academy Financial & Economic Terminology
+- The Business Standard Verified Macroeconomic Feed
+confidence: candidate
+created_date: '2026-11-12'
+last_modified: '2026-11-12'
+review:
+  reviewer_name: null
+  reviewer_affiliation: null
+  reviewed_date: null
+  status: PENDING_HUMAN_REVIEW
+  notes: Candidate card synthesized by Bhashabid Autonomous Learning Loop. Pending
+    human native-speaker sign-off.
+  signature_hash: null
