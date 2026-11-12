@@ -44,23 +44,40 @@ UNNATURAL_CALQUES = [
     for pat, label, sugg in RAW_UNNATURAL_CALQUES
 ]
 
+# Statutory legal and constitutional patterns where 'দ্বারা' is legally legitimate
+PROTECTED_STATUTORY_PATTERNS = [
+    re.compile(canonicalize_unicode(r"(?:আইন|সংবিধান|বিধি|আদালত|আদেশ)\s+দ্বারা\s+(?:অনুমোদিত|নির্ধারিত|অর্পিত|স্বীকৃত|প্রণীত|নির্দেশিত)"))
+]
+
 def check_calques(text: str) -> list[LintIssue]:
     issues = []
     lines = text.splitlines()
 
     for line_idx, line in enumerate(lines, start=1):
         for pat, matched_label, suggestion in UNNATURAL_CALQUES:
-            m = re.search(pat, line)
-            if m:
-                col = m.start() + 1
-                issues.append(LintIssue(
-                    rule_id="RULE-LINT-CALQUE",
-                    message=f"অস্বাভাবিক ইংরেজি প্যাসিভ ক্যাল্ক: '{matched_label}' প্রমিত বাংলায় কৃত্রিম শোনায়।",
-                    line=line_idx,
-                    col=col,
-                    severity=LintSeverity.WARNING,
-                    matched_text=m.group(0),
-                    suggestion=f"স্বাভাবিক বাংলা প্রকাশভঙ্গি '{suggestion}' ব্যবহার করুন।"
-                ))
+            for m in re.finditer(pat, line):
+                matched_span = (m.start(), m.end())
+                
+                # Check if this match falls within a protected statutory context
+                is_protected = False
+                for stat_pat in PROTECTED_STATUTORY_PATTERNS:
+                    for sm in stat_pat.finditer(line):
+                        if sm.start() <= matched_span[0] and matched_span[1] <= sm.end():
+                            is_protected = True
+                            break
+                    if is_protected:
+                        break
+
+                if not is_protected:
+                    col = m.start() + 1
+                    issues.append(LintIssue(
+                        rule_id="RULE-LINT-CALQUE",
+                        message=f"অস্বাভাবিক ইংরেজি প্যাসিভ ক্যাল্ক: '{matched_label}' প্রমিত বাংলায় কৃত্রিম শোনায়।",
+                        line=line_idx,
+                        col=col,
+                        severity=LintSeverity.WARNING,
+                        matched_text=m.group(0),
+                        suggestion=f"স্বাভাবিক বাংলা প্রকাশভঙ্গি '{suggestion}' ব্যবহার করুন।"
+                    ))
 
     return issues

@@ -5,6 +5,7 @@ import sys
 import re
 import json
 import glob
+import shutil
 from dataclasses import dataclass, asdict
 from typing import List, Dict, Optional, Tuple
 
@@ -155,22 +156,43 @@ class CorpusHarvester:
         self.harvested.extend(results)
         return results
 
-    def harvest_all_sources(self) -> Dict:
-        """Ingests and audits all corpora in eval/corpora/sources/ and dynamic inbox in eval/corpora/inbox/."""
+    def harvest_all_sources(self, archive_inbox: bool = True) -> Dict:
+        """
+        Ingests and audits all corpora in eval/corpora/sources/ and dynamic inbox in eval/corpora/inbox/.
+        If archive_inbox is True, moves processed dynamic inbox files to eval/corpora/inbox/archive/
+        to prevent redundant re-auditing and queue bloat.
+        """
         source_files = sorted(glob.glob(os.path.join(self.corpora_dir, "*.jsonl")))
         
-        # Also check dynamic ingestion inbox
+        # Check dynamic ingestion inbox
         inbox_dir = os.path.join(os.path.dirname(self.corpora_dir), "inbox")
         inbox_files = []
         if os.path.exists(inbox_dir):
             for ext in ("*.jsonl", "*.txt", "*.md"):
-                inbox_files.extend(glob.glob(os.path.join(inbox_dir, ext)))
+                # Exclude README and already archived files
+                for f in glob.glob(os.path.join(inbox_dir, ext)):
+                    if not f.endswith("README.md") and "archive" not in f:
+                        inbox_files.append(f)
         
-        all_files = source_files + [f for f in inbox_files if not f.endswith("README.md")]
+        all_files = source_files + inbox_files
         total_files = len(all_files)
         
         for sf in all_files:
             self.harvest_file(sf)
+
+        # Archive processed inbox files to keep inbox lean
+        if archive_inbox and inbox_files:
+            archive_dir = os.path.join(inbox_dir, "archive")
+            os.makedirs(archive_dir, exist_ok=True)
+            for inf in inbox_files:
+                try:
+                    dest = os.path.join(archive_dir, os.path.basename(inf))
+                    # If dest exists, overwrite or timestamp
+                    if os.path.exists(dest):
+                        os.remove(dest)
+                    shutil.move(inf, dest)
+                except Exception as me:
+                    print(f"Notice: Could not archive inbox file {inf}: {me}")
 
         stats = {
             "sources_scanned": total_files,

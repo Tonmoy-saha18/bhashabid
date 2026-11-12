@@ -6,34 +6,28 @@ description: Bengali linguistic coprocessor (Bangla Academy, anti-calque, statut
 # Bengali Linguistic Coprocessor (Bhashabid)
 
 1. **Orthography (Bangla Academy)**:
-   - Foreign loanwords: 'স'/'স্ট' (স্টেশন, পোস্ট, মাস্টার), never 'ষ'/'ষ্ট'.
-   - Desi words: short 'ি' (পাখি, হাতি, দাদি, বাড়ি, সরকারি).
+   - Foreign loanwords use 'স'/'স্ট' (স্টেশন, পোস্ট); never 'ষ'/'ষ্ট'.
+   - Desi/foreign words take short 'ি' (পাখি, হাতি, সরকারি).
 
 2. **Numerals & Grouping**:
-   - South Asian commas: ১২,৩৪,৫৬৭ (not 1,234,567).
+   - Commas: ১২,৩৪,৫৬৭. Decimals use dot: ৩.১৪ (never ৩।১৪).
    - Standard words: ৯৯ = নিরানব্বই, ৭৫ = পঁচাত্তর.
 
-3. **Zero Guru-chandali (সাধু-চলিত মিশ্রণ পরিহার)**:
-   - Modern Promito Cholito across all sectors.
-   - Never mix Sadhu verbs ('হইবে', 'যদ্দারা', 'তাহাদিগকে', 'দর্শাইতে', 'করিলেন').
+3. **Zero Guru-chandali**:
+   - Modern Promito Cholito only. Never mix Sadhu forms (হইবে, যদ্দারা, তাহাদিগকে).
 
-4. **Legal & Writs Drafting**:
-   - Article 102 writs in formal Cholito ('পরমাদেশ জারি', 'রুল নিশি').
-   - Parties: আবেদনকারী (Petitioner) and বিবাদীগণ (Respondents) — never 'উত্তরদাতাগণ'.
-   - Phrases: 'আইনগত কর্তৃত্ববহির্ভূত ও আইনগত ফলাফলবিহীন', 'স্থিতাবস্থা'.
+4. **Legal & Writs Drafting (Art 102)**:
+   - Parties: আবেদনকারী (Petitioner), বিবাদীগণ (Respondents); never 'উত্তরদাতাগণ'.
+   - Statutory terms: পরমাদেশ (Mandamus), রুল নিশি, আইনগত কর্তৃত্ববহির্ভূত, স্থিতাবস্থা.
 
-5. **Punctuation & Decimals**:
-   - Sentences end with Dari ('।'). Protect decimals with dot (৩.১৪).
+5. **Anti-Calque**:
+   - Avoid mechanical English passives ('দ্বারা চালিত'). Use natural active voice.
 
-6. **Anti-Calque & Idiomatic Diction**:
-   - Avoid English passive calques ('দ্বারা চালিত'). Use natural active voice.
-
-7. **NCTB Creative Pedagogy (সৃজনশীল প্রশ্ন)**:
-   - Stem: নিচের উদ্দীপকটি পড়ে প্রশ্নগুলোর উত্তর দাও: (never 'পড়িয়া').
+6. **NCTB Creative Pedagogy (সৃজনশীল)**:
    - 4 Tiers: (ক) জ্ঞান [১], (খ) অনুধাবন [২], (গ) প্রয়োগ [৩], (ঘ) উচ্চতর দক্ষতা [৪].
-   - In (ঘ): উক্তিটির যথার্থতা মূল্যায়ন করো (never 'মতামত দাও').
+   - In (ঘ), use যৌক্তিকতা বিশ্লেষণ করো (never 'মতামত দাও').
 
-## Dynamic Route Guides (references/)
+## Progressive References (references/)
 - numerals.md: 0-99 words, fractions, dates, currency.
 - orthography.md: Bangla Academy spelling, loanwords, NFC.
 - grammar_registers.md: Sadhu/Cholito tables, honorifics.

@@ -122,6 +122,7 @@ def handle_practice(args):
             rounds=args.rounds,
             domain_filter=args.domain,
             continuous=args.continuous,
+            auto_commit=getattr(args, "commit", False) or getattr(args, "push", False),
             auto_push=getattr(args, "push", False)
         )
         return 0
@@ -218,6 +219,13 @@ def handle_mcp(args):
 def handle_harvest(args):
     try:
         from .corpus_harvester import CorpusHarvester
+        
+        # If --scrape is requested, fetch fresh live articles into eval/corpora/inbox/ first
+        if getattr(args, "scrape", False):
+            from .autonomous_scraper import AutonomousScraper
+            scraper = AutonomousScraper()
+            scraper.scrape_and_save_to_inbox(max_items_per_feed=3)
+
         harvester = CorpusHarvester(corpora_dir=args.dir)
         if args.file:
             results = harvester.harvest_file(args.file)
@@ -330,6 +338,7 @@ def main():
     p_prac.add_argument("--duration-minutes", "--minutes", "-minutes", "-m", dest="duration_minutes", type=float, default=150.0, help="Window for continuous mode (default: 150 min)")
     p_prac.add_argument("--domain", default=None, help="Filter to specific domain")
     p_prac.add_argument("--continuous", action="store_true", help="Run continuously for duration-minutes (soak test mode)")
+    p_prac.add_argument("--commit", action="store_true", help="Automatically commit post-practice updates locally")
     p_prac.add_argument("--push", action="store_true", help="Automatically commit and push post-practice updates")
     p_prac.set_defaults(func=handle_practice)
 
@@ -380,6 +389,7 @@ def main():
     p_harv = subparsers.add_parser("harvest", help="Ingest and audit real-world corpora from news feeds, circulars, and textbooks")
     p_harv.add_argument("--dir", default=None, help="Directory containing .jsonl corpora (default: eval/corpora/sources)")
     p_harv.add_argument("--file", default=None, help="Specific file to harvest and audit")
+    p_harv.add_argument("--scrape", action="store_true", help="Autonomously scrape live RSS feeds from TBS, Daily Star, Prothom Alo, and Wikipedia")
     p_harv.add_argument("--report", nargs="?", const="default", default=None, help="Generate markdown audit report")
     p_harv.set_defaults(func=handle_harvest)
 

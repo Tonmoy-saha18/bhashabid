@@ -17,6 +17,9 @@ htmlcov/
 # Dynamic daily practice run logs
 eval/reports/daily_runs/*.md
 !eval/reports/daily_runs/.gitkeep
+eval/corpora/inbox/*.jsonl
+eval/corpora/inbox/archive/*.jsonl
+!eval/corpora/inbox/archive/.gitkeep
 
 # System & OS temporary files
 .DS_Store

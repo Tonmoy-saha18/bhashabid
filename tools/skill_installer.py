@@ -13,6 +13,9 @@ def get_source_skill_dir() -> Path:
     p = Path(REPO_ROOT) / "skills" / "bangla-expert"
     if p.exists() and (p / "SKILL.md").exists():
         return p
+    p_assets = Path(__file__).parent / "assets" / "skills" / "bangla-expert"
+    if p_assets.exists() and (p_assets / "SKILL.md").exists():
+        return p_assets
     import importlib.util
     spec = importlib.util.find_spec("skills")
     if spec and spec.submodule_search_locations:
@@ -212,6 +215,8 @@ def install_skill(target: str = "all", workspace_dir: str = None, with_mcp: bool
             cur_global_rules = home / ".cursor" / "rules"
             os.makedirs(cur_global_rules, exist_ok=True)
             src_rule = Path(REPO_ROOT) / "adapters" / "cursor" / ".cursorrules"
+            if not src_rule.exists():
+                src_rule = Path(__file__).parent / "assets" / "adapters" / "cursor" / ".cursorrules"
             if src_rule.exists():
                 shutil.copy(src_rule, cur_global_rules / "bangla-expert.mdc")
 

@@ -30,14 +30,17 @@ def format_lakh_crore(val: int | str, to_bangla: bool = True) -> str:
     
     # Normalize to ascii digits first
     s = to_ascii_digits(s)
-    if not s.isdigit():
-        raise ValueError(f"Invalid integer string for grouping: {val}")
     
     # Handle decimal if present
     decimal_part = ""
     if "." in s:
-        s, decimal_part = s.split(".", 1)
-        decimal_part = "." + decimal_part
+        s, decimal_digits = s.split(".", 1)
+        if decimal_digits and not decimal_digits.isdigit():
+            raise ValueError(f"Invalid number string for grouping: {val}")
+        decimal_part = "." + decimal_digits
+        
+    if not s.isdigit():
+        raise ValueError(f"Invalid number string for grouping: {val}")
         
     if len(s) <= 3:
         formatted = s

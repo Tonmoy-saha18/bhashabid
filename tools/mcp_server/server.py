@@ -1,6 +1,12 @@
 # Lightweight MCP Server for Bhashabid tools
 import json
-from ..bn_numbers import number_to_bangla_words, format_lakh_crore
+from ..bn_numbers import (
+    number_to_bangla_words,
+    decimal_to_bangla_words,
+    format_lakh_crore,
+    format_currency_words,
+    to_ascii_digits
+)
 from ..bn_normalize import normalize
 from ..bn_lint import lint_text
 
@@ -16,12 +22,12 @@ class BhashabidMCPServer:
         self.tools = [
             {
                 "name": "convert_number",
-                "description": "Convert numbers to standard Bengali words, fractions, and South Asian grouping.",
+                "description": "Convert integers, floating-point decimals, and currencies into standard Bengali words, fractions, or South Asian lakh/crore comma grouping.",
                 "parameters": {
                     "type": "object",
                     "properties": {
-                        "number": {"type": "integer", "description": "The number to convert."},
-                        "format": {"type": "string", "enum": ["words", "grouped"], "default": "words"}
+                        "number": {"description": "The number to convert (integer, float, or string like '89079490.7890' or '৮৯০৭৯৪৯০.৭৮৯০')."},
+                        "format": {"type": "string", "enum": ["words", "grouped", "currency"], "default": "words"}
                     },
                     "required": ["number"]
                 }
@@ -82,13 +88,20 @@ class BhashabidMCPServer:
 
     def call_tool(self, name: str, arguments: dict) -> dict:
         if name == "convert_number":
-            num = arguments.get("number", 0)
+            raw_val = str(arguments.get("number", 0)).strip()
             fmt = arguments.get("format", "words")
+            val_ascii = to_ascii_digits(raw_val)
             if fmt == "grouped":
-                res = format_lakh_crore(num)
+                res = format_lakh_crore(val_ascii)
+                return {"result": res}
+            elif fmt == "currency":
+                res = format_currency_words(float(val_ascii))
                 return {"result": res}
             else:
-                res = number_to_bangla_words(num)
+                if "." in val_ascii:
+                    res = decimal_to_bangla_words(val_ascii)
+                else:
+                    res = number_to_bangla_words(int(val_ascii))
                 return {"result": res}
 
         elif name == "normalize_text":

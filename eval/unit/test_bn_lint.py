@@ -93,5 +93,16 @@ class TestBnLint(unittest.TestCase):
         self.assertTrue(len(calque_issues) >= 1)
         self.assertTrue(any("যুগান্তকারী" in i.suggestion for i in calque_issues))
 
+    def test_statutory_calque_disambiguation(self):
+        # Legitimate statutory phrases should not be falsely flagged as calques
+        statutory_text = "উক্ত ক্ষমতা আইন দ্বারা অনুমোদিত এবং সংশ্লিষ্ট বিধি দ্বারা নির্ধারিত।"
+        issues = lint_text(statutory_text)
+        self.assertEqual(len(issues), 0, "Legitimate statutory 'দ্বারা' must not trigger false calque warnings")
+
+        # But translation passive calques MUST still be trapped
+        calque_text = "প্রকল্পটি সম্পূর্ণভাবে বিদ্যুৎ বিভাগ দ্বারা চালিত।"
+        calque_issues = lint_text(calque_text)
+        self.assertTrue(any(i.rule_id == "RULE-LINT-CALQUE" for i in calque_issues))
+
 if __name__ == "__main__":
     unittest.main()

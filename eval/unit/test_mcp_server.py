@@ -28,6 +28,22 @@ class TestMCPServer(unittest.TestCase):
         res_grouped = self.server.call_tool("convert_number", {"number": 1234567, "format": "grouped"})
         self.assertEqual(res_grouped["result"], "১২,৩৪,৫৬৭")
 
+        # Test floating-point and string decimal handling
+        res_dec = self.server.call_tool("convert_number", {"number": "89079490.7890", "format": "words"})
+        self.assertEqual(
+            res_dec["result"],
+            "আট কোটি নব্বই লাখ ঊনআশি হাজার চার শত নব্বই দশমিক সাত আট নয় শূন্য"
+        )
+
+        res_dec_float = self.server.call_tool("convert_number", {"number": 3.14, "format": "words"})
+        self.assertEqual(res_dec_float["result"], "তিন দশমিক এক চার")
+
+        res_dec_grouped = self.server.call_tool("convert_number", {"number": "89079490.7890", "format": "grouped"})
+        self.assertEqual(res_dec_grouped["result"], "৮,৯০,৭৯,৪৯০.৭৮৯০")
+
+        res_curr = self.server.call_tool("convert_number", {"number": "50.25", "format": "currency"})
+        self.assertEqual(res_curr["result"], "পঞ্চাশ টাকা পঁচিশ পয়সা")
+
     def test_call_normalize_text(self):
         res = self.server.call_tool("normalize_text", {"text": "তিনি রেলষ্টেশনে গেলেন."})
         self.assertEqual(res["result"], "তিনি রেলস্টেশনে গেলেন।")

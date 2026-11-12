@@ -142,7 +142,12 @@ class CardSynthesizer:
         created = []
         clusters: Dict[str, List[Dict]] = {}
         for a in anomalies:
-            sig = a.get("rule_id", "ANOMALY-GENERAL")
+            rule_id = a.get("rule_id", "ANOMALY-GENERAL")
+            matched = (a.get("matched") or a.get("raw_text") or "general").strip()
+            # Group by rule_id and leading lexical token signature so distinct calques stay separated
+            tokens = matched.split()
+            lex_sig = " ".join(tokens[:3]) if tokens else matched
+            sig = f"{rule_id}::{lex_sig}"
             if sig not in clusters:
                 clusters[sig] = []
             clusters[sig].append(a)

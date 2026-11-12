@@ -90,10 +90,10 @@ def check_kill_switch() -> bool:
     stop_file = os.path.join(REPO_ROOT, "state", "STOP")
     return os.path.exists(stop_file)
 
-def sync_post_practice_git(auto_push: bool = False):
+def sync_post_practice_git(auto_commit: bool = False, auto_push: bool = False):
     """
-    Synchronizes any modified review cards, review packets, or regression ledgers.
-    If auto_push is True, commits and pushes cleanly to remote.
+    Synchronizes modified review cards, review packets, or regression ledgers.
+    Only commits to git if auto_commit or auto_push is explicitly enabled.
     """
     import subprocess
     try:
@@ -111,19 +111,27 @@ def sync_post_practice_git(auto_push: bool = False):
                 if any(fpath.startswith(prefix) for prefix in tracked_prefixes):
                     files_to_add.append(fpath)
 
-        if files_to_add:
-            subprocess.run(["git", "add"] + files_to_add, cwd=REPO_ROOT, check=True)
-            msg = f"chore(practice): post-practice synchronization of {len(files_to_add)} review/learning artifacts"
-            subprocess.run(["git", "commit", "-m", msg], cwd=REPO_ROOT, check=True)
-            print(f"Post-practice git commit created for: {', '.join(files_to_add)}")
+        if not files_to_add:
+            return
 
-            if auto_push:
-                print("Pushing post-practice updates to remote repository...")
-                push_res = subprocess.run(["git", "push", "origin", "main"], cwd=REPO_ROOT, capture_output=True, text=True)
-                if push_res.returncode == 0:
-                    print("Successfully pushed post-practice updates to origin/main.")
-                else:
-                    print(f"Notice: git push did not complete: {push_res.stderr.strip()}")
+        if not auto_commit and not auto_push:
+            print(f"\n[Practice Audit Notice] {len(files_to_add)} learning/review artifacts updated locally.")
+            print(f"  Artifacts: {', '.join(files_to_add[:3])}{'...' if len(files_to_add) > 3 else ''}")
+            print("  Git auto-commit disabled by default. Stage and review changes when ready.")
+            return
+
+        subprocess.run(["git", "add"] + files_to_add, cwd=REPO_ROOT, check=True)
+        msg = f"chore(practice): post-practice synchronization of {len(files_to_add)} review/learning artifacts"
+        subprocess.run(["git", "commit", "-m", msg], cwd=REPO_ROOT, check=True)
+        print(f"Post-practice git commit created for: {', '.join(files_to_add)}")
+
+        if auto_push:
+            print("Pushing post-practice updates to remote repository...")
+            push_res = subprocess.run(["git", "push", "origin", "main"], cwd=REPO_ROOT, capture_output=True, text=True)
+            if push_res.returncode == 0:
+                print("Successfully pushed post-practice updates to origin/main.")
+            else:
+                print(f"Notice: git push did not complete: {push_res.stderr.strip()}")
     except Exception as ex:
         print(f"Notice: post-practice git synchronization encountered: {ex}")
 
@@ -132,6 +140,7 @@ def run_practice_cycle(
     rounds: int = 1,
     domain_filter: str = None,
     continuous: bool = False,
+    auto_commit: bool = False,
     auto_push: bool = False
 ) -> dict:
     start_time = datetime.now()
@@ -307,6 +316,16 @@ def run_practice_cycle(
         # Distill approved cards and enforce token budget
         distiller = SkillDistiller()
         distiller.distill_all(auto_install=True)
+
+        # Autonomous Ingestion Hook: If batch is saturated, autonomously scrape fresh data for the next cycle
+        try:
+            from tools.autonomous_scraper import AutonomousScraper
+            scraper = AutonomousScraper()
+            fresh_batch = scraper.execute_saturation_hook()
+            if fresh_batch:
+                print(f"Autonomous Ingestion Hook: Scraped fresh real-world batch -> {fresh_batch}")
+        except Exception as se:
+            print(f"Notice: Autonomous scraper encountered: {se}")
     except Exception as ex:
         print(f"Notice: Automated card feedback loop encountered: {ex}")
 
@@ -346,7 +365,7 @@ def run_practice_cycle(
                 pass
 
     # Post-practice git synchronization and remote push if requested
-    sync_post_practice_git(auto_push=auto_push)
+    sync_post_practice_git(auto_commit=auto_commit, auto_push=auto_push)
 
     print("=" * 80)
     return stats
@@ -357,6 +376,7 @@ if __name__ == "__main__":
     parser.add_argument("--duration-minutes", "--minutes", "-minutes", "-m", dest="duration_minutes", type=float, default=150.0, help="Window for continuous mode (default: 150 min)")
     parser.add_argument("--domain", default=None, help="Filter to specific domain")
     parser.add_argument("--continuous", action="store_true", help="Run continuously for duration-minutes (soak test mode)")
+    parser.add_argument("--commit", action="store_true", help="Automatically commit post-practice updates locally")
     parser.add_argument("--push", action="store_true", help="Automatically commit and push post-practice updates")
     args = parser.parse_args()
 
@@ -365,5 +385,6 @@ if __name__ == "__main__":
         rounds=args.rounds,
         domain_filter=args.domain,
         continuous=args.continuous,
+        auto_commit=args.commit or args.push,
         auto_push=args.push
     )

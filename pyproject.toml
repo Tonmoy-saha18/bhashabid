@@ -26,6 +26,9 @@ dependencies = [
 [tool.setuptools.packages.find]
 include = ["tools*"]
 
+[tool.setuptools.package-data]
+"tools" = ["assets/**/*", "assets/*"]
+
 [project.urls]
 "Homepage" = "https://github.com/ashik1291/bhashabid"
 "Bug Tracker" = "https://github.com/ashik1291/bhashabid/issues"

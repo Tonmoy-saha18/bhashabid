@@ -16,7 +16,7 @@ Constitutional Rule: **Principle P2 (Human Native Provenance Required)**
 
 ---
 
-## 📥 Pending Candidate Queue (2 Cards Awaiting Human Review)
+## 📥 Pending Candidate Queue (3 Cards Awaiting Human Review)
 
 ### Draft 1: [CRD-DFT-001] Candidate Rule for Pattern: দ্বারা চালিত
 - **File**: `knowledge\cards\drafts\CRD-DFT-001.yaml`
@@ -62,6 +62,28 @@ bhashabid review --card CRD-DFT-001 --reviewer "Ashikur Rahman Bhuiyan" --affili
 **Quick Action Command**:
 ```bash
 bhashabid review --card CRD-DFT-002 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
+```
+
+---
+
+### Draft 3: [CRD-DFT-003] Candidate Rule for Pattern: Byline, News, type, Web, Publish, date, 
+- **File**: `knowledge\cards\drafts\CRD-DFT-003.yaml`
+- **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
+- **Rule Summary**: Automatically flagged pattern 'Byline, News, type, Web, Publish, date, Friday, October, Tags, URL, category, News, category, Featured, image, News, images, Hide, Featured, Image, Details, summary, Long, Read, Title, position, Left' requires naturalization to active causal phrasing (e.g. 'প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।').
+
+**Positive Examples (শুদ্ধ প্রয়োগ)**:
+  - ✓ প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।
+
+**Negative Examples (ভ্রান্ত প্রয়োগ)**:
+  - ✗ Byline, News, type, Web, Publish, date, Friday, October, Tags, URL, category, News, category, Featured, image, News, images, Hide, Featured, Image, Details, summary, Long, Read, Title, position, Left
+
+**Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'Byline, News, type, Web, Publish, date, Friday, October, Tags, URL, category, News, category, Featured, image, News, images, Hide, Featured, Image, Details, summary, Long, Read, Title, position, Left'.
+**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus
+
+**Quick Action Command**:
+```bash
+bhashabid review --card CRD-DFT-003 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
 ```
 
 ---

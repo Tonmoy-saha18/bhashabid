@@ -2,8 +2,10 @@
 # Automated Knowledge Card to Skill & Reference Distillation Engine
 import os
 import sys
+import re
 import yaml
 import glob
+import shutil
 from pathlib import Path
 from typing import Dict, List, Any, Tuple
 
@@ -48,8 +50,22 @@ class SkillDistiller:
 
     @staticmethod
     def estimate_tokens(text: str) -> int:
-        words = len(text.split())
-        return int(words * 1.3)
+        """
+        Multilingual-calibrated token estimator for English + Bengali Unicode.
+        In BPE tokenizers (cl100k, Llama 3, Gemini), Bengali Unicode graphemes
+        average 2.5-3.5 tokens/word, while English averages ~1.3 tokens/word.
+        """
+        try:
+            import tiktoken
+            enc = tiktoken.get_encoding("cl100k_base")
+            return len(enc.encode(text))
+        except Exception:
+            words = text.split()
+            en_words = [w for w in words if not re.search(r"[\u0980-\u09FF]", w)]
+            bn_words = [w for w in words if re.search(r"[\u0980-\u09FF]", w)]
+            en_tokens = len(en_words) * 1.3
+            bn_tokens = sum(max(1, len(re.findall(r"[\u0980-\u09FF]", w)) / 2.0 + 0.5) for w in bn_words)
+            return int(en_tokens + bn_tokens)
 
     def verify_token_budget(self, text: str, max_tokens: int = MAX_CORE_TOKEN_BUDGET) -> Tuple[bool, int]:
         tokens = self.estimate_tokens(text)
@@ -79,6 +95,16 @@ class SkillDistiller:
             stats["token_budget_compliant"] = is_valid
             if not is_valid:
                 raise ValueError(f"Core .cursorrules exceeds token budget: {tok_count} tokens > {MAX_CORE_TOKEN_BUDGET}")
+
+        # Sync assets to tools/assets/ for PyPI wheel packaging
+        assets_skills = Path(__file__).parent / "assets" / "skills"
+        assets_adapters = Path(__file__).parent / "assets" / "adapters"
+        src_skills = Path(REPO_ROOT) / "skills"
+        src_adapters = Path(REPO_ROOT) / "adapters"
+        if src_skills.exists():
+            shutil.copytree(src_skills, assets_skills, dirs_exist_ok=True)
+        if src_adapters.exists():
+            shutil.copytree(src_adapters, assets_adapters, dirs_exist_ok=True)
 
         # Automatically re-install globally
         if auto_install:

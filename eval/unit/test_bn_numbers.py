@@ -38,6 +38,7 @@ class TestBnNumbers(unittest.TestCase):
         self.assertEqual(format_lakh_crore(1234567), "১২,৩৪,৫৬৭")
         self.assertEqual(format_lakh_crore(12345678), "১,২৩,৪৫,৬৭৮")
         self.assertEqual(format_lakh_crore("1234567", to_bangla=False), "12,34,567")
+        self.assertEqual(format_lakh_crore("89079490.7890"), "৮,৯০,৭৯,৪৯০.৭৮৯০")
 
     def test_zero_to_ninety_nine(self):
         # Verify 0, 1, 99 and sample checks
@@ -83,6 +84,10 @@ class TestBnNumbers(unittest.TestCase):
     def test_decimals_digit_by_digit(self):
         self.assertEqual(decimal_to_bangla_words("3.14"), "তিন দশমিক এক চার")
         self.assertEqual(decimal_to_bangla_words(0.05), "শূন্য দশমিক শূন্য পাঁচ")
+        self.assertEqual(
+            decimal_to_bangla_words("89079490.7890"),
+            "আট কোটি নব্বই লাখ ঊনআশি হাজার চার শত নব্বই দশমিক সাত আট নয় শূন্য"
+        )
 
     def test_fractions(self):
         self.assertEqual(fraction_to_bangla_words(0.25), "এক-চতুর্থাংশ")

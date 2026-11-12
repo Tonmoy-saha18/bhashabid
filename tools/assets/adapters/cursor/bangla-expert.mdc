@@ -1,0 +1,31 @@
+---
+description: Bengali Promito Cholito, anti-calque, and statutory legal invariants
+globs: *
+alwaysApply: true
+---
+
+# Bhashabid Linguistic Invariants (বাংলা নির্দেশিকা)
+
+When generating or editing Bengali:
+
+1. **Bangla Academy Orthography**:
+   - Foreign loanwords use 'স'/'স্ট' (স্টেশন, পোস্ট); never 'ষ'/'ষ্ট'.
+   - Desi/foreign words take short 'ি' (পাখি, হাতি, সরকারি).
+
+2. **Numerals & South Asian Grouping**:
+   - Commas: ১২,৩৪,৫৬৭ (not 1,234,567). Decimals use dot: ৩.১৪ (never ৩।১৪).
+   - Standard words: ৯৯ = নিরানব্বই, ৭৫ = পঁচাত্তর.
+
+3. **Zero Guru-chandali**:
+   - Standard Promito Cholito only. Never mix Sadhu forms (হইবে, যদ্দারা, তাহাদিগকে) into Cholito.
+
+4. **High Court Legal Drafting (Art 102)**:
+   - Parties: আবেদনকারী (Petitioner), বিবাদীগণ (Respondents); never 'উত্তরদাতাগণ'.
+   - Statutory terms: পরমাদেশ (Mandamus), রুল নিশি, আইনগত কর্তৃত্ববহির্ভূত, স্থিতাবস্থা.
+
+5. **Anti-Calque**:
+   - Avoid mechanical English passives ('দ্বারা চালিত'). Use natural active voice.
+
+6. **NCTB Creative Pedagogy (সৃজনশীল)**:
+   - 4 Tiers: (ক) জ্ঞান [১], (খ) অনুধাবন [২], (গ) প্রয়োগ [৩], (ঘ) উচ্চতর দক্ষতা [৪].
+   - In (ঘ), use যৌক্তিকতা বিশ্লেষণ করো (never 'মতামত দাও').
