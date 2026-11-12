@@ -178,6 +178,33 @@ def handle_status(args):
         sys.stderr.write(f"Status Error: {e}\n")
         return 1
 
+def handle_distill(args):
+    try:
+        from .skill_distiller import run_distillation
+        run_distillation()
+        return 0
+    except Exception as e:
+        sys.stderr.write(f"Distillation Error: {e}\n")
+        return 1
+
+def handle_synthesize_cards(args):
+    try:
+        from .corpus_harvester import CorpusHarvester
+        from .card_synthesizer import CardSynthesizer
+        harvester = CorpusHarvester(corpora_dir=getattr(args, "dir", None))
+        harvester.harvest_all_sources()
+        anomalies = [s.flaws for s in harvester.harvested if s.category in ["ANOMALY_CANDIDATE", "CANARY_TRAPPED"]]
+        flat_anomalies = [item for sublist in anomalies for item in sublist]
+        synthesizer = CardSynthesizer()
+        created = synthesizer.cluster_and_synthesize_anomalies(flat_anomalies)
+        print(f"✓ Synthesized {len(created)} candidate knowledge cards in knowledge/cards/drafts/")
+        for c in created:
+            print(f"  - {c}")
+        return 0
+    except Exception as e:
+        sys.stderr.write(f"Card Synthesizer Error: {e}\n")
+        return 1
+
 def handle_mcp(args):
     try:
         from .mcp_server.server import BhashabidMCPServer
@@ -335,6 +362,15 @@ def main():
     # status
     p_stat = subparsers.add_parser("status", help="Show Bhashabid global installation & health status across detected AI IDEs")
     p_stat.set_defaults(func=handle_status)
+
+    # distill
+    p_dist = subparsers.add_parser("distill", help="Distill approved knowledge cards into skills and verify token budgets")
+    p_dist.set_defaults(func=handle_distill)
+
+    # synthesize-cards
+    p_synth = subparsers.add_parser("synthesize-cards", help="Synthesize candidate knowledge cards from harvested anomalies")
+    p_synth.add_argument("--dir", default=None, help="Directory containing .jsonl corpora")
+    p_synth.set_defaults(func=handle_synthesize_cards)
 
     # mcp
     p_mcp = subparsers.add_parser("mcp", help="Run Model Context Protocol (MCP) JSON-RPC stdio server")

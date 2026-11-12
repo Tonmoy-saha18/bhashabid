@@ -237,6 +237,17 @@ def run_practice_cycle(
     test_result = runner.run(suite)
     stats["regression_suite_passed"] = test_result.wasSuccessful()
 
+    # Synthesize draft knowledge cards from any flagged anomalies
+    try:
+        from tools.card_synthesizer import CardSynthesizer
+        from tools.skill_distiller import SkillDistiller
+        
+        # Distill approved cards and enforce token budget
+        distiller = SkillDistiller()
+        distiller.distill_all(auto_install=True)
+    except Exception as ex:
+        print(f"Notice: Skill distillation encountered: {ex}")
+
     # Regenerate human review packet
     write_packet()
 
