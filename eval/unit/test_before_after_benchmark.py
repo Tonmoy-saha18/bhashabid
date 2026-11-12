@@ -38,5 +38,24 @@ class TestBeforeAfterBenchmark(unittest.TestCase):
         self.assertEqual(res_after["guru_chandali_count"], 0)
         self.assertGreaterEqual(res_after["score"], 95)
 
+    def test_case4_land_registry_evaluation(self):
+        c4 = SAMPLE_BASELINES[4]
+        res_before = evaluate_text(c4["before_sample"], 4)
+        res_after = evaluate_text(c4["after_sample"], 4)
+
+        self.assertLess(res_before["score"], 50)
+        self.assertGreaterEqual(res_after["score"], 95)
+        self.assertEqual(res_after["calque_count"], 0)
+
+    def test_case5_healthcare_clinical_evaluation(self):
+        c5 = SAMPLE_BASELINES[5]
+        res_before = evaluate_text(c5["before_sample"], 5)
+        res_after = evaluate_text(c5["after_sample"], 5)
+
+        self.assertGreater(res_before["corrupted_decimals"], 0)
+        self.assertEqual(res_after["corrupted_decimals"], 0)
+        self.assertGreaterEqual(res_after["score"], 95)
+        self.assertEqual(res_after["calque_count"], 0)
+
 if __name__ == "__main__":
     unittest.main()

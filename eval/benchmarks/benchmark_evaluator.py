@@ -69,6 +69,40 @@ SAMPLE_BASELINES = {
 """,
         "required_terms": ["উদ্দীপক", "সালোকসংশ্লেষণ", "ব্যাখ্যা করো", "যথার্থতা মূল্যায়ন করো"],
         "forbidden_calques": ["পড়িয়া", "বিস্তারিত লেখো", "তোমার মতামত কী", "মতামত দাও"]
+    },
+    4: {
+        "name": "Case 4: Land Registry & Saf-Kabala Conveyancing Deed",
+        "prompt": "ঢাকা জেলার সাভার সাব-রেজিস্ট্রি অফিসের অধীন একটি সাফ-কবলা জমি বিক্রয় দলিলের হস্তান্তরিত সম্পত্তির মূল বিবরণ ও দখল হস্তান্তরের শর্তাবলি এবং সংশ্লিষ্ট মৌজা, খতিয়ান (CS, SA, RS) ও দাগ নম্বর সংবলিত আনুষ্ঠানিক তফসিল বিবরণ বাংলায় খসড়া করো।",
+        "before_sample": """
+আমরা সাভারের জমির বিক্রির কাগজ তৈরি করে জমি ক্রেতাকে হস্তান্তর করলাম।
+দলিলমূলে সম্পত্তির দখল বুঝিয়া পাইলাম এবং নামজারি সম্পন্ন করে দাখিলা গ্রহণ করা হয়েছে।
+জমি কেনার পর সরকারি রেকর্ডে নিজের নাম পরিবর্তন করে নিবে।
+তফসিল: জমি সাভার এলাকায় অবস্থিত এবং এর দাগ নম্বর ৮৫০।
+""",
+        "after_sample": """
+অদ্যকার রেজিস্ট্রিকৃত সাফ-কবলা বিক্রয় দলিলমূলে আমি ১ম পক্ষ বিক্রেতা ২য় পক্ষ ক্রেতার নিকট থেকে হস্তান্তরিত সম্পত্তির পণমূল্য বাবদ সম্পূর্ণ অর্থ বুঝে পেয়ে সম্পত্তির চূড়ান্ত দখল বুঝিয়ে দিলাম।
+ক্রেতা অত্র সম্পত্তি নিজ নামে নামজারি ও জমাভাগ সম্পন্নপূর্বক খাজনা দাখিলা গ্রহণ করে পরম সুখে ভোগদখল করতে থাকবেন।
+তফসিল বর্ণিত সম্পত্তি: জেলা-ঢাকা, উপজেলা-সাভার, মৌজা-ভাকুর্তা, জে.এল নং-৪৭, সি.এস ও এস.এ খতিয়ান নং-১০২, আর.এস খতিয়ান নং-৩১৫, দাগ নং-৮৫০, শ্রেণি-নাল, পরিমাণ-১০ (দশ) শতাংশ, চৌহদ্দি: উত্তরে সরকারি রাস্তা, দক্ষিণে আব্দুর রউফের জমি।
+""",
+        "required_terms": ["সাফ-কবলা", "তফসিল", "খতিয়ান", "দাগ নং", "দখল", "নামজারি", "চৌহদ্দি"],
+        "forbidden_calques": ["জমির বিক্রির কাগজ", "নাম পরিবর্তন", "হস্তান্তর করলাম", "বুঝিয়া পাইলাম এবং নামজারি সম্পন্ন করে দাখিলা গ্রহণ করা হয়েছে"]
+    },
+    5: {
+        "name": "Case 5: Healthcare & Clinical Dengue Epidemic Protocol",
+        "prompt": "স্বাস্থ্য অধিদপ্তরের (DGHS) জাতীয় ডেঙ্গু ক্লিনিক্যাল ম্যানেজমেন্ট গাইডলাইন অনুযায়ী ডেঙ্গু হেমোরেজিক ফিভারের (DHF) সংকটজনক পর্যায়ের রোগীদের জন্য রক্তের প্লাটিলেট কাউন্ট, প্লাজমা লিকেজের লক্ষণ, হেমাটোক্রিট (HCT) পর্যবেক্ষণ এবং আইভি ফ্লুইড থেরাপির মাত্রা সংবলিত একটি জরুরি চিকিৎসাসেবা নির্দেশিকা তৈরি করো। উপাত্ত: প্লাটিলেট কাউন্ট ২০,০০০/মিমি³-এর নিচে, রোগীর জ্বর ১০৩.৪°F, রক্তচাপ ৯০/৬০ mmHg।",
+        "before_sample": """
+রোগীর জ্বর ১০৩।৪°F এবং প্লাটিলেট ড্রপ করে ২০।০০০ এর নিচে নেমে গেছে যা ডেঙ্গু শক সিন্ড্রোম দ্বারা এফেক্টেড হতে পারে।
+রোগীকে দিনে কয়েকবার ফ্লুইড দিন এবং এই ড্রাগটি সেবন করতে বলুন।
+রক্তচাপ কমে গেলে রোগীকে হাসপাতালে নেওয়ার ব্যবস্থা করা হবে।
+""",
+        "after_sample": """
+রোগীর তাপমাত্রা ১০৩.৪°F এবং রক্তচাপ ৯০/৬০ mmHg পরিলক্ষিত হওয়ায় ডেঙ্গু হেমোরেজিক ফিভারের (DHF) সংকটজনক পর্যায় বিবেচনা করা হলো।
+রক্তের অণুচক্রিকা (Platelet count) ২০,০০০/মিমি³-এর নিচে নামায় প্লাজমা লিকেজ ও রক্তক্ষরণ প্রতিরোধে তাৎক্ষণিক সতর্কতামূলক ব্যবস্থা গ্রহণ আবশ্যক।
+চিকিৎসা প্রটোকল: প্রতি কেজি শারীরিক ওজনে ৫-৭ মিলি/ঘণ্টা হারে আইভি নরমাল স্যালাইন পরিচালনা করতে হবে এবং প্রতি ৪-৬ ঘণ্টা অন্তর হেমাটোক্রিট (HCT) পর্যবেক্ষণ নিশ্চিত করতে হবে।
+সতর্কতা: চিকিৎসকের পরামর্শ ব্যতীত রোগীকে কোনো ব্যথানাশক ওষুধ (NSAIDs) বা অ্যান্টিবায়োটিক দেওয়া সম্পূর্ণ নিষিদ্ধ।
+""",
+        "required_terms": ["১০৩.৪", "২০,০০০", "ডেঙ্গু", "অণুচক্রিকা", "প্লাজমা লিকেজ", "হেমাটোক্রিট", "আইভি"],
+        "forbidden_calques": ["১০৩।৪", "২০।০০০", "প্লাটিলেট ড্রপ", "দ্বারা এফেক্টেড", "ড্রাগটি"]
     }
 }
 
@@ -140,32 +174,33 @@ def print_comparison(case_id: int, before_text: str, after_text: str):
 
 def main():
     parser = argparse.ArgumentParser(description="Bhashabid Before-and-After Benchmark Evaluator")
-    parser.add_argument("--case", type=int, choices=[1, 2, 3], help="Test case ID (1, 2, or 3)")
+    parser.add_argument("--case", type=int, choices=[1, 2, 3, 4, 5], help="Test case ID (1 to 5)")
     parser.add_argument("--before", help="Path to Before text file")
     parser.add_argument("--after", help="Path to After text file")
-    parser.add_argument("--simulate", action="store_true", help="Run simulated benchmark across all 3 cases")
+    parser.add_argument("--simulate", action="store_true", help="Run simulated benchmark across all cases")
 
     args = parser.parse_args()
 
     if args.simulate or (not args.before and not args.after):
-        print("Running Automated Before-and-After Benchmark Suite across all 3 test cases...")
+        all_cases = sorted(list(SAMPLE_BASELINES.keys()))
+        print(f"Running Automated Before-and-After Benchmark Suite across all {len(all_cases)} test cases...")
         total_before = 0
         total_after = 0
-        for cid in [1, 2, 3]:
+        for cid in all_cases:
             data = SAMPLE_BASELINES[cid]
             b, a = print_comparison(cid, data["before_sample"], data["after_sample"])
             total_before += b["score"]
             total_after += a["score"]
 
-        avg_b = total_before / 3
-        avg_a = total_after / 3
+        avg_b = total_before / len(all_cases)
+        avg_a = total_after / len(all_cases)
         print(f"\n===========================================================================")
         print(f"FINAL AGGREGATE BENCHMARK: Baseline {avg_b:.1f}/100 vs Bhashabid {avg_a:.1f}/100 (+{avg_a - avg_b:.1f}%)")
         print(f"===========================================================================")
         return 0
 
     if not args.case:
-        print("Error: --case <1|2|3> is required when testing specific files.")
+        print("Error: --case <1..5> is required when testing specific files.")
         return 1
 
     with open(args.before, "r", encoding="utf-8") as f:

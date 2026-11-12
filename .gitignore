@@ -14,6 +14,10 @@ dist/
 .coverage
 htmlcov/
 
+# Benchmark evaluation outputs & test results
+eval/benchmarks/results/*
+!eval/benchmarks/results/.gitkeep
+
 # Dynamic daily practice run logs
 eval/reports/daily_runs/*.md
 !eval/reports/daily_runs/.gitkeep
