@@ -3,21 +3,19 @@ title: 'Candidate Rule for Pattern: দ্বারা চালিত'
 domain: translation
 profile: bd_standard
 register: formal
-rule_summary: Automatically flagged pattern 'দ্বারা চালিত' requires naturalization
-  to 'স্বাভাবিক বাংলা প্রকাশভঙ্গি 'চালিত / পরিচালিত' ব্যবহার করুন।'.
+rule_summary: Automatically flagged pattern 'দ্বারা চালিত' requires naturalization to active causal phrasing (e.g. 'পরিচালিত', 'নেতৃত্বে', 'কারণে').
 good_examples:
-- স্বাভাবিক বাংলা প্রকাশভঙ্গি 'চালিত / পরিচালিত' ব্যবহার করুন।
-- স্বাভাবিক বাংলা প্রকাশভঙ্গি 'কেন ... হবে না, তা জানতে চেয়ে রুল জারি করেছেন' ব্যবহার
-  করুন।
-- স্বাভাবিক বাংলা প্রকাশভঙ্গি 'মহাবিপদ সংকেত' ব্যবহার করুন।
+  - খাদ্যপণ্যের মূল্যবৃদ্ধির কারণে মূল্যস্ফীতি বেড়েছে।
+  - প্রকল্পটির কাজ বিদ্যুৎ বিভাগের অধীনে পরিচালিত হচ্ছে।
+  - প্রধান উপদেষ্টার সভাপতিত্বে অনুষ্ঠিত বৈঠকে এ সিদ্ধান্ত গৃহীত হয়।
 bad_examples:
-- দ্বারা চালিত
-- দ্বারা চালিত
-- দ্বারা চালিত
-common_llm_error: LLMs emit literal calques or non-standard syntax for 'দ্বারা চালিত'.
+  - মূল্যবৃদ্ধি দ্বারা চালিত মূল্যস্ফীতি।
+  - প্রকল্পটি বিদ্যুৎ বিভাগ দ্বারা পরিচালিত।
+  - প্রধান উপদেষ্টা দ্বারা সভাপতিত্ব করা বৈঠকে।
+common_llm_error: LLMs emit literal English passive calques ('দ্বারা চালিত', 'দ্বারা অনুষ্ঠিত') instead of natural active causal syntax.
 sources:
-- Corpus Harvester Anomaly Detector
-- Bangla Academy Corpus
+  - Corpus Harvester Anomaly Detector
+  - Bangla Academy Promito Byaboharik Bangla Obhidhan
 confidence: candidate
 created_date: '2026-11-12'
 last_modified: '2026-11-12'
@@ -26,6 +24,5 @@ review:
   reviewer_affiliation: null
   reviewed_date: null
   status: PENDING_HUMAN_REVIEW
-  notes: Candidate card synthesized by Bhashabid Autonomous Learning Loop. Pending
-    human native-speaker sign-off.
+  notes: Candidate card synthesized by Bhashabid Autonomous Learning Loop. Pending human native-speaker sign-off.
   signature_hash: null

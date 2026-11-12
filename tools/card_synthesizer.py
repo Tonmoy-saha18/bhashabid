@@ -47,6 +47,46 @@ class CardSynthesizer:
             num += 1
         return f"CRD-DFT-{num:03d}"
 
+    @staticmethod
+    def find_existing_card_by_pattern(pattern: str, title: str) -> Optional[Tuple[str, Dict, bool]]:
+        """
+        Duplicate Guard: Checks if a linguistic pattern or title is already covered
+        in production cards (knowledge/cards/*.yaml) or existing drafts (knowledge/cards/drafts/*.yaml).
+        Returns (filepath, card_dict, is_draft) or None.
+        """
+        norm_pattern = pattern.strip().lower()
+        norm_title = title.strip().lower()
+
+        # Check production cards first
+        for f in glob.glob(os.path.join(CARDS_DIR, "*.yaml")):
+            try:
+                with open(f, "r", encoding="utf-8") as yf:
+                    c = yaml.safe_load(yf)
+                if not c or not isinstance(c, dict):
+                    continue
+                c_title = (c.get("title") or "").strip().lower()
+                c_summary = (c.get("rule_summary") or "").strip().lower()
+                if norm_pattern in c_title or norm_pattern in c_summary or norm_title == c_title:
+                    return (f, c, False)
+            except Exception:
+                continue
+
+        # Check existing draft cards
+        for f in glob.glob(os.path.join(DRAFTS_DIR, "*.yaml")):
+            try:
+                with open(f, "r", encoding="utf-8") as yf:
+                    c = yaml.safe_load(yf)
+                if not c or not isinstance(c, dict):
+                    continue
+                c_title = (c.get("title") or "").strip().lower()
+                c_summary = (c.get("rule_summary") or "").strip().lower()
+                if norm_pattern in c_title or norm_pattern in c_summary or norm_title == c_title:
+                    return (f, c, True)
+            except Exception:
+                continue
+
+        return None
+
     def synthesize_draft_from_anomaly(
         self,
         title: str,
@@ -59,6 +99,10 @@ class CardSynthesizer:
         sources: List[str],
         draft_id: Optional[str] = None
     ) -> str:
+        # Internal deduplication of examples
+        bads = list(dict.fromkeys([b.strip() for b in bad_examples if b and b.strip()]))
+        goods = list(dict.fromkeys([g.strip() for g in good_examples if g and g.strip()]))
+
         cid = draft_id or self.get_next_draft_id()
         card_data = {
             "id": cid,
@@ -67,8 +111,8 @@ class CardSynthesizer:
             "profile": "bd_standard",
             "register": register,
             "rule_summary": rule_summary,
-            "good_examples": good_examples,
-            "bad_examples": bad_examples,
+            "good_examples": goods,
+            "bad_examples": bads,
             "common_llm_error": common_llm_error,
             "sources": sources,
             "confidence": "candidate",
@@ -93,9 +137,9 @@ class CardSynthesizer:
     def cluster_and_synthesize_anomalies(self, anomalies: List[Dict]) -> List[str]:
         """
         Clusters a list of harvested anomalies and generates draft cards.
+        Applies strict Duplicate Guard to prevent redundant card creation.
         """
         created = []
-        # Group by failure signature or pattern
         clusters: Dict[str, List[Dict]] = {}
         for a in anomalies:
             sig = a.get("rule_id", "ANOMALY-GENERAL")
@@ -109,11 +153,41 @@ class CardSynthesizer:
                 matched = first.get("matched", first.get("raw_text", "Unknown"))
                 suggestion = first.get("suggestion", "")
                 
-                cid = self.get_next_draft_id()
                 title = f"Candidate Rule for Pattern: {matched[:40]}"
+                
+                # DUPLICATE GUARD CHECK
+                existing = self.find_existing_card_by_pattern(matched, title)
+                if existing:
+                    filepath, card_data, is_draft = existing
+                    if not is_draft:
+                        # Already covered by a production card, skip
+                        continue
+                    else:
+                        # Merge new unique examples into existing draft card
+                        updated = False
+                        cur_bads = card_data.get("bad_examples", []) or []
+                        cur_goods = card_data.get("good_examples", []) or []
+                        for it in items:
+                            raw = (it.get("raw_text") or "").strip()
+                            sug = (it.get("suggestion") or "").strip()
+                            if raw and raw not in cur_bads and len(cur_bads) < 5:
+                                cur_bads.append(raw)
+                                updated = True
+                            if sug and sug not in cur_goods and len(cur_goods) < 5:
+                                cur_goods.append(sug)
+                                updated = True
+                        if updated:
+                            card_data["bad_examples"] = cur_bads
+                            card_data["good_examples"] = cur_goods
+                            with open(filepath, "w", encoding="utf-8") as yf:
+                                yaml.dump(card_data, yf, allow_unicode=True, sort_keys=False)
+                        created.append(filepath)
+                        continue
+
+                cid = self.get_next_draft_id()
                 domain = first.get("domain", "translation")
                 reg = "formal"
-                rule_sum = f"Automatically flagged pattern '{matched}' requires naturalization to '{suggestion}'."
+                rule_sum = f"Automatically flagged pattern '{matched}' requires naturalization to active causal phrasing (e.g. '{suggestion}')."
                 bads = [it.get("raw_text", matched) for it in items[:3]]
                 goods = [it.get("suggestion", "") for it in items[:3] if it.get("suggestion")]
                 if not goods:

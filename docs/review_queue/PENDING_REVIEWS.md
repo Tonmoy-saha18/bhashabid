@@ -16,56 +16,30 @@ Constitutional Rule: **Principle P2 (Human Native Provenance Required)**
 
 ---
 
-## 📥 Pending Candidate Queue (2 Cards Awaiting Human Review)
+## 📥 Pending Candidate Queue (1 Cards Awaiting Human Review)
 
 ### Draft 1: [CRD-DFT-001] Candidate Rule for Pattern: দ্বারা চালিত
 - **File**: `knowledge\cards\drafts\CRD-DFT-001.yaml`
 - **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
 - **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
-- **Rule Summary**: Automatically flagged pattern 'দ্বারা চালিত' requires naturalization to 'স্বাভাবিক বাংলা প্রকাশভঙ্গি 'চালিত / পরিচালিত' ব্যবহার করুন।'.
+- **Rule Summary**: Automatically flagged pattern 'দ্বারা চালিত' requires naturalization to active causal phrasing (e.g. 'পরিচালিত', 'নেতৃত্বে', 'কারণে').
 
 **Positive Examples (শুদ্ধ প্রয়োগ)**:
-  - ✓ স্বাভাবিক বাংলা প্রকাশভঙ্গি 'চালিত / পরিচালিত' ব্যবহার করুন।
-  - ✓ স্বাভাবিক বাংলা প্রকাশভঙ্গি 'কেন ... হবে না, তা জানতে চেয়ে রুল জারি করেছেন' ব্যবহার করুন।
-  - ✓ স্বাভাবিক বাংলা প্রকাশভঙ্গি 'মহাবিপদ সংকেত' ব্যবহার করুন।
+  - ✓ খাদ্যপণ্যের মূল্যবৃদ্ধির কারণে মূল্যস্ফীতি বেড়েছে।
+  - ✓ প্রকল্পটির কাজ বিদ্যুৎ বিভাগের অধীনে পরিচালিত হচ্ছে।
+  - ✓ প্রধান উপদেষ্টার সভাপতিত্বে অনুষ্ঠিত বৈঠকে এ সিদ্ধান্ত গৃহীত হয়।
 
 **Negative Examples (ভ্রান্ত প্রয়োগ)**:
-  - ✗ দ্বারা চালিত
-  - ✗ দ্বারা চালিত
-  - ✗ দ্বারা চালিত
+  - ✗ মূল্যবৃদ্ধি দ্বারা চালিত মূল্যস্ফীতি।
+  - ✗ প্রকল্পটি বিদ্যুৎ বিভাগ দ্বারা পরিচালিত।
+  - ✗ প্রধান উপদেষ্টা দ্বারা সভাপতিত্ব করা বৈঠকে।
 
-**Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'দ্বারা চালিত'.
-**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus
+**Common LLM Error**: LLMs emit literal English passive calques ('দ্বারা চালিত', 'দ্বারা অনুষ্ঠিত') instead of natural active causal syntax.
+**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Promito Byaboharik Bangla Obhidhan
 
 **Quick Action Command**:
 ```bash
 bhashabid review --card CRD-DFT-001 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
-```
-
----
-
-### Draft 2: [CRD-DFT-002] Candidate Rule for Pattern: দ্বারা চালিত
-- **File**: `knowledge\cards\drafts\CRD-DFT-002.yaml`
-- **Domain**: `translation` | **Profile**: `bd_standard` | **Register**: `formal`
-- **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
-- **Rule Summary**: Automatically flagged pattern 'দ্বারা চালিত' requires naturalization to 'স্বাভাবিক বাংলা প্রকাশভঙ্গি 'চালিত / পরিচালিত' ব্যবহার করুন।'.
-
-**Positive Examples (শুদ্ধ প্রয়োগ)**:
-  - ✓ স্বাভাবিক বাংলা প্রকাশভঙ্গি 'চালিত / পরিচালিত' ব্যবহার করুন।
-  - ✓ স্বাভাবিক বাংলা প্রকাশভঙ্গি 'কেন ... হবে না, তা জানতে চেয়ে রুল জারি করেছেন' ব্যবহার করুন।
-  - ✓ স্বাভাবিক বাংলা প্রকাশভঙ্গি 'মহাবিপদ সংকেত' ব্যবহার করুন।
-
-**Negative Examples (ভ্রান্ত প্রয়োগ)**:
-  - ✗ দ্বারা চালিত
-  - ✗ দ্বারা চালিত
-  - ✗ দ্বারা চালিত
-
-**Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'দ্বারা চালিত'.
-**Sources / Citations**: Corpus Harvester Anomaly Detector, Bangla Academy Corpus
-
-**Quick Action Command**:
-```bash
-bhashabid review --card CRD-DFT-002 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
 ```
 
 ---

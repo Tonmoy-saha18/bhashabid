@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python: >=3.10](https://img.shields.io/badge/Python-3.10%2B-green.svg)](https://python.org)
 [![Version: v1.0.0](https://img.shields.io/badge/Version-v1.0.0-blue.svg)](https://github.com/ashik1291/bhashabid)
-[![Tests: 76 Passing](https://img.shields.io/badge/Tests-76%20Passing-brightgreen.svg)](eval/unit)
+[![Tests: 79 Passing](https://img.shields.io/badge/Tests-79%20Passing-brightgreen.svg)](eval/unit)
 [![Proven Knowledge: 28 Reviewed Cards](https://img.shields.io/badge/P2%20Provenance-28%2F28%20Cards%20Reviewed-blueviolet.svg)](knowledge/cards)
 
 > **Bhashabid** (ভাষাবিদ) is the **first-ever open-source Bengali language coprocessor engine** featuring a **constitutionally supervised self-learning loop**. Operating as an external cognitive and deterministic coprocessor without retraining model weights, it continuously harvests real-world anomalies, synthesizes candidate rules, and distills high-level invariants under human verification (P2) and a strict < 390 token ceiling—systematically elevating the accuracy, orthography, and native fluency of AI-generated Bengali across 11 professional sectors.
@@ -237,7 +237,7 @@ Bhashabid operates under strict constitutional rules:
 - [x] Model Context Protocol (MCP) Server with 5 tools for Cursor, Claude Desktop, Windsurf, and Zed.
 - [x] Developer CLI with complete command suite (`number`, `normalize`, `lint`, `prosody`, `writ`, `review`, `practice`, `harvest`, `synthesize-cards`, `distill`, `status`, `install-skill`, `install-mcp`).
 - [x] 28 Knowledge Cards (100%) reviewed and signed off by lead human native speaker with SHA-256 signatures.
-- [x] 76/76 passing unit and regression tests (100% green).
+- [x] 79/79 passing unit and regression tests (100% green).
 - [x] Closed-Loop Self-Improving Distillation Pipeline (`tools/card_synthesizer.py`, `tools/skill_distiller.py`).
 - [x] Real-world Corpus Harvester and Parallel Newsroom Evaluator (`eval/corpora/`).
 - [x] Automated Daily Practice Engine (`tools/daily_practice_runner.py`).
