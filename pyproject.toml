@@ -9,7 +9,7 @@ authors = [
   { name = "Ashikur Rahman Bhuiyan", email = "ashikur.bhuiyan@brainstation-23.com" },
   { name = "Bhashabid Contributors", email = "contributors@bhashabid.org" },
 ]
-description = "Deterministic Bengali linguistic coprocessor, linter, normalizer, and agent skill layer."
+description = "The Deterministic Bengali linguistic coprocessor engine & progressive skill layer with a Supervised Self-Learning Distillation Loop."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
