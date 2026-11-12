@@ -239,7 +239,7 @@ class AutonomousScraper:
         clean = re.sub(r"ছবি\s*[:;]\s*[^/\"]+/[^\s\"]+\s*\"?>?", "", clean)
         return " ".join(clean.split())
 
-    def fetch_feed_data(self, feed: Dict) -> List[Dict]:
+    def fetch_feed_data(self, feed: Dict, max_items: int = 4) -> List[Dict]:
         """Fetches and parses a single RSS or API feed with network resilience."""
         url = feed["url"]
         name = feed["name"]
@@ -262,6 +262,8 @@ class AutonomousScraper:
                     data = json.loads(content_bytes.decode("utf-8", errors="ignore"))
                     pages = data.get("query", {}).get("pages", {})
                     for pid, pdata in pages.items():
+                        if len(items) >= max_items:
+                            break
                         title = pdata.get("title", "")
                         extract = self.sanitize_article_text(pdata.get("extract", ""))
                         combined = f"{title}. {extract}" if extract else title
@@ -269,6 +271,8 @@ class AutonomousScraper:
                             # Split into substantial sentences
                             sentences = [s.strip() for s in re.split(r"[।\n]+", combined) if len(s.strip()) > 15]
                             for s in sentences:
+                                if len(items) >= max_items:
+                                    break
                                 if self.is_seen(s):
                                     continue
                                 self.mark_seen(s)
@@ -278,8 +282,6 @@ class AutonomousScraper:
                                     "text": canonicalize_unicode(s),
                                     "notes": f"Scraped lead sentence from {name} ('{title}')"
                                 })
-                                if len(items) >= 4:
-                                    break
                 except Exception as je:
                     print(f"Notice: JSON API parse note for {name}: {je}")
             else:
@@ -296,7 +298,9 @@ class AutonomousScraper:
                 if not raw_items:
                     raw_items = root.findall(".//{http://purl.org/rss/1.0/}item")
 
-                for it in raw_items[:15]:
+                for it in raw_items:
+                    if len(items) >= max_items:
+                        break
                     title_elem = it.find("title") or it.find("{http://purl.org/rss/1.0/}title")
                     desc_elem = it.find("description") or it.find("{http://purl.org/rss/1.0/}description")
                     content_elem = it.find("{http://purl.org/rss/1.0/modules/content/}encoded")
@@ -310,6 +314,8 @@ class AutonomousScraper:
                         # Split into clean, non-trivial sentences (> 15 chars)
                         sentences = [s.strip() for s in re.split(r"[।\n]+", combined) if len(s.strip()) > 15]
                         for s in sentences:
+                            if len(items) >= max_items:
+                                break
                             if self.is_seen(s):
                                 continue
                             self.mark_seen(s)
@@ -319,8 +325,6 @@ class AutonomousScraper:
                                 "text": canonicalize_unicode(s),
                                 "notes": f"Live RSS lead reporting from {name}"
                             })
-                            if len(items) >= 4:
-                                break
 
         except urllib.error.URLError as ue:
             print(f"[Scraper Offline Notice] Could not reach {name} ({ue.reason}). Skipping feed.")
@@ -329,17 +333,16 @@ class AutonomousScraper:
 
         return items
 
-    def scrape_all_feeds(self, max_items_per_feed: int = 5) -> List[Dict]:
+    def scrape_all_feeds(self, max_items_per_feed: int = 4) -> List[Dict]:
         """Scrapes all configured feeds and extracts Bengali text snippets."""
         all_scraped = []
         print(f"\n[Autonomous Scraper] Polling {len(self.feeds)} authoritative Bengali feeds...")
         
         for feed in self.feeds:
-            feed_items = self.fetch_feed_data(feed)
+            feed_items = self.fetch_feed_data(feed, max_items=max_items_per_feed)
             if feed_items:
-                selected = feed_items[:max_items_per_feed]
-                all_scraped.extend(selected)
-                print(f"  ✓ {feed['name']}: Ingested {len(selected)} live articles ({feed['domain']})")
+                all_scraped.extend(feed_items)
+                print(f"  ✓ {feed['name']}: Ingested {len(feed_items)} live articles ({feed['domain']})")
 
         return all_scraped
 

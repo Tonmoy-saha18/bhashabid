@@ -65,6 +65,11 @@ AUTHORITATIVE_DOMAIN_STANDARDS = {
     "Education & NCTB Pedagogy": [
         "National Curriculum and Textbook Board (NCTB) Standard Bengali",
         "Ministry of Education Pedagogical Guidelines"
+    ],
+    "Translation & Calque Naturalization": [
+        "Bangla Academy Standard Bengali Grammar (প্রমিত বাংলা ভাষার ব্যাকরণ)",
+        "Bangla Academy Promito Byaboharik Bangla Obhidhan",
+        "Bengali Syntax Naturalization Guidelines"
     ]
 }
 
@@ -82,6 +87,8 @@ CANONICAL_DOMAIN_MAP = {
     "Education & Pedagogy": "Education & NCTB Pedagogy",
     "Science & Encyclopedic": "ICT & Software Engineering",
     "Corporate & Tech": "ICT & Software Engineering",
+    "translation": "Translation & Calque Naturalization",
+    "general": "Translation & Calque Naturalization",
 }
 
 def get_domain_standards(domain: str) -> List[str]:

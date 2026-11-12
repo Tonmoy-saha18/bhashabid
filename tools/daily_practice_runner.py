@@ -189,6 +189,7 @@ def run_practice_cycle(
     print("=" * 80)
 
     round_idx = 0
+    round_precision = 0.0
     consecutive_confident_rounds = 0
     sector_cumulative_counts = {}
 
