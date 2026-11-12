@@ -1,0 +1,38 @@
+id: CRD-DFT-007
+title: 'Candidate Rule for Pattern: তিনি চীফ মেট্রোপলিটন ম্যাজিস্ট্রেটের ডেপ'
+domain: Constitutional Law & Writs
+profile: bd_standard
+register: formal
+rule_summary: 'Automatically flagged pattern ''তিনি চীফ মেট্রোপলিটন ম্যাজিস্ট্রেটের
+  ডেপুটি হিসেবে তার অবর্তমানে তার দায়িত্বভার পালন করে'' requires naturalization to
+  active causal phrasing (e.g. ''বিকল্প ১ (সম্ভ্রমাত্মক ক্রিয়াপদ): ''তিনি চীফ মেট্রোপলিটন
+  ম্যাজিস্ট্রেটের ডেপুটি হিসেবে তার অবর্তমানে তার দায়িত্বভার পালন করেন'' অথবা বিকল্প
+  ২ (সাধারণ সর্বনাম): ''সে চীফ মেট্রোপলিটন ম্যাজিস্ট্রেটের ডেপুটি হিসেবে তার অবর্তমানে
+  তার দায়িত্বভার পালন করে'''').'
+good_examples:
+- 'বিকল্প ১ (সম্ভ্রমাত্মক ক্রিয়াপদ): ''তিনি চীফ মেট্রোপলিটন ম্যাজিস্ট্রেটের ডেপুটি
+  হিসেবে তার অবর্তমানে তার দায়িত্বভার পালন করেন'' অথবা বিকল্প ২ (সাধারণ সর্বনাম):
+  ''সে চীফ মেট্রোপলিটন ম্যাজিস্ট্রেটের ডেপুটি হিসেবে তার অবর্তমানে তার দায়িত্বভার
+  পালন করে'''
+bad_examples:
+- তিনি চীফ মেট্রোপলিটন ম্যাজিস্ট্রেটের ডেপুটি হিসেবে তার অবর্তমানে তার দায়িত্বভার
+  পালন করে থাকেন
+common_llm_error: LLMs emit literal calques or non-standard syntax for 'তিনি চীফ মেট্রোপলিটন
+  ম্যাজিস্ট্রেটের ডেপুটি হিসেবে তার অবর্তমানে তার দায়িত্বভার পালন করে'.
+sources:
+- 'Corpus Harvest Provenance: Bangla Wikipedia Bangladesh Case Law & Jurisprudence'
+- Principle P2 Human Provenance Audit Gate
+- Constitution of the People's Republic of Bangladesh (Article 102)
+- Supreme Court of Bangladesh Judicial Precedents
+- Bangla Academy Law Dictionary
+confidence: candidate
+created_date: '2026-11-12'
+last_modified: '2026-11-12'
+review:
+  reviewer_name: null
+  reviewer_affiliation: null
+  reviewed_date: null
+  status: PENDING_HUMAN_REVIEW
+  notes: Candidate card synthesized by Bhashabid Autonomous Learning Loop. Pending
+    human native-speaker sign-off.
+  signature_hash: null

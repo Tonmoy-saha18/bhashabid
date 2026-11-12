@@ -195,6 +195,7 @@ def run_practice_cycle(
     round_precision = 0.0
     consecutive_confident_rounds = 0
     sector_cumulative_counts = {}
+    sector_consecutive_confident = {}
 
     while True:
         if check_kill_switch():
@@ -256,6 +257,8 @@ def run_practice_cycle(
         round_harvest_checks = 0
         round_harvest_flaws = 0
         round_harvest_residual_flaws = 0
+        round_sector_checks = {}
+        round_sector_residual_flaws = {}
         for dom, raw_txt, cat in harvested_items:
             issues = lint_text(raw_txt)
             stats["lint_issues_trapped"] += len(issues)
@@ -269,6 +272,10 @@ def run_practice_cycle(
             round_harvest_residual_flaws += len(residual_issues)
             stats["flaws_repaired"] += len(fixes)
             stats["residual_flaws"] += len(residual_issues)
+
+            # Per-sector tracking
+            round_sector_checks[dom] = round_sector_checks.get(dom, 0) + 1
+            round_sector_residual_flaws[dom] = round_sector_residual_flaws.get(dom, 0) + len(residual_issues)
 
             sector_cumulative_counts[dom] = sector_cumulative_counts.get(dom, 0) + 1
             if is_sample_round and printed_harvest_sample < 2:
@@ -306,28 +313,53 @@ def run_practice_cycle(
         stats["post_repair_precision"] = round_precision
         print(f"  Round {round_idx} Complete. Total Checks: {stats['total_checks']} | Lint Flaws Trapped: {stats['lint_issues_trapped']} | Flaws Repaired: {stats['flaws_repaired']} | Precision: {round_precision*100:.1f}% | Elapsed: {int(elapsed)}s")
 
-        # Evaluate Confidence & Saturation on current batch (residual defects <= 5%):
-        is_confident = (round_precision >= 0.95)
-        if is_confident:
-            consecutive_confident_rounds += 1
-        else:
-            consecutive_confident_rounds = 0
+        # Evaluate Confidence & Saturation per sector (Precision >= 95%):
+        saturated_sectors = []
+        for dom, c_count in round_sector_checks.items():
+            s_res = round_sector_residual_flaws.get(dom, 0)
+            s_prec = 1.0 - (s_res / max(1, c_count))
+            if s_prec >= 0.95:
+                sector_consecutive_confident[dom] = sector_consecutive_confident.get(dom, 0) + 1
+            else:
+                sector_consecutive_confident[dom] = 0
 
-        # Dynamic Ingestion Trigger (Confident Time achieved on current batch):
-        if continuous and consecutive_confident_rounds >= 3:
+            # Sector qualifies for fresh data only after 3 consecutive mastered rounds
+            if sector_consecutive_confident[dom] >= 3:
+                saturated_sectors.append(dom)
+
+        # Dynamic Ingestion Trigger (FETCH FRESH DATA ONLY FOR PRECISION-REACHED SECTORS):
+        if continuous and saturated_sectors:
             print("\n" + "=" * 80)
-            print(f"✓ CONFIDENCE SATURATION HIT ({consecutive_confident_rounds} Consecutive Mastered Rounds)")
-            print(f"  Batch Precision: {round_precision*100:.1f}% | Mastered: {len(harvested_items)} sentences across 11 sectors")
-            print("  Action: Dynamically streaming FRESH real-world data across ALL 11 SECTORS...")
+            print(f"✓ SECTOR CONFIDENCE SATURATION HIT ({len(saturated_sectors)} Sector(s) Mastered)")
+            for s in saturated_sectors:
+                print(f"  • {s} (Consecutive Mastered Rounds: {sector_consecutive_confident[s]})")
+            print("  Action: Dynamically streaming fresh live/new data ONLY for the mastered sector(s)...")
             print("=" * 80)
             try:
                 from tools.autonomous_scraper import AutonomousScraper
                 scraper = AutonomousScraper()
-                fresh_file = scraper.execute_saturation_hook()
+                fresh_file = scraper.execute_sector_targeted_hook(target_sectors=saturated_sectors, max_items_per_sector=4)
                 if fresh_file and harvester:
-                    harvester.harvest_all_sources(archive_inbox=True)
-                    harvested_items = harvester.get_practice_items()
-                    print(f"✓ Fresh Ingestion Active: Swapped in {len(harvested_items)} new sentences across all 11 sectors!")
+                    fresh_harvested = harvester.harvest_file(fresh_file)
+                    new_by_domain = {}
+                    for fh in fresh_harvested:
+                        new_by_domain.setdefault(fh.domain, []).append((fh.domain, fh.raw_text, fh.category))
+
+                    # Replace old items ONLY for the saturated sectors that received fresh data
+                    updated_items = []
+                    for dom, txt, cat in harvested_items:
+                        if dom in new_by_domain:
+                            continue  # replaced by fresh items
+                        updated_items.append((dom, txt, cat))
+
+                    for dom, items in new_by_domain.items():
+                        updated_items.extend(items)
+                        sector_consecutive_confident[dom] = 0  # reset streak for fresh batch
+                        print(f"  ✓ Swapped in {len(items)} fresh sentences for sector: '{dom}'")
+
+                    harvested_items = updated_items
+                    print(f"✓ Sector-Targeted Refresh Complete: Active batch size now {len(harvested_items)} sentences.")
+
                     try:
                         from tools.learning_benchmark_ledger import LearningBenchmarkLedger
                         ledger = LearningBenchmarkLedger()
@@ -340,8 +372,8 @@ def run_practice_cycle(
                         )
                     except Exception:
                         pass
-                consecutive_confident_rounds = 0
             except Exception as se:
+                print(f"Notice: Dynamic sector-targeted ingestion note: {se}")
                 print(f"Notice: Dynamic saturation ingestion note: {se}")
 
         if continuous:

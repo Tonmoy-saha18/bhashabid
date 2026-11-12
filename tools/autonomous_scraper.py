@@ -390,6 +390,96 @@ class AutonomousScraper:
         print(f"✓ Saved {len(scraped_items)} strictly unique, fresh scraped sentences to inbox: {filepath}")
         return filepath
 
+    def scrape_targeted_sector_data(
+        self,
+        target_sectors: List[str],
+        max_items_per_sector: int = 4
+    ) -> List[Dict]:
+        """
+        Gathers fresh data ONLY for the specified target sectors that reached precision.
+        Priority 1: Live RSS & API feeds for each target sector.
+        Priority 2: If live feeds yield no new items (offline / feed blocked / all items seen),
+                    autonomously synthesizes valid, fresh sector challenge data justified
+                    by learning from empirical mistakes (memory/mistakes/ledger.jsonl).
+        """
+        from tools.mistake_synthesizer import MistakeLearningSynthesizer
+        mistake_synth = MistakeLearningSynthesizer()
+
+        all_items = []
+        print(f"\n[Sector-Targeted Autonomous Ingestion] Refreshing {len(target_sectors)} saturated sector(s): {target_sectors}")
+
+        for sec in target_sectors:
+            sec_matching_feeds = [f for f in self.feeds if f.get("domain") == sec]
+            sec_live_items = []
+            
+            for feed in sec_matching_feeds:
+                items = self.fetch_feed_data(feed, max_items=max_items_per_sector)
+                if items:
+                    sec_live_items.extend(items)
+                    print(f"  ✓ [Live Web Feed] {feed['name']}: Ingested {len(items)} fresh sentences ({sec})")
+                if len(sec_live_items) >= max_items_per_sector:
+                    break
+
+            if sec_live_items:
+                all_items.extend(sec_live_items[:max_items_per_sector])
+            else:
+                # Fallback to Mistake-Learning Autonomous Synthesis
+                print(f"  • [Notice] Live feed unavailable for '{sec}'. Engaging Learning from Mistakes Engine...")
+                synth_items = mistake_synth.synthesize_sector_batch(
+                    sector=sec,
+                    count=max_items_per_sector,
+                    exclude_fingerprints=self.seen_fingerprints
+                )
+                if synth_items:
+                    for itm in synth_items:
+                        self.mark_seen(itm["text"])
+                    all_items.extend(synth_items)
+                    print(f"  ✓ [Mistake-Learning Engine] Synthesized {len(synth_items)} valid, strictly new sentences for '{sec}'.")
+
+        return all_items
+
+    def execute_sector_targeted_hook(
+        self,
+        target_sectors: List[str],
+        max_items_per_sector: int = 4
+    ) -> Optional[str]:
+        """
+        Invoked by daily_practice_runner when specific sectors hit confidence saturation.
+        Only fetches or generates fresh data for the sectors that reached precision.
+        """
+        if not target_sectors:
+            return None
+
+        print("\n" + "=" * 75)
+        print(f"AUTONOMOUS SECTOR-TARGETED INGESTION TRIGGERED FOR {len(target_sectors)} SECTOR(S)")
+        print(f"Target Saturated Sectors: {', '.join(target_sectors)}")
+        print("=" * 75)
+
+        items = self.scrape_targeted_sector_data(target_sectors, max_items_per_sector=max_items_per_sector)
+        if not items:
+            print("[Sector-Targeted Ingestion] No items harvested or synthesized.")
+            return None
+
+        timestamp = datetime.now().strftime("%Y_%m_%d_%H%M%S")
+        filename = f"scraped_batch_{timestamp}.jsonl"
+        filepath = os.path.join(self.inbox_dir, filename)
+
+        with open(filepath, "w", encoding="utf-8") as f:
+            for idx, item in enumerate(items, start=1):
+                record = {
+                    "id": item.get("id") or f"SCRAPED-{timestamp}-{idx:03d}",
+                    "source": item["source"],
+                    "domain": item["domain"],
+                    "text": item["text"],
+                    "label": item.get("label", "LIVE_HARVESTED_CANDIDATE"),
+                    "notes": item.get("notes", "")
+                }
+                f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+        self.save_fingerprints()
+        print(f"✓ Saved {len(items)} fresh sector sentences to inbox: {filepath}")
+        return filepath
+
     def execute_saturation_hook(self) -> Optional[str]:
         """
         Invoked by daily_practice_runner when batch saturation is detected.

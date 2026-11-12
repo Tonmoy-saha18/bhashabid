@@ -16,7 +16,7 @@ Constitutional Rule: **Principle P2 (Human Native Provenance Required)**
 
 ---
 
-## 📥 Pending Candidate Queue (5 Cards Awaiting Human Review)
+## 📥 Pending Candidate Queue (8 Cards Awaiting Human Review)
 
 ### Draft 1: [CRD-DFT-001] Candidate Rule for Pattern: দ্বারা চালিত
 - **File**: `knowledge\cards\drafts\CRD-DFT-001.yaml`
@@ -132,6 +132,72 @@ bhashabid review --card CRD-DFT-005 --reviewer "Ashikur Rahman Bhuiyan" --affili
 **Quick Action Command**:
 ```bash
 bhashabid review --card CRD-DFT-006 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
+```
+
+---
+
+### Draft 6: [CRD-DFT-007] Candidate Rule for Pattern: তিনি চীফ মেট্রোপলিটন ম্যাজিস্ট্রেটের ডেপ
+- **File**: `knowledge\cards\drafts\CRD-DFT-007.yaml`
+- **Domain**: `Constitutional Law & Writs` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
+- **Rule Summary**: Automatically flagged pattern 'তিনি চীফ মেট্রোপলিটন ম্যাজিস্ট্রেটের ডেপুটি হিসেবে তার অবর্তমানে তার দায়িত্বভার পালন করে' requires naturalization to active causal phrasing (e.g. 'বিকল্প ১ (সম্ভ্রমাত্মক ক্রিয়াপদ): 'তিনি চীফ মেট্রোপলিটন ম্যাজিস্ট্রেটের ডেপুটি হিসেবে তার অবর্তমানে তার দায়িত্বভার পালন করেন' অথবা বিকল্প ২ (সাধারণ সর্বনাম): 'সে চীফ মেট্রোপলিটন ম্যাজিস্ট্রেটের ডেপুটি হিসেবে তার অবর্তমানে তার দায়িত্বভার পালন করে'').
+
+**Positive Examples (শুদ্ধ প্রয়োগ)**:
+  - ✓ বিকল্প ১ (সম্ভ্রমাত্মক ক্রিয়াপদ): 'তিনি চীফ মেট্রোপলিটন ম্যাজিস্ট্রেটের ডেপুটি হিসেবে তার অবর্তমানে তার দায়িত্বভার পালন করেন' অথবা বিকল্প ২ (সাধারণ সর্বনাম): 'সে চীফ মেট্রোপলিটন ম্যাজিস্ট্রেটের ডেপুটি হিসেবে তার অবর্তমানে তার দায়িত্বভার পালন করে'
+
+**Negative Examples (ভ্রান্ত প্রয়োগ)**:
+  - ✗ তিনি চীফ মেট্রোপলিটন ম্যাজিস্ট্রেটের ডেপুটি হিসেবে তার অবর্তমানে তার দায়িত্বভার পালন করে থাকেন
+
+**Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'তিনি চীফ মেট্রোপলিটন ম্যাজিস্ট্রেটের ডেপুটি হিসেবে তার অবর্তমানে তার দায়িত্বভার পালন করে'.
+**Sources / Citations**: Corpus Harvest Provenance: Bangla Wikipedia Bangladesh Case Law & Jurisprudence, Principle P2 Human Provenance Audit Gate, Constitution of the People's Republic of Bangladesh (Article 102), Supreme Court of Bangladesh Judicial Precedents, Bangla Academy Law Dictionary
+
+**Quick Action Command**:
+```bash
+bhashabid review --card CRD-DFT-007 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
+```
+
+---
+
+### Draft 7: [CRD-DFT-008] Candidate Rule for Pattern: alphabet
+- **File**: `knowledge\cards\drafts\CRD-DFT-008.yaml`
+- **Domain**: `Academic Research & Methodology` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
+- **Rule Summary**: Automatically flagged pattern 'alphabet' requires naturalization to active causal phrasing (e.g. 'প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।').
+
+**Positive Examples (শুদ্ধ প্রয়োগ)**:
+  - ✓ প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।
+
+**Negative Examples (ভ্রান্ত প্রয়োগ)**:
+  - ✗ আবজাদ. একটি আবজাদ ( (); অথবা আবগাদ, আক্ষ. অনু. alphabet) হলো একটি লিখন পদ্ধতি, যেখানে কেবল ব্যঞ্জনবর্ণগুলোকে অক্ষর বা চিহ্নের মাধ্যমে উপস্থাপন করা হয়, আর স্বরবর্ণগুলোকে পাঠককে অনুমান করে নিতে হয় (যদি না অন্য কোনোভাবে, যেমন—ডায়াক্রিটিক ব্যবহার করে সেগুলোকে উপস্থাপন করা হয়)
+
+**Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'alphabet'.
+**Sources / Citations**: Corpus Harvest Provenance: Bangla Wikipedia Linguistics & Academic Research, Principle P2 Human Provenance Audit Gate, Bangla Academy Linguistic Research Methodology Guidelines, Linguistic Society of Bangladesh Peer-Reviewed Standards
+
+**Quick Action Command**:
+```bash
+bhashabid review --card CRD-DFT-008 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
+```
+
+---
+
+### Draft 8: [CRD-DFT-009] Candidate Rule for Pattern: Help, OAuth
+- **File**: `knowledge\cards\drafts\CRD-DFT-009.yaml`
+- **Domain**: `ICT & Software Engineering` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
+- **Rule Summary**: Automatically flagged pattern 'Help, OAuth' requires naturalization to active causal phrasing (e.g. 'প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।').
+
+**Positive Examples (শুদ্ধ প্রয়োগ)**:
+  - ✓ প্রমিত বাংলা অনুবাদ বা বন্ধনীসহ ব্যবহার করুন।
+
+**Negative Examples (ভ্রান্ত প্রয়োগ)**:
+  - ✗ ওঅথ. মিডিয়াউইকির (উইকিপিডিয়া ব্যবহৃত সফটওয়্যার) ওঅথ সমর্থনের জন্য দেখুন mw:Help:OAuth ওঅথ হল প্রবেশ প্রতিনিধিদের জন্য একটি বিশেষ মুক্ত আদর্শ,যে পদ্ধতিতে ইন্টারনেট ব্যবহারকারীরা কোন পাসওয়ার্ড দেয়া ছাড়াই অন্য ওয়েবসাইটকে তাদের ওয়েবসাইট কিংবা অ্যাপ্লিকেশনের তথ্যাদিতে প্রবেশাধিকার দেন
+
+**Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'Help, OAuth'.
+**Sources / Citations**: Corpus Harvest Provenance: Bangla Wikipedia Computer Science & Software, Principle P2 Human Provenance Audit Gate, Bangladesh Computer Council (BCC) Bengali Computing & Unicode Standards, Open-Source Bengali Localization Best Practices
+
+**Quick Action Command**:
+```bash
+bhashabid review --card CRD-DFT-009 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
 ```
 
 ---
