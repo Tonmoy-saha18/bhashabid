@@ -128,12 +128,21 @@ def apply_human_review(
         with open(card_path, "w", encoding="utf-8") as f:
             yaml.dump(card, f, sort_keys=False, allow_unicode=True)
 
-    # Refresh review queue packet automatically
+    # Refresh review queue packet automatically and re-distill skills
     try:
         from tools.review_packet_generator import write_packet
         write_packet()
     except Exception:
         pass
+
+    if action.lower() == "approve":
+        try:
+            from tools.skill_distiller import SkillDistiller
+            distiller = SkillDistiller()
+            distiller.distill_all(auto_install=True)
+            print("✓ SkillDistiller automatically re-distilled core rules with the newly approved card.")
+        except Exception as de:
+            print(f"Notice: Skill distillation notice: {de}")
 
     print(f"Card {card_id} successfully signed off as '{card['confidence']}' by {reviewer_name}.")
     return True

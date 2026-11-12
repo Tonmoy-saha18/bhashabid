@@ -7,6 +7,7 @@ import html
 import json
 import time
 import hashlib
+import shutil
 import urllib.request
 import urllib.error
 import urllib.parse
@@ -196,22 +197,35 @@ class AutonomousScraper:
                 with open(self.fingerprints_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     return set(data.get("fingerprints", []))
-            except Exception:
-                pass
+            except Exception as e:
+                # Corrupted state guard: create timestamped backup to prevent wiping historical cache
+                backup_path = f"{self.fingerprints_path}.corrupted.{int(time.time())}.bak"
+                try:
+                    shutil.copyfile(self.fingerprints_path, backup_path)
+                    print(f"Warning: Corrupted fingerprints file backed up to {backup_path}: {e}")
+                except Exception:
+                    pass
         return set()
 
     def save_fingerprints(self):
-        """Persists seen sentence fingerprints to disk."""
+        """Persists seen sentence fingerprints to disk with atomic write."""
         os.makedirs(os.path.dirname(self.fingerprints_path), exist_ok=True)
+        tmp_path = f"{self.fingerprints_path}.tmp.{os.getpid()}"
         try:
-            with open(self.fingerprints_path, "w", encoding="utf-8") as f:
+            with open(tmp_path, "w", encoding="utf-8") as f:
                 json.dump({
                     "version": "1.0.0",
                     "last_updated": datetime.now().isoformat(),
                     "total_fingerprints_tracked": len(self.seen_fingerprints),
                     "fingerprints": list(self.seen_fingerprints)
                 }, f, indent=2, ensure_ascii=False)
+            os.replace(tmp_path, self.fingerprints_path)
         except Exception as e:
+            if os.path.exists(tmp_path):
+                try:
+                    os.remove(tmp_path)
+                except Exception:
+                    pass
             print(f"Notice: Could not save fingerprints: {e}")
 
     @staticmethod

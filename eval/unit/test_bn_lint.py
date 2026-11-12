@@ -55,6 +55,20 @@ class TestBnLint(unittest.TestCase):
         multi_issues = [i for i in lint_text(multi_text) if "HONORIFIC" in i.rule_id]
         self.assertEqual(len(multi_issues), 2, "Both clashes on single line must be captured")
 
+        # 3rd person past copula 'তিনি ... ছিল'
+        text_copula = "তিনি তথায় গিয়াছিলেন এবং সেখানে ছিল।"
+        issues_copula = lint_text(text_copula)
+        self.assertTrue(any(i.rule_id == "RULE-LINT-HONORIFIC-TINI" for i in issues_copula))
+
+        # 3rd person past perfect 'সে ... সেখানে গিয়েছিলেন' with bounded 'সেখানে'
+        text_bound = "সে গতকাল সেখানে গিয়েছিলেন।"
+        issues_bound = lint_text(text_bound)
+        self.assertTrue(any(i.rule_id == "RULE-LINT-HONORIFIC-SE" for i in issues_bound))
+
+        # Valid concordant sentence must produce 0 honorific false positives
+        clean_bound = "সে গতকাল সেখানে গিয়েছিল এবং সেবা করেছিল।"
+        self.assertFalse(any("HONORIFIC" in i.rule_id for i in lint_text(clean_bound)))
+
     def test_bidirectional_honorific_suggestions(self):
         # 'তুমি সিদ্ধান্ত নেন' must suggest both 'তুমি সিদ্ধান্ত নাও' and 'আপনি সিদ্ধান্ত নেন'
         text = "তুমি সিদ্ধান্ত নেন"

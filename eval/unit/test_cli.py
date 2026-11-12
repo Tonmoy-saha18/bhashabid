@@ -30,6 +30,27 @@ class TestCLI(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertEqual(out, "১২,৩৪,৫৬৭")
 
+    def test_cli_number_direct_flags(self):
+        code, out, _ = self.run_cli(["number", "105.5", "--fraction"])
+        self.assertEqual(code, 0)
+        self.assertEqual(out, "সাড়ে এক শত পাঁচ")
+
+        code, out, _ = self.run_cli(["number", "50.25", "--currency"])
+        self.assertEqual(code, 0)
+        self.assertEqual(out, "পঞ্চাশ টাকা পঁচিশ পয়সা")
+
+        code, out, _ = self.run_cli(["number", "32", "--date-ordinal"])
+        self.assertEqual(code, 0)
+        self.assertEqual(out, "৩২ই")
+
+        code, out, _ = self.run_cli(["number", "25", "--ordinal"])
+        self.assertEqual(code, 0)
+        self.assertEqual(out, "পঞ্চবিংশ")
+
+        code, out, _ = self.run_cli(["number", "1234567", "--grouped"])
+        self.assertEqual(code, 0)
+        self.assertEqual(out, "১২,৩৪,৫৬৭")
+
     def test_cli_normalize(self):
         code, out, _ = self.run_cli(["normalize", "তিনি রেলষ্টেশনে গেলেন."])
         self.assertEqual(code, 0)

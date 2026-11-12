@@ -25,18 +25,30 @@ def resolve_text_or_file(text_arg: str) -> str:
 def handle_number(args):
     try:
         val_str = args.value.strip()
-        if args.format == "grouped":
+        fmt = getattr(args, "format", "words")
+        if getattr(args, "currency", False):
+            fmt = "currency"
+        elif getattr(args, "fraction", False):
+            fmt = "fraction"
+        elif getattr(args, "ordinal", False):
+            fmt = "ordinal"
+        elif getattr(args, "date_ordinal", False):
+            fmt = "date_ordinal"
+        elif getattr(args, "grouped", False):
+            fmt = "grouped"
+
+        if fmt == "grouped":
             print(format_lakh_crore(val_str))
-        elif args.format == "currency":
+        elif fmt == "currency":
             amount = float(val_str)
             print(format_currency_words(amount))
-        elif args.format == "fraction":
+        elif fmt == "fraction":
             val = float(val_str)
             print(fraction_to_bangla_words(val))
-        elif args.format == "ordinal":
+        elif fmt == "ordinal":
             n = int(val_str)
             print(to_classical_ordinal(n))
-        elif args.format == "date_ordinal":
+        elif fmt == "date_ordinal":
             d = int(val_str)
             print(to_date_ordinal(d))
         else:
@@ -351,6 +363,11 @@ def main():
     p_num = subparsers.add_parser("number", help="Convert numbers to Bengali words or formatted digits")
     p_num.add_argument("value", help="Number value (e.g. 99, 1234567, 3.14, 50.25)")
     p_num.add_argument("--format", choices=["words", "grouped", "currency", "fraction", "ordinal", "date_ordinal"], default="words")
+    p_num.add_argument("--currency", action="store_true", help="Format as Bengali currency words (টাকা/পয়সা)")
+    p_num.add_argument("--fraction", action="store_true", help="Format as Bengali fraction words (দেড়, আড়াই, সাড়ে...)")
+    p_num.add_argument("--ordinal", action="store_true", help="Format as Bengali classical ordinal words (প্রথম, দ্বিতীয়...)")
+    p_num.add_argument("--date-ordinal", dest="date_ordinal", action="store_true", help="Format as Bengali calendar date ordinal words (১লা, ২রা...)")
+    p_num.add_argument("--grouped", action="store_true", help="Format with South Asian lakh/crore commas")
     p_num.add_argument("--hundred-style", choices=["শত", "শো", "শ"], default="শত")
     p_num.set_defaults(func=handle_number)
 

@@ -6,6 +6,7 @@ import re
 import json
 import glob
 import shutil
+import time
 from dataclasses import dataclass, asdict
 from typing import List, Dict, Optional, Tuple
 
@@ -194,9 +195,10 @@ class CorpusHarvester:
             for inf in inbox_files:
                 try:
                     dest = os.path.join(archive_dir, os.path.basename(inf))
-                    # If dest exists, overwrite or timestamp
+                    # If dest exists, preserve both files with unique timestamp
                     if os.path.exists(dest):
-                        os.remove(dest)
+                        base, ext = os.path.splitext(os.path.basename(inf))
+                        dest = os.path.join(archive_dir, f"{base}_{int(time.time()*1000)}{ext}")
                     shutil.move(inf, dest)
                 except Exception as me:
                     print(f"Notice: Could not archive inbox file {inf}: {me}")
