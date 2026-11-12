@@ -16,7 +16,7 @@ Constitutional Rule: **Principle P2 (Human Native Provenance Required)**
 
 ---
 
-## 📥 Pending Candidate Queue (18 Cards Awaiting Human Review)
+## 📥 Pending Candidate Queue (20 Cards Awaiting Human Review)
 
 ### Draft 1: [CRD-DFT-001] Candidate Rule for Pattern: দ্বারা চালিত
 - **File**: `knowledge\cards\drafts\CRD-DFT-001.yaml`
@@ -420,6 +420,50 @@ bhashabid review --card CRD-DFT-018 --reviewer "Ashikur Rahman Bhuiyan" --affili
 **Quick Action Command**:
 ```bash
 bhashabid review --card CRD-DFT-019 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
+```
+
+---
+
+### Draft 19: [CRD-DFT-020] Candidate Rule for Pattern: তিনি পদ ছাড়েন বলে
+- **File**: `knowledge\cards\drafts\CRD-DFT-020.yaml`
+- **Domain**: `Macroeconomics & Banking` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
+- **Rule Summary**: Automatically flagged pattern 'তিনি পদ ছাড়েন বলে' requires naturalization to active causal phrasing (e.g. 'বিকল্প ১ (সম্ভ্রমাত্মক ক্রিয়াপদ): 'তিনি পদ ছাড়েন বলেন' অথবা বিকল্প ২ (সাধারণ সর্বনাম): 'সে পদ ছাড়েন বলে'').
+
+**Positive Examples (শুদ্ধ প্রয়োগ)**:
+  - ✓ বিকল্প ১ (সম্ভ্রমাত্মক ক্রিয়াপদ): 'তিনি পদ ছাড়েন বলেন' অথবা বিকল্প ২ (সাধারণ সর্বনাম): 'সে পদ ছাড়েন বলে'
+
+**Negative Examples (ভ্রান্ত প্রয়োগ)**:
+  - ✗ এর জের ধরে এনভিডিয়ার পরিচালনা পর্ষদের সিদ্ধান্তে তিনি পদ ছাড়েন বলে জানা গেছে
+
+**Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'তিনি পদ ছাড়েন বলে'.
+**Sources / Citations**: Corpus Harvest Provenance: Prothom Alo (National & Economy), Principle P2 Human Provenance Audit Gate, Bangladesh Bank Prudential Regulations & Monetary Policy, Bangla Academy Financial & Economic Terminology, The Business Standard Verified Macroeconomic Feed
+
+**Quick Action Command**:
+```bash
+bhashabid review --card CRD-DFT-020 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
+```
+
+---
+
+### Draft 20: [CRD-DFT-021] Candidate Rule for Pattern: সে কথা ভাবা দরকার বলেও তিনি উল্লেখ করেন
+- **File**: `knowledge\cards\drafts\CRD-DFT-021.yaml`
+- **Domain**: `Macroeconomics & Banking` | **Profile**: `bd_standard` | **Register**: `formal`
+- **Confidence Tier**: `candidate` (**Awaiting Human Sign-off**)
+- **Rule Summary**: Automatically flagged pattern 'সে কথা ভাবা দরকার বলেও তিনি উল্লেখ করেন' requires naturalization to active causal phrasing (e.g. 'বিকল্প ১ (সাধারণ ক্রিয়াপদ): 'সে কথা ভাবা দরকার বলেও তিনি উল্লেখ করে' অথবা বিকল্প ২ (সম্ভ্রমাত্মক সর্বনাম): 'তিনি কথা ভাবা দরকার বলেও তিনি উল্লেখ করেন'').
+
+**Positive Examples (শুদ্ধ প্রয়োগ)**:
+  - ✓ বিকল্প ১ (সাধারণ ক্রিয়াপদ): 'সে কথা ভাবা দরকার বলেও তিনি উল্লেখ করে' অথবা বিকল্প ২ (সম্ভ্রমাত্মক সর্বনাম): 'তিনি কথা ভাবা দরকার বলেও তিনি উল্লেখ করেন'
+
+**Negative Examples (ভ্রান্ত প্রয়োগ)**:
+  - ✗ নরওয়ে প্রশাসন যদি ভারতীয়দের সঙ্গে এমন আচরণ করত, তবে কেমন হতো সে কথা ভাবা দরকার বলেও তিনি উল্লেখ করেন
+
+**Common LLM Error**: LLMs emit literal calques or non-standard syntax for 'সে কথা ভাবা দরকার বলেও তিনি উল্লেখ করেন'.
+**Sources / Citations**: Corpus Harvest Provenance: Prothom Alo (National & Economy), Principle P2 Human Provenance Audit Gate, Bangladesh Bank Prudential Regulations & Monetary Policy, Bangla Academy Financial & Economic Terminology, The Business Standard Verified Macroeconomic Feed
+
+**Quick Action Command**:
+```bash
+bhashabid review --card CRD-DFT-021 --reviewer "Ashikur Rahman Bhuiyan" --affiliation "Lead Architect" --action approve
 ```
 
 ---

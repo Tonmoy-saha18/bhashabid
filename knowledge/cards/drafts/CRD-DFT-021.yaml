@@ -1,0 +1,34 @@
+id: CRD-DFT-021
+title: 'Candidate Rule for Pattern: সে কথা ভাবা দরকার বলেও তিনি উল্লেখ করেন'
+domain: Macroeconomics & Banking
+profile: bd_standard
+register: formal
+rule_summary: 'Automatically flagged pattern ''সে কথা ভাবা দরকার বলেও তিনি উল্লেখ
+  করেন'' requires naturalization to active causal phrasing (e.g. ''বিকল্প ১ (সাধারণ
+  ক্রিয়াপদ): ''সে কথা ভাবা দরকার বলেও তিনি উল্লেখ করে'' অথবা বিকল্প ২ (সম্ভ্রমাত্মক
+  সর্বনাম): ''তিনি কথা ভাবা দরকার বলেও তিনি উল্লেখ করেন'''').'
+good_examples:
+- 'বিকল্প ১ (সাধারণ ক্রিয়াপদ): ''সে কথা ভাবা দরকার বলেও তিনি উল্লেখ করে'' অথবা বিকল্প
+  ২ (সম্ভ্রমাত্মক সর্বনাম): ''তিনি কথা ভাবা দরকার বলেও তিনি উল্লেখ করেন'''
+bad_examples:
+- নরওয়ে প্রশাসন যদি ভারতীয়দের সঙ্গে এমন আচরণ করত, তবে কেমন হতো সে কথা ভাবা দরকার বলেও
+  তিনি উল্লেখ করেন
+common_llm_error: LLMs emit literal calques or non-standard syntax for 'সে কথা ভাবা
+  দরকার বলেও তিনি উল্লেখ করেন'.
+sources:
+- 'Corpus Harvest Provenance: Prothom Alo (National & Economy)'
+- Principle P2 Human Provenance Audit Gate
+- Bangladesh Bank Prudential Regulations & Monetary Policy
+- Bangla Academy Financial & Economic Terminology
+- The Business Standard Verified Macroeconomic Feed
+confidence: candidate
+created_date: '2026-11-12'
+last_modified: '2026-11-12'
+review:
+  reviewer_name: null
+  reviewer_affiliation: null
+  reviewed_date: null
+  status: PENDING_HUMAN_REVIEW
+  notes: Candidate card synthesized by Bhashabid Autonomous Learning Loop. Pending
+    human native-speaker sign-off.
+  signature_hash: null
