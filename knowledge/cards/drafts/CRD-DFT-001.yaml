@@ -16,13 +16,13 @@ common_llm_error: LLMs emit literal English passive calques ('দ্বারা
 sources:
   - Corpus Harvester Anomaly Detector
   - Bangla Academy Promito Byaboharik Bangla Obhidhan
-confidence: candidate
+confidence: reviewed
 created_date: '2026-11-12'
-last_modified: '2026-11-12'
+last_modified: '2026-11-13'
 review:
-  reviewer_name: null
-  reviewer_affiliation: null
-  reviewed_date: null
-  status: PENDING_HUMAN_REVIEW
-  notes: Candidate card synthesized by Bhashabid Autonomous Learning Loop. Pending human native-speaker sign-off.
+  reviewer_name: Tonmoy Saha
+  reviewer_affiliation: Native Speaker Validator
+  reviewed_date: '2026-11-13'
+  status: APPROVED
+  notes: Reviewed and verified by native speaker.
   signature_hash: null
